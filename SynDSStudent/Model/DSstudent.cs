@@ -15,5 +15,6 @@ namespace SynDSStudent
         public string 部门 { get; set; }
         public string 联系电话 { get; set; }
         public string 地址 { get; set; }
+        public int 新增 { get; set; }
     }
 }

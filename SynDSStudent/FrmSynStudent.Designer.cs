@@ -236,7 +236,7 @@
             // 
             this.mlbl_title.AutoSize = true;
             this.mlbl_title.ForeColor = System.Drawing.Color.OrangeRed;
-            this.mlbl_title.Location = new System.Drawing.Point(266, 34);
+            this.mlbl_title.Location = new System.Drawing.Point(147, 28);
             this.mlbl_title.Name = "mlbl_title";
             this.mlbl_title.Size = new System.Drawing.Size(0, 16);
             this.mlbl_title.TabIndex = 4;

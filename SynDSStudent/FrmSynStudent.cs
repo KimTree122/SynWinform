@@ -1,5 +1,6 @@
 ﻿using MetroFramework.Forms;
 using Newtonsoft.Json;
+using SynDSStudent.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,12 +24,11 @@ namespace SynDSStudent
         private SQLiteConn Sconn;
         private List<DSstudent> dslst;
         private SQLiteOper So;
+        private InitData initData;
 
         private void FrmSynStudent_Load(object sender, EventArgs e)
         {
             LoadLocaData();
-            GetSerStudentver();
-            GetSerStudentcount();
             GetLocalStudentCount();
         }
 
@@ -42,29 +42,22 @@ namespace SynDSStudent
             Sconn = new SQLiteConn();
             dslst = new List<DSstudent>();
             So = new SQLiteOper();
-            if (!Sconn.CheckDataBase())
-            {
-                mlbl_title.Text = "未检测到数据库";
-            }
-            else
-            {
-                mlbl_title.Text = "数据正常";
-            }
+
+            LoadInitData();
         }
 
-        private void GetSerStudentver()
+        private void LoadInitData()
         {
-            string url = HttpAPI.GetServerVersion();
-            string ver = HttpData.GetHttp(url);
-            lbl_ser_ver.Text =HttpData.Deserialize<string>(ver);
+            GetInitData gid = new GetInitData();
+            initData = gid.LoadInitData(So.LocalStudentCount(), Sconn.CheckDataBase());
+            lbl_ser_ver.Text = initData.SerVer;
+            lbl_ser_count.Text = initData.SerCount;
+            lbl_local_ver.Text = initData.LocVer;
+            lbl_local_count.Text = initData.LocCount;
+            mlbl_title.Text = initData.InitStaut;
         }
 
-        private void GetSerStudentcount()
-        {
-            string url = HttpAPI.GetServerStudentCount();
-            string ver = HttpData.GetHttp(url);
-            lbl_ser_count.Text = HttpData.Deserialize<string>(ver);
-        }
+       
 
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -90,58 +83,61 @@ namespace SynDSStudent
 
         private void btn_serversion_Click(object sender, EventArgs e)
         {
-            GetSerStudentver();
-            GetSerStudentcount();
+            LoadInitData();
         }
 
         private void btn_allload_Click(object sender, EventArgs e)
         {
-            //string url = HttpAPI.GetStudentLst();
-            //string ver = HttpData.GetHttp(url);
-            //List<DSstudent> s = HttpData.Deserialize<List<DSstudent>>(ver);
-            //MessageBox.Show(s.Count+"个");
-            string url = HttpAPI.GetStudentLst() + "/10";
+
+            string url = HttpAPI.GetStudentLst() ;
             string ver = HttpData.GetHttp(url);
+
             List<DSstudent> s = HttpData.Deserialize<List<DSstudent>>(ver);
+            if (s == null)
+            {
+                MessageBox.Show("获取失败，请重新再试");
+                return;
+            }
+            So.DeleteStudent();
+            So.ExecuteStudent(s);
 
-            So.DeleteStudent(s);
+            AppSetting.UpdateAppConfig("UpdateID", initData.SerVer);
 
-            DataTable dt = So.LocalDepGuid();
-
-            GetLocalStudentCount();
-
+            LoadInitData();
 
         }
 
         private void btn_version_Click(object sender, EventArgs e)
         {
-            string url = HttpAPI.GetStudentLst() + "/10";
+            GetDataByVer();
+        }
+
+        private void GetDataByVer()
+        {
+            string url = HttpAPI.GetStudentLst() + "/" + AppSetting.GetAppConfig("UpdateID");
             string ver = HttpData.GetHttp(url);
             List<DSstudent> s = HttpData.Deserialize<List<DSstudent>>(ver);
-
-            So.InsterStudent(s);
-
-            DataTable dt = So.LocalDepGuid();
-            GetLocalStudentCount(); 
-
+            if (s == null)
+            {
+                MessageBox.Show("获取失败，请重新再试");
+                return;
+            }
+            So.ExecuteStudent(s);
+            LoadInitData();
         }
 
         private void btn_auto_Click(object sender, EventArgs e)
         {
-            string url = HttpAPI.GetServerStudentCount();
+            //Timer t = new Timer();
+            //t.Tick += t_Tick;
+            //t.Interval = 10000;
+            //t.Start();
 
-            StringWriter sw = new StringWriter();
-            JsonWriter writer = new JsonTextWriter(sw);
-            writer.WriteStartObject();
-            writer.WritePropertyName("value");
-            writer.WriteValue("123");
-            writer.WriteEndObject();
-            writer.Flush();
-            string jsonText = sw.GetStringBuilder().ToString();
-            string ver = HttpData.PostHttp(url, jsonText);
+        }
 
-            MessageBox.Show(ver);
-
+        void t_Tick(object sender, EventArgs e)
+        {
+            GetDataByVer();
         }
 
 

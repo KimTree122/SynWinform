@@ -26,7 +26,6 @@ namespace SynDSStudent
 
             string student = "";
             string dep = "";
-
             foreach (DSstudent ds in Stulst)
             {
                 string guid = Guid.NewGuid().ToString("N").ToUpper();
@@ -51,7 +50,8 @@ namespace SynDSStudent
             string dep = "";
             foreach (DSstudent ds in stulst)
             {
-                student = string.Format("select Id from Person where person_card_no = '{0}' and person_name = '{1}'", ds.证件号码, ds.人员姓名);
+                student = string.Format("select Id from Person where person_card_no = '{0}' and person_name = '{1}'"
+                    , ds.证件号码, ds.人员姓名);
 
                 DataTable dt = sconn.SQLiteGetTable(student);
                 if (dt.Rows.Count == 0) continue;
@@ -66,6 +66,58 @@ namespace SynDSStudent
             }
             sconn.ExecuteSqlTran(da);
         }
+
+        /// <summary>
+        /// 执行更新数据
+        /// </summary>
+        /// <param name="dslst"></param>
+        public void ExecuteStudent(List<DSstudent> dslst)
+        {
+            ArrayList sqlal = new ArrayList();
+            string sql = "";
+            foreach (DSstudent ds in dslst)
+            {
+                if (ds.新增 ==1)
+                {
+                    string guid = Guid.NewGuid().ToString("N").ToUpper();
+                    sql = string.Format("insert into Dept_Staff (dept_id,staff_id) values ('','{0}')", guid);
+                    sqlal.Add(sql);
+                    sql = string.Format("insert into Person(Id, person_code, person_name, person_gender, person_englishname, person_birthday, " +
+                        " person_card_type, person_card_no, person_dept_id, person_job_level, person_job_position, person_educational," +
+                        " person_nation, person_phone, person_email, person_address, person_dept_name) values " +
+                        " ('{0}', '{1}', '{2}', '{3}', '', '0', '0', '{4}', '', '0', '', '', '', '{5}', '', '{6}', '')"
+                        , guid, ds.人员编号, ds.人员姓名,ds.人员性别, ds.证件号码, ds.联系电话, ds.地址);
+                    sqlal.Add(sql);
+                    
+                }
+                else
+                {
+                    sql = string.Format("select Id from Person where person_card_no = '{0}' and person_name = '{1}'"
+                        , ds.证件号码, ds.人员姓名);
+
+                    DataTable dt = sconn.SQLiteGetTable(sql);
+                    if (dt.Rows.Count == 0) continue;
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        sql = string.Format("delete from Dept_Staff where staff_id = '{0}'", dr["Id"].ToString());
+                        sqlal.Add(sql);
+                        sql = string.Format("delete from Person where id = '{0}'", dr["Id"].ToString());
+                        sqlal.Add(sql);
+                    }
+                }
+            }
+            sconn.ExecuteSqlTran(sqlal);
+        }
+
+        public void DeleteStudent()
+        {
+            string sql = "delete from Dept_Staff";
+            sconn.SQLiteNonQuery(sql);
+            sql = "delete from Person";
+            sconn.SQLiteNonQuery(sql);
+        }
+
 
 
         public bool CheckTable()
