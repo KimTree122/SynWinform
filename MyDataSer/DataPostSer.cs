@@ -29,7 +29,14 @@ namespace MyDataSer
 
         private void mbtn_start_Click(object sender, EventArgs e)
         {
-            PostTimer.Start();
+            //mps.EnsureVisible = true;
+            //mps.Value = 80;
+            //PostTimer.Start();
+            //mbtn_start.Enabled = false;
+
+
+
+
         }
 
         private void mbtn_minsmall_Click(object sender, EventArgs e)
@@ -60,6 +67,11 @@ namespace MyDataSer
         {
             GetStudentData gsd = new GetStudentData();
             gsd.PostData();
+        }
+
+        private void mbtn_upload_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

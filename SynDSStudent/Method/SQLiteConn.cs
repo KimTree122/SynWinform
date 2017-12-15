@@ -38,7 +38,6 @@ namespace SynDSStudent
             if (!checkSqlite) return checkSqlite;
             conn = new SQLiteConnection("Data Source=" + Paht);
             conn.Open();
-
             cmd = new SQLiteCommand();
             cmd.Connection = conn;
             return true;

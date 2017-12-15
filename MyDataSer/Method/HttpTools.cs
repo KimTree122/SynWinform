@@ -50,7 +50,8 @@ namespace MyDataSer.Method
                 }
             }
             return request.GetResponse() as HttpWebResponse;
-        }     
+        }
+
     }
 
     public class HttpHelper
