@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyDataSer.Model;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -56,7 +58,11 @@ namespace MyDataSer.Method
 
     public class HttpHelper
     {
-        public static string PostHelper(HttpParam hp)
+        public string host = "http://120.78.188.216:8001";
+        public string salt = @"&salt=lOZVMROz1R1luHyRU9AKNO6aOR8BHV6WhHc6sI3XJaz6IXQ0qyYxg1KAsDvLeALZDNwSV4ozGtSXWS1rYWzk90LKkMIrqtJ9rZLdBJQZohiVOgHVhO3JJ45SvYL";
+
+
+        public  string PostHelper(HttpParam hp)
         {
             HttpWebResponse response = HttpTools.CreatePostHttpResponse(hp.Url, hp.myParam, Encoding.GetEncoding("utf-8"));
             string sc = response.StatusCode.ToString();
@@ -65,6 +71,46 @@ namespace MyDataSer.Method
             string html = sr.ReadToEnd();   //从头读到尾，放到字符串html 
             return html;
         }
+
+        public string HttpPost(Posts posts)
+        {
+            string URI = host + "/posts?" + salt;
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(URI);
+            httpWebRequest.ContentType = "text/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                string json = JsonConvert.SerializeObject(posts);//将实体类Posts序列化json字符串
+                streamWriter.Write(json);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            //post的结果
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                return result;
+            }
+        }
+
+        public  string HttpGet(string url)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.ContentType = "application/json;charset=UTF-8";
+            //请求结果
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream myResponseStream = response.GetResponseStream();
+            StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
+            string retString = myStreamReader.ReadToEnd();
+            myStreamReader.Close();
+            myResponseStream.Close();
+            return retString;
+        }
+
     }
 
 }

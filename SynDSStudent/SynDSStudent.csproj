@@ -88,9 +88,11 @@
     <Compile Include="Method\AppSetting.cs" />
     <Compile Include="Method\GetInitData.cs" />
     <Compile Include="Method\HttpData.cs" />
+    <Compile Include="Method\InitSetting.cs" />
     <Compile Include="Method\SQLiteConn.cs" />
     <Compile Include="Method\SQLiteHelper.cs" />
     <Compile Include="Method\SQLiteOper.cs" />
+    <Compile Include="Method\StundetADO.cs" />
     <Compile Include="Model\DSstudent.cs" />
     <Compile Include="Model\HttpUrl.cs" />
     <Compile Include="Model\InitData.cs" />

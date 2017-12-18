@@ -56,6 +56,7 @@
             this.btn_start.TabIndex = 1;
             this.btn_start.Text = "开始";
             this.btn_start.UseSelectable = true;
+            this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
             // 
             // btn_exist
             // 
@@ -102,7 +103,7 @@
             this.Controls.Add(this.mps);
             this.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CheckStudent";

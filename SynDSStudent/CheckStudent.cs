@@ -1,4 +1,5 @@
 ﻿using MetroFramework.Forms;
+using SynDSStudent.Method;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,9 +18,17 @@ namespace SynDSStudent
             InitializeComponent();
         }
 
+        private InitSetting initsetting;
+
         private void CheckStudent_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void btn_start_Click(object sender, EventArgs e)
+        {
+            initsetting = new InitSetting();
+            initsetting.CheckDB();
         }
 
 

@@ -36,12 +36,13 @@
             this.PostTimer = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.mbtn_upload = new MetroFramework.Controls.MetroTile();
+            this.list_history = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // mps
             // 
             this.mps.EnsureVisible = false;
-            this.mps.Location = new System.Drawing.Point(84, 78);
+            this.mps.Location = new System.Drawing.Point(33, 78);
             this.mps.Maximum = 100;
             this.mps.Name = "mps";
             this.mps.Size = new System.Drawing.Size(150, 150);
@@ -63,7 +64,7 @@
             // mbtn_minsmall
             // 
             this.mbtn_minsmall.ActiveControl = null;
-            this.mbtn_minsmall.Location = new System.Drawing.Point(217, 241);
+            this.mbtn_minsmall.Location = new System.Drawing.Point(261, 241);
             this.mbtn_minsmall.Name = "mbtn_minsmall";
             this.mbtn_minsmall.Size = new System.Drawing.Size(80, 40);
             this.mbtn_minsmall.Style = MetroFramework.MetroColorStyle.Orange;
@@ -87,7 +88,7 @@
             // mbtn_upload
             // 
             this.mbtn_upload.ActiveControl = null;
-            this.mbtn_upload.Location = new System.Drawing.Point(123, 241);
+            this.mbtn_upload.Location = new System.Drawing.Point(145, 241);
             this.mbtn_upload.Name = "mbtn_upload";
             this.mbtn_upload.Size = new System.Drawing.Size(80, 40);
             this.mbtn_upload.Style = MetroFramework.MetroColorStyle.Yellow;
@@ -96,11 +97,20 @@
             this.mbtn_upload.UseSelectable = true;
             this.mbtn_upload.Click += new System.EventHandler(this.mbtn_upload_Click);
             // 
+            // list_history
+            // 
+            this.list_history.Location = new System.Drawing.Point(189, 78);
+            this.list_history.Name = "list_history";
+            this.list_history.Size = new System.Drawing.Size(153, 150);
+            this.list_history.TabIndex = 12;
+            this.list_history.UseCompatibleStateImageBehavior = false;
+            // 
             // DataPostSer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 307);
+            this.ClientSize = new System.Drawing.Size(378, 306);
+            this.Controls.Add(this.list_history);
             this.Controls.Add(this.mbtn_upload);
             this.Controls.Add(this.mbtn_minsmall);
             this.Controls.Add(this.mbtn_start);
@@ -123,6 +133,7 @@
         private System.Windows.Forms.Timer PostTimer;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private MetroFramework.Controls.MetroTile mbtn_upload;
+        private System.Windows.Forms.ListView list_history;
 
     }
 }

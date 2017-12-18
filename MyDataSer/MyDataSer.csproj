@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADO\GetDB.cs" />
     <Compile Include="ADO\SQLHelper.cs" />
     <Compile Include="DataPostSer.cs">
       <SubType>Form</SubType>
@@ -77,10 +78,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Method\DataSwitch.cs" />
     <Compile Include="Method\GetStudentData.cs" />
     <Compile Include="Method\HttpTools.cs" />
+    <Compile Include="Method\PostServers.cs" />
     <Compile Include="Model\HttpParam.cs" />
-    <Compile Include="Model\PostData.cs" />
+    <Compile Include="Model\Posts.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DataPostSer.resx">
