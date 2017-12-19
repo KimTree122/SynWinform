@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyDataSer.ADO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,20 +16,19 @@ namespace MyDataSer.Method
             return result;
         }
 
-        private static void GetAllStudentsInDB()
+        public static void PostStudentAllData()
         {
-            
-        }
-
-        public static void PostData(string maxid ,string postjson)
-        {
- 
+            GetDB gdb = new GetDB();
+            HttpHelper hh = new HttpHelper();
+            //hh.HttpPost(gdb.AllData());
         }
 
 
-        private static void GetMaxDiffDataInDB(string cid)
+        private static void GetMaxDiffDataInDB()
         {
- 
+            GetDB gdb = new GetDB();
+            HttpHelper hh = new HttpHelper();
+            //hh.HttpPost(gdb.DiffData());
         }
 
 

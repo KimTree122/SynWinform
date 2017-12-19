@@ -21,10 +21,12 @@ namespace MyDataSer
         }
 
         private GetStudentData gsd;
+        private Presenter ps;
 
         private void DataPostSer_Load(object sender, EventArgs e)
         {
             gsd = new GetStudentData();
+            ps = new Presenter();
         }
 
         private void mbtn_start_Click(object sender, EventArgs e)
@@ -33,23 +35,15 @@ namespace MyDataSer
             //mps.Value = 80;
             //PostTimer.Start();
             //mbtn_start.Enabled = false;
-
-            GetStudentData gsd = new GetStudentData();
-            string s = gsd.PostAllData();
+            string s = ps.UploadAllstudentdata();
             MessageBox.Show(s);
+          
         }
 
         private void mbtn_minsmall_Click(object sender, EventArgs e)
         {
             //this.WindowState = FormWindowState.Minimized;
-            GetStudentData gsd = new GetStudentData();
-            string mid = gsd.GetMainMaxID();
-            mid = "1";
-            //int did = gsd.GetJsonMaxID(mid);
-            int did = 10457;
-            int intmid = int.Parse(mid);
-            string result = gsd.PostdifferData(intmid, did);
-            MessageBox.Show(result); 
+           
 
         }
 
@@ -74,15 +68,19 @@ namespace MyDataSer
 
         private void PostTimer_Tick(object sender, EventArgs e)
         {
-            GetStudentData gsd = new GetStudentData();
-            gsd.PostAllData(); 
+            //GetStudentData gsd = new GetStudentData();
+            //gsd.PostAllData(); 
         }
 
         private void mbtn_upload_Click(object sender, EventArgs e)
         {
-            GetStudentData gsd = new GetStudentData();
-            string s = gsd.GetMainMaxID();
+            string s = ps.UploadVerData("2", txb_serid.Text.Trim());
             MessageBox.Show(s);
+        }
+
+        private void btn_get_Click(object sender, EventArgs e)
+        {
+            rtb.Text = ps.GetVerData(txb_serid.Text);
         }
     }
 }

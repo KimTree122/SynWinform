@@ -78,12 +78,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HttpConn\HttpConnect.cs" />
     <Compile Include="Method\DataSwitch.cs" />
     <Compile Include="Method\GetStudentData.cs" />
     <Compile Include="Method\HttpTools.cs" />
     <Compile Include="Method\PostServers.cs" />
     <Compile Include="Model\HttpParam.cs" />
     <Compile Include="Model\Posts.cs" />
+    <Compile Include="Presenter\SerPenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DataPostSer.resx">

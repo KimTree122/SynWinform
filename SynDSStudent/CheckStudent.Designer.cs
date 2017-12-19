@@ -38,7 +38,7 @@
             // 
             // mps
             // 
-            this.mps.Location = new System.Drawing.Point(150, 83);
+            this.mps.Location = new System.Drawing.Point(51, 83);
             this.mps.Maximum = 100;
             this.mps.Name = "mps";
             this.mps.Size = new System.Drawing.Size(200, 200);
