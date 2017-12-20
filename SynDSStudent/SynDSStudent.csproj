@@ -85,7 +85,9 @@
     <Compile Include="FrmSynStudent.Designer.cs">
       <DependentUpon>FrmSynStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="HttpConn\HttpConnect.cs" />
     <Compile Include="Method\AppSetting.cs" />
+    <Compile Include="Method\DataSwitch.cs" />
     <Compile Include="Method\GetInitData.cs" />
     <Compile Include="Method\HttpData.cs" />
     <Compile Include="Method\InitSetting.cs" />
@@ -96,9 +98,11 @@
     <Compile Include="Model\DSstudent.cs" />
     <Compile Include="Model\HttpUrl.cs" />
     <Compile Include="Model\InitData.cs" />
-    <Compile Include="Model\TableToObject.cs" />
+    <Compile Include="Present\TaskTimer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLiteADO\DataOper.cs" />
+    <Compile Include="SQLiteADO\InitSQLite.cs" />
     <EmbeddedResource Include="CheckStudent.resx">
       <DependentUpon>CheckStudent.cs</DependentUpon>
     </EmbeddedResource>

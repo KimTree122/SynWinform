@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -17,4 +18,42 @@ namespace SynDSStudent
         public string 地址 { get; set; }
         public int 新增 { get; set; }
     }
+
+    public class DSstu
+    {
+        public int id { get; set; }
+        public string dsno { get; set; }
+        public string dsname { get; set; }
+        public string dsid { get; set; }
+        public string dsmphone { get; set; }
+        public string dsadd { get; set; }
+    }
+
+    public class Posts
+    {
+        public int ID { get; set; }
+        public string Jsons { get; set; }
+    }
+
+    public class DsPostData
+    {
+        public string Mmaxid { get; set; }
+        public DataTable DSAllstudentDT { get; set; }
+    }
+
+    public class DsHistory
+    {
+        public int operid { get; set; }
+        public string form { get; set; }
+        public string oper { get; set; }
+        public string opertime { get; set; }
+        public int stuid { get; set; }
+    }
+
+    public class Dsver 
+    {
+        public string serstuid { get; set; }
+        public string serhisid { get; set; }
+    }
+
 }
