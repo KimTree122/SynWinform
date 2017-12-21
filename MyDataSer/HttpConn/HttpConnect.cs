@@ -56,9 +56,15 @@ namespace MyDataSer.HttpConn
         }
 
 
-        public string GetSerMaxID()
+        public string GetSerStuMaxID()
         {
             var url = host + @"/maxid?" + salt;
+            return HttpGet(url);
+        }
+
+        public string GetSerHisMaxID()
+        {
+            var url = host + @"/operatesmaxid?" + salt;
             return HttpGet(url);
         }
 
@@ -68,12 +74,23 @@ namespace MyDataSer.HttpConn
             return HttpPost(URI,p);
         }
 
-        public string GetSerMaxIDJson(string id)
+        public string GetSerStuJsonByPostid(string id)
         {
             string url = host + @"/posts?id=" + id+salt;
             return HttpGet(url);
         }
 
+        public string PostHisData(Posts p)
+        {
+            string URI = host + "/operates?" + salt;
+            return HttpPost(URI, p);
+        }
+
+        public string GetSerHisMaxIDJson(string id)
+        {
+            string url = host + @"/operates?id=" + id + salt;
+            return HttpGet(url);
+        }
 
     }
 }

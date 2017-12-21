@@ -27,8 +27,7 @@ namespace SynDSStudent
 
         private void btn_start_Click(object sender, EventArgs e)
         {
-            initsetting = new InitSetting();
-            initsetting.CheckDB();
+
         }
 
 

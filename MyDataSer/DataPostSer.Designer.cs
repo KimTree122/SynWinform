@@ -45,6 +45,9 @@
             this.btn_get = new MetroFramework.Controls.MetroButton();
             this.btn_upload = new MetroFramework.Controls.MetroButton();
             this.btn_maxid = new MetroFramework.Controls.MetroButton();
+            this.checkbox = new MetroFramework.Controls.MetroCheckBox();
+            this.gb_text = new System.Windows.Forms.GroupBox();
+            this.gb_text.SuspendLayout();
             this.SuspendLayout();
             // 
             // mps
@@ -72,7 +75,7 @@
             // mbtn_minsmall
             // 
             this.mbtn_minsmall.ActiveControl = null;
-            this.mbtn_minsmall.Location = new System.Drawing.Point(261, 292);
+            this.mbtn_minsmall.Location = new System.Drawing.Point(261, 290);
             this.mbtn_minsmall.Name = "mbtn_minsmall";
             this.mbtn_minsmall.Size = new System.Drawing.Size(80, 40);
             this.mbtn_minsmall.Style = MetroFramework.MetroColorStyle.Orange;
@@ -107,7 +110,7 @@
             // 
             // list_history
             // 
-            this.list_history.Location = new System.Drawing.Point(189, 78);
+            this.list_history.Location = new System.Drawing.Point(188, 63);
             this.list_history.Name = "list_history";
             this.list_history.Size = new System.Drawing.Size(153, 208);
             this.list_history.TabIndex = 12;
@@ -115,7 +118,7 @@
             // 
             // txb_serid
             // 
-            this.txb_serid.Location = new System.Drawing.Point(362, 131);
+            this.txb_serid.Location = new System.Drawing.Point(15, 56);
             this.txb_serid.Name = "txb_serid";
             this.txb_serid.Size = new System.Drawing.Size(100, 21);
             this.txb_serid.TabIndex = 13;
@@ -123,7 +126,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(362, 116);
+            this.label1.Location = new System.Drawing.Point(48, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 12);
             this.label1.TabIndex = 14;
@@ -132,7 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(360, 196);
+            this.label2.Location = new System.Drawing.Point(51, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 16;
@@ -140,22 +143,23 @@
             // 
             // txb_dbid
             // 
-            this.txb_dbid.Location = new System.Drawing.Point(362, 211);
+            this.txb_dbid.Location = new System.Drawing.Point(15, 97);
             this.txb_dbid.Name = "txb_dbid";
             this.txb_dbid.Size = new System.Drawing.Size(100, 21);
             this.txb_dbid.TabIndex = 15;
             // 
             // rtb
             // 
-            this.rtb.Location = new System.Drawing.Point(468, 62);
+            this.rtb.Dock = System.Windows.Forms.DockStyle.Right;
+            this.rtb.Location = new System.Drawing.Point(117, 17);
             this.rtb.Name = "rtb";
-            this.rtb.Size = new System.Drawing.Size(183, 224);
+            this.rtb.Size = new System.Drawing.Size(183, 250);
             this.rtb.TabIndex = 17;
             this.rtb.Text = "";
             // 
             // btn_get
             // 
-            this.btn_get.Location = new System.Drawing.Point(364, 292);
+            this.btn_get.Location = new System.Drawing.Point(28, 124);
             this.btn_get.Name = "btn_get";
             this.btn_get.Size = new System.Drawing.Size(75, 40);
             this.btn_get.TabIndex = 18;
@@ -165,35 +169,61 @@
             // 
             // btn_upload
             // 
-            this.btn_upload.Location = new System.Drawing.Point(468, 292);
+            this.btn_upload.Location = new System.Drawing.Point(28, 170);
             this.btn_upload.Name = "btn_upload";
             this.btn_upload.Size = new System.Drawing.Size(75, 40);
             this.btn_upload.TabIndex = 19;
-            this.btn_upload.Text = "差异上传";
+            this.btn_upload.Text = "上传";
             this.btn_upload.UseSelectable = true;
+            this.btn_upload.Click += new System.EventHandler(this.btn_upload_Click);
             // 
             // btn_maxid
             // 
-            this.btn_maxid.Location = new System.Drawing.Point(576, 292);
+            this.btn_maxid.Location = new System.Drawing.Point(28, 216);
             this.btn_maxid.Name = "btn_maxid";
             this.btn_maxid.Size = new System.Drawing.Size(75, 40);
             this.btn_maxid.TabIndex = 20;
             this.btn_maxid.Text = "最大ID";
             this.btn_maxid.UseSelectable = true;
+            this.btn_maxid.Click += new System.EventHandler(this.btn_maxid_Click);
+            // 
+            // checkbox
+            // 
+            this.checkbox.AutoSize = true;
+            this.checkbox.Checked = true;
+            this.checkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkbox.Location = new System.Drawing.Point(41, 20);
+            this.checkbox.Name = "checkbox";
+            this.checkbox.Size = new System.Drawing.Size(48, 17);
+            this.checkbox.TabIndex = 21;
+            this.checkbox.Text = "学员";
+            this.checkbox.UseSelectable = true;
+            // 
+            // gb_text
+            // 
+            this.gb_text.Controls.Add(this.txb_serid);
+            this.gb_text.Controls.Add(this.btn_maxid);
+            this.gb_text.Controls.Add(this.checkbox);
+            this.gb_text.Controls.Add(this.btn_upload);
+            this.gb_text.Controls.Add(this.btn_get);
+            this.gb_text.Controls.Add(this.label1);
+            this.gb_text.Controls.Add(this.txb_dbid);
+            this.gb_text.Controls.Add(this.label2);
+            this.gb_text.Controls.Add(this.rtb);
+            this.gb_text.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gb_text.Location = new System.Drawing.Point(347, 60);
+            this.gb_text.Name = "gb_text";
+            this.gb_text.Size = new System.Drawing.Size(303, 270);
+            this.gb_text.TabIndex = 22;
+            this.gb_text.TabStop = false;
+            this.gb_text.Text = "数据调试";
             // 
             // DataPostSer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 350);
-            this.Controls.Add(this.btn_maxid);
-            this.Controls.Add(this.btn_upload);
-            this.Controls.Add(this.btn_get);
-            this.Controls.Add(this.rtb);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txb_dbid);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txb_serid);
+            this.Controls.Add(this.gb_text);
             this.Controls.Add(this.list_history);
             this.Controls.Add(this.mbtn_upload);
             this.Controls.Add(this.mbtn_minsmall);
@@ -205,8 +235,9 @@
             this.Text = "同步服务器";
             this.Load += new System.EventHandler(this.DataPostSer_Load);
             this.SizeChanged += new System.EventHandler(this.DataPostSer_SizeChanged);
+            this.gb_text.ResumeLayout(false);
+            this.gb_text.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -227,6 +258,8 @@
         private MetroFramework.Controls.MetroButton btn_get;
         private MetroFramework.Controls.MetroButton btn_upload;
         private MetroFramework.Controls.MetroButton btn_maxid;
+        private MetroFramework.Controls.MetroCheckBox checkbox;
+        private System.Windows.Forms.GroupBox gb_text;
 
     }
 }

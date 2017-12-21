@@ -31,12 +31,13 @@ namespace MyDataSer
 
         private void mbtn_start_Click(object sender, EventArgs e)
         {
-            //mps.EnsureVisible = true;
-            //mps.Value = 80;
-            //PostTimer.Start();
-            //mbtn_start.Enabled = false;
-            string s = ps.UploadAllstudentdata();
-            MessageBox.Show(s);
+            mps.EnsureVisible = true;
+            mps.Value = 80;
+            PostTimer.Start();
+            mbtn_start.Enabled = false;
+
+            //string s = ps.UploadAllstudentdata();
+            //MessageBox.Show(s);
           
         }
 
@@ -68,19 +69,61 @@ namespace MyDataSer
 
         private void PostTimer_Tick(object sender, EventArgs e)
         {
-            //GetStudentData gsd = new GetStudentData();
-            //gsd.PostAllData(); 
+            UploadTask();
+        }
+
+        private void UploadTask()
+        {
+            string s = ps.UploadAllstudentdata();
+            list_history.Items.Add(s);
+            s = ps.UploadDiffStudentdata();
+            //list_history.Items.Add(s);
+            //s = ps.UploadHisData();
         }
 
         private void mbtn_upload_Click(object sender, EventArgs e)
         {
-            string s = ps.UploadVerData("2", txb_serid.Text.Trim());
-            MessageBox.Show(s);
+            UploadTask();
         }
 
         private void btn_get_Click(object sender, EventArgs e)
         {
-            rtb.Text = ps.GetVerData(txb_serid.Text);
+            if (checkbox.Checked)
+            {
+                rtb.Text = ps.GetVerData(txb_serid.Text);
+            }
+            else
+            {
+                rtb.Text = ps.GetHisData(txb_serid.Text);
+            }
+        }
+
+        private void btn_upload_Click(object sender, EventArgs e)
+        {
+            if (checkbox.Checked)
+            {
+                string s = ps.UploadVerData(txb_serid.Text, txb_dbid.Text);
+                rtb.Text = s;
+            }
+            else
+            {
+                string s = ps.GetanduploadHisData(txb_serid.Text, txb_dbid.Text);
+                rtb.Text = s;
+            }
+        }
+
+        private void btn_maxid_Click(object sender, EventArgs e)
+        {
+            if (checkbox.Checked)
+            {
+                string s = ps.GetSerStuMaxID();
+                rtb.Text = s;
+            }
+            else
+            {
+                string s = ps.GetSerHisMaxID();
+                rtb.Text = s;
+            }
         }
     }
 }
