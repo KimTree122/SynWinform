@@ -46,18 +46,19 @@ namespace SynDSStudent.SQLiteADO
             initsql.ExecuteSqlTran(arr);
         }
 
-        public void UpdataVer(Dsver dv)
+        public void UpdataVer(DsPostVerid dpv)
         {
-            string sql = string.Format("UPDATE dbo.DSdataver SET serstuid = '{0}', serhisid = '{1}'",dv.serstuid,dv.serhisid);
+            string sql = string.Format("UPDATE dbo.DSdataver SET serstuid = '{0}', serhisid = '{1}'",dpv.serid,dpv.dbid);
             initsql.SQLiteNonQuery(sql);
         }
 
-        public Dsver GetLocalID()
+        public DsPostVerid GetLocalID()
         {
             string sql = string.Format("SELECT * FROM dbo.DSdataver");
             DataTable dt = initsql.SQLiteGetTable(sql);
-            Dsver dv = new Dsver { serstuid = dt.Rows[0]["serstuid"].ToString()
-                , serhisid = dt.Rows[0]["serhisid"].ToString() };
+            DsPostVerid dv = new DsPostVerid
+            {
+                 serid =int.Parse(dt.Rows[0]["serstuid"].ToString()) , dbid = dt.Rows[0]["serhisid"].ToString() };
             return dv;
         }
 

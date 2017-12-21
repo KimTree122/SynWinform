@@ -18,8 +18,6 @@ namespace SynDSStudent
             InitializeComponent();
         }
 
-        private InitSetting initsetting;
-
         private void CheckStudent_Load(object sender, EventArgs e)
         {
             

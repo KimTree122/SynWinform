@@ -35,10 +35,10 @@ namespace SynDSStudent
         public string Jsons { get; set; }
     }
 
-    public class DsPostData
+    public class DsPostVerid
     {
-        public string Mmaxid { get; set; }
-        public DataTable DSAllstudentDT { get; set; }
+        public int serid { get; set; }
+        public string dbid { get; set; }
     }
 
     public class DsHistory
@@ -48,12 +48,6 @@ namespace SynDSStudent
         public string oper { get; set; }
         public string opertime { get; set; }
         public int stuid { get; set; }
-    }
-
-    public class Dsver 
-    {
-        public string serstuid { get; set; }
-        public string serhisid { get; set; }
     }
 
 }
