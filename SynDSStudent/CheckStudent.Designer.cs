@@ -85,6 +85,7 @@
             this.btn_download.TabIndex = 3;
             this.btn_download.Text = "重新加载";
             this.btn_download.UseSelectable = true;
+            this.btn_download.Click += new System.EventHandler(this.btn_download_Click);
             // 
             // btn_rc
             // 
@@ -96,6 +97,7 @@
             this.btn_rc.TabIndex = 4;
             this.btn_rc.Text = "读卡";
             this.btn_rc.UseSelectable = true;
+            this.btn_rc.Click += new System.EventHandler(this.btn_rc_Click);
             // 
             // lbl_name
             // 

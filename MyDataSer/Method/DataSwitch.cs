@@ -46,6 +46,11 @@ namespace MyDataSer
 
         }
 
+        public static string DataToJson(object obj )
+        {
+            return JsonConvert.SerializeObject(obj);
+        }
+
 
     }
 }

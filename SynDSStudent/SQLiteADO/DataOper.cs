@@ -23,12 +23,12 @@ namespace SynDSStudent.SQLiteADO
             {
                 if (stu.dsadd == "1")
                 {
-                    string sqlins = string.Format("INSERT INTO DSstudent (ID, DsNO, DsName, IDcard, MPhone) VALUES ('{0}','{1}','{2}','{3}','{4}')",stu.dsid,stu.dsno,stu.dsname,stu.dsid,stu.dsmphone);
+                    string sqlins = string.Format("INSERT INTO DSstudent (ID, DsNO, DsName, IDcard, MPhone) VALUES ('{0}','{1}','{2}','{3}','{4}')",stu.id,stu.dsno,stu.dsname,stu.dsid,stu.dsmphone);
                     sqlarr.Add(sqlins);
                 }
                 else
                 {
-                    string sqldel = string.Format("DELETE dbo.DSstudent WHERE IDcard = '{0}'",stu.dsid);
+                    string sqldel = string.Format("DELETE DSstudent WHERE IDcard = '{0}'",stu.dsid);
                     sqlarr.Add(sqldel);
                 }
             }
@@ -46,15 +46,15 @@ namespace SynDSStudent.SQLiteADO
             initsql.ExecuteSqlTran(arr);
         }
 
-        public void UpdataVer(DsPostVerid dpv)
+        public void UpdataVer(DsPostVerid dpv,int datatype)
         {
-            string sql = string.Format("UPDATE dbo.DSdataver SET serstuid = '{0}', serhisid = '{1}'",dpv.serid,dpv.dbid);
+            string sql = string.Format("UPDATE DSdataver SET serstuid = '{0}', serhisid = '{1}' WHERE datatype = '{2}'", dpv.serid, dpv.dbid,datatype);
             initsql.SQLiteNonQuery(sql);
         }
 
-        public DsPostVerid GetLocalID()
+        public DsPostVerid GetLocalID(int soh)
         {
-            string sql = string.Format("SELECT * FROM dbo.DSdataver");
+            string sql = string.Format("SELECT * FROM DSdataver WHERE datatype = '{0}'",soh);
             DataTable dt = initsql.SQLiteGetTable(sql);
             DsPostVerid dv = new DsPostVerid
             {
@@ -64,7 +64,7 @@ namespace SynDSStudent.SQLiteADO
 
         public DSstu GetStuByID(string sid)
         {
-            string sql = string.Format("SELECT * FROM dbo.DSstudent  WHERE IDcard = '{0}'",sid);
+            string sql = string.Format("SELECT * FROM DSstudent  WHERE IDcard = '{0}'",sid);
             DataTable dt = initsql.SQLiteGetTable(sql);
             DSstu ds = DataSwitch.DTToObject<DSstu>(dt);
             return ds;
@@ -72,7 +72,7 @@ namespace SynDSStudent.SQLiteADO
 
         public List<DsHistory> GetHisbyID(string sid)
         {
-            string sql = string.Format("SELECT * FROM dbo.DShist WHERE stuid = '{0}'",sid);
+            string sql = string.Format("SELECT * FROM DShist WHERE stuid = '{0}'",sid);
             DataTable dt = initsql.SQLiteGetTable(sql);
             List<DsHistory> hislist = DataSwitch.DTToList<DsHistory>(dt);
             return hislist;

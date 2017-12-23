@@ -115,6 +115,7 @@
             this.list_history.Size = new System.Drawing.Size(153, 208);
             this.list_history.TabIndex = 12;
             this.list_history.UseCompatibleStateImageBehavior = false;
+            this.list_history.View = System.Windows.Forms.View.List;
             // 
             // txb_serid
             // 

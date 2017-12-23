@@ -77,8 +77,11 @@ namespace MyDataSer
             string s = ps.UploadAllstudentdata();
             list_history.Items.Add(s);
             s = ps.UploadDiffStudentdata();
-            //list_history.Items.Add(s);
-            //s = ps.UploadHisData();
+            list_history.Items.Add(s);
+            s = ps.UploadHisData();
+            list_history.Items.Add(s);
+            s = ps.UploadHisVer();
+            list_history.Items.Add(s);
         }
 
         private void mbtn_upload_Click(object sender, EventArgs e)
@@ -107,7 +110,9 @@ namespace MyDataSer
             }
             else
             {
-                string s = ps.GetanduploadHisData(txb_serid.Text, txb_dbid.Text);
+                string s = ps.UploadHisVer();
+
+                //string s = ps.UploadHisData(txb_dbid.Text);
                 rtb.Text = s;
             }
         }
