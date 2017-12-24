@@ -34,7 +34,7 @@ namespace SynDSStudent
 
         private void btn_download_Click(object sender, EventArgs e)
         {
-            uT.UpdateAllStuData();
+            uT.UploadAllStu(Uploadstauts);
         }
 
         private void btn_rc_Click(object sender, EventArgs e)
@@ -42,7 +42,10 @@ namespace SynDSStudent
 
         }
 
-
+        private void Uploadstauts(int value)
+        {
+            mps.Value = value;
+        }
 
     }
 }

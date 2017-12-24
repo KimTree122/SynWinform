@@ -52,7 +52,7 @@ namespace SynDSStudent.SQLiteADO
             initsql.SQLiteNonQuery(sql);
         }
 
-        public DsPostVerid GetLocalID(int soh)
+        internal DsPostVerid GetLocalID(int soh)
         {
             string sql = string.Format("SELECT * FROM DSdataver WHERE datatype = '{0}'",soh);
             DataTable dt = initsql.SQLiteGetTable(sql);
@@ -77,5 +77,6 @@ namespace SynDSStudent.SQLiteADO
             List<DsHistory> hislist = DataSwitch.DTToList<DsHistory>(dt);
             return hislist;
         }
+
     }
 }
