@@ -74,7 +74,8 @@ namespace MyDataSer
 
         private void UploadTask()
         {
-            string s = ps.UploadAllstudentdata();
+            string s = "";
+            s = ps.UploadAllstudentdata();
             list_history.Items.Add(s);
             s = ps.UploadDiffStudentdata();
             list_history.Items.Add(s);

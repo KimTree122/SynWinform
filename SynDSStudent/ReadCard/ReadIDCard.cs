@@ -90,11 +90,7 @@ namespace SynDSStudent.ReadCard
             string dayend = all.Substring(102, 8);
             dayend = dayend.Insert(6, "-").Insert(4, "-");
             rif.身份证有效期 = dayend;
-
         }
-
-
-
     }
 
 }

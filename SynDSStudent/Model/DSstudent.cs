@@ -22,11 +22,11 @@ namespace SynDSStudent
     public class DSstu
     {
         public int id { get; set; }
+        public string dsid { get; set; }
         public string dsno { get; set; }
         public string dsname { get; set; }
-        public string dsid { get; set; }
-        public string dsmphone { get; set; }
-        public string dsadd { get; set; }
+        public string dsidno { get; set; }
+        public string aod { get; set; }
     }
 
     public class Posts
@@ -43,11 +43,10 @@ namespace SynDSStudent
 
     public class DsHistory
     {
-        public int operid { get; set; }
-        public string form { get; set; }
-        public string oper { get; set; }
-        public string opertime { get; set; }
-        public int stuid { get; set; }
+        public int ID { get; set; }
+        public string dsno { get; set; }
+        public string histype { get; set; }
+        public string rectime { get; set; }
     }
 
 }

@@ -21,14 +21,14 @@ namespace SynDSStudent.SQLiteADO
             ArrayList sqlarr = new ArrayList();
             foreach (var stu in stulist)
             {
-                if (stu.dsadd == "1")
+                if (stu.aod == "1")
                 {
-                    string sqlins = string.Format("INSERT INTO DSstudent (ID, DsNO, DsName, IDcard, MPhone) VALUES ('{0}','{1}','{2}','{3}','{4}')",stu.id,stu.dsno,stu.dsname,stu.dsid,stu.dsmphone);
+                    string sqlins = string.Format("INSERT INTO  DSstudent  (ID , dsid , dsno , dsname , dsidno ) VALUES ('{0}','{1}','{2}','{3}','{4}')", stu.id, stu.dsid, stu.dsno, stu.dsname, stu.dsidno);
                     sqlarr.Add(sqlins);
                 }
                 else
                 {
-                    string sqldel = string.Format("DELETE DSstudent WHERE IDcard = '{0}'",stu.dsid);
+                    string sqldel = string.Format("DELETE from DSstudent WHERE dsid = '{0}'", stu.dsid);
                     sqlarr.Add(sqldel);
                 }
             }
@@ -40,7 +40,7 @@ namespace SynDSStudent.SQLiteADO
             ArrayList arr = new ArrayList();
             foreach (var his in hislist)
             {
-                string sqldel = string.Format("INSERT INTO DShist (operid, form, oper, opertime, stuid) VALUES  ('{0}','{1}','{2}','{3}','{4}')",his.operid,his.form,his.oper,his.opertime,his.stuid);
+                string sqldel = string.Format("INSERT INTO  DShist  (ID , dsno , histype , rectime ) VALUES ('{0}','{1}','{2}','{3}')", his.ID, his.dsno, his.histype, his.rectime);
                 arr.Add(sqldel);
             }
             initsql.ExecuteSqlTran(arr);
@@ -52,7 +52,7 @@ namespace SynDSStudent.SQLiteADO
             initsql.SQLiteNonQuery(sql);
         }
 
-        internal DsPostVerid GetLocalID(int soh)
+        internal DsPostVerid GetLocalID(string soh)
         {
             string sql = string.Format("SELECT * FROM DSdataver WHERE datatype = '{0}'",soh);
             DataTable dt = initsql.SQLiteGetTable(sql);

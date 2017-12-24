@@ -87,7 +87,7 @@ namespace MyDataSer
             DataTable dt = (DataTable)gdb.GetStudentData(dpv.dbid, "his");
             if (dt.Rows.Count > 0)
             {
-                string dbmaxid = dt.Rows[dt.Rows.Count - 1]["operid"].ToString();
+                string dbmaxid = dt.Rows[dt.Rows.Count - 1]["ID"].ToString();
                 Posts p = CreatPost(dpv.serid + 1, dt);
                 return hc.PostHisData(p);
             }
@@ -96,8 +96,9 @@ namespace MyDataSer
 
         public string UploadHisVer()
         {
-            DsPostVerid dpv = new DsPostVerid();
-            dpv.serid = StrToInt(hc.GetSerHisMaxID());
+            Posts sp = DataSwitch.JsonToObject<Posts>( hc.GetSerHisMaxIDJson("1"));
+            DsPostVerid dpv = DataSwitch.JsonToObject<DsPostVerid>(sp.Jsons);
+            dpv.serid = dpv.serid+1;
             DataTable maxdbiddt =(DataTable) gdb.GetStudentData("","hisid");
             string maxdbid = "";
             if (maxdbiddt.Rows.Count > 0)
