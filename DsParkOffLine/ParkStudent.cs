@@ -30,6 +30,7 @@ namespace DsParkOffLine
 
         private void mbtn_get_Click(object sender, EventArgs e)
         {
+            listView.Items.Clear();
             DSstu ds = tp.GetStuInSqlite(txb_select.Text.Trim());
             if (ds.id == 0)
             {
@@ -40,9 +41,16 @@ namespace DsParkOffLine
             }
             else
             {
+                List<DsHistory> dhlist = tp.GetDSHisInSqllite(ds.dsid);
+                foreach (var dh in dhlist)
+                {
+                    string his = dh.form + "-" + dh.oper + "-" + dh.rec;
+                    listView.Items.Add(his);
+                }
                 lbl_name.Text = ds.dsname;
                 lbl_NO.Text = ds.dsidno;
             }
+            txb_select.Text = "";
         }
 
         private void mbtn_load_Click(object sender, EventArgs e)

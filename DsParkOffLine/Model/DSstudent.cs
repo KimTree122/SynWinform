@@ -43,10 +43,10 @@ namespace DsParkOffLine
 
     public class DsHistory
     {
-        public int ID { get; set; }
-        public string dsno { get; set; }
-        public string histype { get; set; }
-        public string rectime { get; set; }
+        public string id { get; set; }
+        public string form { get; set; }
+        public string oper { get; set; }
+        public string rec { get; set; }
     }
 
 }

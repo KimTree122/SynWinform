@@ -37,11 +37,13 @@
             this.mbtn_load = new MetroFramework.Controls.MetroTile();
             this.mbtn_get = new MetroFramework.Controls.MetroTile();
             this.txb_select = new MetroFramework.Controls.MetroTextBox();
+            this.listView = new System.Windows.Forms.ListView();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.listView);
             this.metroPanel1.Controls.Add(this.lbl_NO);
             this.metroPanel1.Controls.Add(this.lbl_name);
             this.metroPanel1.Controls.Add(this.metroLabel2);
@@ -55,7 +57,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(27, 80);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(296, 193);
+            this.metroPanel1.Size = new System.Drawing.Size(496, 193);
             this.metroPanel1.TabIndex = 0;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -64,7 +66,7 @@
             // lbl_NO
             // 
             this.lbl_NO.AutoSize = true;
-            this.lbl_NO.Location = new System.Drawing.Point(112, 53);
+            this.lbl_NO.Location = new System.Drawing.Point(98, 53);
             this.lbl_NO.Name = "lbl_NO";
             this.lbl_NO.Size = new System.Drawing.Size(0, 0);
             this.lbl_NO.TabIndex = 11;
@@ -72,7 +74,7 @@
             // lbl_name
             // 
             this.lbl_name.AutoSize = true;
-            this.lbl_name.Location = new System.Drawing.Point(115, 17);
+            this.lbl_name.Location = new System.Drawing.Point(101, 17);
             this.lbl_name.Name = "lbl_name";
             this.lbl_name.Size = new System.Drawing.Size(0, 0);
             this.lbl_name.TabIndex = 10;
@@ -98,7 +100,7 @@
             // mbtn_load
             // 
             this.mbtn_load.ActiveControl = null;
-            this.mbtn_load.Location = new System.Drawing.Point(165, 125);
+            this.mbtn_load.Location = new System.Drawing.Point(167, 125);
             this.mbtn_load.Name = "mbtn_load";
             this.mbtn_load.Size = new System.Drawing.Size(75, 48);
             this.mbtn_load.Style = MetroFramework.MetroColorStyle.Orange;
@@ -124,7 +126,7 @@
             // 
             // 
             this.txb_select.CustomButton.Image = null;
-            this.txb_select.CustomButton.Location = new System.Drawing.Point(174, 1);
+            this.txb_select.CustomButton.Location = new System.Drawing.Point(176, 1);
             this.txb_select.CustomButton.Name = "";
             this.txb_select.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txb_select.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -141,17 +143,27 @@
             this.txb_select.SelectedText = "";
             this.txb_select.SelectionLength = 0;
             this.txb_select.SelectionStart = 0;
-            this.txb_select.Size = new System.Drawing.Size(196, 23);
+            this.txb_select.Size = new System.Drawing.Size(198, 23);
             this.txb_select.TabIndex = 5;
             this.txb_select.UseSelectable = true;
             this.txb_select.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txb_select.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // listView
+            // 
+            this.listView.Dock = System.Windows.Forms.DockStyle.Right;
+            this.listView.Location = new System.Drawing.Point(248, 0);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(248, 193);
+            this.listView.TabIndex = 12;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.List;
+            // 
             // ParkStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 300);
+            this.ClientSize = new System.Drawing.Size(550, 300);
             this.Controls.Add(this.metroPanel1);
             this.Font = new System.Drawing.Font("宋体", 12F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -176,6 +188,7 @@
         private MetroFramework.Controls.MetroTile mbtn_load;
         private MetroFramework.Controls.MetroTile mbtn_get;
         private MetroFramework.Controls.MetroTextBox txb_select;
+        private System.Windows.Forms.ListView listView;
     }
 }
 
