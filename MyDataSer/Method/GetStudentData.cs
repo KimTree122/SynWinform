@@ -1,5 +1,5 @@
-﻿using MyDataSer.Method;
-using MyDataSer.Model;
+﻿using DSstudentOffline.Method;
+using DSstudentOffline.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace MyDataSer
+namespace DSstudentOffline
 {
     public class GetStudentData
     {

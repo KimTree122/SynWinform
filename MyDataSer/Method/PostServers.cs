@@ -1,10 +1,10 @@
-﻿using MyDataSer.ADO;
+﻿using DSstudentOffline.ADO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MyDataSer.Method
+namespace DSstudentOffline.Method
 {
     public class PostServers
     {

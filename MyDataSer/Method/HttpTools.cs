@@ -1,4 +1,4 @@
-﻿using MyDataSer.Model;
+﻿using DSstudentOffline.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Security;
 using System.Text;
 
-namespace MyDataSer.Method
+namespace DSstudentOffline.Method
 {
     public class HttpTools
     {

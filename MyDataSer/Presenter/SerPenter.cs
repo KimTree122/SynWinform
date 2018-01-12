@@ -1,6 +1,6 @@
-﻿using MyDataSer.ADO;
-using MyDataSer.HttpConn;
-using MyDataSer.Model;
+﻿using DSstudentOffline.ADO;
+using DSstudentOffline.HttpConn;
+using DSstudentOffline.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace MyDataSer
+namespace DSstudentOffline
 {
     public class Presenter
     {
@@ -25,11 +25,11 @@ namespace MyDataSer
         {
             DataTable dt = (DataTable) gdb.GetStudentData("", "alldata");
             string json = DataSwitch.DataToJson(dt);
-            Posts p1 = new Posts { ID = 1, Jsons = json };
+            Posts p1 = new Posts { ID = 2, Jsons = json };
             string Smaxid = hc.GetSerStuMaxID();
             string dbmaxid = gdb.GetStudentData("", "ver").ToString();
             DsPostVerid dpv = new DsPostVerid { serid =StrToInt(Smaxid), dbid = dbmaxid };
-            Posts p2 = CreatPost(2, dpv);
+            Posts p2 = CreatPost(1, dpv);
             hc.PostStudentData(p1);
             return hc.PostStudentData(p2);
         }
@@ -42,7 +42,7 @@ namespace MyDataSer
 
         public string UploadDiffStudentdata()
         {
-            string json = hc.GetSerStuJsonByPostid("2");
+            string json = hc.GetSerStuJsonByPostid("1");
             Posts p = DataSwitch.JsonToObject<Posts>(json);
             DsPostVerid dpv = DataSwitch.JsonToObject<DsPostVerid>(p.Jsons);
 
@@ -53,7 +53,7 @@ namespace MyDataSer
             Posts p1 = new Posts { ID = dpv.serid + 1, Jsons = postjson };
             dpv.serid = dpv.serid + 1;
             dpv.dbid = dbmaxid;
-            Posts p2 = CreatPost(2,dpv);
+            Posts p2 = CreatPost(1,dpv);
             hc.PostStudentData(p1);
             return hc.PostStudentData(p2);
         }

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DSstudentOffline
+namespace DsParkOffLine
 {
     static class Program
     {
@@ -15,7 +16,7 @@ namespace DSstudentOffline
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DataPostSer());
+            Application.Run(new ParkStudent());
         }
     }
 }

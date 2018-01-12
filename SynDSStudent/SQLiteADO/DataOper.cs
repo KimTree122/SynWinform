@@ -52,7 +52,7 @@ namespace SynDSStudent.SQLiteADO
             initsql.SQLiteNonQuery(sql);
         }
 
-        internal DsPostVerid GetLocalID(string soh)
+        internal DsPostVerid GetLocalDPV(string soh)
         {
             string sql = string.Format("SELECT * FROM DSdataver WHERE datatype = '{0}'",soh);
             DataTable dt = initsql.SQLiteGetTable(sql);

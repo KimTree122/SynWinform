@@ -1,5 +1,5 @@
 ﻿using MetroFramework.Forms;
-using MyDataSer.Method;
+using DSstudentOffline.Method;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MyDataSer
+namespace DSstudentOffline
 {
     public partial class DataPostSer : MetroForm
     {

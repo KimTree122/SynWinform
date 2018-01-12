@@ -1,4 +1,4 @@
-﻿namespace MyDataSer
+﻿namespace DSstudentOffline
 {
     partial class Form1
     {

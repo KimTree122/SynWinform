@@ -44,10 +44,7 @@ namespace SynDSStudent
         {
             ReadIDInfo rii = new ReadIDInfo();
             rcc.Readcardinfo(out rii);
-            
-
-
-
+           
         }
 
         private void Uploadstauts(int value)

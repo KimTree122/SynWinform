@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MyDataSer
+namespace DSstudentOffline
 {
     public partial class Form1 : Form
     {
