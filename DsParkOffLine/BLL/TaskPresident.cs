@@ -12,6 +12,7 @@ namespace DsParkOffLine
     {
         private DataCenter dc;
         public delegate void ShowComDial();
+        public delegate void ChangeProBarValue(int i);
         private ShowComDial scd;
 
         public TaskPresident() 
@@ -24,6 +25,16 @@ namespace DsParkOffLine
             scd = s;
             new Thread(LoadStudentData).Start();
 
+        }
+
+
+        public void ThreadTest(ChangeProBarValue tt)
+        {
+            for (int i = 0; i <=100 ; i++)
+            {
+                tt(i);
+                Thread.Sleep(100);
+            }
         }
 
         public void LoadStudentData()

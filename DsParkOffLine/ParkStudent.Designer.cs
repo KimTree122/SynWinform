@@ -38,11 +38,13 @@
             this.mbtn_load = new MetroFramework.Controls.MetroTile();
             this.mbtn_get = new MetroFramework.Controls.MetroTile();
             this.txb_select = new MetroFramework.Controls.MetroTextBox();
+            this.mpbar = new MetroFramework.Controls.MetroProgressBar();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.mpbar);
             this.metroPanel1.Controls.Add(this.listView);
             this.metroPanel1.Controls.Add(this.lbl_NO);
             this.metroPanel1.Controls.Add(this.lbl_name);
@@ -66,9 +68,9 @@
             // listView
             // 
             this.listView.Dock = System.Windows.Forms.DockStyle.Right;
-            this.listView.Location = new System.Drawing.Point(248, 0);
+            this.listView.Location = new System.Drawing.Point(230, 0);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(248, 193);
+            this.listView.Size = new System.Drawing.Size(266, 193);
             this.listView.TabIndex = 12;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.List;
@@ -110,9 +112,9 @@
             // mbtn_load
             // 
             this.mbtn_load.ActiveControl = null;
-            this.mbtn_load.Location = new System.Drawing.Point(44, 129);
+            this.mbtn_load.Location = new System.Drawing.Point(44, 138);
             this.mbtn_load.Name = "mbtn_load";
-            this.mbtn_load.Size = new System.Drawing.Size(75, 48);
+            this.mbtn_load.Size = new System.Drawing.Size(75, 40);
             this.mbtn_load.Style = MetroFramework.MetroColorStyle.Orange;
             this.mbtn_load.TabIndex = 7;
             this.mbtn_load.Text = "加载";
@@ -122,9 +124,9 @@
             // mbtn_get
             // 
             this.mbtn_get.ActiveControl = null;
-            this.mbtn_get.Location = new System.Drawing.Point(149, 129);
+            this.mbtn_get.Location = new System.Drawing.Point(149, 138);
             this.mbtn_get.Name = "mbtn_get";
-            this.mbtn_get.Size = new System.Drawing.Size(75, 48);
+            this.mbtn_get.Size = new System.Drawing.Size(75, 40);
             this.mbtn_get.TabIndex = 6;
             this.mbtn_get.Text = "读取";
             this.mbtn_get.UseSelectable = true;
@@ -159,6 +161,13 @@
             this.txb_select.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txb_select.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // mpbar
+            // 
+            this.mpbar.Location = new System.Drawing.Point(44, 109);
+            this.mpbar.Name = "mpbar";
+            this.mpbar.Size = new System.Drawing.Size(180, 23);
+            this.mpbar.TabIndex = 13;
+            // 
             // ParkStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -189,6 +198,7 @@
         private MetroFramework.Controls.MetroTile mbtn_get;
         private MetroFramework.Controls.MetroTextBox txb_select;
         private System.Windows.Forms.ListView listView;
+        private MetroFramework.Controls.MetroProgressBar mpbar;
     }
 }
 
