@@ -4,16 +4,26 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace DsParkOffLine
 {
     public class TaskPresident
     {
         private DataCenter dc;
+        public delegate void ShowComDial();
+        private ShowComDial scd;
 
         public TaskPresident() 
         {
             dc = new DataCenter();
+        }
+
+        public void LoadSerDataThread( ShowComDial s)
+        {
+            scd = s;
+            new Thread(LoadStudentData).Start();
+
         }
 
         public void LoadStudentData()
@@ -23,7 +33,9 @@ namespace DsParkOffLine
             dc.DelDBStudent();
             dc.InsDBstudent(dt);
             DataTable hdt = dc.GetHistory();
+            dc.DelDBHis();
             dc.InsDBHistory(hdt);
+            scd();
         }
 
         public DSstu GetStuInSqlite(string str)

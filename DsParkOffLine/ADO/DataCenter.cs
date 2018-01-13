@@ -82,5 +82,11 @@ namespace DsParkOffLine.ADO
             return dhlist;
         }
 
+
+        internal void DelDBHis()
+        {
+            string sqldel = string.Format("DELETE from DShist");
+            dbs.SQLiteNonQuery(sqldel);
+        }
     }
 }

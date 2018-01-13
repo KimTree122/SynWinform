@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,7 +25,7 @@ namespace DsParkOffLine
         private void ParkStudent_Load(object sender, EventArgs e)
         {
             tp = new TaskPresident();
-            mbtn_load.Enabled = tp.CheckConnect();
+            mbtn_load.Visible = tp.CheckConnect();
 
         }
 
@@ -55,7 +56,13 @@ namespace DsParkOffLine
 
         private void mbtn_load_Click(object sender, EventArgs e)
         {
-            tp.LoadStudentData();
+            tp.LoadSerDataThread(ShowComplete);
+        }
+
+
+        private void ShowComplete()
+        {
+            MetroMessageBox.Show(this, "加载完成","提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

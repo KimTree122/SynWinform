@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ParkStudent));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.listView = new System.Windows.Forms.ListView();
             this.lbl_NO = new MetroFramework.Controls.MetroLabel();
             this.lbl_name = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
@@ -37,7 +38,6 @@
             this.mbtn_load = new MetroFramework.Controls.MetroTile();
             this.mbtn_get = new MetroFramework.Controls.MetroTile();
             this.txb_select = new MetroFramework.Controls.MetroTextBox();
-            this.listView = new System.Windows.Forms.ListView();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +62,16 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // listView
+            // 
+            this.listView.Dock = System.Windows.Forms.DockStyle.Right;
+            this.listView.Location = new System.Drawing.Point(248, 0);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(248, 193);
+            this.listView.TabIndex = 12;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.List;
             // 
             // lbl_NO
             // 
@@ -100,7 +110,7 @@
             // mbtn_load
             // 
             this.mbtn_load.ActiveControl = null;
-            this.mbtn_load.Location = new System.Drawing.Point(167, 125);
+            this.mbtn_load.Location = new System.Drawing.Point(44, 129);
             this.mbtn_load.Name = "mbtn_load";
             this.mbtn_load.Size = new System.Drawing.Size(75, 48);
             this.mbtn_load.Style = MetroFramework.MetroColorStyle.Orange;
@@ -112,7 +122,7 @@
             // mbtn_get
             // 
             this.mbtn_get.ActiveControl = null;
-            this.mbtn_get.Location = new System.Drawing.Point(44, 125);
+            this.mbtn_get.Location = new System.Drawing.Point(149, 129);
             this.mbtn_get.Name = "mbtn_get";
             this.mbtn_get.Size = new System.Drawing.Size(75, 48);
             this.mbtn_get.TabIndex = 6;
@@ -126,7 +136,7 @@
             // 
             // 
             this.txb_select.CustomButton.Image = null;
-            this.txb_select.CustomButton.Location = new System.Drawing.Point(176, 1);
+            this.txb_select.CustomButton.Location = new System.Drawing.Point(158, 1);
             this.txb_select.CustomButton.Name = "";
             this.txb_select.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txb_select.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -135,7 +145,7 @@
             this.txb_select.CustomButton.UseSelectable = true;
             this.txb_select.CustomButton.Visible = false;
             this.txb_select.Lines = new string[0];
-            this.txb_select.Location = new System.Drawing.Point(44, 86);
+            this.txb_select.Location = new System.Drawing.Point(44, 85);
             this.txb_select.MaxLength = 32767;
             this.txb_select.Name = "txb_select";
             this.txb_select.PasswordChar = '\0';
@@ -143,21 +153,11 @@
             this.txb_select.SelectedText = "";
             this.txb_select.SelectionLength = 0;
             this.txb_select.SelectionStart = 0;
-            this.txb_select.Size = new System.Drawing.Size(198, 23);
+            this.txb_select.Size = new System.Drawing.Size(180, 23);
             this.txb_select.TabIndex = 5;
             this.txb_select.UseSelectable = true;
             this.txb_select.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txb_select.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // listView
-            // 
-            this.listView.Dock = System.Windows.Forms.DockStyle.Right;
-            this.listView.Location = new System.Drawing.Point(248, 0);
-            this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(248, 193);
-            this.listView.TabIndex = 12;
-            this.listView.UseCompatibleStateImageBehavior = false;
-            this.listView.View = System.Windows.Forms.View.List;
             // 
             // ParkStudent
             // 
