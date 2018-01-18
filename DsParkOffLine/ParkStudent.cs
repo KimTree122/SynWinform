@@ -70,7 +70,6 @@ namespace DsParkOffLine
         private void ShowComplete()
         {
             MetroMessageBox.Show(this, "加载完成","提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
         }
 
         private void UIhandlle(int v)
