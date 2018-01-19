@@ -47,6 +47,21 @@ namespace DsParkOffLine
         public string form { get; set; }
         public string oper { get; set; }
         public string rec { get; set; }
+        public string name { get; set; }
+        public string dsidno { get; set; }
+    }
+
+    public class ImportExcelCls
+    {
+        public string date { get; set; }
+        public string trainer { get; set; }
+        public string traincode { get; set; }
+        public string dsno { get; set; }
+        public string type { get; set; }
+        public string name { get; set; }
+        public string pass { get; set; }
+        public string unpass { get; set; }
+        public string untest { get; set; }
     }
 
 }
