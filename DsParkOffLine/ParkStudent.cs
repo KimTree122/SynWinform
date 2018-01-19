@@ -38,23 +38,24 @@ namespace DsParkOffLine
                 Initlbl("请输入学员号");
                 return;
             }
+            ShowHis();
 
-            List<DsHistory> dhlist = tp.GetDSHisInSqlite(txb_select.Text.Trim());
-            if (dhlist.Count() > 0)
-            {
-                foreach (var dh in dhlist)
-                {
-                    string his = dh.form + "-" + dh.oper + "-" + dh.rec;
-                    listView.Items.Add(his);
-                }
-                lbl_name.Text = dhlist[0].name;
-                lbl_NO.Text = dhlist[0].dsidno;
-            }
-            else
-            {
-                Initlbl("未查询该学员，请重新输入。");
-            }
-            txb_select.Text = "";
+            //List<DsHistory> dhlist = tp.GetDSHisInSqlite(txb_select.Text.Trim());
+            //if (dhlist.Count() > 0)
+            //{
+            //    foreach (var dh in dhlist)
+            //    {
+            //        string his = dh.form + "-" + dh.oper + "-" + dh.rec;
+            //        listView.Items.Add(his);
+            //    }
+            //    lbl_name.Text = dhlist[0].name;
+            //    lbl_NO.Text = dhlist[0].dsidno;
+            //}
+            //else
+            //{
+            //    Initlbl("未查询该学员，请重新输入。");
+            //}
+            //txb_select.Text = "";
 
 
 
@@ -76,6 +77,27 @@ namespace DsParkOffLine
             //    lbl_NO.Text = ds.dsidno;
             //}
             //txb_select.Text = "";
+        }
+
+        private void ShowHis()
+        {
+            ImportExcelCls iec = tp.GetImport(txb_select.Text.Trim());
+            if (iec.dsid != "0" )
+            {
+                listView.Items.Add("报名日期 -- " + iec.checkin);
+                listView.Items.Add("技能证   -- " + iec.skilldate);
+                listView.Items.Add("科一     -- " + iec.ky);
+                listView.Items.Add("科二     -- " + iec.ke);
+                listView.Items.Add("科三     -- " + iec.ks);
+                listView.Items.Add("科四     -- " + iec.kms);
+                lbl_name.Text = iec.name;
+                lbl_NO.Text = iec.dsid;
+            }
+            else
+            {
+                Initlbl("未查询该学员，请重新输入。");
+            }
+            txb_select.Text = "";
         }
 
         private void Initlbl(string str)

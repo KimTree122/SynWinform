@@ -12,7 +12,7 @@ namespace DsParkOffLine.BLL
 {
     public class ImportFile
     {
-        private static string[] ImExColName = { "日期","教练","教练代码","学员编号","类型","姓名","合格","不合格","缺考"};
+        private static string[] ImExColName = { "姓名","身份证","学员编号","教练代码","报名日期","性别","技能证日期","科一","科二","科三","科四"};
         internal static void ImoprtExcel(string str, ParkStudent parkStudent)
         {
             DataTable dt =  NPOIHelper.Import(str);
@@ -38,32 +38,23 @@ namespace DsParkOffLine.BLL
             {
                 ImportExcelCls tec = new ImportExcelCls
                 {
-                    date = dr["日期"].ToString(),
-                    type = dr["类型"].ToString(),
-                    dsno = dr["学员编号"].ToString(),
                     name = dr["姓名"].ToString(),
-                    trainer = dr["教练"].ToString(),
-                    traincode = dr["教练代码"].ToString(),
-                    pass = dr["合格"].ToString(),
-                    unpass = dr["不合格"].ToString(),
-                    untest = dr["缺考"].ToString()
+                    dsid = dr["身份证"].ToString(),
+                    dsno = dr["学员编号"].ToString(),
+                    trainercode = dr["教练代码"].ToString(),
+                    checkin = dr["报名日期"].ToString(),
+                    sex = dr["性别"].ToString(),
+                    skilldate = dr["技能证日期"].ToString(),
+                    ky = dr["科一"].ToString(),
+                    ke = dr["科二"].ToString(),
+                    ks = dr["科三"].ToString(),
+                    kms = dr["科四"].ToString()
                 };
-
                 ieclist.Add(tec);
             }
 
-            List<DsHistory> dhlist = new List<DsHistory>();
-            foreach (var iec in ieclist)
-            {
-                if (iec.pass == "TRUE")
-                {
-                    DsHistory dh = new DsHistory { id = iec.dsno, form = iec.type, oper = "合格", rec = iec.date };
-                    dhlist.Add(dh);
-                }
-            }
-
             DataCenter datac = new DataCenter();
-            datac.InsDBHistory(dhlist);
+            datac.InsOrUpdataDBHistory(ieclist);
             MetroMessageBox.Show(parkStudent, "导入完成", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }

@@ -45,26 +45,49 @@ namespace DsParkOffLine.ADO
             dbs.ExecuteSqlTran(sqlarr);
         }
 
-        public void InsDBHistory(DataTable dt)
+        //public void InsDBHistory(DataTable dt)
+        //{
+        //    ArrayList sqlarr = new ArrayList();
+        //    foreach (DataRow dr in dt.Rows)
+        //    {
+        //        string sqlins = string.Format("INSERT INTO  DShist  ( id ,form ,oper , rec,name,dsidno ) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", dr["id"].ToString(), dr["form"].ToString(), dr["oper"].ToString(), dr["rec"].ToString(), dr["name"].ToString(), dr["dsidno"].ToString());
+        //        sqlarr.Add(sqlins);
+        //    }
+        //    dbs.ExecuteSqlTran(sqlarr);
+        //}
+
+        public void InsOrUpdataDBHistory(List<ImportExcelCls> dshilist)
         {
             ArrayList sqlarr = new ArrayList();
-            foreach (DataRow dr in dt.Rows)
+            foreach (ImportExcelCls dh in dshilist)
             {
-                string sqlins = string.Format("INSERT INTO  DShist  ( id ,form ,oper , rec,name,dsidno ) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", dr["id"].ToString(), dr["form"].ToString(), dr["oper"].ToString(), dr["rec"].ToString(), dr["name"].ToString(), dr["dsidno"].ToString());
-                sqlarr.Add(sqlins);
+                string sql = "";
+                if (CheckHis(dh.dsno))
+                {
+                    sql = string.Format("INSERT INTO  DShist  ( name ,dsid ,dsno , trainercode,checkin,sex,skilldate, ky,ke,ks,kms) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", dh.name, dh.dsid, dh.dsno, dh.trainercode, dh.checkin, dh.sex, dh.skilldate, dh.ky, dh.ke, dh.ks, dh.kms);
+                }
+                else
+                {
+                    sql = string.Format("update DShist set skilldate = '{0}', ky = '{1}',ke = '{2}',ks = '{3}',kms = '{4}' where dsno = '{5}'",dh.skilldate,dh.ky,dh.ke,dh.ks,dh.kms,dh.dsno);
+                }
+                sqlarr.Add(sql);
             }
             dbs.ExecuteSqlTran(sqlarr);
         }
 
-        public void InsDBHistory(List<DsHistory> dshilist)
+        public bool CheckHis(string dsno)
         {
-            ArrayList sqlarr = new ArrayList();
-            foreach (DsHistory dh in dshilist)
-            {
-                string sqlins = string.Format("INSERT INTO  DShist  ( id ,form ,oper , rec,name,dsidno ) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", dh.id, dh.form, dh.oper, dh.rec,dh.name,dh.dsidno);
-                sqlarr.Add(sqlins);
-            }
-            dbs.ExecuteSqlTran(sqlarr);
+            string sql = string.Format("select count(*) from DShist where dsno = '{0}' ",dsno);
+            object obj = dbs.SQLExecuteScalar(sql);
+            if (obj == null) return true;
+            int count = int.Parse(obj.ToString());
+            return count > 0 ? false:true ;
+        }
+
+        public DataTable GetHis(string txt)
+        {
+            string sql = string.Format("select * from DShist where dsno like '%{0}' or dsid = '{0}'", txt);
+            return dbs.SQLiteGetTable(sql);
         }
 
 

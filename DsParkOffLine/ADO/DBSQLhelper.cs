@@ -39,7 +39,7 @@ namespace DsParkOffLine
         {
             string sql = string.Format("CREATE table DSstudent (ID int, dsid varchar(50), dsno varchar(50), dsname varchar(50), dsidno varchar(50)) ");
             SQLiteNonQuery(sql);
-            sql = string.Format("CREATE table DShist (id varchar(50), form varchar(50), oper varchar(50), rec varchar(50), name varchar(50), dsidno varchar(50)) ");
+            sql = string.Format("CREATE table DShist (name varchar(50), dsid varchar(50), dsno varchar(50), trainercode varchar(50), checkin varchar(50), sex varchar(50), skilldate varchar(50), ky varchar(50), ke varchar(50), ks varchar(50), kms varchar(50)) ");
             SQLiteNonQuery(sql);
             //sql = string.Format("CREATE table DSdataver (serstuid int, serhisid int,datatype int) ");
             //SQLiteNonQuery(sql);

@@ -41,14 +41,14 @@ namespace DsParkOffLine
 
         public void LoadStudentData()
         {
-            DataTable dt = dc.GetAllStudents();
-            if (dt.Rows.Count == 0) return;
-            dc.DelDBStudent();
-            dc.InsDBstudent(dt);
-            DataTable hdt = dc.GetHistory();
-            dc.DelDBHis();
-            dc.InsDBHistory(hdt);
-            scd();
+            //DataTable dt = dc.GetAllStudents();
+            //if (dt.Rows.Count == 0) return;
+            //dc.DelDBStudent();
+            //dc.InsDBstudent(dt);
+            //DataTable hdt = dc.GetHistory();
+            //dc.DelDBHis();
+            //dc.InsDBHistory(hdt);
+            //scd();
         }
 
         public DSstu GetStuInSqlite(string str)
@@ -61,10 +61,30 @@ namespace DsParkOffLine
             return dc.GetDShislist(stuid);
         }
 
+        public ImportExcelCls GetImport(string txt)
+        {
+            DataTable dt = dc.GetHis(txt);
+            if (dt.Rows.Count == 0) return new ImportExcelCls { dsid = "0" };
+            DataRow dr = dt.Rows[0];
+            return new ImportExcelCls
+            {
+                dsid = dr["dsid"].ToString(),
+                dsno = dr["dsno"].ToString(),
+                kms = dr["kms"].ToString(),
+                ks = dr["ks"].ToString(),
+                ke = dr["ke"].ToString(),
+                ky = dr["ky"].ToString(),
+                skilldate = dr["skilldate"].ToString(),
+                sex = dr["sex"].ToString(),
+                checkin = dr["checkin"].ToString(),
+                trainercode = dr["trainercode"].ToString(),
+                name = dr["name"].ToString()
+            };
+        }
+
         public bool CheckConnect()
         {
             return SerSQLhelper.TestConnect();
-
         }
 
 
