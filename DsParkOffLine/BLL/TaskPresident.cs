@@ -62,6 +62,7 @@ namespace DsParkOffLine
         public bool CheckConnect()
         {
             return SerSQLhelper.TestConnect();
+
         }
 
     }
