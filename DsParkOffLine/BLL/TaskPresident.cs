@@ -1,10 +1,12 @@
 ﻿using DsParkOffLine.ADO;
+using DsParkOffLine.BLL;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace DsParkOffLine
 {
@@ -54,7 +56,7 @@ namespace DsParkOffLine
             return dc.GetDSstubyNO(str);
         }
 
-        public List<DsHistory> GetDSHisInSqllite(string stuid)
+        public List<DsHistory> GetDSHisInSqlite(string stuid)
         {
             return dc.GetDShislist(stuid);
         }
@@ -62,6 +64,36 @@ namespace DsParkOffLine
         public bool CheckConnect()
         {
             return SerSQLhelper.TestConnect();
+        }
+
+
+        internal void importData(ParkStudent parkStudent)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Multiselect = true;
+            ofd.ShowDialog();
+            string[] files = ofd.FileNames;
+            foreach (var str in files)
+            {
+                string filetype =str.Substring(str.LastIndexOf('.')+1);
+                switch (filetype)
+                {
+                    case "xls": ExcelImport(str, parkStudent);
+                        break;
+                    case "sqlite": CopySqlite(str, parkStudent);
+                        break;
+                }
+            }
+        }
+
+        private void CopySqlite(string str, ParkStudent parkStudent)
+        {
+            
+        }
+
+        private void ExcelImport(string str, ParkStudent parkStudent)
+        {
+            ImportFile.ImoprtExcel(str, parkStudent);
         }
 
     }

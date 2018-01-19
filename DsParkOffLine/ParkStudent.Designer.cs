@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ParkStudent));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.mbtn_import = new MetroFramework.Controls.MetroTile();
             this.mpbar = new MetroFramework.Controls.MetroProgressBar();
             this.listView = new System.Windows.Forms.ListView();
             this.lbl_NO = new MetroFramework.Controls.MetroLabel();
@@ -44,6 +45,7 @@
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.mbtn_import);
             this.metroPanel1.Controls.Add(this.mpbar);
             this.metroPanel1.Controls.Add(this.listView);
             this.metroPanel1.Controls.Add(this.lbl_NO);
@@ -59,25 +61,37 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(27, 80);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(496, 193);
+            this.metroPanel1.Size = new System.Drawing.Size(546, 193);
             this.metroPanel1.TabIndex = 0;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
+            // mbtn_import
+            // 
+            this.mbtn_import.ActiveControl = null;
+            this.mbtn_import.Location = new System.Drawing.Point(111, 138);
+            this.mbtn_import.Name = "mbtn_import";
+            this.mbtn_import.Size = new System.Drawing.Size(75, 40);
+            this.mbtn_import.Style = MetroFramework.MetroColorStyle.Yellow;
+            this.mbtn_import.TabIndex = 14;
+            this.mbtn_import.Text = "导入";
+            this.mbtn_import.UseSelectable = true;
+            this.mbtn_import.Click += new System.EventHandler(this.mbtn_import_Click);
+            // 
             // mpbar
             // 
-            this.mpbar.Location = new System.Drawing.Point(44, 109);
+            this.mpbar.Location = new System.Drawing.Point(21, 109);
             this.mpbar.Name = "mpbar";
-            this.mpbar.Size = new System.Drawing.Size(180, 23);
+            this.mpbar.Size = new System.Drawing.Size(256, 23);
             this.mpbar.TabIndex = 13;
             // 
             // listView
             // 
             this.listView.Dock = System.Windows.Forms.DockStyle.Right;
-            this.listView.Location = new System.Drawing.Point(230, 0);
+            this.listView.Location = new System.Drawing.Point(296, 0);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(266, 193);
+            this.listView.Size = new System.Drawing.Size(250, 193);
             this.listView.TabIndex = 12;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.List;
@@ -101,7 +115,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(44, 53);
+            this.metroLabel2.Location = new System.Drawing.Point(21, 53);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(51, 19);
             this.metroLabel2.TabIndex = 9;
@@ -110,7 +124,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(44, 17);
+            this.metroLabel1.Location = new System.Drawing.Point(21, 17);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(51, 19);
             this.metroLabel1.TabIndex = 8;
@@ -119,7 +133,7 @@
             // mbtn_load
             // 
             this.mbtn_load.ActiveControl = null;
-            this.mbtn_load.Location = new System.Drawing.Point(44, 138);
+            this.mbtn_load.Location = new System.Drawing.Point(21, 138);
             this.mbtn_load.Name = "mbtn_load";
             this.mbtn_load.Size = new System.Drawing.Size(75, 40);
             this.mbtn_load.Style = MetroFramework.MetroColorStyle.Orange;
@@ -131,7 +145,7 @@
             // mbtn_get
             // 
             this.mbtn_get.ActiveControl = null;
-            this.mbtn_get.Location = new System.Drawing.Point(149, 138);
+            this.mbtn_get.Location = new System.Drawing.Point(201, 138);
             this.mbtn_get.Name = "mbtn_get";
             this.mbtn_get.Size = new System.Drawing.Size(75, 40);
             this.mbtn_get.TabIndex = 6;
@@ -145,7 +159,7 @@
             // 
             // 
             this.txb_select.CustomButton.Image = null;
-            this.txb_select.CustomButton.Location = new System.Drawing.Point(158, 1);
+            this.txb_select.CustomButton.Location = new System.Drawing.Point(234, 1);
             this.txb_select.CustomButton.Name = "";
             this.txb_select.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txb_select.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -154,7 +168,7 @@
             this.txb_select.CustomButton.UseSelectable = true;
             this.txb_select.CustomButton.Visible = false;
             this.txb_select.Lines = new string[0];
-            this.txb_select.Location = new System.Drawing.Point(44, 85);
+            this.txb_select.Location = new System.Drawing.Point(21, 85);
             this.txb_select.MaxLength = 32767;
             this.txb_select.Name = "txb_select";
             this.txb_select.PasswordChar = '\0';
@@ -162,7 +176,7 @@
             this.txb_select.SelectedText = "";
             this.txb_select.SelectionLength = 0;
             this.txb_select.SelectionStart = 0;
-            this.txb_select.Size = new System.Drawing.Size(180, 23);
+            this.txb_select.Size = new System.Drawing.Size(256, 23);
             this.txb_select.TabIndex = 5;
             this.txb_select.UseSelectable = true;
             this.txb_select.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -172,7 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 300);
+            this.ClientSize = new System.Drawing.Size(600, 300);
             this.Controls.Add(this.metroPanel1);
             this.Font = new System.Drawing.Font("宋体", 12F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -199,6 +213,7 @@
         private MetroFramework.Controls.MetroTextBox txb_select;
         private System.Windows.Forms.ListView listView;
         private MetroFramework.Controls.MetroProgressBar mpbar;
+        private MetroFramework.Controls.MetroTile mbtn_import;
     }
 }
 

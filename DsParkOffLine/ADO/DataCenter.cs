@@ -50,7 +50,18 @@ namespace DsParkOffLine.ADO
             ArrayList sqlarr = new ArrayList();
             foreach (DataRow dr in dt.Rows)
             {
-                string sqlins = string.Format("INSERT INTO  DShist  ( id ,form ,oper , rec ) VALUES ('{0}','{1}','{2}','{3}')", dr["id"].ToString(), dr["form"].ToString(), dr["oper"].ToString(), dr["rec"].ToString());
+                string sqlins = string.Format("INSERT INTO  DShist  ( id ,form ,oper , rec,name,dsidno ) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", dr["id"].ToString(), dr["form"].ToString(), dr["oper"].ToString(), dr["rec"].ToString(), dr["name"].ToString(), dr["dsidno"].ToString());
+                sqlarr.Add(sqlins);
+            }
+            dbs.ExecuteSqlTran(sqlarr);
+        }
+
+        public void InsDBHistory(List<DsHistory> dshilist)
+        {
+            ArrayList sqlarr = new ArrayList();
+            foreach (DsHistory dh in dshilist)
+            {
+                string sqlins = string.Format("INSERT INTO  DShist  ( id ,form ,oper , rec,name,dsidno ) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", dh.id, dh.form, dh.oper, dh.rec,dh.name,dh.dsidno);
                 sqlarr.Add(sqlins);
             }
             dbs.ExecuteSqlTran(sqlarr);
@@ -72,11 +83,11 @@ namespace DsParkOffLine.ADO
         public List<DsHistory> GetDShislist(string stuid)
         {
             List<DsHistory> dhlist = new List<DsHistory>();
-            string sql = string.Format("SELECT * FROM  DShist WHERE id = '{0}' order BY rec ", stuid);
+            string sql = string.Format("SELECT * FROM  DShist WHERE id like '%{0}' order BY rec ", stuid);
             DataTable dt = dbs.SQLiteGetTable(sql);
             foreach (DataRow dr in dt.Rows)
             {
-                DsHistory dh = new DsHistory { id = dr["id"].ToString(), form = dr["form"].ToString(), oper = dr["oper"].ToString(), rec = dr["rec"].ToString() };
+                DsHistory dh = new DsHistory { id = dr["id"].ToString(), form = dr["form"].ToString(), oper = dr["oper"].ToString(), rec = dr["rec"].ToString(), dsidno = dr["dsidno"].ToString(),name = dr["name"].ToString() };
                 dhlist.Add(dh);
             }
             return dhlist;
@@ -88,5 +99,6 @@ namespace DsParkOffLine.ADO
             string sqldel = string.Format("DELETE from DShist");
             dbs.SQLiteNonQuery(sqldel);
         }
+
     }
 }

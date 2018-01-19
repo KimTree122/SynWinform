@@ -36,30 +36,51 @@ namespace DsParkOffLine
             if (txb_select.Text.Trim().Length == 0)
             {
                 Initlbl("请输入学员号");
+                return;
             }
-            DSstu ds = tp.GetStuInSqlite(txb_select.Text.Trim());
-            if (ds.id == 0)
+
+            List<DsHistory> dhlist = tp.GetDSHisInSqlite(txb_select.Text.Trim());
+            if (dhlist.Count() > 0)
             {
-                Initlbl("未查询该学员，请重新输入。");
-            }
-            else
-            {
-                List<DsHistory> dhlist = tp.GetDSHisInSqllite(ds.dsid);
                 foreach (var dh in dhlist)
                 {
                     string his = dh.form + "-" + dh.oper + "-" + dh.rec;
                     listView.Items.Add(his);
                 }
-                lbl_name.Text = ds.dsname;
-                lbl_NO.Text = ds.dsidno;
+                lbl_name.Text = dhlist[0].name;
+                lbl_NO.Text = dhlist[0].dsidno;
+            }
+            else
+            {
+                Initlbl("未查询该学员，请重新输入。");
             }
             txb_select.Text = "";
+
+
+
+
+            //DSstu ds = tp.GetStuInSqlite(txb_select.Text.Trim());
+            //if (ds.id == 0)
+            //{
+            //    Initlbl("未查询该学员，请重新输入。");
+            //}
+            //else
+            //{
+            //    List<DsHistory> dhlist = tp.GetDSHisInSqlite(ds.dsno);
+            //    foreach (var dh in dhlist)
+            //    {
+            //        string his = dh.form + "-" + dh.oper + "-" + dh.rec;
+            //        listView.Items.Add(his);
+            //    }
+            //    lbl_name.Text = ds.dsname;
+            //    lbl_NO.Text = ds.dsidno;
+            //}
+            //txb_select.Text = "";
         }
 
         private void Initlbl(string str)
         {
-            MetroMessageBox.Show(this, str
-, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MetroMessageBox.Show(this, str, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             lbl_name.Text = "";
             lbl_NO.Text = "";
         }
@@ -97,6 +118,11 @@ namespace DsParkOffLine
         private void ChangemPbarValue(int v)
         {
             mpbar.Value = v;
+        }
+
+        private void mbtn_import_Click(object sender, EventArgs e)
+        {
+            tp.importData(this);
         }
 
     }

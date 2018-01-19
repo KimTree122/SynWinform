@@ -91,6 +91,7 @@
     <Compile Include="ADO\DataCenter.cs" />
     <Compile Include="ADO\DBSQLhelper.cs" />
     <Compile Include="ADO\SerSQLhelper.cs" />
+    <Compile Include="BLL\ImportFile.cs" />
     <Compile Include="BLL\TaskPresident.cs" />
     <Compile Include="Model\DSstudent.cs" />
     <Compile Include="Npoi\NPOIHelper.cs" />
