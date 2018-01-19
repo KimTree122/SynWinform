@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ParkStudent));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.mpbar = new MetroFramework.Controls.MetroProgressBar();
             this.listView = new System.Windows.Forms.ListView();
             this.lbl_NO = new MetroFramework.Controls.MetroLabel();
             this.lbl_name = new MetroFramework.Controls.MetroLabel();
@@ -38,7 +39,6 @@
             this.mbtn_load = new MetroFramework.Controls.MetroTile();
             this.mbtn_get = new MetroFramework.Controls.MetroTile();
             this.txb_select = new MetroFramework.Controls.MetroTextBox();
-            this.mpbar = new MetroFramework.Controls.MetroProgressBar();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,13 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // mpbar
+            // 
+            this.mpbar.Location = new System.Drawing.Point(44, 109);
+            this.mpbar.Name = "mpbar";
+            this.mpbar.Size = new System.Drawing.Size(180, 23);
+            this.mpbar.TabIndex = 13;
             // 
             // listView
             // 
@@ -128,7 +135,7 @@
             this.mbtn_get.Name = "mbtn_get";
             this.mbtn_get.Size = new System.Drawing.Size(75, 40);
             this.mbtn_get.TabIndex = 6;
-            this.mbtn_get.Text = "读取";
+            this.mbtn_get.Text = "查询";
             this.mbtn_get.UseSelectable = true;
             this.mbtn_get.Click += new System.EventHandler(this.mbtn_get_Click);
             // 
@@ -160,13 +167,6 @@
             this.txb_select.UseSelectable = true;
             this.txb_select.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txb_select.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // mpbar
-            // 
-            this.mpbar.Location = new System.Drawing.Point(44, 109);
-            this.mpbar.Name = "mpbar";
-            this.mpbar.Size = new System.Drawing.Size(180, 23);
-            this.mpbar.TabIndex = 13;
             // 
             // ParkStudent
             // 

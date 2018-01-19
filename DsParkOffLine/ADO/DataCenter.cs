@@ -59,7 +59,7 @@ namespace DsParkOffLine.ADO
 
         public DSstu GetDSstubyNO(string dsidno) 
         {
-            string sql = string.Format("SELECT * FROM DSstudent  WHERE (dsno = '{0}' or dsidno = '{0}')", dsidno);
+            string sql = string.Format("SELECT * FROM DSstudent  WHERE (dsno like '%{0}' or dsidno = '{0}')", dsidno);
             DataTable dt = dbs.SQLiteGetTable(sql);
             if (dt.Rows.Count > 0)
             {

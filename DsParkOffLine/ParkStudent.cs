@@ -33,13 +33,14 @@ namespace DsParkOffLine
         private void mbtn_get_Click(object sender, EventArgs e)
         {
             listView.Items.Clear();
+            if (txb_select.Text.Trim().Length == 0)
+            {
+                Initlbl("请输入学员号");
+            }
             DSstu ds = tp.GetStuInSqlite(txb_select.Text.Trim());
             if (ds.id == 0)
             {
-                MetroMessageBox.Show(this, "未查询该学员，请重新输入。"
-   , "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                lbl_name.Text = "";
-                lbl_NO.Text = "";
+                Initlbl("未查询该学员，请重新输入。");
             }
             else
             {
@@ -53,6 +54,14 @@ namespace DsParkOffLine
                 lbl_NO.Text = ds.dsidno;
             }
             txb_select.Text = "";
+        }
+
+        private void Initlbl(string str)
+        {
+            MetroMessageBox.Show(this, str
+, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            lbl_name.Text = "";
+            lbl_NO.Text = "";
         }
 
         private void mbtn_load_Click(object sender, EventArgs e)
