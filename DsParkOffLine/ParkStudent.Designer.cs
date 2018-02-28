@@ -30,8 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ParkStudent));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.btn_clear = new MetroFramework.Controls.MetroTile();
+            this.btn_del = new MetroFramework.Controls.MetroTile();
+            this.mbtn_blacklist = new MetroFramework.Controls.MetroTile();
             this.mbtn_import = new MetroFramework.Controls.MetroTile();
-            this.mpbar = new MetroFramework.Controls.MetroProgressBar();
             this.listView = new System.Windows.Forms.ListView();
             this.lbl_NO = new MetroFramework.Controls.MetroLabel();
             this.lbl_name = new MetroFramework.Controls.MetroLabel();
@@ -39,13 +41,13 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.mbtn_get = new MetroFramework.Controls.MetroTile();
             this.txb_select = new MetroFramework.Controls.MetroTextBox();
-            this.mbtn_blacklist = new MetroFramework.Controls.MetroTile();
-            this.btn_del = new MetroFramework.Controls.MetroTile();
+            this.mpbar = new MetroFramework.Controls.MetroProgressBar();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.btn_clear);
             this.metroPanel1.Controls.Add(this.btn_del);
             this.metroPanel1.Controls.Add(this.mbtn_blacklist);
             this.metroPanel1.Controls.Add(this.mbtn_import);
@@ -68,24 +70,53 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
+            // btn_clear
+            // 
+            this.btn_clear.ActiveControl = null;
+            this.btn_clear.Location = new System.Drawing.Point(161, 168);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.Size = new System.Drawing.Size(60, 40);
+            this.btn_clear.Style = MetroFramework.MetroColorStyle.Green;
+            this.btn_clear.TabIndex = 14;
+            this.btn_clear.Text = "清空";
+            this.btn_clear.UseSelectable = true;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
+            // 
+            // btn_del
+            // 
+            this.btn_del.ActiveControl = null;
+            this.btn_del.Location = new System.Drawing.Point(91, 168);
+            this.btn_del.Name = "btn_del";
+            this.btn_del.Size = new System.Drawing.Size(60, 40);
+            this.btn_del.Style = MetroFramework.MetroColorStyle.Orange;
+            this.btn_del.TabIndex = 15;
+            this.btn_del.Text = "删除";
+            this.btn_del.UseSelectable = true;
+            this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
+            // 
+            // mbtn_blacklist
+            // 
+            this.mbtn_blacklist.ActiveControl = null;
+            this.mbtn_blacklist.Location = new System.Drawing.Point(21, 168);
+            this.mbtn_blacklist.Name = "mbtn_blacklist";
+            this.mbtn_blacklist.Size = new System.Drawing.Size(60, 40);
+            this.mbtn_blacklist.Style = MetroFramework.MetroColorStyle.Black;
+            this.mbtn_blacklist.TabIndex = 7;
+            this.mbtn_blacklist.Text = "黑名单";
+            this.mbtn_blacklist.UseSelectable = true;
+            this.mbtn_blacklist.Click += new System.EventHandler(this.mbtn_blacklist_Click);
+            // 
             // mbtn_import
             // 
             this.mbtn_import.ActiveControl = null;
             this.mbtn_import.Location = new System.Drawing.Point(21, 114);
             this.mbtn_import.Name = "mbtn_import";
-            this.mbtn_import.Size = new System.Drawing.Size(75, 40);
+            this.mbtn_import.Size = new System.Drawing.Size(60, 40);
             this.mbtn_import.Style = MetroFramework.MetroColorStyle.Yellow;
             this.mbtn_import.TabIndex = 14;
             this.mbtn_import.Text = "导入";
             this.mbtn_import.UseSelectable = true;
             this.mbtn_import.Click += new System.EventHandler(this.mbtn_import_Click);
-            // 
-            // mpbar
-            // 
-            this.mpbar.Location = new System.Drawing.Point(355, 36);
-            this.mpbar.Name = "mpbar";
-            this.mpbar.Size = new System.Drawing.Size(24, 23);
-            this.mpbar.TabIndex = 13;
             // 
             // listView
             // 
@@ -134,9 +165,9 @@
             // mbtn_get
             // 
             this.mbtn_get.ActiveControl = null;
-            this.mbtn_get.Location = new System.Drawing.Point(146, 114);
+            this.mbtn_get.Location = new System.Drawing.Point(161, 114);
             this.mbtn_get.Name = "mbtn_get";
-            this.mbtn_get.Size = new System.Drawing.Size(75, 40);
+            this.mbtn_get.Size = new System.Drawing.Size(60, 40);
             this.mbtn_get.TabIndex = 6;
             this.mbtn_get.Text = "查询";
             this.mbtn_get.UseSelectable = true;
@@ -171,29 +202,12 @@
             this.txb_select.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txb_select.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // mbtn_blacklist
+            // mpbar
             // 
-            this.mbtn_blacklist.ActiveControl = null;
-            this.mbtn_blacklist.Location = new System.Drawing.Point(21, 168);
-            this.mbtn_blacklist.Name = "mbtn_blacklist";
-            this.mbtn_blacklist.Size = new System.Drawing.Size(75, 40);
-            this.mbtn_blacklist.Style = MetroFramework.MetroColorStyle.Black;
-            this.mbtn_blacklist.TabIndex = 7;
-            this.mbtn_blacklist.Text = "黑名单";
-            this.mbtn_blacklist.UseSelectable = true;
-            this.mbtn_blacklist.Click += new System.EventHandler(this.mbtn_blacklist_Click);
-            // 
-            // btn_del
-            // 
-            this.btn_del.ActiveControl = null;
-            this.btn_del.Location = new System.Drawing.Point(146, 168);
-            this.btn_del.Name = "btn_del";
-            this.btn_del.Size = new System.Drawing.Size(75, 40);
-            this.btn_del.Style = MetroFramework.MetroColorStyle.Orange;
-            this.btn_del.TabIndex = 15;
-            this.btn_del.Text = "删除";
-            this.btn_del.UseSelectable = true;
-            this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
+            this.mpbar.Location = new System.Drawing.Point(355, 36);
+            this.mpbar.Name = "mpbar";
+            this.mpbar.Size = new System.Drawing.Size(24, 23);
+            this.mpbar.TabIndex = 13;
             // 
             // ParkStudent
             // 
@@ -205,6 +219,8 @@
             this.Font = new System.Drawing.Font("宋体", 12F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ParkStudent";
             this.Padding = new System.Windows.Forms.Padding(27, 80, 27, 27);
             this.Text = "查询";
@@ -229,6 +245,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTile btn_del;
+        private MetroFramework.Controls.MetroTile btn_clear;
     }
 }
 

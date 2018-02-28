@@ -12,14 +12,14 @@ namespace DsParkOffLine
 {
     public class TaskPresident
     {
-        private DataCenter dc;
+        private DataCenter dC;
         public delegate void ShowComDial();
         public delegate void ChangeProBarValue(int i);
         private ShowComDial scd;
 
         public TaskPresident() 
         {
-            dc = new DataCenter();
+            dC = new DataCenter();
         }
 
         public void LoadSerDataThread( ShowComDial s)
@@ -53,18 +53,18 @@ namespace DsParkOffLine
 
         public DSstu GetStuInSqlite(string str)
         {
-            return dc.GetDSstubyNO(str);
+            return dC.GetDSstubyNO(str);
         }
 
         public List<DsHistory> GetDSHisInSqlite(string stuid)
         {
-            return dc.GetDShislist(stuid);
+            return dC.GetDShislist(stuid);
         }
 
         public ImportExcelCls GetImport(string txt)
         {
-            DataTable dt = dc.GetHis(txt);
-            if (dt.Rows.Count == 0) return new ImportExcelCls { dsid = "0" };
+            DataTable dt = dC.GetHis(txt);
+            if (dt.Rows.Count == 0) return new ImportExcelCls { dsid = "0",dsno = "" };
             DataRow dr = dt.Rows[0];
             return new ImportExcelCls
             {
@@ -117,5 +117,30 @@ namespace DsParkOffLine
             ImportFile.ImoprtExcel(str, parkStudent);
         }
 
+
+        internal bool AddBlackListName(ImportExcelCls iE)
+        {
+            
+            bool check =  dC.CheckHisByDsid(iE.dsid) > 0;
+            if (check)
+            {
+                return false;
+            }
+            else
+            {
+                int count = dC.InSDBHis(iE);
+                return count > 0;
+            }
+        }
+
+        internal int GetHisCountByDSid(string dsid)
+        {
+            return dC.CheckHisByDsid(dsid);
+        }
+
+        internal bool DeleteDShis(string DsID)
+        {
+            return dC.DelDBHisByDsID(DsID);
+        }
     }
 }

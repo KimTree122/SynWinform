@@ -146,8 +146,9 @@
             this.btn_cancel.Size = new System.Drawing.Size(75, 46);
             this.btn_cancel.Style = MetroFramework.MetroColorStyle.Red;
             this.btn_cancel.TabIndex = 6;
-            this.btn_cancel.Text = "取消";
+            this.btn_cancel.Text = "退出";
             this.btn_cancel.UseSelectable = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_enter
             // 
@@ -158,6 +159,7 @@
             this.btn_enter.TabIndex = 7;
             this.btn_enter.Text = "确定";
             this.btn_enter.UseSelectable = true;
+            this.btn_enter.Click += new System.EventHandler(this.btn_enter_Click);
             // 
             // BlackList
             // 

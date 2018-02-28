@@ -51,7 +51,7 @@
             // 
             this.txb_pwd.CustomButton.Image = null;
             this.txb_pwd.CustomButton.Location = new System.Drawing.Point(125, 1);
-            this.txb_pwd.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_pwd.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.txb_pwd.CustomButton.Name = "";
             this.txb_pwd.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txb_pwd.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -61,10 +61,10 @@
             this.txb_pwd.CustomButton.Visible = false;
             this.txb_pwd.Lines = new string[0];
             this.txb_pwd.Location = new System.Drawing.Point(114, 84);
-            this.txb_pwd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txb_pwd.MaxLength = 32767;
+            this.txb_pwd.Margin = new System.Windows.Forms.Padding(4);
+            this.txb_pwd.MaxLength = 10;
             this.txb_pwd.Name = "txb_pwd";
-            this.txb_pwd.PasswordChar = '\0';
+            this.txb_pwd.PasswordChar = '*';
             this.txb_pwd.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txb_pwd.SelectedText = "";
             this.txb_pwd.SelectionLength = 0;
@@ -84,6 +84,7 @@
             this.btn_enter.TabIndex = 9;
             this.btn_enter.Text = "确定";
             this.btn_enter.UseSelectable = true;
+            this.btn_enter.Click += new System.EventHandler(this.btn_enter_Click);
             // 
             // btn_cancel
             // 
@@ -106,7 +107,7 @@
             this.Controls.Add(this.txb_pwd);
             this.Controls.Add(this.metroLabel1);
             this.Font = new System.Drawing.Font("宋体", 12F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DelConfirm";

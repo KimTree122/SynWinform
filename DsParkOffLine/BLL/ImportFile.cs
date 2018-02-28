@@ -31,6 +31,7 @@ namespace DsParkOffLine.BLL
             if (CorCount  != ImExColName.Count())
             {
                 MetroMessageBox.Show(parkStudent, "表格名称不匹配", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
             List<ImportExcelCls>  ieclist = new List<ImportExcelCls>();

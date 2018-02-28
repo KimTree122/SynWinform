@@ -45,14 +45,25 @@ namespace DsParkOffLine
         {
             listView.Items.Clear();
             ImportExcelCls iec = tp.GetImport(txb_select.Text.Trim());
-            if (iec.dsid != "0" )
+            if (iec.dsid.Length != 0 )
             {
-                listView.Items.Add("报名日期 -- " + iec.checkin);
-                listView.Items.Add("技能证   -- " + iec.skilldate);
-                listView.Items.Add("科一     -- " + iec.ky);
-                listView.Items.Add("科二     -- " + iec.ke);
-                listView.Items.Add("科三     -- " + iec.ks);
-                listView.Items.Add("科四     -- " + iec.kms);
+                if (iec.dsno.Length == 0)
+                {
+                    listView.Items.Add("登记日期 -- " + iec.checkin);
+                    Initlbl("此人员在黑名单中");
+                    ChangeTextColor(true);
+                }
+                else
+                {
+                    listView.Items.Add("报名日期 -- " + iec.checkin);
+                    listView.Items.Add("技能证   -- " + iec.skilldate);
+                    listView.Items.Add("科一     -- " + iec.ky);
+                    listView.Items.Add("科二     -- " + iec.ke);
+                    listView.Items.Add("科三     -- " + iec.ks);
+                    listView.Items.Add("科四     -- " + iec.kms);
+                    ChangeTextColor(false);
+                }
+                
                 lbl_name.Text = iec.name;
                 lbl_NO.Text = iec.dsid;
             }
@@ -62,6 +73,16 @@ namespace DsParkOffLine
             }
             txb_select.Text = "";
         }
+
+        private void ChangeTextColor(bool c) 
+        {
+            Color color = c ? Color.Red : Color.Black;
+
+            lbl_name.ForeColor = color;
+            lbl_NO.ForeColor = color;
+            listView.ForeColor = color;
+
+        } 
 
         private void Initlbl(string str)
         {
@@ -108,14 +129,35 @@ namespace DsParkOffLine
 
         private void mbtn_blacklist_Click(object sender, EventArgs e)
         {
-            BlackList bl = new BlackList();
+            BlackList bl = new BlackList(ClearData);
             bl.ShowDialog();
         }
 
         private void btn_del_Click(object sender, EventArgs e)
         {
-            DelConfirm dc = new DelConfirm();
+            DelConfirm dc = new DelConfirm(ClearData,lbl_NO.Text);
             dc.ShowDialog();
+        }
+
+        public void ClearData()
+        {
+            
+        }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+             DialogResult dr = MetroMessageBox.Show(this, "测试", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+             if (dr == DialogResult.Yes)
+             {
+                 MessageBox.Show("yes");
+             }
+             if (dr == DialogResult.No)
+             {
+                 MessageBox.Show("no");
+             }
+
+
+            ClearData();
         }
 
     }

@@ -62,7 +62,7 @@ namespace DsParkOffLine.ADO
             foreach (ImportExcelCls dh in dshilist)
             {
                 string sql = "";
-                if (CheckHis(dh.dsno))
+                if (CheckHisByDsNO(dh.dsno))
                 {
                     sql = string.Format("INSERT INTO  DShist  ( name ,dsid ,dsno , trainercode,checkin,sex,skilldate, ky,ke,ks,kms) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", dh.name, dh.dsid, dh.dsno, dh.trainercode, dh.checkin, dh.sex, dh.skilldate, dh.ky, dh.ke, dh.ks, dh.kms);
                 }
@@ -75,7 +75,7 @@ namespace DsParkOffLine.ADO
             dbs.ExecuteSqlTran(sqlarr);
         }
 
-        public bool CheckHis(string dsno)
+        public bool CheckHisByDsNO(string dsno)
         {
             string sql = string.Format("select count(*) from DShist where dsno = '{0}' ",dsno);
             object obj = dbs.SQLExecuteScalar(sql);
@@ -83,6 +83,16 @@ namespace DsParkOffLine.ADO
             int count = int.Parse(obj.ToString());
             return count > 0 ? false:true ;
         }
+
+        public int CheckHisByDsid(string dsid)
+        {
+            string sql = string.Format("select count(*) from DShist where dsid = '{0}' ", dsid);
+            object obj = dbs.SQLExecuteScalar(sql);
+            if (obj == null) return 0;
+            int count = int.Parse(obj.ToString());
+            return count  ;
+        }
+
 
         public DataTable GetHis(string txt)
         {
@@ -123,5 +133,17 @@ namespace DsParkOffLine.ADO
             dbs.SQLiteNonQuery(sqldel);
         }
 
+
+        internal int InSDBHis(ImportExcelCls iE)
+        {
+            string sql = string.Format("INSERT INTO  DShist  ( name ,dsid ,dsno , trainercode,checkin,sex,skilldate, ky,ke,ks,kms) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}')", iE.name, iE.dsid, iE.dsno, iE.trainercode, iE.checkin, iE.sex, iE.skilldate, iE.ky, iE.ke,iE.ks, iE.kms);
+            return dbs.SQLiteNonQuery(sql);
+        }
+
+        internal bool DelDBHisByDsID(string DsID)
+        {
+            string sql = string.Format("delete DShist where dsid = '{0}'",DsID);
+            return dbs.SQLiteNonQuery(sql) > 0;
+        }
     }
 }
