@@ -26,7 +26,7 @@ namespace DsParkOffLine
         private void ParkStudent_Load(object sender, EventArgs e)
         {
             tp = new TaskPresident();
-            mbtn_load.Visible = tp.CheckConnect();
+            //mbtn_load.Visible = tp.CheckConnect();
             mpbar.Visible = false;
         }
 
