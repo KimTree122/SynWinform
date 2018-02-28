@@ -45,25 +45,22 @@ namespace DsParkOffLine
         private void DeleteHis()
         {
             int count = tp.GetHisCountByDSid(DsID);
-            if (count > 1)
-            {
-                DialogResult dr = MetroMessageBox.Show(this, "查询有" + count + "个重复身份证号 \r\n 是否全部删除？","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-                if (dr == DialogResult.Yes)
-                {
-                    bool c = tp.DeleteDShis(DsID);
-                    if (c) ShowDialog("删除成功");
-                    
-                }
-            }
-            else if (count == 1)
+            if (count > 0)
             {
                 bool c = tp.DeleteDShis(DsID);
-                if (c) ShowDialog("删除成功");
+                if (c) 
+                {
+                    ShowDialog("删除成功");
+                    clearData();
+                    this.Close();
+                }
+                else
+                {
+                    ShowDialog("未能删除");
+                    this.Close();
+                }
             }
-            else
-            {
-                ShowDialog("未查询对应身份证学员");
-            }
+
         }
 
         private void ShowDialog(string str)

@@ -142,7 +142,7 @@ namespace DsParkOffLine.ADO
 
         internal bool DelDBHisByDsID(string DsID)
         {
-            string sql = string.Format("delete DShist where dsid = '{0}'",DsID);
+            string sql = string.Format("delete from DShist where dsid = '{0}' and dsno = ''", DsID);
             return dbs.SQLiteNonQuery(sql) > 0;
         }
     }

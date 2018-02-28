@@ -83,6 +83,7 @@ namespace DsParkOffLine
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
+            clearData();
             this.Close();
         }
 

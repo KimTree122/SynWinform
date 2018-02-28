@@ -201,6 +201,7 @@
             this.txb_select.UseSelectable = true;
             this.txb_select.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txb_select.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txb_select.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txb_select_KeyDown);
             // 
             // mpbar
             // 

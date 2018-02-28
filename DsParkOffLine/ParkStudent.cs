@@ -36,6 +36,8 @@ namespace DsParkOffLine
             if (txb_select.Text.Trim().Length == 0)
             {
                 Initlbl("请输入学员号");
+                listView.Items.Clear();
+                ChangeTextColor(false);
                 return;
             }
             ShowHis();
@@ -45,7 +47,7 @@ namespace DsParkOffLine
         {
             listView.Items.Clear();
             ImportExcelCls iec = tp.GetImport(txb_select.Text.Trim());
-            if (iec.dsid.Length != 0 )
+            if (iec.dsid != "0" )
             {
                 if (iec.dsno.Length == 0)
                 {
@@ -141,23 +143,22 @@ namespace DsParkOffLine
 
         public void ClearData()
         {
-            
+            lbl_name.Text = "";
+            lbl_NO.Text = "";
+            listView.Items.Clear();
         }
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
-             DialogResult dr = MetroMessageBox.Show(this, "测试", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-             if (dr == DialogResult.Yes)
-             {
-                 MessageBox.Show("yes");
-             }
-             if (dr == DialogResult.No)
-             {
-                 MessageBox.Show("no");
-             }
-
-
             ClearData();
+        }
+
+        private void txb_select_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                mbtn_get.PerformClick();
+            }
         }
 
     }
