@@ -32,55 +32,18 @@ namespace DsParkOffLine
 
         private void mbtn_get_Click(object sender, EventArgs e)
         {
-            listView.Items.Clear();
+            
             if (txb_select.Text.Trim().Length == 0)
             {
                 Initlbl("请输入学员号");
                 return;
             }
             ShowHis();
-
-            //List<DsHistory> dhlist = tp.GetDSHisInSqlite(txb_select.Text.Trim());
-            //if (dhlist.Count() > 0)
-            //{
-            //    foreach (var dh in dhlist)
-            //    {
-            //        string his = dh.form + "-" + dh.oper + "-" + dh.rec;
-            //        listView.Items.Add(his);
-            //    }
-            //    lbl_name.Text = dhlist[0].name;
-            //    lbl_NO.Text = dhlist[0].dsidno;
-            //}
-            //else
-            //{
-            //    Initlbl("未查询该学员，请重新输入。");
-            //}
-            //txb_select.Text = "";
-
-
-
-
-            //DSstu ds = tp.GetStuInSqlite(txb_select.Text.Trim());
-            //if (ds.id == 0)
-            //{
-            //    Initlbl("未查询该学员，请重新输入。");
-            //}
-            //else
-            //{
-            //    List<DsHistory> dhlist = tp.GetDSHisInSqlite(ds.dsno);
-            //    foreach (var dh in dhlist)
-            //    {
-            //        string his = dh.form + "-" + dh.oper + "-" + dh.rec;
-            //        listView.Items.Add(his);
-            //    }
-            //    lbl_name.Text = ds.dsname;
-            //    lbl_NO.Text = ds.dsidno;
-            //}
-            //txb_select.Text = "";
         }
 
         private void ShowHis()
         {
+            listView.Items.Clear();
             ImportExcelCls iec = tp.GetImport(txb_select.Text.Trim());
             if (iec.dsid != "0" )
             {
@@ -107,16 +70,12 @@ namespace DsParkOffLine
             lbl_NO.Text = "";
         }
 
-        private void mbtn_load_Click(object sender, EventArgs e)
-        {
-            tp.LoadSerDataThread(ShowComplete);
-
-            //new Thread(new ThreadStart(ChangeProBarValue)).Start();
-        }
 
         private void ChangeProBarValue()
         {
             tp.ThreadTest(UIhandlle);
+            //tp.LoadSerDataThread(ShowComplete);
+            //new Thread(new ThreadStart(ChangeProBarValue)).Start();
         }
 
         private void ShowComplete()
@@ -145,6 +104,18 @@ namespace DsParkOffLine
         private void mbtn_import_Click(object sender, EventArgs e)
         {
             tp.importData(this);
+        }
+
+        private void mbtn_blacklist_Click(object sender, EventArgs e)
+        {
+            BlackList bl = new BlackList();
+            bl.ShowDialog();
+        }
+
+        private void btn_del_Click(object sender, EventArgs e)
+        {
+            DelConfirm dc = new DelConfirm();
+            dc.ShowDialog();
         }
 
     }
