@@ -111,7 +111,7 @@
             this.mbtn_import.ActiveControl = null;
             this.mbtn_import.Location = new System.Drawing.Point(21, 114);
             this.mbtn_import.Name = "mbtn_import";
-            this.mbtn_import.Size = new System.Drawing.Size(60, 40);
+            this.mbtn_import.Size = new System.Drawing.Size(90, 40);
             this.mbtn_import.Style = MetroFramework.MetroColorStyle.Yellow;
             this.mbtn_import.TabIndex = 14;
             this.mbtn_import.Text = "导入";
@@ -165,9 +165,9 @@
             // mbtn_get
             // 
             this.mbtn_get.ActiveControl = null;
-            this.mbtn_get.Location = new System.Drawing.Point(161, 114);
+            this.mbtn_get.Location = new System.Drawing.Point(131, 114);
             this.mbtn_get.Name = "mbtn_get";
-            this.mbtn_get.Size = new System.Drawing.Size(60, 40);
+            this.mbtn_get.Size = new System.Drawing.Size(90, 40);
             this.mbtn_get.TabIndex = 6;
             this.mbtn_get.Text = "查询";
             this.mbtn_get.UseSelectable = true;
@@ -224,6 +224,7 @@
             this.MinimizeBox = false;
             this.Name = "ParkStudent";
             this.Padding = new System.Windows.Forms.Padding(27, 80, 27, 27);
+            this.Resizable = false;
             this.Text = "查询";
             this.Load += new System.EventHandler(this.ParkStudent_Load);
             this.metroPanel1.ResumeLayout(false);
