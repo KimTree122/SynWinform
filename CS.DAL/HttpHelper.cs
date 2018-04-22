@@ -7,17 +7,15 @@ using System.Text;
 
 namespace CS.DAL
 {
-    public class HttpHelper
+    public class HttpHelper:IHttpHelper
     {
 
-        //string url = "Http://127.0.0.1/login.jsp?Name=zhangshi&Age=30&Submit=%cc%E+%BD%BB";
+        //string url = "";
         //        string res = HttpHelper.GetHttpResponse(url, 6000);
         //if (res != null)
         //{
         //   T mes = JsonHelper.DeserializeJsonToObject<T>(res)
         //}
-
-
         public static string GetHttpResponse(string url, int Timeout)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -51,10 +49,8 @@ namespace CS.DAL
         //   string mes = HttpHelper.GetResponseString(res);
         //    T model = JsonHelper.DeserializeJsonToObject<T>(mes);
         //}
-
-
         /// 创建POST方式的HTTP请求  
-        public static HttpWebResponse CreatePostHttpResponse(string url, IDictionary<string, string> parameters, int timeout, CookieCollection cookies)
+        public static HttpWebResponse CreatePostHttpResponse(string url, IDictionary<object, object> parameters, int timeout, CookieCollection cookies)
         {
             HttpWebRequest request = null;
             //如果是发送HTTPS请求  

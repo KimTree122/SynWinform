@@ -1,4 +1,5 @@
 ﻿using CS.BLL.BaseInfo;
+using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,18 +11,16 @@ using System.Windows.Forms;
 
 namespace CS.UI
 {
-    public partial class Form1 : Form
+    public partial class MainForm : MetroForm
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            BaseInfoService userInfoService = new BaseInfoService();
-            string str = userInfoService.GetUserInfo();
-            MessageBox.Show(str);
+            
         }
     }
 }

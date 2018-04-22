@@ -2,19 +2,40 @@
 using CS.Models.BaseInfo;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 
 namespace CS.BLL.BaseInfo
 {
     public class BaseInfoService
     {
-        public string GetUserInfo()
+        public static string GetResponseString(HttpWebResponse webresponse)
+        {
+            using (Stream s = webresponse.GetResponseStream())
+            {
+                StreamReader reader = new StreamReader(s, Encoding.UTF8);
+                return reader.ReadToEnd();
+
+            }
+        }
+
+        public string GetUserInfo(string name,string post)
         {
             string url = UrlHelper.BaseInfoUrl.UserInfo.GetName;
-            string str = HttpHelper.GetHttpResponse(url, 200);
-            if (str != null) return str;
+
+            HttpTools tools = new HttpTools();
+            tools.addPar("name", name).addPar("post", post).dicParameter();
+
+            HttpWebResponse res = HttpHelper.CreatePostHttpResponse(url, tools.dic, 3000, null);
+            if (res != null)
+            {
+                return GetResponseString(res);
+            }
             return "";
         }
+
+
     }
 }
