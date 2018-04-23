@@ -71,6 +71,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SYS\BaseTabFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SYS\BaseTabFrom.Designer.cs">
+      <DependentUpon>BaseTabFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SYS\FrmAuthorManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SYS\FrmAuthorManage.Designer.cs">
+      <DependentUpon>FrmAuthorManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SYS\FrmDict.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SYS\FrmDict.Designer.cs">
+      <DependentUpon>FrmDict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SYS\FrmDictDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SYS\FrmDictDialog.Designer.cs">
+      <DependentUpon>FrmDictDialog.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,7 +109,20 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SYS\BaseTabFrom.resx">
+      <DependentUpon>BaseTabFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SYS\FrmAuthorManage.resx">
+      <DependentUpon>FrmAuthorManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SYS\FrmDict.resx">
+      <DependentUpon>FrmDict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SYS\FrmDictDialog.resx">
+      <DependentUpon>FrmDictDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -109,8 +146,39 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BaseInfoForm\" />
-    <Folder Include="SYS\" />
     <Folder Include="WorkInfoForm\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\w1.ico" />
+    <Content Include="Image\w10.ico" />
+    <Content Include="Image\w11.ico" />
+    <Content Include="Image\w12.ico" />
+    <Content Include="Image\w13.ico" />
+    <Content Include="Image\w14.ico" />
+    <Content Include="Image\w15.ico" />
+    <Content Include="Image\w16.ico" />
+    <Content Include="Image\w17.ico" />
+    <Content Include="Image\w18.ico" />
+    <Content Include="Image\w19.ico" />
+    <Content Include="Image\w2.ico" />
+    <Content Include="Image\w20.ico" />
+    <Content Include="Image\w21.ico" />
+    <Content Include="Image\w22.ico" />
+    <Content Include="Image\w23.ico" />
+    <Content Include="Image\w24.ico" />
+    <Content Include="Image\w25.ico" />
+    <Content Include="Image\w26.ico" />
+    <Content Include="Image\w27.ico" />
+    <Content Include="Image\w28.ico" />
+    <Content Include="Image\w29.ico" />
+    <Content Include="Image\w3.ico" />
+    <Content Include="Image\w30.ico" />
+    <Content Include="Image\w4.ico" />
+    <Content Include="Image\w5.ico" />
+    <Content Include="Image\w6.ico" />
+    <Content Include="Image\w7.ico" />
+    <Content Include="Image\w8.ico" />
+    <Content Include="Image\w9.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -20,6 +20,23 @@ namespace CS.DAL
 
                 public static string GetName = SecondLayer + "GetUserInfo";
             }
+
+            public static class Dictionary
+            {
+                private static readonly string SecondLayer = FristLayer + ConfigurationManager.AppSettings["BaseInfo"] + "/";
+
+                public static string GetDicByType= SecondLayer + "GetDictionary";
+                public static string AddDicByType = SecondLayer + "AddDictionary";
+            }
+
+            public static class Authority
+            {
+                private static readonly string SecondLayer = FristLayer + ConfigurationManager.AppSettings["BaseInfo"] + "/";
+
+                public static string GetDicByType = SecondLayer + "AddAuthority";
+                public static string AddAuthority = SecondLayer + "AddAuthority";
+            }
+
         }
 
     }

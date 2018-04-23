@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseInfo\BaseInfo.cs" />
-    <Compile Include="PostUrl.cs" />
+    <Compile Include="PostData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

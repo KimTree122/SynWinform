@@ -10,12 +10,6 @@ namespace CS.DAL
     public class HttpHelper:IHttpHelper
     {
 
-        //string url = "";
-        //        string res = HttpHelper.GetHttpResponse(url, 6000);
-        //if (res != null)
-        //{
-        //   T mes = JsonHelper.DeserializeJsonToObject<T>(res)
-        //}
         public static string GetHttpResponse(string url, int Timeout)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -34,21 +28,7 @@ namespace CS.DAL
             return retString;
         }
 
-        //参数p
-        //        IDictionary<string, string> parameters = new Dictionary<string, string>();
-        //        parameters.Add("p", HttpUtility.UrlEncode(p));
-        ////http请求
-        //System.Net.HttpWebResponse res = HttpHelper.CreatePostHttpResponse(url, parameters, 3000, null, null);
-        //if (res == null)
-        //{
-        //    Response.Redirect("RequestFailed.aspx?result=出错了,可能是由于您的网络环境差、不稳定或安全软件禁止访问网络，您可在网络好时或关闭安全软件在重新访问网络。");
-        //}
-        //else
-        //{
-        //    //获取返回数据转为字符串
-        //   string mes = HttpHelper.GetResponseString(res);
-        //    T model = JsonHelper.DeserializeJsonToObject<T>(mes);
-        //}
+
         /// 创建POST方式的HTTP请求  
         public static HttpWebResponse CreatePostHttpResponse(string url, IDictionary<object, object> parameters, int timeout, CookieCollection cookies)
         {
@@ -92,13 +72,22 @@ namespace CS.DAL
                     }
                 }
                 byte[] data = Encoding.ASCII.GetBytes(buffer.ToString());
-                using (Stream stream = request.GetRequestStream())
+                try
                 {
-                    stream.Write(data, 0, data.Length);
+                    using (Stream stream = request.GetRequestStream())
+                    {
+                        stream.Write(data, 0, data.Length);
+                    }
+                    string[] values = request.Headers.GetValues("Content-Type");
+                    return request.GetResponse() as HttpWebResponse;
+                }
+                catch (Exception)
+                {
+                    return  null;
                 }
             }
-            string[] values = request.Headers.GetValues("Content-Type");
-            return request.GetResponse() as HttpWebResponse;
+            return null;
+           
         }
 
 
