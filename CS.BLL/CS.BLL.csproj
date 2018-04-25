@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BaseInfo\BaseInfoService.cs" />
     <Compile Include="DataSwitch.cs" />
+    <Compile Include="General.cs" />
     <Compile Include="HttpTools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

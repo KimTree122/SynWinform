@@ -14,6 +14,7 @@ namespace CS.UI.SYS
     public partial class FrmDict : BaseTabFrom
     {
         private BaseInfoService baseInfoService = new BaseInfoService();
+        private int oper;
 
         public FrmDict()
         {
@@ -27,16 +28,37 @@ namespace CS.UI.SYS
 
         private void LoadDicType()
         {
-            List<CSDicTionary> cSDics = baseInfoService.GetDicByType("类型");
+            List<Sysdic> cSDics = baseInfoService.GetDicByType("类型");
             foreach (var item in cSDics)
             {
-                cmb_dictype.Items.Add(item.DicType);
+                cmb_dictype.Items.Add(item.Dicname);
             }
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-
+            oper = 1;
+            FrmDictDialog frm = new FrmDictDialog(ReLoad);
+            frm.ShowDialog();
         }
+
+        private void ReLoad(Sysdic cSDicTionary)
+        {
+            switch (oper)
+            {
+                case 1:
+                    MessageBox.Show("add");
+                    break;
+                case 2:
+                    MessageBox.Show("modi");
+                    break;
+                case 3:
+                    MessageBox.Show("del");
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }
 }

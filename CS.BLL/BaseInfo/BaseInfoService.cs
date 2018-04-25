@@ -24,7 +24,7 @@ namespace CS.BLL.BaseInfo
             return "";
         }
 
-        public List<CSDicTionary> GetDicByType(string type)
+        public List<Sysdic> GetDicByType(string type)
         {
             string url = UrlHelper.BaseInfoUrl.Dictionary.GetDicByType;
             HttpTools tools = new HttpTools();
@@ -33,12 +33,40 @@ namespace CS.BLL.BaseInfo
             if (res != null)
             {
                 string json = DataSwitch.GetResponseString(res);
-                PostData<CSDicTionary,DBNull> postData = DataSwitch.JsonToObj<PostData<CSDicTionary, DBNull>>(json);
+                PostData<Sysdic, DBNull> postData = DataSwitch.JsonToObj<PostData<Sysdic, DBNull>>(json);
                 return postData.DList;
             } 
-            return null;
+            return new List<Sysdic>();
         }
 
+        public int AddDictionary(Sysdic cSDic)
+        {
+            string url = UrlHelper.BaseInfoUrl.Dictionary.AddDicByType;
+            HttpTools tools = new HttpTools();
+            tools.AddParam("dic", DataSwitch.DataToJson(cSDic)).Build();
+            HttpWebResponse res = HttpHelper.CreatePostHttpResponse(url, tools.dic, 3000, null);
+            if (res != null)
+            {
+                string json = DataSwitch.GetResponseString(res);
+                PostData<DBNull, DBNull> postData = DataSwitch.JsonToObj<PostData<DBNull, DBNull>>(json);
+                if (postData.Msg != General.reFail) return int.Parse(postData.Msg);
+            }
+            return General.intFail;
+        }
 
+        public bool UpdateDictionary(Sysdic cSDic)
+        {
+            string url = UrlHelper.BaseInfoUrl.Dictionary.Updatedictionary;
+            HttpTools tools = new HttpTools();
+            tools.AddParam("dic", DataSwitch.DataToJson(cSDic)).Build();
+            HttpWebResponse res = HttpHelper.CreatePostHttpResponse(url, tools.dic, 3000, null);
+            if (res != null)
+            {
+                string json = DataSwitch.GetResponseString(res);
+                PostData<DBNull, DBNull> postData = DataSwitch.JsonToObj<PostData<DBNull, DBNull>>(json);
+                if (postData.Msg != General.reFail) return true;
+            }
+            return false;
+        }
     }
 }

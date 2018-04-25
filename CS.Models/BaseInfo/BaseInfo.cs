@@ -82,9 +82,9 @@ namespace CS.Models.BaseInfo
     ///<summary>
     ///
     ///</summary>
-    public partial class CSDicTionary
+    public partial class Sysdic
     {
-        public CSDicTionary()
+        public Sysdic()
         {
 
 
@@ -101,21 +101,21 @@ namespace CS.Models.BaseInfo
         /// Default:
         /// Nullable:True
         /// </summary>           
-        public string DicType { get; set; }
+        public string Dicname { get; set; }
 
         /// <summary>
         /// Desc:
         /// Default:
         /// Nullable:True
         /// </summary>           
-        public string DicKeys { get; set; }
+        public string Dickey { get; set; }
 
         /// <summary>
         /// Desc:
         /// Default:
         /// Nullable:True
         /// </summary>           
-        public string DicVlaue { get; set; }
+        public string Dicval { get; set; }
 
         /// <summary>
         /// Desc:
@@ -129,7 +129,7 @@ namespace CS.Models.BaseInfo
         /// Default:
         /// Nullable:True
         /// </summary>           
-        public float? DicOrder { get; set; }
+        public int? Dicsetp { get; set; }
 
     }
 

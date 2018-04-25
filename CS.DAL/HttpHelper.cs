@@ -71,7 +71,7 @@ namespace CS.DAL
                         i++;
                     }
                 }
-                byte[] data = Encoding.ASCII.GetBytes(buffer.ToString());
+                byte[] data = Encoding.UTF8.GetBytes(buffer.ToString());
                 try
                 {
                     using (Stream stream = request.GetRequestStream())

@@ -1,5 +1,8 @@
 ﻿
+using CS.BLL.BaseInfo;
+using CS.Models;
 using CS.Models.BaseInfo;
+using MetroFramework;
 using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
@@ -14,26 +17,35 @@ namespace CS.UI.SYS
 {
     public partial class FrmDictDialog : MetroForm
     {
-        public delegate void Reload();
+        public delegate void Reload(Sysdic cs );
 
         private Reload reload;
         private bool Add;
-        private Di
+        private BaseInfoService baseInfoService = new BaseInfoService();
 
-        private CSDicTionary cSDic;
+
+        private Sysdic cSDic;
 
         public FrmDictDialog()
         {
             InitializeComponent();
         }
 
-        public FrmDictDialog(bool add, Reload reLoad, CSDicTionary cS)
+        public FrmDictDialog(Reload reLoad , Sysdic cS)
         {
-            Add = add;
+            Add = false;
             reload = reLoad;
             cSDic = cS;
             InitializeComponent();
         }
+
+        public FrmDictDialog(Reload reLoad)
+        {
+            Add = true;
+            reload = reLoad;
+            InitializeComponent();
+        }
+
 
         private void FrmDictDialog_Load(object sender, EventArgs e)
         {
@@ -44,11 +56,11 @@ namespace CS.UI.SYS
             else
             {
                 this.Text = "编辑";
-                txb_key.Text = cSDic.DicKeys;
+                txb_key.Text = cSDic.Dickey;
                 txb_meno.Text = cSDic.DicMeno;
-                txb_order.Text = cSDic.DicOrder.ToString();
-                txb_type.Text = cSDic.DicType;
-                txb_value.Text = cSDic.DicVlaue;
+                txb_order.Text = cSDic.Dicsetp.ToString();
+                txb_type.Text = cSDic.Dicname;
+                txb_value.Text = cSDic.Dicval;
                 txb_type.Tag = cSDic.id;
             }
         }
@@ -67,16 +79,39 @@ namespace CS.UI.SYS
 
         private void UpdateDic()
         {
-
+            bool update = baseInfoService.UpdateDictionary(GetCsdic());
+            string msg = update ? "成功" : "失败";
+            MetroMessageBox.Show(this,"更新"+ msg ,"提示");
+            if (update)
+            {
+                reload(GetCsdic());
+                this.Close();
+            }
         }
 
         private void AddDic()
         {
-            CSDicTionary cSDicTionary = new CSDicTionary { DicKeys = txb_key.Text, DicMeno = txb_meno.Text, DicOrder = float.Parse(txb_order.Text), DicType = txb_type.Text, DicVlaue = txb_value.Text };
+            int dicid = baseInfoService.AddDictionary(GetCsdic());
+            string msg = dicid != 0 ? "成功" : "失败";
+            MetroMessageBox.Show(this,"新增"+msg,"提示");
+            if (dicid != 0)
+            {
+                txb_type.Tag = dicid;
+                reload(GetCsdic());
+                this.Close();
+            }
+            
+        }
 
+        private Sysdic GetCsdic()
+        {
+            Sysdic cSDicTionary = new Sysdic {  Dickey = txb_key.Text, DicMeno = txb_meno.Text, Dicsetp = int.Parse(txb_order.Text),  Dicname = txb_type.Text,  Dicval = txb_value.Text , id  = Add ? 0 : (int)txb_type.Tag };
+            return cSDicTionary;
+        }
 
-
-
+        private void mtile_save_Click(object sender, EventArgs e)
+        {
+            SaveData();
         }
     }
 }

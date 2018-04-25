@@ -256,6 +256,7 @@
             this.mtile_save.TabIndex = 10;
             this.mtile_save.Text = "保存";
             this.mtile_save.UseSelectable = true;
+            this.mtile_save.Click += new System.EventHandler(this.mtile_save_Click);
             // 
             // mtile_cancel
             // 

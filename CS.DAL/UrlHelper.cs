@@ -27,6 +27,7 @@ namespace CS.DAL
 
                 public static string GetDicByType= SecondLayer + "GetDictionary";
                 public static string AddDicByType = SecondLayer + "AddDictionary";
+                public static string Updatedictionary = SecondLayer + "Updatedictionary";
             }
 
             public static class Authority

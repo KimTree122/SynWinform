@@ -76,7 +76,7 @@
             this.panelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelEx2.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelEx2.Location = new System.Drawing.Point(5, 398);
+            this.panelEx2.Location = new System.Drawing.Point(5, 396);
             this.panelEx2.Name = "panelEx2";
             this.panelEx2.Size = new System.Drawing.Size(549, 50);
             this.panelEx2.Style.Alignment = System.Drawing.StringAlignment.Center;
@@ -103,7 +103,7 @@
             this.panelEx3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelEx3.Location = new System.Drawing.Point(5, 51);
             this.panelEx3.Name = "panelEx3";
-            this.panelEx3.Size = new System.Drawing.Size(250, 347);
+            this.panelEx3.Size = new System.Drawing.Size(250, 345);
             this.panelEx3.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.panelEx3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -135,7 +135,7 @@
             this.advTree.NodesConnector = this.nodeConnector1;
             this.advTree.NodeStyle = this.elementStyle2;
             this.advTree.PathSeparator = ";";
-            this.advTree.Size = new System.Drawing.Size(250, 347);
+            this.advTree.Size = new System.Drawing.Size(250, 345);
             this.advTree.Styles.Add(this.elementStyle1);
             this.advTree.Styles.Add(this.elementStyle2);
             this.advTree.TabIndex = 0;
@@ -239,7 +239,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(559, 450);
+            this.ClientSize = new System.Drawing.Size(559, 448);
             this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);

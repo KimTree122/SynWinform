@@ -24,7 +24,7 @@ namespace CS.BLL
             catch (Exception) { return default(T); }
         }
 
-        public static string DataToObject(object list)
+        public static string DataToJson(object list)
         {
             return JsonConvert.SerializeObject(list);
         }
@@ -39,7 +39,7 @@ namespace CS.BLL
                 Obj = obj
             };
 
-            return DataToObject(postData);
+            return DataToJson(postData);
         }
 
         public static string HttpPostData<T>(List<T> dlist, string msg = "")
@@ -50,7 +50,7 @@ namespace CS.BLL
                 MCount = dlist.Count,
                 Msg = msg
             };
-            return DataToObject(post);
+            return DataToJson(post);
         }
 
         public static string GetResponseString(HttpWebResponse webresponse)
