@@ -37,13 +37,16 @@ namespace CS.UI.SYS
             reload = reLoad;
             cSDic = cS;
             InitializeComponent();
+
+            txb_type.Text = cS.Dicname;
         }
 
-        public FrmDictDialog(Reload reLoad)
+        public FrmDictDialog(Reload reLoad,string type)
         {
             Add = true;
             reload = reLoad;
             InitializeComponent();
+            txb_type.Text = type;
         }
 
 
@@ -59,10 +62,10 @@ namespace CS.UI.SYS
                 txb_key.Text = cSDic.Dickey;
                 txb_meno.Text = cSDic.DicMeno;
                 txb_order.Text = cSDic.Dicsetp.ToString();
-                txb_type.Text = cSDic.Dicname;
                 txb_value.Text = cSDic.Dicval;
                 txb_type.Tag = cSDic.id;
             }
+            txb_type.Enabled = false;
         }
 
         private void SaveData()

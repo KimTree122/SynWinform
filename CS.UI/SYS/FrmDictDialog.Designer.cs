@@ -58,18 +58,19 @@
             // 
             // 
             this.txb_type.CustomButton.Image = null;
-            this.txb_type.CustomButton.Location = new System.Drawing.Point(173, 1);
-            this.txb_type.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_type.CustomButton.Location = new System.Drawing.Point(130, 1);
+            this.txb_type.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.txb_type.CustomButton.Name = "";
-            this.txb_type.CustomButton.Size = new System.Drawing.Size(39, 39);
+            this.txb_type.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txb_type.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txb_type.CustomButton.TabIndex = 1;
             this.txb_type.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txb_type.CustomButton.UseSelectable = true;
             this.txb_type.CustomButton.Visible = false;
+            this.txb_type.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txb_type.Lines = new string[0];
             this.txb_type.Location = new System.Drawing.Point(142, 75);
-            this.txb_type.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_type.Margin = new System.Windows.Forms.Padding(4);
             this.txb_type.MaxLength = 32767;
             this.txb_type.Name = "txb_type";
             this.txb_type.PasswordChar = '\0';
@@ -89,18 +90,19 @@
             // 
             // 
             this.txb_key.CustomButton.Image = null;
-            this.txb_key.CustomButton.Location = new System.Drawing.Point(173, 1);
-            this.txb_key.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_key.CustomButton.Location = new System.Drawing.Point(130, 1);
+            this.txb_key.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.txb_key.CustomButton.Name = "";
-            this.txb_key.CustomButton.Size = new System.Drawing.Size(39, 39);
+            this.txb_key.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txb_key.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txb_key.CustomButton.TabIndex = 1;
             this.txb_key.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txb_key.CustomButton.UseSelectable = true;
             this.txb_key.CustomButton.Visible = false;
+            this.txb_key.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txb_key.Lines = new string[0];
             this.txb_key.Location = new System.Drawing.Point(144, 123);
-            this.txb_key.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_key.Margin = new System.Windows.Forms.Padding(4);
             this.txb_key.MaxLength = 32767;
             this.txb_key.Name = "txb_key";
             this.txb_key.PasswordChar = '\0';
@@ -130,18 +132,19 @@
             // 
             // 
             this.txb_value.CustomButton.Image = null;
-            this.txb_value.CustomButton.Location = new System.Drawing.Point(173, 1);
-            this.txb_value.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_value.CustomButton.Location = new System.Drawing.Point(130, 1);
+            this.txb_value.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.txb_value.CustomButton.Name = "";
-            this.txb_value.CustomButton.Size = new System.Drawing.Size(39, 39);
+            this.txb_value.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txb_value.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txb_value.CustomButton.TabIndex = 1;
             this.txb_value.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txb_value.CustomButton.UseSelectable = true;
             this.txb_value.CustomButton.Visible = false;
+            this.txb_value.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txb_value.Lines = new string[0];
             this.txb_value.Location = new System.Drawing.Point(144, 171);
-            this.txb_value.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_value.Margin = new System.Windows.Forms.Padding(4);
             this.txb_value.MaxLength = 32767;
             this.txb_value.Name = "txb_value";
             this.txb_value.PasswordChar = '\0';
@@ -171,18 +174,19 @@
             // 
             // 
             this.txb_meno.CustomButton.Image = null;
-            this.txb_meno.CustomButton.Location = new System.Drawing.Point(173, 1);
-            this.txb_meno.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_meno.CustomButton.Location = new System.Drawing.Point(130, 1);
+            this.txb_meno.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.txb_meno.CustomButton.Name = "";
-            this.txb_meno.CustomButton.Size = new System.Drawing.Size(39, 39);
+            this.txb_meno.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txb_meno.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txb_meno.CustomButton.TabIndex = 1;
             this.txb_meno.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txb_meno.CustomButton.UseSelectable = true;
             this.txb_meno.CustomButton.Visible = false;
+            this.txb_meno.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txb_meno.Lines = new string[0];
             this.txb_meno.Location = new System.Drawing.Point(144, 219);
-            this.txb_meno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_meno.Margin = new System.Windows.Forms.Padding(4);
             this.txb_meno.MaxLength = 32767;
             this.txb_meno.Name = "txb_meno";
             this.txb_meno.PasswordChar = '\0';
@@ -212,18 +216,19 @@
             // 
             // 
             this.txb_order.CustomButton.Image = null;
-            this.txb_order.CustomButton.Location = new System.Drawing.Point(173, 1);
-            this.txb_order.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_order.CustomButton.Location = new System.Drawing.Point(130, 1);
+            this.txb_order.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.txb_order.CustomButton.Name = "";
-            this.txb_order.CustomButton.Size = new System.Drawing.Size(39, 39);
+            this.txb_order.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.txb_order.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txb_order.CustomButton.TabIndex = 1;
             this.txb_order.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txb_order.CustomButton.UseSelectable = true;
             this.txb_order.CustomButton.Visible = false;
+            this.txb_order.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txb_order.Lines = new string[0];
             this.txb_order.Location = new System.Drawing.Point(144, 267);
-            this.txb_order.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txb_order.Margin = new System.Windows.Forms.Padding(4);
             this.txb_order.MaxLength = 32767;
             this.txb_order.Name = "txb_order";
             this.txb_order.PasswordChar = '\0';
@@ -287,7 +292,7 @@
             this.Controls.Add(this.txb_type);
             this.Controls.Add(this.lbl_id);
             this.Font = new System.Drawing.Font("宋体", 12F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmDictDialog";
             this.Padding = new System.Windows.Forms.Padding(27, 80, 27, 27);
             this.Text = "Dictionary";

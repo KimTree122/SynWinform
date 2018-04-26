@@ -68,5 +68,21 @@ namespace CS.BLL.BaseInfo
             }
             return false;
         }
+
+        public bool DleteDictionary(Sysdic sysdic)
+        {
+            string url = UrlHelper.BaseInfoUrl.Dictionary.DeleteSysdic;
+            HttpTools tools = new HttpTools();
+            tools.AddParam("dic", DataSwitch.DataToJson(sysdic)).Build();
+            HttpWebResponse res = HttpHelper.CreatePostHttpResponse(url, tools.dic, 3000, null);
+            if (res != null)
+            {
+                string json = DataSwitch.GetResponseString(res);
+                PostData<DBNull, DBNull> postData = DataSwitch.JsonToObj<PostData<DBNull, DBNull>>(json);
+                if (postData.Msg != General.reFail) return true;
+            }
+            return false;
+        }
+
     }
 }
