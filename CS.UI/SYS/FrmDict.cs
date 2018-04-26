@@ -134,7 +134,6 @@ namespace CS.UI.SYS
 
         private void btn_del_Click(object sender, EventArgs e)
         {
-            //oper = 3;
             int row = dgv.SelectedRows[0].Index;
             Sysdic del = sysdics[row];
             Delete(del);
