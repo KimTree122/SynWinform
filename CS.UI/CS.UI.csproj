@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTools\AuthNodes.cs" />
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +96,8 @@
     <Compile Include="SYS\FrmDictDialog.Designer.cs">
       <DependentUpon>FrmDictDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="SYS\SYSData.cs" />
+    <Compile Include="DataTools\ComboBoxBind.cs" />
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>

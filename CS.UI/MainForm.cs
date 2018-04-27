@@ -23,7 +23,7 @@ namespace CS.UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
+            SYSUser.id = 1;
         }
 
         private void kim_author_Click(object sender, EventArgs e)

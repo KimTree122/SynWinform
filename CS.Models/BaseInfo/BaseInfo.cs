@@ -190,6 +190,8 @@ namespace CS.Models.BaseInfo
         /// </summary>           
         public string AuthName { get; set; }
 
+        public string Path { get; set; }
+
         /// <summary>
         /// Desc:
         /// Default:
@@ -223,7 +225,7 @@ namespace CS.Models.BaseInfo
         /// Default:
         /// Nullable:True
         /// </summary>           
-        public float? AOrder { get; set; }
+        public string AOrder { get; set; }
 
     }
 }

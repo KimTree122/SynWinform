@@ -43,11 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseInfo\AuthorityService.cs" />
     <Compile Include="BaseInfo\BaseInfoService.cs" />
+    <Compile Include="PostService.cs" />
     <Compile Include="DataSwitch.cs" />
     <Compile Include="General.cs" />
     <Compile Include="HttpTools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitlTools\ClazTools.cs" />
+    <Compile Include="UnitlTools\DataChange.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CS.DAL\CS.DAL.csproj">

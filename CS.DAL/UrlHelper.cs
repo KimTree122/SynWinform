@@ -14,14 +14,14 @@ namespace CS.DAL
         {
             private static readonly string FristLayer = BaseUrl + ConfigurationManager.AppSettings["BaseInfo"]+"/";
 
-            public static class UserInfo
+            public static class UserInfoUrl
             {
                 private static readonly string SecondLayer = FristLayer+ ConfigurationManager.AppSettings["BaseInfo"]+"/";
 
-                public static string GetName = SecondLayer + "GetUserInfo";
+                public static string GetUserInfo = SecondLayer + "GetUserInfo";
             }
 
-            public static class Dictionary
+            public static class DictionaryUrl
             {
                 private static readonly string SecondLayer = FristLayer + ConfigurationManager.AppSettings["BaseInfo"] + "/";
 
@@ -31,11 +31,11 @@ namespace CS.DAL
                 public static string DeleteSysdic = SecondLayer + "DeleteSysdic";
             }
 
-            public static class Authority
+            public static class AuthorityUrl
             {
                 private static readonly string SecondLayer = FristLayer + ConfigurationManager.AppSettings["BaseInfo"] + "/";
 
-                public static string GetDicByType = SecondLayer + "AddAuthority";
+                public static string GetAllAuthority = SecondLayer + "GetAllAuthority";
                 public static string AddAuthority = SecondLayer + "AddAuthority";
             }
 
