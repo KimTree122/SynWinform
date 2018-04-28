@@ -12,7 +12,7 @@ namespace CS.UI
     {
         private static BaseInfoService baseInfo = new BaseInfoService();
 
-        public static void ComboBoxData(ComboBox box, string type)
+        public static void CmbDataByDic(ComboBox box, string type)
         {
             List<Sysdic> sysdics = baseInfo.GetDicByType("权限类型");
             box.DataSource = sysdics;

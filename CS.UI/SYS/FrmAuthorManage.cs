@@ -25,17 +25,18 @@ namespace CS.UI.SYS
         private AuthNodes authNodes = new AuthNodes();
 
         private List<Authority> authorities;
-        private List<TreeNode> treeNodes;
-        private Authority ChooseAuth;
+        private List<Node> treeNodes;
+        private int oper;
+        private Authority CAuth;
 
 
 
         private void FrmAuthorManage_Load(object sender, EventArgs e)
         {
-            LoadData();
+            InitData();
         }
 
-        private void LoadData()
+        private void InitData()
         {
             LoadAuthType();
             LoadAuth();
@@ -43,17 +44,28 @@ namespace CS.UI.SYS
 
         private void LoadAuth()
         {
-            ComboBoxBind.ComboBoxData(cmb_type, "权限类型");
+            ComboBoxBind.CmbDataByDic(cmb_type, "权限类型");
         }
 
         private void LoadAuthType()
         {
             authorities = authorityService.GetAuthorities(SYSUser.id);
+            ShowTreeView();
         }
 
         private void AddAuth()
         {
-            Authority auth = GetEditAuth();
+            int aid;
+            if (CAuth == null)
+            {
+                aid = 0;
+            }
+            else
+            {
+                aid = cb_top.Checked ? 0 : CAuth.id;
+            }
+             
+            Authority auth = GetEditAuth(aid);
             int id = authorityService.AddAuthority(auth);
             if (id != 0)
             {
@@ -62,26 +74,144 @@ namespace CS.UI.SYS
                 ShowTreeView();
                 ShowTipsMessageBox("添加成功");
             }
+            
+        }
+
+        private void EditAuth()
+        {
+            int f = lbl_father.Tag == null ? 0 : (int)lbl_father.Tag;
+            f = cb_top.Checked ? 0 : f;
+            Authority auth = GetEditAuth(f, CAuth.id);
+            bool id = authorityService.UpdateAuthority(auth);
+            if (id)
+            {
+                Authority au = (Authority)txb_name.Tag;
+                authorities.Remove(au);
+                authorities.Add(auth);
+                ShowTipsMessageBox("修改成功");
+            }
+            else
+            {
+                ShowTipsMessageBox("修改失败");
+            }
+        }
+
+        private void DelAuth()
+        {
+            int f = lbl_father.Tag == null ? 0 : (int)lbl_father.Tag;
+            Authority auth = GetEditAuth(f, CAuth.id);
+            bool id = authorityService.DeleteAuthority(auth);
+            if (id)
+            {
+                Authority a = (Authority)txb_name.Tag;
+                authorities.Remove(a);
+                ShowTreeView();
+                ShowTipsMessageBox("删除成功");
+            }
+            else
+            {
+                ShowTipsMessageBox("删除失败");
+            }
+        }
+
+        private void TreeSelect()
+        {
+            Node node = advTree.SelectedNode;
+            if (node == null) return;
+
+            CAuth = (Authority)node.Tag;
+
+            txb_name.Text = CAuth.AuthName;
+            txb_name.Tag = CAuth;
+            txb_order.Text = CAuth.AOrder;
+            txb_path.Text = CAuth.Path;
+            cmb_type.Text = CAuth.AuthTypeName;
+
+            Node pnode = node.Parent;
+            if (pnode == null)
+            {
+                lbl_father.Text = "顶级";
+                cb_top.Checked = true;
+                return;
+            }
+            Authority pau = (Authority)pnode.Tag;
+            lbl_father.Text = pau.AuthName;
+            lbl_father.Tag = pau.id;
+            cb_top.Checked = false;
+        }
+
+        private Authority GetEditAuth(int fid, int id = 0)
+        {
+            Authority authority = new Authority { AOrder = txb_order.Text, AuthName = txb_name.Text, AuthTypeID = (int)cmb_type.SelectedValue, AuthTypeName = cmb_type.Text, Path = txb_path.Text, ParentID = fid, Imageid = 0, id = id };
+            return authority;
         }
 
         private void ShowTreeView()
         {
+            advTree.Nodes.Clear();
             treeNodes = authNodes.CreatTreeNodes(authorities);
-            foreach (TreeNode tn in treeNodes)
+            foreach (Node tn in treeNodes)
+            {   
+                advTree.Nodes.Add(tn);
+            }
+            advTree.ExpandAll();
+        }
+
+        private void CleanText()
+        {
+            txb_name.Text = "";
+            txb_path.Text = "";
+            txb_order.Text = "";
+            cb_top.Checked = false;
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            oper = 1;
+            CleanText();
+            gb.Enabled = true;
+        }
+
+        private void btn_modi_Click(object sender, EventArgs e)
+        {
+            oper = 2;
+            gb.Enabled = true;
+        }
+
+        private void btn_del_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = ShowWarningMessageBox("是否确认删除？");
+            if (dr == DialogResult.Yes)
             {
-                Node node = new Node();
-                
-                advTree.Nodes.Add(node);
+                DelAuth();
             }
         }
 
-        private Authority GetEditAuth(int id = 0)
+        private void advTree_AfterNodeSelect(object sender, AdvTreeNodeEventArgs e)
         {
-            Authority authority = new Authority { AOrder = txb_order.Text, AuthName = txb_name.Text, AuthTypeID = (int)cmb_type.SelectedValue, AuthTypeName = cmb_type.Text, Path = txb_path.Text, ParentID = (int)lbl_father.Tag, Imageid = 0, id = id };
-            return authority;
+            TreeSelect();
         }
 
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            switch (oper)
+            {
+                case 1:AddAuth();
+                    break;
+                case 2:EditAuth();
+                    break;
+                case 3:DelAuth();
+                    break;
+                default:
+                    break;
+            }
+            oper = 0;
+            gb.Enabled = false;
+        }
 
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

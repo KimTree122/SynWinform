@@ -13,7 +13,7 @@ namespace CS.BLL.BaseInfo
         {
             string url = UrlHelper.BaseInfoUrl.AuthorityUrl.GetAllAuthority;
             HttpTools tools = new HttpTools();
-            tools.AddParam("userid", userid);
+            tools.AddParam("userid", userid).Build(); ;
             return GetEntities(url,tools);
         }
 
@@ -21,9 +21,27 @@ namespace CS.BLL.BaseInfo
         {
             string url = UrlHelper.BaseInfoUrl.AuthorityUrl.AddAuthority;
             HttpTools tools = new HttpTools();
-            tools.AddParam("authority", authority).Build();
+            tools.AddParam("authority",DataSwitch.DataToJson(authority)).Build();
             string msg = GetMsg(url, tools);
             return msg.ToInt();
+        }
+
+        public bool UpdateAuthority(Authority auth)
+        {
+            string url = UrlHelper.BaseInfoUrl.AuthorityUrl.UpdateAuthority;
+            HttpTools tools = new HttpTools();
+            tools.AddParam("authority", DataSwitch.DataToJson(auth)).Build();
+            string msg = GetMsg(url, tools);
+            return msg.ToInt() > 0;
+        }
+
+        public bool DeleteAuthority(Authority auth)
+        {
+            string url = UrlHelper.BaseInfoUrl.AuthorityUrl.DeleteAuthority;
+            HttpTools tools = new HttpTools();
+            tools.AddParam("authority", DataSwitch.DataToJson(auth)).Build();
+            string msg = GetMsg(url, tools);
+            return msg.ToInt() > 0;
         }
     }
 }

@@ -37,6 +37,8 @@ namespace CS.DAL
 
                 public static string GetAllAuthority = SecondLayer + "GetAllAuthority";
                 public static string AddAuthority = SecondLayer + "AddAuthority";
+                public static string UpdateAuthority = SecondLayer + "UpdateAuthority";
+                public static string DeleteAuthority = SecondLayer + "DeleteAuthority";
             }
 
         }

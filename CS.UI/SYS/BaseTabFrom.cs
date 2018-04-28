@@ -23,9 +23,9 @@ namespace CS.UI
             MetroMessageBox.Show(this, msg, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void ShowWarningMessageBox(string msg)
+        public DialogResult ShowWarningMessageBox(string msg)
         {
-            MetroMessageBox.Show(this, msg, "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return MetroMessageBox.Show(this, msg, "警告", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
 
         public void ShowErrorMessageBox(string msg)
