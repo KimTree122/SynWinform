@@ -68,5 +68,10 @@ namespace CS.UI
         {
             AddTabForm("字典管理", "SYS.FrmDict");
         }
+
+        private void btn_userauth_Click(object sender, EventArgs e)
+        {
+            AddTabForm("用户权限", "SYS.UserAuth");
+        }
     }
 }

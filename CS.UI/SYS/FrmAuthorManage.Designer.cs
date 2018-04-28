@@ -92,7 +92,7 @@
             this.panelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelEx2.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelEx2.Location = new System.Drawing.Point(5, 584);
+            this.panelEx2.Location = new System.Drawing.Point(5, 583);
             this.panelEx2.Name = "panelEx2";
             this.panelEx2.Size = new System.Drawing.Size(611, 50);
             this.panelEx2.Style.Alignment = System.Drawing.StringAlignment.Center;
@@ -119,7 +119,7 @@
             this.panelEx3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelEx3.Location = new System.Drawing.Point(5, 51);
             this.panelEx3.Name = "panelEx3";
-            this.panelEx3.Size = new System.Drawing.Size(250, 533);
+            this.panelEx3.Size = new System.Drawing.Size(250, 532);
             this.panelEx3.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.panelEx3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -151,7 +151,7 @@
             this.advTree.NodesConnector = this.nodeConnector1;
             this.advTree.NodeStyle = this.elementStyle2;
             this.advTree.PathSeparator = ";";
-            this.advTree.Size = new System.Drawing.Size(250, 533);
+            this.advTree.Size = new System.Drawing.Size(250, 532);
             this.advTree.Styles.Add(this.elementStyle1);
             this.advTree.Styles.Add(this.elementStyle2);
             this.advTree.TabIndex = 0;
@@ -339,7 +339,7 @@
             this.gbox.Dock = System.Windows.Forms.DockStyle.Left;
             this.gbox.Location = new System.Drawing.Point(255, 51);
             this.gbox.Name = "gbox";
-            this.gbox.Size = new System.Drawing.Size(333, 533);
+            this.gbox.Size = new System.Drawing.Size(333, 532);
             this.gbox.TabIndex = 87;
             this.gbox.TabStop = false;
             // 
@@ -353,7 +353,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 301);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(327, 229);
+            this.groupBox1.Size = new System.Drawing.Size(327, 228);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "功能";
@@ -395,7 +395,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(621, 636);
+            this.ClientSize = new System.Drawing.Size(621, 635);
             this.Controls.Add(this.gbox);
             this.Controls.Add(this.panelEx3);
             this.Controls.Add(this.panelEx2);

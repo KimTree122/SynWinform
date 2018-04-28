@@ -46,12 +46,13 @@
             this.bar2 = new DevComponents.DotNetBar.Bar();
             this.KIM = new DevComponents.DotNetBar.ButtonItem();
             this.kim_author = new DevComponents.DotNetBar.ButtonItem();
+            this.btn_dic = new DevComponents.DotNetBar.ButtonItem();
             this.dockSite3 = new DevComponents.DotNetBar.DockSite();
             this.sTC = new DevComponents.DotNetBar.SuperTabControl();
             this.superTabControlPanel1 = new DevComponents.DotNetBar.SuperTabControlPanel();
             this.welcome = new DevComponents.DotNetBar.SuperTabItem();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.btn_dic = new DevComponents.DotNetBar.ButtonItem();
+            this.btn_userauth = new DevComponents.DotNetBar.ButtonItem();
             this.dockSite1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             this.bar1.SuspendLayout();
@@ -261,7 +262,8 @@
             this.KIM.Name = "KIM";
             this.KIM.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.kim_author,
-            this.btn_dic});
+            this.btn_dic,
+            this.btn_userauth});
             this.KIM.Text = "KIM";
             // 
             // kim_author
@@ -269,6 +271,12 @@
             this.kim_author.Name = "kim_author";
             this.kim_author.Text = "author";
             this.kim_author.Click += new System.EventHandler(this.kim_author_Click);
+            // 
+            // btn_dic
+            // 
+            this.btn_dic.Name = "btn_dic";
+            this.btn_dic.Text = "dictionary";
+            this.btn_dic.Click += new System.EventHandler(this.btn_dic_Click);
             // 
             // dockSite3
             // 
@@ -356,11 +364,11 @@
             this.panelEx1.StyleMouseOver.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemHotText;
             this.panelEx1.TabIndex = 1;
             // 
-            // btn_dic
+            // btn_userauth
             // 
-            this.btn_dic.Name = "btn_dic";
-            this.btn_dic.Text = "dictionary";
-            this.btn_dic.Click += new System.EventHandler(this.btn_dic_Click);
+            this.btn_userauth.Name = "btn_userauth";
+            this.btn_userauth.Text = "userauth";
+            this.btn_userauth.Click += new System.EventHandler(this.btn_userauth_Click);
             // 
             // MainForm
             // 
@@ -417,6 +425,7 @@
         private DevComponents.DotNetBar.ButtonItem KIM;
         private DevComponents.DotNetBar.ButtonItem kim_author;
         private DevComponents.DotNetBar.ButtonItem btn_dic;
+        private DevComponents.DotNetBar.ButtonItem btn_userauth;
     }
 }
 
