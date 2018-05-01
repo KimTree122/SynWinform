@@ -9,34 +9,40 @@ namespace CS.UI.DataTools
 {
     public class AuthNodes
     {
-        public List<Node> CreatTreeNodes( List<Authority> authorities, int parentid = 0)
+        public List<Node> CreatTreeNodes( List<Authority> authorities ,bool showcheck , int parentid = 0)
         {
             List<Node> treeNodes = new List<Node>();
             foreach (var au in authorities)
             {
                 if (au.ParentID == parentid)
                 {
-                    Node node = new Node();
-                    node.Text = au.AuthName;
-                    node.Tag = au;
+                    Node node = new Node
+                    {
+                        Text = au.AuthName,
+                        Tag = au
+                    };
+                    node.CheckBoxVisible = showcheck;
                     treeNodes.Add(node);
-                    AddSon(node, authorities);
+                    AddSon(node, authorities,showcheck);
                 }
             }
             return treeNodes;
         }
 
-        private void AddSon(Node node, List<Authority> aus)
+        private void AddSon(Node node, List<Authority> aus,bool showcheck)
         {
             Authority fau = (Authority)node.Tag;
             foreach (var au in aus)
             {
                 if (au.ParentID == fau.id)
                 {
-                    Node snode = new Node(au.AuthName);
-                    snode.Tag = au;
+                    Node snode = new Node(au.AuthName)
+                    {
+                        Tag = au
+                    };
+                    snode.CheckBoxVisible = showcheck;
                     node.Nodes.Add(snode);
-                    AddSon(snode, aus);
+                    AddSon(snode, aus,showcheck);
                 }
             }
         }

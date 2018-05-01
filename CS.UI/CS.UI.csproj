@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseInfoForm\FrmUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseInfoForm\FrmUserInfo.Designer.cs">
+      <DependentUpon>FrmUserInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataTools\AuthNodes.cs" />
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
@@ -104,6 +110,9 @@
     <Compile Include="SYS\UserAuth.Designer.cs">
       <DependentUpon>UserAuth.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BaseInfoForm\FrmUserInfo.resx">
+      <DependentUpon>FrmUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,40 +164,32 @@
       <Project>{236f9d42-9719-4939-9147-6860797c7694}</Project>
       <Name>CS.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\KControl\KControl.csproj">
+      <Project>{C4E8D1E7-E52A-45D2-8622-6CCDAAA3CCF8}</Project>
+      <Name>KControl</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="BaseInfoForm\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Image\w1.ico" />
     <Content Include="Image\w10.ico" />
     <Content Include="Image\w11.ico" />
-    <Content Include="Image\w12.ico" />
-    <Content Include="Image\w13.ico" />
-    <Content Include="Image\w14.ico" />
-    <Content Include="Image\w15.ico" />
-    <Content Include="Image\w16.ico" />
-    <Content Include="Image\w17.ico" />
-    <Content Include="Image\w18.ico" />
-    <Content Include="Image\w19.ico" />
-    <Content Include="Image\w2.ico" />
-    <Content Include="Image\w20.ico" />
-    <Content Include="Image\w21.ico" />
-    <Content Include="Image\w22.ico" />
-    <Content Include="Image\w23.ico" />
-    <Content Include="Image\w24.ico" />
+    <Content Include="Image\save.ico" />
+    <Content Include="Image\delete.ico" />
+    <Content Include="Image\Info.ico" />
+    <Content Include="Image\forbid.ico" />
+    <Content Include="Image\search.ico" />
+    <Content Include="Image\upload.ico" />
+    <Content Include="Image\char.ico" />
     <Content Include="Image\w25.ico" />
     <Content Include="Image\w26.ico" />
     <Content Include="Image\w27.ico" />
     <Content Include="Image\w28.ico" />
-    <Content Include="Image\w29.ico" />
-    <Content Include="Image\w3.ico" />
-    <Content Include="Image\w30.ico" />
-    <Content Include="Image\w4.ico" />
-    <Content Include="Image\w5.ico" />
-    <Content Include="Image\w6.ico" />
-    <Content Include="Image\w7.ico" />
-    <Content Include="Image\w8.ico" />
+    <Content Include="Image\configure.ico" />
+    <Content Include="Image\deltail.ico" />
+    <Content Include="Image\Eidter.ico" />
+    <Content Include="Image\Find.ico" />
+    <Content Include="Image\warror.ico" />
+    <Content Include="Image\Internet.ico" />
     <Content Include="Image\w9.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

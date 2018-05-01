@@ -42,6 +42,9 @@ namespace CS.Models.BaseInfo
 
     }
 
+    ///<summary>
+    ///
+    ///</summary>
     public partial class UserInfo
     {
         public UserInfo()
@@ -62,6 +65,20 @@ namespace CS.Models.BaseInfo
         /// Nullable:True
         /// </summary>           
         public string Uname { get; set; }
+
+        /// <summary>
+        /// Desc:
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
+        public string Upwd { get; set; }
+
+        /// <summary>
+        /// Desc:
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
+        public string Utel { get; set; }
 
         /// <summary>
         /// Desc:

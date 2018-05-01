@@ -97,7 +97,7 @@
             this.dgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv.RowTemplate.Height = 23;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(670, 510);
+            this.dgv.Size = new System.Drawing.Size(333, 129);
             this.dgv.Style = MetroFramework.MetroColorStyle.Blue;
             this.dgv.TabIndex = 0;
             // 
@@ -129,9 +129,9 @@
             this.dockSite4.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dockSite4.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
-            this.dockSite4.Location = new System.Drawing.Point(5, 539);
+            this.dockSite4.Location = new System.Drawing.Point(5, 158);
             this.dockSite4.Name = "dockSite4";
-            this.dockSite4.Size = new System.Drawing.Size(670, 0);
+            this.dockSite4.Size = new System.Drawing.Size(333, 0);
             this.dockSite4.TabIndex = 4;
             this.dockSite4.TabStop = false;
             // 
@@ -142,7 +142,7 @@
             this.dockSite1.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
             this.dockSite1.Location = new System.Drawing.Point(5, 29);
             this.dockSite1.Name = "dockSite1";
-            this.dockSite1.Size = new System.Drawing.Size(0, 510);
+            this.dockSite1.Size = new System.Drawing.Size(0, 129);
             this.dockSite1.TabIndex = 1;
             this.dockSite1.TabStop = false;
             // 
@@ -151,9 +151,9 @@
             this.dockSite2.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite2.Dock = System.Windows.Forms.DockStyle.Right;
             this.dockSite2.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
-            this.dockSite2.Location = new System.Drawing.Point(675, 29);
+            this.dockSite2.Location = new System.Drawing.Point(338, 29);
             this.dockSite2.Name = "dockSite2";
-            this.dockSite2.Size = new System.Drawing.Size(0, 510);
+            this.dockSite2.Size = new System.Drawing.Size(0, 129);
             this.dockSite2.TabIndex = 2;
             this.dockSite2.TabStop = false;
             // 
@@ -161,9 +161,9 @@
             // 
             this.dockSite8.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dockSite8.Location = new System.Drawing.Point(5, 539);
+            this.dockSite8.Location = new System.Drawing.Point(5, 158);
             this.dockSite8.Name = "dockSite8";
-            this.dockSite8.Size = new System.Drawing.Size(670, 0);
+            this.dockSite8.Size = new System.Drawing.Size(333, 0);
             this.dockSite8.TabIndex = 8;
             this.dockSite8.TabStop = false;
             // 
@@ -173,7 +173,7 @@
             this.dockSite5.Dock = System.Windows.Forms.DockStyle.Left;
             this.dockSite5.Location = new System.Drawing.Point(5, 29);
             this.dockSite5.Name = "dockSite5";
-            this.dockSite5.Size = new System.Drawing.Size(0, 510);
+            this.dockSite5.Size = new System.Drawing.Size(0, 129);
             this.dockSite5.TabIndex = 5;
             this.dockSite5.TabStop = false;
             // 
@@ -181,9 +181,9 @@
             // 
             this.dockSite6.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
             this.dockSite6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dockSite6.Location = new System.Drawing.Point(675, 29);
+            this.dockSite6.Location = new System.Drawing.Point(338, 29);
             this.dockSite6.Name = "dockSite6";
-            this.dockSite6.Size = new System.Drawing.Size(0, 510);
+            this.dockSite6.Size = new System.Drawing.Size(0, 129);
             this.dockSite6.TabIndex = 6;
             this.dockSite6.TabStop = false;
             // 
@@ -194,7 +194,7 @@
             this.ds_top.Dock = System.Windows.Forms.DockStyle.Top;
             this.ds_top.Location = new System.Drawing.Point(5, 1);
             this.ds_top.Name = "ds_top";
-            this.ds_top.Size = new System.Drawing.Size(670, 28);
+            this.ds_top.Size = new System.Drawing.Size(333, 28);
             this.ds_top.TabIndex = 7;
             this.ds_top.TabStop = false;
             // 
@@ -260,7 +260,7 @@
             this.dockSite3.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
             this.dockSite3.Location = new System.Drawing.Point(5, 29);
             this.dockSite3.Name = "dockSite3";
-            this.dockSite3.Size = new System.Drawing.Size(670, 0);
+            this.dockSite3.Size = new System.Drawing.Size(333, 0);
             this.dockSite3.TabIndex = 3;
             this.dockSite3.TabStop = false;
             // 
@@ -268,7 +268,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 541);
+            this.ClientSize = new System.Drawing.Size(343, 160);
             this.Controls.Add(this.dockSite2);
             this.Controls.Add(this.dockSite1);
             this.Controls.Add(this.dgv);

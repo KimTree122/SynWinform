@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CS.UI
 {
-    public partial class BaseTabFrom : Office2007RibbonForm
+    public partial class BaseTabFrom : Office2007Form
     {
         public BaseTabFrom()
         {

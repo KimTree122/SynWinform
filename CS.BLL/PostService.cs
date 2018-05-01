@@ -8,7 +8,7 @@ using System.Text;
 
 namespace CS.BLL
 {
-    public class PostService<T,S> where T:class,new() where S : class,new()
+    public class PostService<L,E> where L:class,new() where E : class,new()
     {
 
         private HttpWebResponse Response(string url, HttpTools tools)
@@ -16,29 +16,29 @@ namespace CS.BLL
             return HttpHelper.CreatePostHttpResponse(url,tools.dic,3000,null); ;
         }
 
-        public List<T> GetEntities(string url, HttpTools tools)
+        public List<L> GetEntities(string url, HttpTools tools)
         {
             HttpWebResponse res = Response(url, tools); 
             if (res !=null)
             {
                 string json = DataSwitch.GetResponseString(res);
-                PostData<T, DBNull> postData = DataSwitch.JsonToObj<PostData<T, DBNull>>(json);
+                PostData<L, DBNull> postData = DataSwitch.JsonToObj<PostData<L, DBNull>>(json);
                 return postData.DList;
             }
 
-            return new List<T>();
+            return new List<L>();
         }
 
-        public S GetEntity(string url, HttpTools tools)
+        public E GetEntity(string url, HttpTools tools)
         {
             HttpWebResponse res = Response(url, tools);
             if (res != null)
             {
                 string json = DataSwitch.GetResponseString(res);
-                PostData<DBNull,S> postData = DataSwitch.JsonToObj<PostData<DBNull, S>>(json);
+                PostData<DBNull,E> postData = DataSwitch.JsonToObj<PostData<DBNull, E>>(json);
                 return postData.Obj;
             }
-            return new S();
+            return new E();
         }
 
         public string GetMsg(string url, HttpTools tools )
@@ -48,21 +48,22 @@ namespace CS.BLL
             {
                 string json = DataSwitch.GetResponseString(res);
                 PostData<DBNull, DBNull> postData = DataSwitch.JsonToObj<PostData<DBNull, DBNull>>(json);
+                if (postData == null) return "";
                 return postData.Msg;
             }
             return "";
         }
 
-        public PostData<T, S> GetPostData(string url, HttpTools tools)
+        public PostData<L, E> GetPostData(string url, HttpTools tools)
         {
             HttpWebResponse res = Response(url, tools);
             if (res != null)
             {
                 string json = DataSwitch.GetResponseString(res);
-                PostData<T, S> postData = DataSwitch.JsonToObj<PostData<T, S>>(json);
+                PostData<L, E> postData = DataSwitch.JsonToObj<PostData<L, E>>(json);
                 return postData;
             }
-            return new PostData<T, S>();
+            return new PostData<L, E>();
         }
 
 

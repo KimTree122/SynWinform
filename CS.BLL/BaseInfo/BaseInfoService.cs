@@ -14,7 +14,7 @@ namespace CS.BLL.BaseInfo
     {
         public string GetUserInfo(string name,string post)
         {
-            string url = UrlHelper.BaseInfoUrl.UserInfoUrl.GetUserInfo;
+            string url = UrlHelper.BaseInfoUrl.UserInfoUrl.GetAllUserInfo;
 
             HttpTools tools = new HttpTools();
             tools.AddParam("name", name).AddParam("post", post).Build();

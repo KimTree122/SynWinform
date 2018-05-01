@@ -14,7 +14,7 @@ namespace CS.UI
 
         public static void CmbDataByDic(ComboBox box, string type)
         {
-            List<Sysdic> sysdics = baseInfo.GetDicByType("权限类型");
+            List<Sysdic> sysdics = baseInfo.GetDicByType(type);
             box.DataSource = sysdics;
             box.DisplayMember = "Dicval";
             box.ValueMember = "id";

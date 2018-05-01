@@ -21,9 +21,18 @@ namespace CS.UI
             InitializeComponent();
         }
 
+        
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             SYSUser.id = 1;
+            InitCommonData();
+        }
+
+        private void InitCommonData()
+        {
+            UserInfoService userInfoService = new UserInfoService();
+            SYSData.userInfos = userInfoService.GetAllUserinfo(SYSUser.id);
         }
 
         private void kim_author_Click(object sender, EventArgs e)
@@ -72,6 +81,11 @@ namespace CS.UI
         private void btn_userauth_Click(object sender, EventArgs e)
         {
             AddTabForm("用户权限", "SYS.UserAuth");
+        }
+
+        private void btn_user_Click(object sender, EventArgs e)
+        {
+            AddTabForm("用户管理", "BaseInfoForm.FrmUserInfo");
         }
     }
 }

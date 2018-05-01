@@ -8,7 +8,7 @@ namespace CS.UI
 {
     public class SYSData
     {
-
+        public static List<UserInfo> userInfos { get; set; }
     }
     public class SYSUser
     {

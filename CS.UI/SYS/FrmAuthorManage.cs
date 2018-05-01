@@ -149,7 +149,7 @@ namespace CS.UI.SYS
         private void ShowTreeView()
         {
             advTree.Nodes.Clear();
-            treeNodes = authNodes.CreatTreeNodes(authorities);
+            treeNodes = authNodes.CreatTreeNodes(authorities,false);
             foreach (Node tn in treeNodes)
             {   
                 advTree.Nodes.Add(tn);

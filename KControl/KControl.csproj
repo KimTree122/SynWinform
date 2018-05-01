@@ -4,11 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5A234BC6-D39A-4A69-AFF8-E1530B163599}</ProjectGuid>
+    <ProjectGuid>{C4E8D1E7-E52A-45D2-8622-6CCDAAA3CCF8}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CS.BLL</RootNamespace>
-    <AssemblyName>CS.BLL</AssemblyName>
+    <RootNamespace>KControl</RootNamespace>
+    <AssemblyName>KControl</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,42 +29,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseInfo\AuthorityService.cs" />
-    <Compile Include="BaseInfo\BaseInfoService.cs" />
-    <Compile Include="BaseInfo\UserInfoService.cs" />
-    <Compile Include="PostService.cs" />
-    <Compile Include="DataSwitch.cs" />
-    <Compile Include="General.cs" />
-    <Compile Include="HttpTools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitlTools\ClazTools.cs" />
-    <Compile Include="UnitlTools\DataChange.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CS.DAL\CS.DAL.csproj">
-      <Project>{bd9af8f3-fdb5-4df6-9d60-6ab07178d5f1}</Project>
-      <Name>CS.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CS.Models\CS.Models.csproj">
-      <Project>{236f9d42-9719-4939-9147-6860797c7694}</Project>
-      <Name>CS.Models</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Work\" />
+    <Compile Include="TextListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

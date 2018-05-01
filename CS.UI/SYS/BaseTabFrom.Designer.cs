@@ -37,9 +37,10 @@
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(390, 384);
             this.ControlBox = false;
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("宋体", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BaseTabFrom";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
