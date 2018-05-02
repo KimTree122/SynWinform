@@ -48,9 +48,11 @@ namespace CS.UI
             List<Authority> userauths = authorityService.GetUserAuth(SYSUser.id.ToString());
 
             var fun = userauths.Where(u => u.AuthTypeName.Contains("功能") || u.AuthTypeName.Contains("模块")).ToList();
-            var oper = userauths.Where(u => u.AuthTypeName.Contains("编辑")).ToList() ;
-
             authNodes.ShowTreeView(tree_auth, fun, false);
+
+            var oper = userauths.Where(u => u.AuthTypeName.Contains("编辑")).ToList() ;
+            SYSUser.OperAuth = oper;
+
         }
 
         private void AddTabForm(string TabName,string TabPath)
@@ -78,6 +80,7 @@ namespace CS.UI
                 form.TopLevel = false;
                 form.Visible = true;
                 form.Dock = DockStyle.Fill;
+                form.Tag = "123";
                 SuperTabItem item = sTC.CreateTab(TabName);
                 item.Text = TabName;
                 item.Name = TabName;
