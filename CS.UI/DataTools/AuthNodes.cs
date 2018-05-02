@@ -46,5 +46,65 @@ namespace CS.UI.DataTools
                 }
             }
         }
+
+        public List<Authority> GetCheckNode(NodeCollection tree)
+        {
+            List<Authority> checkauth = new List<Authority>();
+            foreach (Node node in tree)
+            {
+                if (node.Checked)
+                {
+                    List<Authority> nodeauth = new List<Authority>();
+                         nodeauth = GetNodeAuth(nodeauth,node);
+                    checkauth.AddRange(nodeauth);
+                }
+            }
+            return checkauth;
+        }
+
+        private List<Authority> GetNodeAuth(List<Authority> nauths, Node node)
+        {
+            if (!node.Checked) return nauths;
+            
+            Authority auth = node.Tag as Authority;
+            nauths.Add(auth);
+            if (node.Nodes != null)
+            {
+                foreach (Node n in node.Nodes)
+                {
+                    GetNodeAuth(nauths, n);
+                }
+            }
+            return nauths;
+        }
+
+        public List<Authority> GetUserNode(NodeCollection tree)
+        {
+            List<Authority> auths = new List<Authority>();
+            foreach (Node node in tree)
+            {
+                List<Authority> a = new List<Authority>();
+                a = GetUserNode(a, node);
+                auths.AddRange(a);
+            }
+            return auths;
+        }
+
+        private List<Authority> GetUserNode(List<Authority> a, Node node)
+        {
+            if (node.Checked)
+            {
+                Authority au = node.Tag as Authority;
+                a.Add(au);
+            }
+            if (node.Nodes != null)
+            {
+                foreach (Node n in node.Nodes)
+                {
+                    GetUserNode(a, n);
+                }
+            }
+            return a;
+        }
     }
 }

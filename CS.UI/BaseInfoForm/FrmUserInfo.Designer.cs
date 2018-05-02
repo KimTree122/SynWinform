@@ -210,6 +210,7 @@
             // 
             // btn_enter
             // 
+            this.btn_enter.Enabled = false;
             this.btn_enter.Image = global::CS.UI.Properties.Resources.save;
             this.btn_enter.ImagePaddingHorizontal = 10;
             this.btn_enter.ImagePaddingVertical = 10;
@@ -322,7 +323,7 @@
             // 
             this.split_Con.Panel2.Controls.Add(this.dgv);
             this.split_Con.Size = new System.Drawing.Size(468, 301);
-            this.split_Con.SplitterDistance = 249;
+            this.split_Con.SplitterDistance = 250;
             this.split_Con.TabIndex = 3;
             // 
             // gp
@@ -337,9 +338,10 @@
             this.gp.Controls.Add(this.label1);
             this.gp.DisabledBackColor = System.Drawing.Color.Empty;
             this.gp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gp.Enabled = false;
             this.gp.Location = new System.Drawing.Point(0, 0);
             this.gp.Name = "gp";
-            this.gp.Size = new System.Drawing.Size(249, 301);
+            this.gp.Size = new System.Drawing.Size(250, 301);
             // 
             // 
             // 

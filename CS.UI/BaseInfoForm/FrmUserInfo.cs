@@ -82,7 +82,10 @@ namespace CS.UI.BaseInfoForm
         private void Addstauts()
         {
             oper = 1;
+            btn_enter.Enabled = true;
+            gp.Enabled = true;
             split_Con.Panel1Collapsed = false;
+            split_Con.SplitterDistance = 250;
             txb_name.Text = "";
             txb_tel.Text = "";
         }
@@ -94,10 +97,13 @@ namespace CS.UI.BaseInfoForm
 
         private void Updatestauts()
         {
-            int row = dgv.SelectedRows[0].Index;
-            if (row == 0) return;
+            DataGridViewSelectedRowCollection dgrs = dgv.SelectedRows;
+            if (dgrs == null) return;
             oper = 2;
+            btn_enter.Enabled = true;
+            gp.Enabled = true;
             split_Con.Panel1Collapsed = false;
+            split_Con.SplitterDistance = 250;
         }
 
         private void btn_enter_Click(object sender, EventArgs e)
@@ -122,6 +128,8 @@ namespace CS.UI.BaseInfoForm
                     break;
             }
             oper = 0;
+            btn_enter.Enabled = false;
+            gp.Enabled = false;
         }
 
         private void Add()
@@ -156,7 +164,7 @@ namespace CS.UI.BaseInfoForm
                 int index = userInfolist.FindIndex( e => e.id == user.id);
                 userInfolist.RemoveAt(index);
                 userInfolist.Insert(index, user);
-                Fixdgv();
+                dgv.Refresh();
                 split_Con.Panel1Collapsed = true;
                 ShowTipsMessageBox("编辑成功");
             }
@@ -191,6 +199,8 @@ namespace CS.UI.BaseInfoForm
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             oper = 0;
+            btn_enter.Enabled = false;
+            gp.Enabled = false;
             split_Con.Panel1Collapsed = true;
         }
 

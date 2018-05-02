@@ -44,6 +44,16 @@ namespace CS.DAL
                 public static string DeleteAuthority = SecondLayer + "DeleteAuthority";
             }
 
+            public static class UserAuthUrl
+            {
+                private static readonly string SecondLayer = FristLayer + ConfigurationManager.AppSettings["BaseInfo"] + "/";
+
+                public static string GetUserAuth = SecondLayer + "GetUserAuth";
+                public static string AddUserAuth = SecondLayer + "AddUserAuth";
+                public static string DelteUserAuth = SecondLayer + "DelteUserAuth";
+                public static string CopyUserAuth = SecondLayer + "CopyUserAuth";
+            }
+
         }
 
     }

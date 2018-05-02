@@ -80,7 +80,7 @@ namespace CS.UI
 
         private void btn_userauth_Click(object sender, EventArgs e)
         {
-            AddTabForm("用户权限", "SYS.UserAuth");
+            AddTabForm("用户权限", "SYS.UserAuthManage");
         }
 
         private void btn_user_Click(object sender, EventArgs e)

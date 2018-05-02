@@ -1,6 +1,6 @@
 ﻿namespace CS.UI.SYS
 {
-    partial class UserAuth
+    partial class UserAuthManage
     {
         /// <summary>
         /// Required designer variable.

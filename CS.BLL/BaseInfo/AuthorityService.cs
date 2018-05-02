@@ -43,5 +43,43 @@ namespace CS.BLL.BaseInfo
             string msg = GetMsg(url, tools);
             return msg.ToInt() > 0;
         }
+
+        public List<Authority> GetUserAuth(string userid)
+        {
+            string url = UrlHelper.BaseInfoUrl.UserAuthUrl.GetUserAuth;
+            HttpTools tools = new HttpTools();
+            tools.AddParam("userid", userid).Build();
+            return GetEntities(url, tools);
+        }
+
+        public List<Authority> AddUserAuth(List<Authority> userAuths, string userid)
+        {
+            string url = UrlHelper.BaseInfoUrl.UserAuthUrl.AddUserAuth;
+            HttpTools tools = new HttpTools();
+            tools.AddParam("auth", DataSwitch.DataToJson(userAuths))
+                .AddParam("userid", userid).Build();
+            List<Authority> add = GetEntities(url, tools);
+            return add;
+        }
+
+        public bool DeleteUserAuth(List<UserAuth> userAuths, string userid)
+        {
+            string url = UrlHelper.BaseInfoUrl.UserAuthUrl.DelteUserAuth;
+            HttpTools tools = new HttpTools();
+            tools.AddParam("userauthjson", DataSwitch.DataToJson(userAuths))
+                .AddParam("userid", userid).Build();
+            string msg = GetMsg(url, tools);
+            return msg.ToInt() > 0;
+        }
+
+        public bool CopyUserAuth(string userid, string copyuserid)
+        {
+            string url = UrlHelper.BaseInfoUrl.UserAuthUrl.CopyUserAuth;
+            HttpTools tools = new HttpTools();
+            tools.AddParam("userid", userid)
+                .AddParam("copyuserid",copyuserid).Build();
+            string msg = GetMsg(url, tools);
+            return msg.ToInt() > 0;
+        }
     }
 }
