@@ -48,7 +48,7 @@ namespace CS.UI
             List<Authority> userauths = authorityService.GetUserAuth(SYSUser.id.ToString());
 
             var fun = userauths.Where(u => u.AuthTypeName.Contains("功能") || u.AuthTypeName.Contains("模块")).ToList();
-            var oper = userauths.Where(u => u.AuthTypeName.Contains("编辑")) ;
+            var oper = userauths.Where(u => u.AuthTypeName.Contains("编辑")).ToList() ;
 
             authNodes.ShowTreeView(tree_auth, fun, false);
         }
