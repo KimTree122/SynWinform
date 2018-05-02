@@ -127,7 +127,7 @@ namespace CS.UI.SYS
         {
             userauths = authorityService.GetUserAuth(txblist_user.Tag.ToString());
             ShowTreeView(tree_user, userauths);
-
         }
+
     }
 }

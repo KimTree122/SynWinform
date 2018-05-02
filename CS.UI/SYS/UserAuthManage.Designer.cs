@@ -37,6 +37,7 @@
             this.nodeConnector2 = new DevComponents.AdvTree.NodeConnector();
             this.elementStyle2 = new DevComponents.DotNetBar.ElementStyle();
             this.gb_oper = new System.Windows.Forms.GroupBox();
+            this.btn_sel = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
             this.btn_copy = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
             this.label2 = new System.Windows.Forms.Label();
             this.txblist_copy = new KControl.TextListBox();
@@ -46,7 +47,6 @@
             this.txblist_user = new KControl.TextListBox();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
-            this.btn_sel = new MetroFramework.Controls.MetroTextBox.MetroTextButton();
             this.gb_all.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tree_allauth)).BeginInit();
             this.gb_userauth.SuspendLayout();
@@ -58,9 +58,9 @@
             // 
             this.gb_all.Controls.Add(this.tree_allauth);
             this.gb_all.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gb_all.Location = new System.Drawing.Point(5, 36);
+            this.gb_all.Location = new System.Drawing.Point(0, 35);
             this.gb_all.Name = "gb_all";
-            this.gb_all.Size = new System.Drawing.Size(200, 465);
+            this.gb_all.Size = new System.Drawing.Size(200, 468);
             this.gb_all.TabIndex = 0;
             this.gb_all.TabStop = false;
             this.gb_all.Text = "全权限";
@@ -81,7 +81,7 @@
             this.tree_allauth.NodesConnector = this.nodeConnector1;
             this.tree_allauth.NodeStyle = this.elementStyle1;
             this.tree_allauth.PathSeparator = ";";
-            this.tree_allauth.Size = new System.Drawing.Size(194, 440);
+            this.tree_allauth.Size = new System.Drawing.Size(194, 443);
             this.tree_allauth.Styles.Add(this.elementStyle1);
             this.tree_allauth.TabIndex = 0;
             // 
@@ -99,9 +99,9 @@
             // 
             this.gb_userauth.Controls.Add(this.tree_user);
             this.gb_userauth.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gb_userauth.Location = new System.Drawing.Point(205, 36);
+            this.gb_userauth.Location = new System.Drawing.Point(200, 35);
             this.gb_userauth.Name = "gb_userauth";
-            this.gb_userauth.Size = new System.Drawing.Size(200, 465);
+            this.gb_userauth.Size = new System.Drawing.Size(200, 468);
             this.gb_userauth.TabIndex = 1;
             this.gb_userauth.TabStop = false;
             this.gb_userauth.Text = "用户权限";
@@ -122,7 +122,7 @@
             this.tree_user.NodesConnector = this.nodeConnector2;
             this.tree_user.NodeStyle = this.elementStyle2;
             this.tree_user.PathSeparator = ";";
-            this.tree_user.Size = new System.Drawing.Size(194, 440);
+            this.tree_user.Size = new System.Drawing.Size(194, 443);
             this.tree_user.Styles.Add(this.elementStyle2);
             this.tree_user.TabIndex = 1;
             this.tree_user.Text = "advTree1";
@@ -148,12 +148,25 @@
             this.gb_oper.Controls.Add(this.label1);
             this.gb_oper.Controls.Add(this.txblist_user);
             this.gb_oper.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gb_oper.Location = new System.Drawing.Point(405, 36);
+            this.gb_oper.Location = new System.Drawing.Point(400, 35);
             this.gb_oper.Name = "gb_oper";
-            this.gb_oper.Size = new System.Drawing.Size(209, 465);
+            this.gb_oper.Size = new System.Drawing.Size(219, 468);
             this.gb_oper.TabIndex = 2;
             this.gb_oper.TabStop = false;
             this.gb_oper.Text = "权限操作";
+            // 
+            // btn_sel
+            // 
+            this.btn_sel.Image = null;
+            this.btn_sel.Location = new System.Drawing.Point(70, 89);
+            this.btn_sel.Name = "btn_sel";
+            this.btn_sel.Size = new System.Drawing.Size(75, 23);
+            this.btn_sel.Style = MetroFramework.MetroColorStyle.Yellow;
+            this.btn_sel.TabIndex = 7;
+            this.btn_sel.Text = "查询";
+            this.btn_sel.UseSelectable = true;
+            this.btn_sel.UseVisualStyleBackColor = true;
+            this.btn_sel.Click += new System.EventHandler(this.btn_sel_Click);
             // 
             // btn_copy
             // 
@@ -231,9 +244,9 @@
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelEx1.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEx1.Location = new System.Drawing.Point(5, 1);
+            this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(609, 35);
+            this.panelEx1.Size = new System.Drawing.Size(619, 35);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -249,9 +262,9 @@
             this.panelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelEx2.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelEx2.Location = new System.Drawing.Point(5, 501);
+            this.panelEx2.Location = new System.Drawing.Point(0, 503);
             this.panelEx2.Name = "panelEx2";
-            this.panelEx2.Size = new System.Drawing.Size(609, 35);
+            this.panelEx2.Size = new System.Drawing.Size(619, 35);
             this.panelEx2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx2.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -261,20 +274,7 @@
             this.panelEx2.Style.GradientAngle = 90;
             this.panelEx2.TabIndex = 10;
             // 
-            // btn_sel
-            // 
-            this.btn_sel.Image = null;
-            this.btn_sel.Location = new System.Drawing.Point(70, 89);
-            this.btn_sel.Name = "btn_sel";
-            this.btn_sel.Size = new System.Drawing.Size(75, 23);
-            this.btn_sel.Style = MetroFramework.MetroColorStyle.Yellow;
-            this.btn_sel.TabIndex = 7;
-            this.btn_sel.Text = "查询";
-            this.btn_sel.UseSelectable = true;
-            this.btn_sel.UseVisualStyleBackColor = true;
-            this.btn_sel.Click += new System.EventHandler(this.btn_sel_Click);
-            // 
-            // UserAuth
+            // UserAuthManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -284,7 +284,8 @@
             this.Controls.Add(this.gb_all);
             this.Controls.Add(this.panelEx2);
             this.Controls.Add(this.panelEx1);
-            this.Name = "UserAuth";
+            this.DoubleBuffered = true;
+            this.Name = "UserAuthManage";
             this.Text = "UserAuth";
             this.Load += new System.EventHandler(this.UserAuth_Load);
             this.gb_all.ResumeLayout(false);

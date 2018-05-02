@@ -106,5 +106,17 @@ namespace CS.UI.DataTools
             }
             return a;
         }
+
+
+        public void ShowTreeView(AdvTree adv, List<Authority> auths,bool showcheck)
+        {
+            adv.Nodes.Clear();
+            List<Node> nodes = CreatTreeNodes(auths, showcheck);
+            foreach (Node tn in nodes)
+            {
+                adv.Nodes.Add(tn);
+            }
+            adv.ExpandAll();
+        }
     }
 }

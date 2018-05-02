@@ -34,7 +34,7 @@
             this.dockSite1 = new DevComponents.DotNetBar.DockSite();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.panelDockContainer1 = new DevComponents.DotNetBar.PanelDockContainer();
-            this.advTree1 = new DevComponents.AdvTree.AdvTree();
+            this.tree_auth = new DevComponents.AdvTree.AdvTree();
             this.nodeConnector1 = new DevComponents.AdvTree.NodeConnector();
             this.elementStyle1 = new DevComponents.DotNetBar.ElementStyle();
             this.dockContainerItem1 = new DevComponents.DotNetBar.DockContainerItem();
@@ -48,17 +48,17 @@
             this.kim_author = new DevComponents.DotNetBar.ButtonItem();
             this.btn_dic = new DevComponents.DotNetBar.ButtonItem();
             this.btn_userauth = new DevComponents.DotNetBar.ButtonItem();
+            this.btn_user = new DevComponents.DotNetBar.ButtonItem();
             this.dockSite3 = new DevComponents.DotNetBar.DockSite();
             this.sTC = new DevComponents.DotNetBar.SuperTabControl();
             this.superTabControlPanel1 = new DevComponents.DotNetBar.SuperTabControlPanel();
             this.welcome = new DevComponents.DotNetBar.SuperTabItem();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.btn_user = new DevComponents.DotNetBar.ButtonItem();
             this.dockSite1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             this.bar1.SuspendLayout();
             this.panelDockContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.advTree1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tree_auth)).BeginInit();
             this.topbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTC)).BeginInit();
@@ -137,7 +137,7 @@
             // 
             // panelDockContainer1
             // 
-            this.panelDockContainer1.Controls.Add(this.advTree1);
+            this.panelDockContainer1.Controls.Add(this.tree_auth);
             this.panelDockContainer1.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDockContainer1.Location = new System.Drawing.Point(3, 23);
             this.panelDockContainer1.Name = "panelDockContainer1";
@@ -149,27 +149,28 @@
             this.panelDockContainer1.Style.GradientAngle = 90;
             this.panelDockContainer1.TabIndex = 0;
             // 
-            // advTree1
+            // tree_auth
             // 
-            this.advTree1.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
-            this.advTree1.AllowDrop = true;
-            this.advTree1.BackColor = System.Drawing.SystemColors.Window;
+            this.tree_auth.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
+            this.tree_auth.AllowDrop = true;
+            this.tree_auth.BackColor = System.Drawing.SystemColors.Window;
             // 
             // 
             // 
-            this.advTree1.BackgroundStyle.Class = "TreeBorderKey";
-            this.advTree1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.advTree1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.advTree1.GridLinesColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.advTree1.Location = new System.Drawing.Point(0, 0);
-            this.advTree1.Name = "advTree1";
-            this.advTree1.NodesConnector = this.nodeConnector1;
-            this.advTree1.NodeStyle = this.elementStyle1;
-            this.advTree1.PathSeparator = ";";
-            this.advTree1.Size = new System.Drawing.Size(171, 483);
-            this.advTree1.Styles.Add(this.elementStyle1);
-            this.advTree1.TabIndex = 0;
-            this.advTree1.Text = "advTree1";
+            this.tree_auth.BackgroundStyle.Class = "TreeBorderKey";
+            this.tree_auth.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.tree_auth.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tree_auth.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tree_auth.GridLinesColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tree_auth.Location = new System.Drawing.Point(0, 0);
+            this.tree_auth.Name = "tree_auth";
+            this.tree_auth.NodesConnector = this.nodeConnector1;
+            this.tree_auth.NodeStyle = this.elementStyle1;
+            this.tree_auth.PathSeparator = ";";
+            this.tree_auth.Size = new System.Drawing.Size(171, 483);
+            this.tree_auth.Styles.Add(this.elementStyle1);
+            this.tree_auth.TabIndex = 0;
+            this.tree_auth.Text = "advTree1";
             // 
             // nodeConnector1
             // 
@@ -238,6 +239,7 @@
             this.topbar.Size = new System.Drawing.Size(741, 26);
             this.topbar.TabIndex = 10;
             this.topbar.TabStop = false;
+            this.topbar.Visible = false;
             // 
             // bar2
             // 
@@ -285,6 +287,12 @@
             this.btn_userauth.Name = "btn_userauth";
             this.btn_userauth.Text = "userauth";
             this.btn_userauth.Click += new System.EventHandler(this.btn_userauth_Click);
+            // 
+            // btn_user
+            // 
+            this.btn_user.Name = "btn_user";
+            this.btn_user.Text = "user";
+            this.btn_user.Click += new System.EventHandler(this.btn_user_Click);
             // 
             // dockSite3
             // 
@@ -372,12 +380,6 @@
             this.panelEx1.StyleMouseOver.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemHotText;
             this.panelEx1.TabIndex = 1;
             // 
-            // btn_user
-            // 
-            this.btn_user.Name = "btn_user";
-            this.btn_user.Text = "user";
-            this.btn_user.Click += new System.EventHandler(this.btn_user_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -399,7 +401,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).EndInit();
             this.bar1.ResumeLayout(false);
             this.panelDockContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.advTree1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tree_auth)).EndInit();
             this.topbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTC)).EndInit();
@@ -422,7 +424,7 @@
         private DevComponents.DotNetBar.DockSite dockSite6;
         private DevComponents.DotNetBar.DockSite topbar;
         private DevComponents.DotNetBar.DockSite dockSite8;
-        private DevComponents.AdvTree.AdvTree advTree1;
+        private DevComponents.AdvTree.AdvTree tree_auth;
         private DevComponents.AdvTree.NodeConnector nodeConnector1;
         private DevComponents.DotNetBar.ElementStyle elementStyle1;
         private DevComponents.DotNetBar.SuperTabControl sTC;

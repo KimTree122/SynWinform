@@ -1,4 +1,7 @@
 ﻿using CS.BLL.BaseInfo;
+using CS.Models.BaseInfo;
+using CS.UI.DataTools;
+using DevComponents.AdvTree;
 using DevComponents.DotNetBar;
 using MetroFramework;
 using MetroFramework.Forms;
@@ -21,23 +24,33 @@ namespace CS.UI
             InitializeComponent();
         }
 
-        
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             SYSUser.id = 1;
+            InitControl();
             InitCommonData();
+        }
+
+        private void InitControl()
+        {
+#if DEBUG
+            topbar.Visible = true;
+#endif
         }
 
         private void InitCommonData()
         {
             UserInfoService userInfoService = new UserInfoService();
             SYSData.userInfos = userInfoService.GetAllUserinfo(SYSUser.id);
-        }
 
-        private void kim_author_Click(object sender, EventArgs e)
-        {
-            AddTabForm("权限管理", "SYS.FrmAuthorManage");
+            AuthorityService authorityService = new AuthorityService();
+            AuthNodes authNodes = new AuthNodes();
+            List<Authority> userauths = authorityService.GetUserAuth(SYSUser.id.ToString());
+
+            var fun = userauths.Where(u => u.AuthTypeName.Contains("功能") || u.AuthTypeName.Contains("模块")).ToList();
+            var oper = userauths.Where(u => u.AuthTypeName.Contains("编辑")) ;
+
+            authNodes.ShowTreeView(tree_auth, fun, false);
         }
 
         private void AddTabForm(string TabName,string TabPath)
@@ -71,6 +84,11 @@ namespace CS.UI
                 item.AttachedControl.Controls.Add(form);
                 sTC.SelectedTab = item;
             }
+        }
+
+        private void kim_author_Click(object sender, EventArgs e)
+        {
+            AddTabForm("权限管理", "SYS.FrmAuthorManage");
         }
 
         private void btn_dic_Click(object sender, EventArgs e)
