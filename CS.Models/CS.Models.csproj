@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseInfo\BaseInfo.cs" />
+    <Compile Include="BaseInfo\BaseTree.cs" />
     <Compile Include="PostData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

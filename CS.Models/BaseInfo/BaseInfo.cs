@@ -183,38 +183,27 @@ namespace CS.Models.BaseInfo
 
     }
 
+    public class BaseTree
+    {
+        public int id { get; set; }
+        public int? ParentID { get; set; }
+        public string TreeName { get; set; }
+    }
+
     ///<summary>
     ///
     ///</summary>
-    public partial class Authority
+    public partial class Authority:BaseTree
     {
         public Authority()
         {
 
 
         }
-        /// <summary>
-        /// Desc:
-        /// Default:
-        /// Nullable:False
-        /// </summary>           
-        public int id { get; set; }
-
-        /// <summary>
-        /// Desc:
-        /// Default:
-        /// Nullable:True
-        /// </summary>           
-        public string AuthName { get; set; }
+      
 
         public string Path { get; set; }
 
-        /// <summary>
-        /// Desc:
-        /// Default:
-        /// Nullable:True
-        /// </summary>           
-        public int? ParentID { get; set; }
 
         /// <summary>
         /// Desc:

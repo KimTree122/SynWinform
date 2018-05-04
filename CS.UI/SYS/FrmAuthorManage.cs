@@ -22,7 +22,8 @@ namespace CS.UI.SYS
         }
 
         private AuthorityService authorityService = new AuthorityService();
-        private AuthNodes authNodes = new AuthNodes();
+        //private AuthNodes authNodes = new AuthNodes();
+        private NodesTools nodesTools = new NodesTools();
 
         private List<Authority> authorities;
         private List<Node> treeNodes;
@@ -121,7 +122,7 @@ namespace CS.UI.SYS
 
             CAuth = (Authority)node.Tag;
 
-            txb_name.Text = CAuth.AuthName;
+            txb_name.Text = CAuth.TreeName;
             txb_name.Tag = CAuth;
             txb_order.Text = CAuth.AOrder;
             txb_path.Text = CAuth.Path;
@@ -135,26 +136,21 @@ namespace CS.UI.SYS
                 return;
             }
             Authority pau = (Authority)pnode.Tag;
-            lbl_father.Text = pau.AuthName;
+            lbl_father.Text = pau.TreeName;
             lbl_father.Tag = pau.id;
             cb_top.Checked = false;
         }
 
         private Authority GetEditAuth(int fid, int id = 0)
         {
-            Authority authority = new Authority { AOrder = txb_order.Text, AuthName = txb_name.Text, AuthTypeID = (int)cmb_type.SelectedValue, AuthTypeName = cmb_type.Text, Path = txb_path.Text, ParentID = fid, Imageid = 0, id = id };
+            Authority authority = new Authority { AOrder = txb_order.Text, TreeName = txb_name.Text, AuthTypeID = (int)cmb_type.SelectedValue, AuthTypeName = cmb_type.Text, Path = txb_path.Text, ParentID = fid, Imageid = 0, id = id };
             return authority;
         }
 
         private void ShowTreeView()
         {
             advTree.Nodes.Clear();
-            treeNodes = authNodes.CreatTreeNodes(authorities,false);
-            foreach (Node tn in treeNodes)
-            {   
-                advTree.Nodes.Add(tn);
-            }
-            advTree.ExpandAll();
+            nodesTools.ShowTreeView<Authority>(advTree,authorities,false );
         }
 
         private void CleanText()
@@ -167,6 +163,9 @@ namespace CS.UI.SYS
 
         private void btn_add_Click(object sender, EventArgs e)
         {
+            Node node = advTree.SelectedNode;
+            if (node == null) return;
+            lbl_father.Text = node.Text;
             oper = 1;
             CleanText();
             gb.Enabled = true;

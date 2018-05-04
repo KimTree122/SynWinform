@@ -63,6 +63,12 @@
     <Compile Include="BaseInfoForm\FrmUserInfo.Designer.cs">
       <DependentUpon>FrmUserInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseInfoForm\GoodsType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseInfoForm\GoodsType.Designer.cs">
+      <DependentUpon>GoodsType.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataTools\AuthNodes.cs" />
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
@@ -112,6 +118,9 @@
     </Compile>
     <EmbeddedResource Include="BaseInfoForm\FrmUserInfo.resx">
       <DependentUpon>FrmUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseInfoForm\GoodsType.resx">
+      <DependentUpon>GoodsType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>

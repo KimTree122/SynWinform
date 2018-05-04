@@ -171,6 +171,7 @@
             this.tree_auth.Styles.Add(this.elementStyle1);
             this.tree_auth.TabIndex = 0;
             this.tree_auth.Text = "advTree1";
+            this.tree_auth.NodeDoubleClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.tree_auth_NodeDoubleClick);
             // 
             // nodeConnector1
             // 

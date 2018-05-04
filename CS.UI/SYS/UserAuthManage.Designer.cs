@@ -84,6 +84,7 @@
             this.tree_allauth.Size = new System.Drawing.Size(194, 443);
             this.tree_allauth.Styles.Add(this.elementStyle1);
             this.tree_allauth.TabIndex = 0;
+            this.tree_allauth.NodeClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.ChangeCheck);
             // 
             // nodeConnector1
             // 
@@ -126,6 +127,7 @@
             this.tree_user.Styles.Add(this.elementStyle2);
             this.tree_user.TabIndex = 1;
             this.tree_user.Text = "advTree1";
+            this.tree_user.NodeClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.ChangeCheck);
             // 
             // nodeConnector2
             // 
@@ -196,6 +198,7 @@
             this.txblist_copy.Name = "txblist_copy";
             this.txblist_copy.Size = new System.Drawing.Size(100, 26);
             this.txblist_copy.TabIndex = 4;
+            this.txblist_copy.Tag = 0;
             // 
             // btn_del
             // 
@@ -237,6 +240,7 @@
             this.txblist_user.Name = "txblist_user";
             this.txblist_user.Size = new System.Drawing.Size(100, 26);
             this.txblist_user.TabIndex = 0;
+            this.txblist_user.Tag = 0;
             // 
             // panelEx1
             // 

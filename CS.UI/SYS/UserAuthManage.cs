@@ -21,7 +21,8 @@ namespace CS.UI.SYS
         }
 
         private AuthorityService authorityService = new AuthorityService();
-        private AuthNodes authNodes = new AuthNodes();
+        //private AuthNodes authNodes = new AuthNodes();
+        private NodesTools nodesTools = new NodesTools();
 
         private List<Authority> allauths;
 
@@ -54,7 +55,7 @@ namespace CS.UI.SYS
         private void InitAllAuth()
         {
             allauths = authorityService.GetAuthorities(SYSUser.id);
-            authNodes.ShowTreeView(tree_allauth, allauths, true);
+            nodesTools.ShowTreeView(tree_allauth, allauths, true);
         }
 
         private void btn_add_Click(object sender, EventArgs e)
@@ -79,19 +80,19 @@ namespace CS.UI.SYS
 
         private void AddUserAuth()
         {
-            List<Authority> add = authNodes.GetAuthByNodesCheck(tree_allauth.Nodes);
+            List<Authority> add = nodesTools.GetAuthByNodesCheck<Authority>(tree_allauth.Nodes);
 
             List<Authority> useradd = authorityService.AddUserAuth(add, txblist_user.Tag.ToString());
             if (useradd.Count == 0) ShowTipsMessageBox("授权失败");
             userauths.AddRange(useradd);
-            authNodes.ShowTreeView(tree_user, allauths, true);
+            nodesTools.ShowTreeView(tree_user, allauths, true);
         }
 
         private void DelUserAuth()
         {
             List<UserAuth> userauths = new List<UserAuth>();
 
-            List<Authority> checkauth = authNodes.GetUserNode(tree_user.Nodes);
+            List<Authority> checkauth = nodesTools.GetUserNode<Authority>(tree_user.Nodes);
             foreach (Authority auth in checkauth)
             {
                 UserAuth userAuth = new UserAuth { AuthID = auth.id, UserID = int.Parse(txblist_user.Tag.ToString()) };
@@ -114,7 +115,28 @@ namespace CS.UI.SYS
         private void SelectUser()
         {
             userauths = authorityService.GetUserAuth(txblist_user.Tag.ToString());
-            authNodes.ShowTreeView(tree_user, allauths, true);
+            nodesTools.ShowTreeView(tree_user, allauths, true);
         }
+
+        private void ChangeCheck(object sender, TreeNodeMouseEventArgs e)
+        {
+            AdvTree advTree = (AdvTree)sender;
+            Node node = advTree.SelectedNode;
+            if (node.Nodes == null) return;
+            ChangeSonCheck(node, node.Checked);
+        }
+
+        private void ChangeSonCheck(Node node, bool check)
+        {
+            foreach (Node snode in node.Nodes)
+            {
+                snode.Checked = check;
+                if (snode.Nodes != null)
+                {
+                    ChangeSonCheck(snode, check);
+                }
+            }
+        }
+
     }
 }

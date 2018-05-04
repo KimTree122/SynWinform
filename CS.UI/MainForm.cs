@@ -44,7 +44,7 @@ namespace CS.UI
             SYSData.userInfos = userInfoService.GetAllUserinfo(SYSUser.id);
 
             AuthorityService authorityService = new AuthorityService();
-            AuthNodes authNodes = new AuthNodes();
+            NodesTools authNodes = new NodesTools();
             List<Authority> userauths = authorityService.GetUserAuth(SYSUser.id.ToString());
 
             var fun = userauths.Where(u => u.AuthTypeName.Contains("功能") || u.AuthTypeName.Contains("模块")).ToList();
@@ -107,6 +107,15 @@ namespace CS.UI
         private void btn_user_Click(object sender, EventArgs e)
         {
             AddTabForm("用户管理", "BaseInfoForm.FrmUserInfo");
+        }
+
+        private void tree_auth_NodeDoubleClick(object sender, TreeNodeMouseEventArgs e)
+        {
+            Node node = tree_auth.SelectedNode;
+            if (node == null) return;
+            Authority auth = node.Tag as Authority;
+            if (string.IsNullOrWhiteSpace(auth.Path)) return;
+            AddTabForm(auth.TreeName,auth.Path);
         }
     }
 }
