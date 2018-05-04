@@ -47,37 +47,6 @@ namespace CS.UI.DataTools
             }
         }
 
-        public List<Authority> GetCheckNode(NodeCollection tree)
-        {
-            List<Authority> checkauth = new List<Authority>();
-            foreach (Node node in tree)
-            {
-                if (node.Checked)
-                {
-                    List<Authority> nodeauth = new List<Authority>();
-                         nodeauth = GetNodeAuth(nodeauth,node);
-                    checkauth.AddRange(nodeauth);
-                }
-            }
-            return checkauth;
-        }
-
-        private List<Authority> GetNodeAuth(List<Authority> nauths, Node node)
-        {
-            if (!node.Checked) return nauths;
-            
-            Authority auth = node.Tag as Authority;
-            nauths.Add(auth);
-            if (node.Nodes != null)
-            {
-                foreach (Node n in node.Nodes)
-                {
-                    GetNodeAuth(nauths, n);
-                }
-            }
-            return nauths;
-        }
-
         public List<Authority> GetUserNode(NodeCollection tree)
         {
             List<Authority> auths = new List<Authority>();
@@ -107,7 +76,6 @@ namespace CS.UI.DataTools
             return a;
         }
 
-
         public void ShowTreeView(AdvTree adv, List<Authority> auths,bool showcheck)
         {
             adv.Nodes.Clear();
@@ -117,6 +85,64 @@ namespace CS.UI.DataTools
                 adv.Nodes.Add(tn);
             }
             adv.ExpandAll();
+        }
+
+        public List<Authority> GetAuthByNodesCheck(NodeCollection tree)
+        {
+            List<Node> nodelist = new List<Node>();
+            foreach (Node node in tree)
+            {
+                List<Node> nodes = new List<Node>();
+                nodes = GetSonNode(nodes, node);
+                nodelist.AddRange(nodes);
+            }
+
+            List<Node> checknode = new List<Node>();
+            foreach (Node node in nodelist)
+            {
+                if (node.Checked)
+                {
+                    checknode.Add(node);
+                    List<Node> nodes = new List<Node>();
+                    if (node.Parent != null)
+                    {
+                        nodes = GetParentNode(nodes, node.Parent);
+                        checknode.AddRange(nodes);
+                    }
+                }
+            }
+
+            checknode = checknode.Distinct().ToList();
+            List<Authority> authorities = new List<Authority>();
+            foreach (Node node in checknode)
+            {
+                authorities.Add(node.Tag as Authority);
+            }
+
+            return authorities;
+        }
+
+        private List<Node> GetParentNode(List<Node> nodes, Node parent)
+        {
+            nodes.Add(parent);
+            if (parent.Parent != null)
+            {
+                GetParentNode(nodes, parent.Parent);
+            }
+            return nodes;
+        }
+
+        private List<Node> GetSonNode(List<Node> nodes, Node node)
+        {
+            nodes.Add(node);
+            if (node.Nodes != null)
+            {
+                foreach (Node snode in node.Nodes)
+                {
+                    GetSonNode(nodes, snode);
+                }
+            }
+            return nodes;
         }
     }
 }

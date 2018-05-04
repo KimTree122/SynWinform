@@ -39,6 +39,7 @@ namespace KControl
             dropDown.Items.Add(controlHost);
             dropDown.AutoClose = false;
             listBox.Dock = DockStyle.Fill;
+            this.Tag = 0;
 
             this.TextChanged += TextList_TextChanged;
             this.KeyDown += TextList_KeyDown;

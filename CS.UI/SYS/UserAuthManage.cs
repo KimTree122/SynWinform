@@ -54,18 +54,7 @@ namespace CS.UI.SYS
         private void InitAllAuth()
         {
             allauths = authorityService.GetAuthorities(SYSUser.id);
-            ShowTreeView(tree_allauth, allauths);
-        }
-
-        private void ShowTreeView(AdvTree adv, List<Authority> auths )
-        {
-            adv.Nodes.Clear();
-            List<Node> nodes = authNodes.CreatTreeNodes(auths, true);
-            foreach (Node tn in nodes)
-            {
-                adv.Nodes.Add(tn);
-            }
-            adv.ExpandAll();
+            authNodes.ShowTreeView(tree_allauth, allauths, true);
         }
 
         private void btn_add_Click(object sender, EventArgs e)
@@ -90,13 +79,12 @@ namespace CS.UI.SYS
 
         private void AddUserAuth()
         {
-            List<Authority> add = authNodes.GetCheckNode(tree_allauth.Nodes);
+            List<Authority> add = authNodes.GetAuthByNodesCheck(tree_allauth.Nodes);
 
             List<Authority> useradd = authorityService.AddUserAuth(add, txblist_user.Tag.ToString());
             if (useradd.Count == 0) ShowTipsMessageBox("授权失败");
             userauths.AddRange(useradd);
-            ShowTreeView(tree_user, userauths);
-
+            authNodes.ShowTreeView(tree_user, allauths, true);
         }
 
         private void DelUserAuth()
@@ -126,8 +114,7 @@ namespace CS.UI.SYS
         private void SelectUser()
         {
             userauths = authorityService.GetUserAuth(txblist_user.Tag.ToString());
-            ShowTreeView(tree_user, userauths);
+            authNodes.ShowTreeView(tree_user, allauths, true);
         }
-
     }
 }
