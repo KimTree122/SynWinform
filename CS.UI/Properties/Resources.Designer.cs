@@ -73,6 +73,16 @@ namespace CS.UI.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap add {
+            get {
+                object obj = ResourceManager.GetObject("add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap configure {
             get {
                 object obj = ResourceManager.GetObject("configure", resourceCulture);
@@ -236,16 +246,6 @@ namespace CS.UI.Properties {
         internal static System.Drawing.Bitmap w28 {
             get {
                 object obj = ResourceManager.GetObject("w28", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
-        internal static System.Drawing.Bitmap w9 {
-            get {
-                object obj = ResourceManager.GetObject("w9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

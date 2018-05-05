@@ -186,7 +186,7 @@
             // btn_add
             // 
             this.btn_add.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
-            this.btn_add.Image = ((System.Drawing.Image)(resources.GetObject("btn_add.Image")));
+            this.btn_add.Image = global::CS.UI.Properties.Resources.add;
             this.btn_add.ImagePaddingHorizontal = 10;
             this.btn_add.ImagePaddingVertical = 10;
             this.btn_add.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
@@ -341,7 +341,7 @@
             this.gp.Enabled = false;
             this.gp.Location = new System.Drawing.Point(0, 0);
             this.gp.Name = "gp";
-            this.gp.Size = new System.Drawing.Size(250, 301);
+            this.gp.Size = new System.Drawing.Size(250, 100);
             // 
             // 
             // 

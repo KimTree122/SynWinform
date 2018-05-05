@@ -273,6 +273,7 @@
             this.mtile_cancel.TabIndex = 11;
             this.mtile_cancel.Text = "取消";
             this.mtile_cancel.UseSelectable = true;
+            this.mtile_cancel.Click += new System.EventHandler(this.mtile_cancel_Click);
             // 
             // FrmDictDialog
             // 

@@ -116,5 +116,10 @@ namespace CS.UI.SYS
         {
             SaveData();
         }
+
+        private void mtile_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

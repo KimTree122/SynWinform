@@ -54,6 +54,16 @@ namespace CS.DAL
                 public static string CopyUserAuth = SecondLayer + "CopyUserAuth";
             }
 
+            public static class ServerTypeUrl
+            {
+                private static readonly string SecondLayer = FristLayer + ConfigurationManager.AppSettings["BaseInfo"] + "/";
+
+                public static string GetAllServerType = SecondLayer + "GetAllServerType";
+                public static string AddServerType = SecondLayer + "AddServerType";
+                public static string UpdatServerType = SecondLayer + "UpdatServerType";
+                public static string DeleteServerType = SecondLayer + "DeleteServerType";
+            }
+
         }
 
     }

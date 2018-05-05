@@ -63,11 +63,11 @@
     <Compile Include="BaseInfoForm\FrmUserInfo.Designer.cs">
       <DependentUpon>FrmUserInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="BaseInfoForm\GoodsType.cs">
+    <Compile Include="BaseInfoForm\GoodsManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaseInfoForm\GoodsType.Designer.cs">
-      <DependentUpon>GoodsType.cs</DependentUpon>
+    <Compile Include="BaseInfoForm\GoodsManage.Designer.cs">
+      <DependentUpon>GoodsManage.cs</DependentUpon>
     </Compile>
     <Compile Include="DataTools\AuthNodes.cs" />
     <Compile Include="LogIn.cs">
@@ -119,8 +119,8 @@
     <EmbeddedResource Include="BaseInfoForm\FrmUserInfo.resx">
       <DependentUpon>FrmUserInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BaseInfoForm\GoodsType.resx">
-      <DependentUpon>GoodsType.cs</DependentUpon>
+    <EmbeddedResource Include="BaseInfoForm\GoodsManage.resx">
+      <DependentUpon>GoodsManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
@@ -199,7 +199,7 @@
     <Content Include="Image\Find.ico" />
     <Content Include="Image\warror.ico" />
     <Content Include="Image\Internet.ico" />
-    <Content Include="Image\w9.ico" />
+    <Content Include="Image\add.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

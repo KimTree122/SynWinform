@@ -234,4 +234,49 @@ namespace CS.Models.BaseInfo
         public string AOrder { get; set; }
 
     }
+
+    public partial class ServerType: BaseTree
+    {
+        public ServerType()
+        {
+
+
+        }
+
+        /// <summary>
+        /// Desc:
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
+        public string TypeName { get; set; }
+
+        /// <summary>
+        /// Desc:
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
+        public string Typeid { get; set; }
+
+        /// <summary>
+        /// Desc:
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
+        public string TMemo { get; set; }
+
+        /// <summary>
+        /// Desc:
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
+        public string TOrder { get; set; }
+
+        /// <summary>
+        /// Desc:
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
+        public bool? delflag { get; set; }
+
+    }
 }
