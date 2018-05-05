@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseInfoForm\FrmCustomInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseInfoForm\FrmCustomInfo.Designer.cs">
+      <DependentUpon>FrmCustomInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaseInfoForm\FrmUserInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     <Compile Include="SYS\UserAuthManage.Designer.cs">
       <DependentUpon>UserAuthManage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BaseInfoForm\FrmCustomInfo.resx">
+      <DependentUpon>FrmCustomInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaseInfoForm\FrmUserInfo.resx">
       <DependentUpon>FrmUserInfo.cs</DependentUpon>
     </EmbeddedResource>

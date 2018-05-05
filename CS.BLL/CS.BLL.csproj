@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BaseInfo\AuthorityService.cs" />
     <Compile Include="BaseInfo\BaseInfoService.cs" />
+    <Compile Include="BaseInfo\CustomInfoService.cs" />
     <Compile Include="BaseInfo\ServerTypeService.cs" />
     <Compile Include="BaseInfo\UserInfoService.cs" />
     <Compile Include="PostService.cs" />

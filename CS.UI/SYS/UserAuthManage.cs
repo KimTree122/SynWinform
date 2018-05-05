@@ -115,7 +115,7 @@ namespace CS.UI.SYS
         private void SelectUser()
         {
             userauths = authorityService.GetUserAuth(txblist_user.Tag.ToString());
-            nodesTools.ShowTreeView(tree_user, allauths, true);
+            nodesTools.ShowTreeView(tree_user, userauths, true);
         }
 
         private void ChangeCheck(object sender, TreeNodeMouseEventArgs e)

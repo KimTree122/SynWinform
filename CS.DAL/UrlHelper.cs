@@ -64,6 +64,18 @@ namespace CS.DAL
                 public static string DeleteServerType = SecondLayer + "DeleteServerType";
             }
 
+            public static class CustomInUrl
+            {
+                private static readonly string SecondLayer = FristLayer + ConfigurationManager.AppSettings["BaseInfo"] + "/";
+
+                public static string GetAllCustomInfo = SecondLayer + "GetAllCustomInfo";
+                public static string AddCustomInfo = SecondLayer + "AddCustomInfo";
+                public static string UpdatCustomInfo = SecondLayer + "UpdatCustomInfo";
+                public static string DeleteCustomInfo = SecondLayer + "DeleteCustomInfo";
+                public static string FindCustomByTel = SecondLayer + "FindCustomByTel";
+            }
+
+
         }
 
     }

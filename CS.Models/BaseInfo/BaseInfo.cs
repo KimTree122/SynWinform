@@ -40,6 +40,10 @@ namespace CS.Models.BaseInfo
         /// </summary>           
         public string Caddress { get; set; }
 
+        public string Cmeno { get; set; }
+
+        public bool? delflag { get; set; }
+
     }
 
     ///<summary>
