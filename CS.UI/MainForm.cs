@@ -106,7 +106,7 @@ namespace CS.UI
 
         private void btn_user_Click(object sender, EventArgs e)
         {
-            AddTabForm("用户管理", "BaseInfoForm.FrmUserInfo");
+            AddTabForm("业务中心", "WorkForm.FrmCheckServer");
         }
 
         private void tree_auth_NodeDoubleClick(object sender, TreeNodeMouseEventArgs e)

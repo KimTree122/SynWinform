@@ -181,6 +181,7 @@ namespace CS.UI.BaseInfoForm
             DialogResult dr = ShowQuestionMessageBox("确实要删除："+user+"?");
             if (dr == DialogResult.Yes)
             {
+                user.delflag = true;
                 bool c = uiS.Deleteuserinfo(user);
                 if (c)
                 {

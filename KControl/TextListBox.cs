@@ -19,6 +19,7 @@ namespace KControl
         private ToolStripDropDown dropDown;
         private List<string> strlist;
         public Action onPressEnter;
+        private char[] split = new char[] { ',','-','.','|','*','/'};
 
 
         public TextListBox()
@@ -84,7 +85,9 @@ namespace KControl
             if (listBox.Items.Count == 0) return;
 
             string seltext = listBox.SelectedItem.ToString();
-            string[] strs = seltext.Split('-');
+
+
+            string[] strs = seltext.Split(split);
             systemSetText = true;
             this.Text = strs[0];
             this.Tag = strs[strs.Count() - 1];
@@ -101,7 +104,7 @@ namespace KControl
         private void TextList_TextChanged(object sender, EventArgs e)
         {
             if (!this.Focused) return;
-            if (this.Text.Trim().Length == 0) { dropDown.Close(); return; }
+            if (this.Text.Trim().Length == 0) { this.Tag = 0; dropDown.Close(); return; }
             if (!systemSetText)
             {
                 setFilter(this.Text);
@@ -144,6 +147,7 @@ namespace KControl
             }
             else
             {
+                this.Tag = 0;
                 dropDown.Close();
             }
         }
