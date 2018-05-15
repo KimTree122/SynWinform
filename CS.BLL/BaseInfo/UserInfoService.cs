@@ -17,6 +17,8 @@ namespace CS.BLL.BaseInfo
             return GetEntities(url, tools);
         }
 
+
+
         public int Adduserinfo(UserInfo userInfo)
         {
             string url = UrlHelper.BaseInfoUrl.UserInfoUrl.AddUserInfo;

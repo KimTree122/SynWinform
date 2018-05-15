@@ -42,7 +42,7 @@
     <Compile Include="BaseInfo\BaseInfo.cs" />
     <Compile Include="PostData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\ChickInViewModel.cs" />
+    <Compile Include="ViewModel\CustomHistoryVM.cs" />
     <Compile Include="Work\WorkModel.cs" />
   </ItemGroup>
   <ItemGroup />

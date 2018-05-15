@@ -72,10 +72,23 @@ namespace CS.DAL
                 public static string AddCustomInfo = SecondLayer + "AddCustomInfo";
                 public static string UpdatCustomInfo = SecondLayer + "UpdatCustomInfo";
                 public static string DeleteCustomInfo = SecondLayer + "DeleteCustomInfo";
+                public static string CountCustomTel = SecondLayer + "CountCustomTel";
                 public static string FindCustomByTel = SecondLayer + "FindCustomByTel";
             }
 
+        }
 
+        public static class WorkUrl
+        {
+            private static readonly string FristLayer = BaseUrl+
+                ConfigurationManager.AppSettings["Work"] + "/";
+            public static class CheckInBLL
+            {
+                private static readonly string SecondLayer = FristLayer + ConfigurationManager.AppSettings["WorkBLL"] + "/";
+
+                public static string GetCustomHistory = SecondLayer + "GetCustomHistory";
+
+            }
         }
 
     }

@@ -183,7 +183,7 @@ namespace CS.UI.BaseInfoForm
 
         public bool CheckData()
         {
-            int count = cIS.FindCustomByTel(txb_tel.Text.Trim());
+            int count = cIS.CountcustomTel(txb_tel.Text.Trim());
             if (count > 0)
             {
                 ShowTipsMessageBox("已有相同手机号码");

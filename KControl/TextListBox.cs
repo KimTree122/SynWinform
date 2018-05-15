@@ -134,6 +134,8 @@ namespace KControl
 
         private void setFilter(string text)
         {
+            if (strlist == null || strlist.Count == 0) return;
+            
             listBox.Items.Clear();
             var v = strlist.Where(e => e.Contains(text));
             foreach (var item in v)

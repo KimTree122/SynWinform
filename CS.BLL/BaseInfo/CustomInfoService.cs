@@ -44,13 +44,22 @@ namespace CS.BLL.BaseInfo
             return msg.ToInt() > 0;
         }
 
-        public int FindCustomByTel(string tel)
+        public int CountcustomTel(string tel)
         {
-            string url = UrlHelper.BaseInfoUrl.CustomInUrl.FindCustomByTel;
+            string url = UrlHelper.BaseInfoUrl.CustomInUrl.CountCustomTel;
             HttpTools tools = new HttpTools();
             tools.AddParam("tel", tel).Build();
             string msg = GetMsg(url, tools);
             return msg.ToInt() ;
+        }
+
+        public CustomInfo FindCustomByTel(string tel)
+        {
+            string url = UrlHelper.BaseInfoUrl.CustomInUrl.FindCustomByTel;
+            HttpTools tools = new HttpTools();
+            tools.AddParam("tel", tel).Build();
+            CustomInfo custom = GetEntity(url, tools);
+            return custom;
         }
 
     }
