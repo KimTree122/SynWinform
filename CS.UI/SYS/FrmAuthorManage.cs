@@ -22,15 +22,11 @@ namespace CS.UI.SYS
         }
 
         private AuthorityService authorityService = new AuthorityService();
-        //private AuthNodes authNodes = new AuthNodes();
         private NodesTools nodesTools = new NodesTools();
 
         private List<Authority> authorities;
-        private List<Node> treeNodes;
         private int oper;
         private Authority CAuth;
-
-
 
         private void FrmAuthorManage_Load(object sender, EventArgs e)
         {
@@ -45,7 +41,7 @@ namespace CS.UI.SYS
 
         private void LoadAuth()
         {
-            ComboBoxBind.CmbDataByDic(cmb_type, "权限类型");
+            SysdicSer.ComboBoxBind(cmb_type, "权限类型");
         }
 
         private void LoadAuthType()

@@ -36,7 +36,7 @@ namespace CS.BLL
                 DList = dlist,
                 MCount = dlist.Count,
                 Msg = msg,
-                Obj = obj
+                Entity = obj
             };
 
             return DataToJson(postData);

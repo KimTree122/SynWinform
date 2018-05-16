@@ -87,7 +87,12 @@ namespace CS.DAL
                 private static readonly string SecondLayer = FristLayer + ConfigurationManager.AppSettings["WorkBLL"] + "/";
 
                 public static string GetCustomHistory = SecondLayer + "GetCustomHistory";
-
+                public static string AddCheckInMT = SecondLayer + "AddCheckInMT";
+                public static string UpdateCheckInMT = SecondLayer + "UpdateCheckInMT";
+                public static string AddCheckInDT = SecondLayer + "AddCheckInDT";
+                public static string UpdateCheckInDT = SecondLayer + "UpdateCheckInDT";
+                public static string GetQRnumber = SecondLayer + "GetSerNumber";
+                public static string GetCheckInMTDT = SecondLayer + "GetCheckInMTDT";
             }
         }
 

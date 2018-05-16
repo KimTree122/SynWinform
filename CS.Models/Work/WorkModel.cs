@@ -122,6 +122,8 @@ namespace CS.Models.Work
         /// </summary>           
         public string Memo { get; set; }
 
+        public string QRcode { get; set; }
+
         /// <summary>
         /// Desc:
         /// Default:

@@ -36,7 +36,7 @@ namespace CS.BLL
             {
                 string json = DataSwitch.GetResponseString(res);
                 PostData<DBNull,E> postData = DataSwitch.JsonToObj<PostData<DBNull, E>>(json);
-                return postData.Obj;
+                return postData.Entity;
             }
             return new E();
         }
