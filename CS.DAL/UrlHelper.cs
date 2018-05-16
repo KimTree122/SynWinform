@@ -92,7 +92,7 @@ namespace CS.DAL
                 public static string AddCheckInDT = SecondLayer + "AddCheckInDT";
                 public static string UpdateCheckInDT = SecondLayer + "UpdateCheckInDT";
                 public static string GetQRnumber = SecondLayer + "GetSerNumber";
-                public static string GetCheckInMTDT = SecondLayer + "GetCheckInMTDT";
+                public static string GetCheckInByMTid = SecondLayer + "GetCheckInByMTid";
             }
         }
 

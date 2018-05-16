@@ -21,7 +21,7 @@ namespace CS.BLL.Work
 
         public PostData<CheckInDT, CheckInMT> GetCheckInDTMT(string checkinmtid)
         {
-            string url = UrlHelper.WorkUrl.CheckInBLL.GetCheckInMTDT;
+            string url = UrlHelper.WorkUrl.CheckInBLL.GetCheckInByMTid;
             HttpTools tools = new HttpTools();
             tools.AddParam("checkinmtid", checkinmtid.ToInt()).Build();
             return GetPostData(url,tools);

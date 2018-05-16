@@ -27,7 +27,7 @@ namespace CS.UI.WorkForm
             InitializeComponent();
         }
 
-        private const string QR = "QR";
+        private const string QR = "CS";
         private const string emptystring = "";
         private const string CsStauts = "售后状态";
         private const int rating = 1;
@@ -165,20 +165,26 @@ namespace CS.UI.WorkForm
             dgv.Columns["FinishDate"].HeaderText = "完成";
             if (vMs.Count > 0)
             {
-                dgv.ClearSelection();
-                dgv[0, vMs.Count - 1].Selected = true;
                 FixControlData();
             }
         }
 
         private void FixControlData()
         {
+            panel_detail.Visible = true;
+            panel_detail.Enabled = false;
             int row = dgv.SelectedCells[0].RowIndex;
             string mtid = dgv["id", row].Value.ToString();
             PostData<CheckInDT, CheckInMT> post = checkInService.GetCheckInDTMT(mtid);
             CheckInMT mT = post.Entity;
             List<CheckInDT> dtlist = post.DList;
+            if (post.MCount == 0) return;
+            
             rtxb_des.Text = mT.Memo;
+
+            string st = serverTypelist.Find( s => s.id == mT.ServerTypeID).TreeName;
+
+            txb_servertype.Text = st;
             pb_qr.Image = QRManage.GetQRCodeByZXingNet(mT.QRcode, pb_qr.Width, pb_qr.Height);
             foreach (CheckInDT dt in dtlist)
             {
@@ -186,9 +192,8 @@ namespace CS.UI.WorkForm
                 
                 StepItem item = new StepItem("", staut);
                 progressSteps.Items.Add(item);
+                ratingStar.Rating = (int) dt.Rating;
             }
-
-
         }
 
         private void FindInfoByQR(string query)
@@ -327,7 +332,7 @@ namespace CS.UI.WorkForm
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            FixControlData();
         }
     }
 
