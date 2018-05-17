@@ -120,8 +120,20 @@ namespace CS.Models.Work
         /// Default:
         /// Nullable:True
         /// </summary>           
+        public string FinishDate { get; set; }
+
+        /// <summary>
+        /// Desc:
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
         public string Memo { get; set; }
 
+        /// <summary>
+        /// Desc:
+        /// Default:
+        /// Nullable:True
+        /// </summary>           
         public string QRcode { get; set; }
 
         /// <summary>

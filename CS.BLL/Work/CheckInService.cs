@@ -60,6 +60,12 @@ namespace CS.BLL.Work
             return GetMsg(url, tools).ToInt();
         }
 
-
+        public int GetCustomidByQR(string qrcode)
+        {
+            string url = UrlHelper.WorkUrl.CheckInBLL.UpdateCheckInDT;
+            HttpTools tools = new HttpTools();
+            tools.AddParam("qrcode", qrcode).Build(); ;
+            return GetMsg(url, tools).ToInt();
+        }
     }
 }

@@ -79,6 +79,16 @@ namespace CS.UI.WorkForm
 
             gb_cs.Visible = false;
             txb_servertype.Tag = 0;
+
+            btn_find.KeyDown += Btn_find_KeyDown                ;
+        }
+
+        private void Btn_find_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                FindData();
+            }
         }
 
         private void ShowPanel(PanelEx panel)
@@ -100,7 +110,7 @@ namespace CS.UI.WorkForm
         {
             txb_custom.Text = emptystring;
             txb_name.Text = emptystring;
-            txb_predate.Text = emptystring;
+            txb_finishdate.Text = emptystring;
             txb_tel.Text = emptystring;
             txb_servertype.Text = emptystring;
             lbl_qrcode.Text = emptystring;
@@ -109,15 +119,21 @@ namespace CS.UI.WorkForm
             dgv.DataSource = null;
             Tree_cs.Nodes.Clear();
             ratingStar.RatingValue = rating;
-            rtxb_des.Text = emptystring;
+            rtxb_mtmemo.Text = emptystring;
             pb_qr.Image = null;
             gb_cs.Visible = false;
             ribbonBar.Enabled = false;
             panel_detail.Visible = false;
+            panel_mt.Visible = false;
 
         }
 
         private void btn_find_Click(object sender, EventArgs e)
+        {
+            FindData();
+        }
+
+        private void FindData()
         {
             string query = txb_custom.Text.Trim().ToUpper();
             if (query.Length == 0) return;
@@ -143,15 +159,20 @@ namespace CS.UI.WorkForm
             }
             else
             {
-                txb_name.Text = customInfo.Cname;
-                txb_name.Tag = customInfo.id;
-                txb_tel.Text = customInfo.CTel;
-                gb_custom.Enabled = false;
-                ribbonBar.Enabled = true;
-                nodesTools.ShowTreeView<ServerType>(Tree_cs, serverTypelist, false);
-                GetHistory(customInfo.id);
-                ShowPanel(panel_in);
+                ShowCustomHistory();
             }
+        }
+
+        private void ShowCustomHistory()
+        {
+            txb_name.Text = customInfo.Cname;
+            txb_name.Tag = customInfo.id;
+            txb_tel.Text = customInfo.CTel;
+            gb_custom.Enabled = false;
+            ribbonBar.Enabled = true;
+            nodesTools.ShowTreeView<ServerType>(Tree_cs, serverTypelist, false);
+            GetHistory(customInfo.id);
+            ShowPanel(panel_in);
         }
 
         private void GetHistory(int id)
@@ -180,7 +201,7 @@ namespace CS.UI.WorkForm
             List<CheckInDT> dtlist = post.DList;
             if (post.MCount == 0) return;
             
-            rtxb_des.Text = mT.Memo;
+            rtxb_mtmemo.Text = mT.Memo;
 
             string st = serverTypelist.Find( s => s.id == mT.ServerTypeID).TreeName;
 
@@ -188,9 +209,9 @@ namespace CS.UI.WorkForm
             pb_qr.Image = QRManage.GetQRCodeByZXingNet(mT.QRcode, pb_qr.Width, pb_qr.Height);
             foreach (CheckInDT dt in dtlist)
             {
-                string staut = ScStautlist.Find(s => s.id == dt.GoodsStauts).Dicval;
+                Sysdic staut = ScStautlist.Find(s => s.id == dt.GoodsStauts);
                 
-                StepItem item = new StepItem("", staut);
+                StepItem item = new StepItem(staut.id.ToString(), staut.Dicval);
                 progressSteps.Items.Add(item);
                 ratingStar.Rating = (int) dt.Rating;
             }
@@ -198,7 +219,16 @@ namespace CS.UI.WorkForm
 
         private void FindInfoByQR(string query)
         {
-
+            int customid = checkInService.GetCustomidByQR(query);
+            if (customid == 0)
+            {
+                ShowTipsMessageBox("未能查询信息，请重新输入");
+            }
+            else
+            {
+                customInfo = customService.FindCustomByid(customid);
+                if (customInfo.id != 0) ShowCustomHistory();
+            }
         }
 
         private void plan_back_Click(object sender, EventArgs e)
@@ -214,11 +244,9 @@ namespace CS.UI.WorkForm
 
         private void AddStauts()
         {
-            panel_detail.Visible = true;
+            panel_mt.Visible = true;
             gb_cs.Visible = true;
             oper = 1;
-            StepItem item = new StepItem("", frist_ScStauts.Dicname);
-            progressSteps.Items.Add(item);
         }
 
         private void btn_modi_Click(object sender, EventArgs e)
@@ -268,31 +296,26 @@ namespace CS.UI.WorkForm
             }
 
             string qrcode = checkInService.GetQrnumber(SYSUser.id);
-
-            CheckInMT mT = new CheckInMT
-            {
-                CheckDate = DateTime.Now.ToShortDateString(),
-                CustomID = (int)txb_name.Tag,
-                Memo = rtxb_des.Text.Trim(),
-                delflag = false,
-                ServerTypeID = (int)txb_servertype.Tag,
-                ServerStauts = frist_ScStauts.id,
-                QRcode = qrcode
-            };
-            int id = checkInService.AddCheckInMT(mT);
+            int id = AddCheckInMT(qrcode);
             if (id == 0)
             {
-                ShowTipsMessageBox("");
+                ShowErrorMessageBox("添加失败");
                 return;
             }
 
+            AddCheckInDT(qrcode, id);
+
+        }
+
+        private void AddCheckInDT(string qrcode, int id)
+        {
             CheckInDT dT = new CheckInDT
             {
                 CheckData = DateTime.Now.ToShortDateString(),
                 CheckInID = id,
                 delflag = false,
                 Rating = ratingStar.Rating,
-                Meno = emptystring,
+                Meno = frist_ScStauts.Dicval,
                 GoodsStauts = frist_ScStauts.id
             };
 
@@ -302,8 +325,26 @@ namespace CS.UI.WorkForm
                 ShowTipsMessageBox("添加成功");
                 pb_qr.Image = QRManage.GetQRCodeByZXingNet(qrcode, pb_qr.Width, pb_qr.Height);
                 lbl_qrcode.Text = qrcode;
-            }
 
+                StepItem item = new StepItem(frist_ScStauts.id.ToString(), frist_ScStauts.Dicname);
+                progressSteps.Items.Add(item);
+            }
+        }
+
+        private int AddCheckInMT(string qrcode)
+        {
+            CheckInMT mT = new CheckInMT
+            {
+                CheckDate = DateTime.Now.ToShortDateString(),
+                CustomID = (int)txb_name.Tag,
+                Memo = rtxb_mtmemo.Text.Trim(),
+                delflag = false,
+                ServerTypeID = (int)txb_servertype.Tag,
+                ServerStauts = frist_ScStauts.id,
+                QRcode = qrcode
+            };
+            int id = checkInService.AddCheckInMT(mT);
+            return id;
         }
 
         private void Tree_cs_AfterNodeSelect(object sender, DevComponents.AdvTree.AdvTreeNodeEventArgs e)
@@ -334,6 +375,7 @@ namespace CS.UI.WorkForm
         {
             FixControlData();
         }
+
     }
 
 }

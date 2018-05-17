@@ -64,7 +64,7 @@ namespace CS.DAL
                 public static string DeleteServerType = SecondLayer + "DeleteServerType";
             }
 
-            public static class CustomInUrl
+            public static class CustomInfoUrl
             {
                 private static readonly string SecondLayer = FristLayer + ConfigurationManager.AppSettings["BaseInfo"] + "/";
 
@@ -74,6 +74,7 @@ namespace CS.DAL
                 public static string DeleteCustomInfo = SecondLayer + "DeleteCustomInfo";
                 public static string CountCustomTel = SecondLayer + "CountCustomTel";
                 public static string FindCustomByTel = SecondLayer + "FindCustomByTel";
+                public static string FindCustomByid = SecondLayer + "FindCustomByid";
             }
 
         }
@@ -93,6 +94,7 @@ namespace CS.DAL
                 public static string UpdateCheckInDT = SecondLayer + "UpdateCheckInDT";
                 public static string GetQRnumber = SecondLayer + "GetSerNumber";
                 public static string GetCheckInByMTid = SecondLayer + "GetCheckInByMTid";
+                public static string GetCustomidByQR = SecondLayer + "GetCustomidByQR";
             }
         }
 
