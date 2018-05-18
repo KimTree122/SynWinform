@@ -26,9 +26,24 @@ namespace CS.UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            SYSUser.id = 1;
-            InitControl();
-            InitCommonData();
+            LoginShow();
+        }
+
+        private void LoginShow()
+        {
+            this.Visible = false ;
+            LogIn logIn = new LogIn();
+            logIn.ShowDialog();
+            bool success = logIn.DialogResult == DialogResult.OK;
+            if (success)
+            {
+                InitControl();
+                InitCommonData();
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void InitControl()

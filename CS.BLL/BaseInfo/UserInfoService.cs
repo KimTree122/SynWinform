@@ -46,5 +46,13 @@ namespace CS.BLL.BaseInfo
             return msg.ToInt() > 0;
         }
 
+        public UserInfo GetUserInfoByAccount(string account, string pwd)
+        {
+            string url = UrlHelper.BaseInfoUrl.UserInfoUrl.GetUserInfoByAccount;
+            HttpTools t = new HttpTools();
+            t.AddParam("account", account).AddParam("pwd", pwd).Build();
+            return GetEntity(url,t);
+        }
+
     }
 }

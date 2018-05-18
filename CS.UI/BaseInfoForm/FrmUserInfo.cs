@@ -36,6 +36,7 @@ namespace CS.UI.BaseInfoForm
             dgv.Columns["Uname"].HeaderText = "姓名";
             dgv.Columns["Utel"].HeaderText = "电话";
             dgv.Columns["UPost"].HeaderText = "职位";
+            dgv.Columns["Uaccount"].HeaderText = "账号";
             dgv.Columns["id"].Visible = false;
             dgv.Columns["Upwd"].Visible = false;
             dgv.Columns["delflag"].Visible = false;
@@ -62,6 +63,7 @@ namespace CS.UI.BaseInfoForm
                 txb_tel.Text = user.Utel;
                 cmb_post.Text = user.UPost;
                 txb_name.Tag = user.id;
+                txb_account.Text = user.Uaccount;
             }
             else
             {
@@ -152,7 +154,7 @@ namespace CS.UI.BaseInfoForm
 
         private UserInfo ControlUserInfo()
         {
-            return new UserInfo { Uname = txb_name.Text, delflag = false, UPost = cmb_post.Text, Utel = txb_tel.Text, Upwd = txb_tel.Text.Trim(), id = (int)txb_name.Tag };
+            return new UserInfo { Uname = txb_name.Text, delflag = false, UPost = cmb_post.Text, Utel = txb_tel.Text, Upwd = txb_tel.Text.Trim(), Uaccount = txb_account.Text.Trim(), id = (int)txb_name.Tag };
         }
 
         private void Editdata()

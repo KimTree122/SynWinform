@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace CS.UI.ReportForm
 {
-    public partial class FrmServerReport : Form
+    public partial class FrmServerReport : BaseTabFrom
     {
         public FrmServerReport()
         {

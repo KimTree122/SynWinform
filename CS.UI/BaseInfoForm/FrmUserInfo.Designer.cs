@@ -55,6 +55,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txb_name = new MetroFramework.Controls.MetroTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txb_account = new MetroFramework.Controls.MetroTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             stylem = new DevComponents.DotNetBar.StyleManager(this.components);
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
@@ -323,13 +325,15 @@
             // 
             this.split_Con.Panel2.Controls.Add(this.dgv);
             this.split_Con.Size = new System.Drawing.Size(468, 301);
-            this.split_Con.SplitterDistance = 250;
+            this.split_Con.SplitterDistance = 249;
             this.split_Con.TabIndex = 3;
             // 
             // gp
             // 
             this.gp.CanvasColor = System.Drawing.SystemColors.Control;
             this.gp.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.gp.Controls.Add(this.txb_account);
+            this.gp.Controls.Add(this.label4);
             this.gp.Controls.Add(this.cmb_post);
             this.gp.Controls.Add(this.label3);
             this.gp.Controls.Add(this.txb_tel);
@@ -341,7 +345,7 @@
             this.gp.Enabled = false;
             this.gp.Location = new System.Drawing.Point(0, 0);
             this.gp.Name = "gp";
-            this.gp.Size = new System.Drawing.Size(250, 100);
+            this.gp.Size = new System.Drawing.Size(249, 301);
             // 
             // 
             // 
@@ -445,7 +449,7 @@
             this.txb_name.CustomButton.UseSelectable = true;
             this.txb_name.CustomButton.Visible = false;
             this.txb_name.Lines = new string[0];
-            this.txb_name.Location = new System.Drawing.Point(100, 74);
+            this.txb_name.Location = new System.Drawing.Point(100, 36);
             this.txb_name.MaxLength = 32767;
             this.txb_name.Name = "txb_name";
             this.txb_name.PasswordChar = '\0';
@@ -462,11 +466,49 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 77);
+            this.label1.Location = new System.Drawing.Point(22, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 16);
             this.label1.TabIndex = 12;
             this.label1.Text = "姓名";
+            // 
+            // txb_account
+            // 
+            // 
+            // 
+            // 
+            this.txb_account.CustomButton.Image = null;
+            this.txb_account.CustomButton.Location = new System.Drawing.Point(99, 1);
+            this.txb_account.CustomButton.Name = "";
+            this.txb_account.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txb_account.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txb_account.CustomButton.TabIndex = 1;
+            this.txb_account.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txb_account.CustomButton.UseSelectable = true;
+            this.txb_account.CustomButton.Visible = false;
+            this.txb_account.Lines = new string[0];
+            this.txb_account.Location = new System.Drawing.Point(100, 78);
+            this.txb_account.MaxLength = 32767;
+            this.txb_account.Name = "txb_account";
+            this.txb_account.PasswordChar = '\0';
+            this.txb_account.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txb_account.SelectedText = "";
+            this.txb_account.SelectionLength = 0;
+            this.txb_account.SelectionStart = 0;
+            this.txb_account.Size = new System.Drawing.Size(121, 23);
+            this.txb_account.TabIndex = 19;
+            this.txb_account.UseSelectable = true;
+            this.txb_account.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txb_account.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(22, 81);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 16);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "账号";
             // 
             // FrmUserInfo
             // 
@@ -516,5 +558,7 @@
         private System.Windows.Forms.Label label2;
         private MetroFramework.Controls.MetroTextBox txb_name;
         private System.Windows.Forms.Label label1;
+        private MetroFramework.Controls.MetroTextBox txb_account;
+        private System.Windows.Forms.Label label4;
     }
 }
