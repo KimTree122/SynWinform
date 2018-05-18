@@ -1,4 +1,5 @@
-﻿using CS.BLL.BaseInfo;
+﻿using CS.BLL;
+using CS.BLL.BaseInfo;
 using CS.BLL.Work;
 using CS.Models;
 using CS.Models.BaseInfo;
@@ -80,55 +81,22 @@ namespace CS.UI.WorkForm
             gb_cs.Visible = false;
             txb_servertype.Tag = 0;
 
-            btn_find.KeyDown += Btn_find_KeyDown                ;
+            txb_custom.KeyDown += Txb_custom_KeyDown;
         }
 
-        private void Btn_find_KeyDown(object sender, KeyEventArgs e)
+        private void Txb_custom_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                FindData();
-            }
+            if (e.KeyCode == Keys.Enter) FindData();
+
         }
 
-        private void ShowPanel(PanelEx panel)
+        private void Plan_back_Click(object sender, EventArgs e)
         {
-            foreach (PanelEx item in panellist)
-            {
-                if (item.Name == panel.Name)
-                {
-                    item.Visible = true;
-                }
-                else
-                {
-                    item.Visible = false;
-                }
-            }
+            ClearData();
+            ShowPanel(panel_inorout);
         }
 
-        private void ClearData()
-        {
-            txb_custom.Text = emptystring;
-            txb_name.Text = emptystring;
-            txb_finishdate.Text = emptystring;
-            txb_tel.Text = emptystring;
-            txb_servertype.Text = emptystring;
-            lbl_qrcode.Text = emptystring;
-            txb_servertype.Tag = 0;
-            txb_name.Tag = 0;
-            dgv.DataSource = null;
-            Tree_cs.Nodes.Clear();
-            ratingStar.RatingValue = rating;
-            rtxb_mtmemo.Text = emptystring;
-            pb_qr.Image = null;
-            gb_cs.Visible = false;
-            ribbonBar.Enabled = false;
-            panel_detail.Visible = false;
-            panel_mt.Visible = false;
-
-        }
-
-        private void btn_find_Click(object sender, EventArgs e)
+        private void Btn_find_Click(object sender, EventArgs e)
         {
             FindData();
         }
@@ -159,11 +127,33 @@ namespace CS.UI.WorkForm
             }
             else
             {
-                ShowCustomHistory();
+                InitCustomControl();
+                GetHistory(customInfo.id);
+                ShowPanel(panel_in);
             }
         }
 
-        private void ShowCustomHistory()
+        private void FindInfoByQR(string query)
+        {
+            int customid = checkInService.GetCustomidByQR(query);
+            if (customid == 0)
+            {
+                ShowTipsMessageBox("未能查询信息，请重新输入");
+                txb_custom.Text = "";
+            }
+            else
+            {
+                customInfo = customService.FindCustomByid(customid);
+                if (customInfo.id != 0)
+                {
+                    InitCustomControl();
+                    GetHistory(customInfo.id);
+                    ShowPanel(panel_in);
+                }
+            }
+        }
+
+        private void InitCustomControl()
         {
             txb_name.Text = customInfo.Cname;
             txb_name.Tag = customInfo.id;
@@ -171,8 +161,6 @@ namespace CS.UI.WorkForm
             gb_custom.Enabled = false;
             ribbonBar.Enabled = true;
             nodesTools.ShowTreeView<ServerType>(Tree_cs, serverTypelist, false);
-            GetHistory(customInfo.id);
-            ShowPanel(panel_in);
         }
 
         private void GetHistory(int id)
@@ -190,54 +178,57 @@ namespace CS.UI.WorkForm
             }
         }
 
+        private void Dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            FixControlData();
+        }
+
         private void FixControlData()
         {
-            panel_detail.Visible = true;
-            panel_detail.Enabled = false;
             int row = dgv.SelectedCells[0].RowIndex;
             string mtid = dgv["id", row].Value.ToString();
             PostData<CheckInDT, CheckInMT> post = checkInService.GetCheckInDTMT(mtid);
+            if (post.MCount == 0)
+            {
+                ShowErrorMessageBox("获取失败，请重新点击");
+                return;
+            } 
+
             CheckInMT mT = post.Entity;
             List<CheckInDT> dtlist = post.DList;
-            if (post.MCount == 0) return;
-            
             rtxb_mtmemo.Text = mT.Memo;
-
+            pb_qr.Tag = mtid.ToInt();
             string st = serverTypelist.Find( s => s.id == mT.ServerTypeID).TreeName;
-
             txb_servertype.Text = st;
             pb_qr.Image = QRManage.GetQRCodeByZXingNet(mT.QRcode, pb_qr.Width, pb_qr.Height);
+
+
             foreach (CheckInDT dt in dtlist)
             {
-                Sysdic staut = ScStautlist.Find(s => s.id == dt.GoodsStauts);
-                
-                StepItem item = new StepItem(staut.id.ToString(), staut.Dicval);
-                progressSteps.Items.Add(item);
-                ratingStar.Rating = (int) dt.Rating;
+                AddProgressSetp(dt);
             }
+
+            panel_detail.Visible = true;
+            panel_detail.Enabled = false;
+            panel_mt.Visible = true;
+            lbl_sertype.Enabled = false;
+            rtxb_mtmemo.Enabled = false;
+            DetailBtnVisible(true);
+
         }
 
-        private void FindInfoByQR(string query)
+        private void AddProgressSetp(CheckInDT dt)
         {
-            int customid = checkInService.GetCustomidByQR(query);
-            if (customid == 0)
-            {
-                ShowTipsMessageBox("未能查询信息，请重新输入");
-            }
-            else
-            {
-                customInfo = customService.FindCustomByid(customid);
-                if (customInfo.id != 0) ShowCustomHistory();
-            }
+            Sysdic staut = ScStautlist.Find(s => s.id == dt.GoodsStauts);
+            StepItem item = new StepItem(staut.id.ToString(), staut.Dicval);
+            item.Tag = dt;
+            progressSteps.Items.Add(item);
+            ratingStar.Rating = (int)dt.Rating;
+            lbl_dtmemo.Text = dt.Meno;
+            progressSteps.Refresh();
         }
 
-        private void plan_back_Click(object sender, EventArgs e)
-        {
-            ClearData();
-            ShowPanel(panel_inorout);
-        }
-
-        private void btn_add_Click(object sender, EventArgs e)
+        private void Btn_add_Click(object sender, EventArgs e)
         {
             AddStauts();
         }
@@ -246,20 +237,33 @@ namespace CS.UI.WorkForm
         {
             panel_mt.Visible = true;
             gb_cs.Visible = true;
+            txb_servertype.Text = "";
+            txb_servertype.Tag = 0;
+            rtxb_mtmemo.Text = "";
+            pb_qr.Image = null;
+            panel_detail.Visible = true;
+            ratingStar.Rating = 0;
+            lbl_dtmemo.Text = "";
+            
+            for (int i = 0; i < progressSteps.Items.Count; i++)
+            {
+                progressSteps.Items.RemoveAt(i);
+                i--;
+            }
             oper = 1;
         }
 
-        private void btn_modi_Click(object sender, EventArgs e)
+        private void Btn_modi_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btn_del_Click(object sender, EventArgs e)
+        private void Btn_del_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btn_creat_Click(object sender, EventArgs e)
+        private void Btn_creat_Click(object sender, EventArgs e)
         {
             EnterStauts();
         }
@@ -361,21 +365,119 @@ namespace CS.UI.WorkForm
             txb_servertype.Tag = serverType.id;
         }
 
-        private void lbl_sertype_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Lbl_sertype_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             gb_cs.Visible = !gb_cs.Visible;
         }
 
-        private void btn_print_Click(object sender, EventArgs e)
+        private void Btn_print_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+
+
+        private void Btn_enter_Click(object sender, EventArgs e)
         {
-            FixControlData();
+
         }
 
+        private void ShowPanel(PanelEx panel)
+        {
+            foreach (PanelEx item in panellist)
+            {
+                if (item.Name == panel.Name)
+                {
+                    item.Visible = true;
+                }
+                else
+                {
+                    item.Visible = false;
+                }
+            }
+        }
+
+        private void ClearData()
+        {
+            txb_custom.Text = emptystring;
+            txb_name.Text = emptystring;
+            txb_finishdate.Text = emptystring;
+            txb_tel.Text = emptystring;
+            txb_servertype.Text = emptystring;
+            lbl_qrcode.Text = emptystring;
+            txb_servertype.Tag = 0;
+            txb_name.Tag = 0;
+            dgv.DataSource = null;
+            Tree_cs.Nodes.Clear();
+            ratingStar.RatingValue = rating;
+            rtxb_mtmemo.Text = emptystring;
+            pb_qr.Image = null;
+            gb_cs.Visible = false;
+            ribbonBar.Enabled = false;
+            panel_detail.Visible = false;
+            panel_mt.Visible = false;
+
+        }
+
+        private void Btn_adddt_Click(object sender, EventArgs e)
+        {
+            ShowAddCheckInDT();
+        }
+
+        private void ShowAddCheckInDT()
+        {
+            FrmCheckInDTAdd frm = new FrmCheckInDTAdd((int)pb_qr.Tag, ScStautlist, AddCheckInDT);
+            frm.ShowDialog();
+        }
+
+        private int AddCheckInDT(CheckInDT checkInDT)
+        {
+            int id = checkInService.AddCheckInDT(checkInDT);
+            if (id > 0)
+            {
+                checkInDT.id = id;
+                ratingStar.Rating =(int)checkInDT.Rating;
+                lbl_dtmemo.Text = checkInDT.Meno;
+                AddProgressSetp(checkInDT);
+                btn_creat.Visible = true;
+            }
+            else
+            {
+                ShowErrorMessageBox("添加失败");
+            }
+            return id;
+        }
+
+        private void progressSteps_ItemClick(object sender, EventArgs e)
+        {
+            ProgressStepsClick(sender);
+        }
+
+        private void ProgressStepsClick(object sender)
+        {
+            StepItem item = (StepItem)sender;
+            CheckInDT dt = (CheckInDT)item.Tag;
+            ratingStar.Rating = (int)dt.Rating;
+            lbl_dtmemo.Text = dt.Meno;
+            int count = progressSteps.Items.Count;
+            StepItem lastitem = (StepItem)progressSteps.Items[count - 1];
+            CheckInDT dTlast = (CheckInDT)lastitem.Tag;
+            bool islast = dt.id == dTlast.id;
+            DetailBtnVisible(islast);
+        }
+
+        private void DetailBtnVisible(bool islast)
+        {
+            btn_creat.Visible = islast;
+            btn_back.Visible = islast;
+            panel_detail.Enabled = islast;
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            panel_detail.Visible = false;
+            panel_mt.Visible = false;
+        }
     }
 
 }

@@ -43,7 +43,7 @@ namespace CS.UI.BaseInfoForm
 
         private void InitData()
         {
-            SysdicSer.ComboBoxBind(cmb_post, "职位类型");
+            SysdicSer.ComboBoxBindbyType(cmb_post, "职位类型");
             GetAllUser();
         }
 

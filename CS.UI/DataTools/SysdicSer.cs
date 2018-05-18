@@ -10,13 +10,17 @@ namespace CS.UI
 {
     public class SysdicSer
     {
-        //ComboBoxBind
-        //SysdicSer
+
         private static BaseInfoService baseInfo = new BaseInfoService();
 
-        public static void ComboBoxBind(ComboBox box, string type)
+        public static void ComboBoxBindbyType(ComboBox box, string type)
         {
             List<Sysdic> sysdics = baseInfo.GetDicByType(type);
+            ComboBoxBindbyData(box, sysdics);
+        }
+
+        public static void ComboBoxBindbyData(ComboBox box, List<Sysdic> sysdics)
+        {
             box.DataSource = sysdics;
             box.DisplayMember = "Dicval";
             box.ValueMember = "id";

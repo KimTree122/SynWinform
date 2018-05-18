@@ -126,6 +126,12 @@
     <Compile Include="SYS\UserAuthManage.Designer.cs">
       <DependentUpon>UserAuthManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkForm\FrmCheckInDTAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkForm\FrmCheckInDTAdd.Designer.cs">
+      <DependentUpon>FrmCheckInDTAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkForm\FrmCheckServer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SYS\UserAuthManage.resx">
       <DependentUpon>UserAuthManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkForm\FrmCheckInDTAdd.resx">
+      <DependentUpon>FrmCheckInDTAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkForm\FrmCheckServer.resx">
       <DependentUpon>FrmCheckServer.cs</DependentUpon>

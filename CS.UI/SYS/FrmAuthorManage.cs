@@ -41,7 +41,7 @@ namespace CS.UI.SYS
 
         private void LoadAuth()
         {
-            SysdicSer.ComboBoxBind(cmb_type, "权限类型");
+            SysdicSer.ComboBoxBindbyType(cmb_type, "权限类型");
         }
 
         private void LoadAuthType()

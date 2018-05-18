@@ -35,7 +35,7 @@ namespace CS.UI.BaseInfoForm
 
         private void InitControl()
         {
-            SysdicSer.ComboBoxBind(cmb_type, "售后类别");
+            SysdicSer.ComboBoxBindbyType(cmb_type, "售后类别");
         }
 
         private void InitData()
