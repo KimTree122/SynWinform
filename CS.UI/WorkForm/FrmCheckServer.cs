@@ -172,10 +172,7 @@ namespace CS.UI.WorkForm
             dgv.Columns["CheckDate"].HeaderText = "登记";
             dgv.Columns["Dicname"].HeaderText = "状态";
             dgv.Columns["FinishDate"].HeaderText = "完成";
-            if (vMs.Count > 0)
-            {
-                FixControlData();
-            }
+            if (vMs.Count > 0) FixControlData();
         }
 
         private void Dgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -202,7 +199,7 @@ namespace CS.UI.WorkForm
             txb_servertype.Text = st;
             pb_qr.Image = QRManage.GetQRCodeByZXingNet(mT.QRcode, pb_qr.Width, pb_qr.Height);
 
-
+            CleanSetpItems();
             foreach (CheckInDT dt in dtlist)
             {
                 AddProgressSetp(dt);
@@ -244,13 +241,21 @@ namespace CS.UI.WorkForm
             panel_detail.Visible = true;
             ratingStar.Rating = 0;
             lbl_dtmemo.Text = "";
-            
+            rtxb_mtmemo.Enabled = true;
+            lbl_sertype.Enabled = true;
+            Btn_adddt.Visible = false;
+            btn_print.Visible = false;
+            CleanSetpItems();
+            oper = 1;
+        }
+
+        private void CleanSetpItems()
+        {
             for (int i = 0; i < progressSteps.Items.Count; i++)
             {
                 progressSteps.Items.RemoveAt(i);
                 i--;
             }
-            oper = 1;
         }
 
         private void Btn_modi_Click(object sender, EventArgs e)
@@ -332,7 +337,12 @@ namespace CS.UI.WorkForm
 
                 StepItem item = new StepItem(frist_ScStauts.id.ToString(), frist_ScStauts.Dicname);
                 progressSteps.Items.Add(item);
+                Btn_adddt.Visible = true;
+                btn_print.Visible = true;
+                GetHistory((int) txb_name.Tag);
+
             }
+            oper = 0;
         }
 
         private int AddCheckInMT(string qrcode)
@@ -374,8 +384,6 @@ namespace CS.UI.WorkForm
         {
 
         }
-
-
 
         private void Btn_enter_Click(object sender, EventArgs e)
         {
@@ -422,6 +430,7 @@ namespace CS.UI.WorkForm
         private void Btn_adddt_Click(object sender, EventArgs e)
         {
             ShowAddCheckInDT();
+            oper = 2;
         }
 
         private void ShowAddCheckInDT()
