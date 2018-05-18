@@ -56,8 +56,9 @@ namespace CS.UI.WorkForm
                 CheckData = DateTime.Now.ToShortDateString(),
                 CheckInID = checkinid,
                 delflag = false,
-                GoodsStauts =(int)Cmb_stauts.SelectedValue,
-                Meno = rtxb_memo.Text.Trim()
+                GoodsStauts = (int)Cmb_stauts.SelectedValue,
+                Meno = rtxb_memo.Text.Trim(),
+                ServerPay = (int) nud_cost.Value
             };
             int id = addCheckIn(dT);
             if (id > 0) this.Close();

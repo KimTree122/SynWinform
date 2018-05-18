@@ -36,6 +36,9 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.Btn_enter = new MetroFramework.Controls.MetroTile();
             this.Btn_cancel = new MetroFramework.Controls.MetroTile();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.nud_cost = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_cost)).BeginInit();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -53,7 +56,7 @@
             this.Cmb_stauts.FormattingEnabled = true;
             this.Cmb_stauts.ItemHeight = 23;
             this.Cmb_stauts.Location = new System.Drawing.Point(109, 143);
-            this.Cmb_stauts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Cmb_stauts.Margin = new System.Windows.Forms.Padding(4);
             this.Cmb_stauts.Name = "Cmb_stauts";
             this.Cmb_stauts.Size = new System.Drawing.Size(160, 29);
             this.Cmb_stauts.TabIndex = 1;
@@ -66,7 +69,7 @@
             // 
             this.ratingStar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ratingStar.Location = new System.Drawing.Point(109, 82);
-            this.ratingStar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ratingStar.Margin = new System.Windows.Forms.Padding(4);
             this.ratingStar.Name = "ratingStar";
             this.ratingStar.Size = new System.Drawing.Size(184, 31);
             this.ratingStar.TabIndex = 3;
@@ -75,7 +78,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(37, 209);
+            this.metroLabel3.Location = new System.Drawing.Point(37, 242);
             this.metroLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(37, 19);
@@ -84,7 +87,7 @@
             // 
             // rtxb_memo
             // 
-            this.rtxb_memo.Location = new System.Drawing.Point(109, 209);
+            this.rtxb_memo.Location = new System.Drawing.Point(109, 242);
             this.rtxb_memo.Name = "rtxb_memo";
             this.rtxb_memo.Size = new System.Drawing.Size(160, 96);
             this.rtxb_memo.TabIndex = 5;
@@ -103,7 +106,7 @@
             // Btn_enter
             // 
             this.Btn_enter.ActiveControl = null;
-            this.Btn_enter.Location = new System.Drawing.Point(189, 327);
+            this.Btn_enter.Location = new System.Drawing.Point(189, 360);
             this.Btn_enter.Name = "Btn_enter";
             this.Btn_enter.Size = new System.Drawing.Size(80, 40);
             this.Btn_enter.TabIndex = 6;
@@ -114,7 +117,7 @@
             // Btn_cancel
             // 
             this.Btn_cancel.ActiveControl = null;
-            this.Btn_cancel.Location = new System.Drawing.Point(37, 327);
+            this.Btn_cancel.Location = new System.Drawing.Point(37, 360);
             this.Btn_cancel.Name = "Btn_cancel";
             this.Btn_cancel.Size = new System.Drawing.Size(80, 40);
             this.Btn_cancel.Style = MetroFramework.MetroColorStyle.Orange;
@@ -123,11 +126,30 @@
             this.Btn_cancel.UseSelectable = true;
             this.Btn_cancel.Click += new System.EventHandler(this.Btn_cancel_Click);
             // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(37, 197);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(37, 19);
+            this.metroLabel4.TabIndex = 8;
+            this.metroLabel4.Text = "费用";
+            // 
+            // nud_cost
+            // 
+            this.nud_cost.Location = new System.Drawing.Point(109, 193);
+            this.nud_cost.Name = "nud_cost";
+            this.nud_cost.Size = new System.Drawing.Size(160, 26);
+            this.nud_cost.TabIndex = 9;
+            // 
             // FrmCheckInDTAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 406);
+            this.ClientSize = new System.Drawing.Size(330, 440);
+            this.Controls.Add(this.nud_cost);
+            this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.Btn_cancel);
             this.Controls.Add(this.Btn_enter);
             this.Controls.Add(this.rtxb_memo);
@@ -137,11 +159,12 @@
             this.Controls.Add(this.Cmb_stauts);
             this.Controls.Add(this.metroLabel1);
             this.Font = new System.Drawing.Font("宋体", 12F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCheckInDTAdd";
             this.Padding = new System.Windows.Forms.Padding(27, 80, 27, 27);
             this.Text = "添加明细";
             this.Load += new System.EventHandler(this.FrmCheckInDTAdd_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nud_cost)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +180,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTile Btn_enter;
         private MetroFramework.Controls.MetroTile Btn_cancel;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private System.Windows.Forms.NumericUpDown nud_cost;
     }
 }

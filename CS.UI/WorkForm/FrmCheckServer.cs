@@ -222,6 +222,7 @@ namespace CS.UI.WorkForm
             progressSteps.Items.Add(item);
             ratingStar.Rating = (int)dt.Rating;
             lbl_dtmemo.Text = dt.Meno;
+            nud_cost.Value = (int)dt.ServerPay;
             progressSteps.Refresh();
         }
 
@@ -468,6 +469,7 @@ namespace CS.UI.WorkForm
             CheckInDT dt = (CheckInDT)item.Tag;
             ratingStar.Rating = (int)dt.Rating;
             lbl_dtmemo.Text = dt.Meno;
+            nud_cost.Value = (int) dt.ServerPay;
             int count = progressSteps.Items.Count;
             StepItem lastitem = (StepItem)progressSteps.Items[count - 1];
             CheckInDT dTlast = (CheckInDT)lastitem.Tag;

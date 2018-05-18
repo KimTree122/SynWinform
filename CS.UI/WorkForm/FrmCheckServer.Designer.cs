@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_inorout = new DevComponents.DotNetBar.PanelEx();
             this.btn_find = new DevComponents.DotNetBar.ButtonX();
+            this.txb_custom = new KControl.TextListBox();
             this.panel_in = new DevComponents.DotNetBar.PanelEx();
             this.panel_detail = new DevComponents.DotNetBar.PanelEx();
+            this.lbl_dtmemo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_date = new System.Windows.Forms.LinkLabel();
-            this.progressSteps = new DevComponents.DotNetBar.ProgressSteps();
             this.txb_finishdate = new MetroFramework.Controls.MetroTextBox();
             this.ratingStar = new DevComponents.DotNetBar.Controls.RatingStar();
             this.btn_creat = new MetroFramework.Controls.MetroTile();
             this.btn_back = new MetroFramework.Controls.MetroTile();
+            this.progressSteps = new DevComponents.DotNetBar.ProgressSteps();
             this.panel_mt = new DevComponents.DotNetBar.PanelEx();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.Btn_adddt = new MetroFramework.Controls.MetroTile();
@@ -51,6 +53,7 @@
             this.lbl_sertype = new System.Windows.Forms.LinkLabel();
             this.btn_print = new MetroFramework.Controls.MetroTile();
             this.lbl_qrcode = new System.Windows.Forms.Label();
+            this.pb_qr = new System.Windows.Forms.PictureBox();
             this.gb_cs = new System.Windows.Forms.GroupBox();
             this.Tree_cs = new DevComponents.AdvTree.AdvTree();
             this.nodeConnector1 = new DevComponents.AdvTree.NodeConnector();
@@ -71,21 +74,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.plan_back = new DevComponents.DotNetBar.PanelEx();
             this.panel_out = new DevComponents.DotNetBar.PanelEx();
-            this.pb_qr = new System.Windows.Forms.PictureBox();
-            this.txb_custom = new KControl.TextListBox();
-            this.lbl_dtmemo = new System.Windows.Forms.Label();
+            this.nud_cost = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel_inorout.SuspendLayout();
             this.panel_in.SuspendLayout();
             this.panel_detail.SuspendLayout();
             this.panel_mt.SuspendLayout();
             this.panelEx1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_qr)).BeginInit();
             this.gb_cs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Tree_cs)).BeginInit();
             this.panel1.SuspendLayout();
             this.gb_his.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.gb_custom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_qr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_cost)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_inorout
@@ -120,6 +123,16 @@
             this.btn_find.Text = "查询";
             this.btn_find.Click += new System.EventHandler(this.Btn_find_Click);
             // 
+            // txb_custom
+            // 
+            this.txb_custom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txb_custom.Font = new System.Drawing.Font("宋体", 15F);
+            this.txb_custom.Location = new System.Drawing.Point(257, -11);
+            this.txb_custom.Name = "txb_custom";
+            this.txb_custom.Size = new System.Drawing.Size(133, 30);
+            this.txb_custom.TabIndex = 0;
+            this.txb_custom.Tag = 0;
+            // 
             // panel_in
             // 
             this.panel_in.CanvasColor = System.Drawing.SystemColors.Control;
@@ -134,7 +147,7 @@
             this.panel_in.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_in.Location = new System.Drawing.Point(0, 0);
             this.panel_in.Name = "panel_in";
-            this.panel_in.Size = new System.Drawing.Size(849, 482);
+            this.panel_in.Size = new System.Drawing.Size(849, 532);
             this.panel_in.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panel_in.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panel_in.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -148,6 +161,8 @@
             // 
             this.panel_detail.CanvasColor = System.Drawing.SystemColors.Control;
             this.panel_detail.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panel_detail.Controls.Add(this.label5);
+            this.panel_detail.Controls.Add(this.nud_cost);
             this.panel_detail.Controls.Add(this.lbl_dtmemo);
             this.panel_detail.Controls.Add(this.label4);
             this.panel_detail.Controls.Add(this.lbl_date);
@@ -159,7 +174,7 @@
             this.panel_detail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_detail.Location = new System.Drawing.Point(200, 324);
             this.panel_detail.Name = "panel_detail";
-            this.panel_detail.Size = new System.Drawing.Size(561, 158);
+            this.panel_detail.Size = new System.Drawing.Size(561, 208);
             this.panel_detail.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panel_detail.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panel_detail.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -169,10 +184,19 @@
             this.panel_detail.Style.GradientAngle = 90;
             this.panel_detail.TabIndex = 3;
             // 
+            // lbl_dtmemo
+            // 
+            this.lbl_dtmemo.AutoSize = true;
+            this.lbl_dtmemo.Location = new System.Drawing.Point(381, 45);
+            this.lbl_dtmemo.Name = "lbl_dtmemo";
+            this.lbl_dtmemo.Size = new System.Drawing.Size(40, 16);
+            this.lbl_dtmemo.TabIndex = 19;
+            this.lbl_dtmemo.Text = "备注";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(55, 98);
+            this.label4.Location = new System.Drawing.Point(322, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 16);
             this.label4.TabIndex = 18;
@@ -181,27 +205,12 @@
             // lbl_date
             // 
             this.lbl_date.AutoSize = true;
-            this.lbl_date.Location = new System.Drawing.Point(298, 47);
+            this.lbl_date.Location = new System.Drawing.Point(40, 91);
             this.lbl_date.Name = "lbl_date";
             this.lbl_date.Size = new System.Drawing.Size(72, 16);
             this.lbl_date.TabIndex = 13;
             this.lbl_date.TabStop = true;
             this.lbl_date.Text = "完成日期";
-            // 
-            // progressSteps
-            // 
-            // 
-            // 
-            // 
-            this.progressSteps.BackgroundStyle.Class = "ProgressSteps";
-            this.progressSteps.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.progressSteps.ContainerControlProcessDialogKey = true;
-            this.progressSteps.Dock = System.Windows.Forms.DockStyle.Top;
-            this.progressSteps.Location = new System.Drawing.Point(200, 301);
-            this.progressSteps.Name = "progressSteps";
-            this.progressSteps.Size = new System.Drawing.Size(561, 23);
-            this.progressSteps.TabIndex = 8;
-            this.progressSteps.ItemClick += new System.EventHandler(this.progressSteps_ItemClick);
             // 
             // txb_finishdate
             // 
@@ -219,7 +228,7 @@
             this.txb_finishdate.CustomButton.Visible = false;
             this.txb_finishdate.Enabled = false;
             this.txb_finishdate.Lines = new string[0];
-            this.txb_finishdate.Location = new System.Drawing.Point(376, 44);
+            this.txb_finishdate.Location = new System.Drawing.Point(118, 88);
             this.txb_finishdate.MaxLength = 32767;
             this.txb_finishdate.Name = "txb_finishdate";
             this.txb_finishdate.PasswordChar = '\0';
@@ -239,7 +248,7 @@
             // 
             // 
             this.ratingStar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ratingStar.Location = new System.Drawing.Point(55, 44);
+            this.ratingStar.Location = new System.Drawing.Point(41, 42);
             this.ratingStar.Name = "ratingStar";
             this.ratingStar.Size = new System.Drawing.Size(237, 23);
             this.ratingStar.TabIndex = 7;
@@ -249,7 +258,7 @@
             // btn_creat
             // 
             this.btn_creat.ActiveControl = null;
-            this.btn_creat.Location = new System.Drawing.Point(452, 91);
+            this.btn_creat.Location = new System.Drawing.Point(452, 146);
             this.btn_creat.Name = "btn_creat";
             this.btn_creat.Size = new System.Drawing.Size(80, 30);
             this.btn_creat.TabIndex = 21;
@@ -260,7 +269,7 @@
             // btn_back
             // 
             this.btn_back.ActiveControl = null;
-            this.btn_back.Location = new System.Drawing.Point(301, 91);
+            this.btn_back.Location = new System.Drawing.Point(301, 146);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(80, 30);
             this.btn_back.Style = MetroFramework.MetroColorStyle.Orange;
@@ -268,6 +277,21 @@
             this.btn_back.Text = "取消";
             this.btn_back.UseSelectable = true;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
+            // progressSteps
+            // 
+            // 
+            // 
+            // 
+            this.progressSteps.BackgroundStyle.Class = "ProgressSteps";
+            this.progressSteps.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.progressSteps.ContainerControlProcessDialogKey = true;
+            this.progressSteps.Dock = System.Windows.Forms.DockStyle.Top;
+            this.progressSteps.Location = new System.Drawing.Point(200, 301);
+            this.progressSteps.Name = "progressSteps";
+            this.progressSteps.Size = new System.Drawing.Size(561, 23);
+            this.progressSteps.TabIndex = 8;
+            this.progressSteps.ItemClick += new System.EventHandler(this.progressSteps_ItemClick);
             // 
             // panel_mt
             // 
@@ -408,6 +432,14 @@
             this.lbl_qrcode.TabIndex = 19;
             this.lbl_qrcode.Text = "qrcode";
             // 
+            // pb_qr
+            // 
+            this.pb_qr.Location = new System.Drawing.Point(273, 14);
+            this.pb_qr.Name = "pb_qr";
+            this.pb_qr.Size = new System.Drawing.Size(120, 120);
+            this.pb_qr.TabIndex = 18;
+            this.pb_qr.TabStop = false;
+            // 
             // gb_cs
             // 
             this.gb_cs.Controls.Add(this.Tree_cs);
@@ -511,7 +543,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 482);
+            this.panel1.Size = new System.Drawing.Size(200, 532);
             this.panel1.TabIndex = 0;
             // 
             // gb_his
@@ -520,7 +552,7 @@
             this.gb_his.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gb_his.Location = new System.Drawing.Point(0, 200);
             this.gb_his.Name = "gb_his";
-            this.gb_his.Size = new System.Drawing.Size(200, 282);
+            this.gb_his.Size = new System.Drawing.Size(200, 332);
             this.gb_his.TabIndex = 1;
             this.gb_his.TabStop = false;
             this.gb_his.Text = "维护历史";
@@ -534,23 +566,23 @@
             this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.EnableHeadersVisualStyles = false;
             this.dgv.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -559,18 +591,18 @@
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv.RowTemplate.Height = 23;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(194, 257);
+            this.dgv.Size = new System.Drawing.Size(194, 307);
             this.dgv.TabIndex = 0;
             this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_CellClick);
             // 
@@ -696,7 +728,7 @@
             this.plan_back.Dock = System.Windows.Forms.DockStyle.Right;
             this.plan_back.Location = new System.Drawing.Point(761, 0);
             this.plan_back.Name = "plan_back";
-            this.plan_back.Size = new System.Drawing.Size(88, 482);
+            this.plan_back.Size = new System.Drawing.Size(88, 532);
             this.plan_back.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.plan_back.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.plan_back.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
@@ -736,38 +768,27 @@
             this.panel_out.TabIndex = 11;
             this.panel_out.Text = "OUT";
             // 
-            // pb_qr
+            // nud_cost
             // 
-            this.pb_qr.Location = new System.Drawing.Point(273, 14);
-            this.pb_qr.Name = "pb_qr";
-            this.pb_qr.Size = new System.Drawing.Size(120, 120);
-            this.pb_qr.TabIndex = 18;
-            this.pb_qr.TabStop = false;
+            this.nud_cost.Location = new System.Drawing.Point(384, 86);
+            this.nud_cost.Name = "nud_cost";
+            this.nud_cost.Size = new System.Drawing.Size(148, 26);
+            this.nud_cost.TabIndex = 23;
             // 
-            // txb_custom
+            // label5
             // 
-            this.txb_custom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txb_custom.Font = new System.Drawing.Font("宋体", 15F);
-            this.txb_custom.Location = new System.Drawing.Point(257, -11);
-            this.txb_custom.Name = "txb_custom";
-            this.txb_custom.Size = new System.Drawing.Size(133, 30);
-            this.txb_custom.TabIndex = 0;
-            this.txb_custom.Tag = 0;
-            // 
-            // lbl_dtmemo
-            // 
-            this.lbl_dtmemo.AutoSize = true;
-            this.lbl_dtmemo.Location = new System.Drawing.Point(114, 98);
-            this.lbl_dtmemo.Name = "lbl_dtmemo";
-            this.lbl_dtmemo.Size = new System.Drawing.Size(40, 16);
-            this.lbl_dtmemo.TabIndex = 19;
-            this.lbl_dtmemo.Text = "备注";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(321, 91);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 16);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "费用";
             // 
             // FrmCheckServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 482);
+            this.ClientSize = new System.Drawing.Size(849, 532);
             this.Controls.Add(this.panel_in);
             this.Controls.Add(this.panel_inorout);
             this.Controls.Add(this.panel_out);
@@ -783,6 +804,7 @@
             this.panel_mt.ResumeLayout(false);
             this.panelEx1.ResumeLayout(false);
             this.panelEx1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_qr)).EndInit();
             this.gb_cs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Tree_cs)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -790,7 +812,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.gb_custom.ResumeLayout(false);
             this.gb_custom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_qr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_cost)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -840,5 +862,7 @@
         private System.Windows.Forms.PictureBox pb_qr;
         private MetroFramework.Controls.MetroTile Btn_adddt;
         private System.Windows.Forms.Label lbl_dtmemo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown nud_cost;
     }
 }
