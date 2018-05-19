@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS.Models", "CS.Models\CS.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KControl", "KControl\KControl.csproj", "{C4E8D1E7-E52A-45D2-8622-6CCDAAA3CCF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpgradeFile", "UpgradeFile\UpgradeFile.csproj", "{D868D51C-9BF1-4B7A-9E11-D071334871E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{C4E8D1E7-E52A-45D2-8622-6CCDAAA3CCF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4E8D1E7-E52A-45D2-8622-6CCDAAA3CCF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4E8D1E7-E52A-45D2-8622-6CCDAAA3CCF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D868D51C-9BF1-4B7A-9E11-D071334871E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D868D51C-9BF1-4B7A-9E11-D071334871E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D868D51C-9BF1-4B7A-9E11-D071334871E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D868D51C-9BF1-4B7A-9E11-D071334871E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{BD9AF8F3-FDB5-4DF6-9D60-6AB07178D5F1} = {3EA724E3-0EC2-4645-BFB4-D42D3D55DCD6}
 		{E89B14D3-E0DD-4269-9D88-E4E65B8BFE3F} = {3EA724E3-0EC2-4645-BFB4-D42D3D55DCD6}
 		{236F9D42-9719-4939-9147-6860797C7694} = {3EA724E3-0EC2-4645-BFB4-D42D3D55DCD6}
+		{D868D51C-9BF1-4B7A-9E11-D071334871E2} = {3EA724E3-0EC2-4645-BFB4-D42D3D55DCD6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8F277123-74C3-4B57-B789-C43E8B5B3339}

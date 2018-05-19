@@ -68,7 +68,7 @@ namespace CS.UI
             }
 
             UserInfo user = infoService.GetUserInfoByAccount(account, pwd);
-            if (user == null)
+            if (user == null || user.id == 0)
             {
                 MetroMessageBox.Show(this,"登陆失败");
                 return;
