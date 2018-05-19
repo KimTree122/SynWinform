@@ -16,5 +16,10 @@ namespace UpgradeFile
         {
             InitializeComponent();
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
