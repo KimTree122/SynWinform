@@ -32,6 +32,7 @@
             this.listBox = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rtxb = new System.Windows.Forms.RichTextBox();
+            this.btn_upgrade = new MetroFramework.Controls.MetroTile();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +59,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rtxb);
+            this.groupBox1.Controls.Add(this.btn_upgrade);
             this.groupBox1.Controls.Add(this.listBox);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(27, 111);
@@ -72,9 +74,21 @@
             this.rtxb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtxb.Location = new System.Drawing.Point(153, 22);
             this.rtxb.Name = "rtxb";
-            this.rtxb.Size = new System.Drawing.Size(240, 137);
+            this.rtxb.Size = new System.Drawing.Size(190, 137);
             this.rtxb.TabIndex = 2;
             this.rtxb.Text = "";
+            // 
+            // btn_upgrade
+            // 
+            this.btn_upgrade.ActiveControl = null;
+            this.btn_upgrade.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_upgrade.Location = new System.Drawing.Point(343, 22);
+            this.btn_upgrade.Name = "btn_upgrade";
+            this.btn_upgrade.Size = new System.Drawing.Size(50, 137);
+            this.btn_upgrade.TabIndex = 3;
+            this.btn_upgrade.Text = "升级";
+            this.btn_upgrade.UseSelectable = true;
+            this.btn_upgrade.Click += new System.EventHandler(this.btn_upgrade_Click);
             // 
             // Main
             // 
@@ -100,6 +114,7 @@
         private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RichTextBox rtxb;
+        private MetroFramework.Controls.MetroTile btn_upgrade;
     }
 }
 

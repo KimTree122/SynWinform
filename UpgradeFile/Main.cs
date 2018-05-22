@@ -17,8 +17,18 @@ namespace UpgradeFile
             InitializeComponent();
         }
 
+        private FileLoadPresent fileLoadPresent = new FileLoadPresent();
+
         private void Main_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void btn_upgrade_Click(object sender, EventArgs e)
+        {
+            List<string> filelist = new List<string>();
+            List<string> verdis = new List<string>();
+            bool upgrade = fileLoadPresent.CompareVer(2,ref filelist, ref verdis);
 
         }
     }

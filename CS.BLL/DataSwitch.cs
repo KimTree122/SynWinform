@@ -29,9 +29,9 @@ namespace CS.BLL
             return JsonConvert.SerializeObject(list);
         }
 
-        public static string HttpPostData<T, S>(List<T> dlist, string msg = "", S obj = default(S))
+        public static string HttpPostData<L, E>(List<L> dlist, string msg = "", E obj = default(E))
         {
-            PostData<T, S> postData = new PostData<T, S>
+            PostData<L, E> postData = new PostData<L, E>
             {
                 DList = dlist,
                 MCount = dlist.Count,
@@ -42,9 +42,9 @@ namespace CS.BLL
             return DataToJson(postData);
         }
 
-        public static string HttpPostData<T>(List<T> dlist, string msg = "")
+        public static string HttpPostData<L>(List<L> dlist, string msg = "")
         {
-            PostData<T, DBNull> post = new PostData<T, DBNull>
+            PostData<L, DBNull> post = new PostData<L, DBNull>
             {
                 DList = dlist,
                 MCount = dlist.Count,
