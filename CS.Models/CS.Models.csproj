@@ -43,6 +43,7 @@
     <Compile Include="PostData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\CustomHistoryVM.cs" />
+    <Compile Include="ViewModel\FileLoadVM.cs" />
     <Compile Include="Work\WorkModel.cs" />
   </ItemGroup>
   <ItemGroup />

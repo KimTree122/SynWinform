@@ -12,10 +12,9 @@ namespace UpgradeFile
         private FileLoadHelper helper = new FileLoadHelper();
         private static readonly string url = ConfigurationManager.AppSettings["Url"];
 
-        public bool CompareVer(int userid,ref List<string> list, ref List<string> dis)
+        public bool CompareVer(ref List<string> list, ref List<string> dis)
         {
-            string param = "userid=" + userid;
-            string json = helper.PostWebRequest(url,param, Encoding.UTF8);
+            string json = helper.PostWebRequest(url,"", Encoding.UTF8);
             PostData<string, string> post = JsonConvert.DeserializeObject<PostData<string,string>>(json);
             if (post != null)
             {

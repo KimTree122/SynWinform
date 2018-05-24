@@ -48,6 +48,7 @@
     <Compile Include="BaseInfo\CustomInfoService.cs" />
     <Compile Include="BaseInfo\ServerTypeService.cs" />
     <Compile Include="BaseInfo\UserInfoService.cs" />
+    <Compile Include="FileLoad\FileLoadService.cs" />
     <Compile Include="PostService.cs" />
     <Compile Include="DataSwitch.cs" />
     <Compile Include="General.cs" />

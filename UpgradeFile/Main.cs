@@ -28,7 +28,7 @@ namespace UpgradeFile
         {
             List<string> filelist = new List<string>();
             List<string> verdis = new List<string>();
-            bool upgrade = fileLoadPresent.CompareVer(2,ref filelist, ref verdis);
+            bool upgrade = fileLoadPresent.CompareVer(ref filelist, ref verdis);
 
         }
     }

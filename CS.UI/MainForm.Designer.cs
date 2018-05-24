@@ -54,6 +54,7 @@
             this.superTabControlPanel1 = new DevComponents.DotNetBar.SuperTabControlPanel();
             this.welcome = new DevComponents.DotNetBar.SuperTabItem();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.btn_upgrade = new DevComponents.DotNetBar.ButtonItem();
             this.dockSite1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             this.bar1.SuspendLayout();
@@ -268,7 +269,8 @@
             this.kim_author,
             this.btn_dic,
             this.btn_userauth,
-            this.btn_user});
+            this.btn_user,
+            this.btn_upgrade});
             this.KIM.Text = "KIM";
             // 
             // kim_author
@@ -381,6 +383,12 @@
             this.panelEx1.StyleMouseOver.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemHotText;
             this.panelEx1.TabIndex = 1;
             // 
+            // btn_upgrade
+            // 
+            this.btn_upgrade.Name = "btn_upgrade";
+            this.btn_upgrade.Text = "upgrade";
+            this.btn_upgrade.Click += new System.EventHandler(this.btn_upgrade_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -438,6 +446,7 @@
         private DevComponents.DotNetBar.ButtonItem btn_dic;
         private DevComponents.DotNetBar.ButtonItem btn_userauth;
         private DevComponents.DotNetBar.ButtonItem btn_user;
+        private DevComponents.DotNetBar.ButtonItem btn_upgrade;
     }
 }
 

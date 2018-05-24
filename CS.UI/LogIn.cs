@@ -26,6 +26,12 @@ namespace CS.UI
         {
             Txb_account.KeyDown += Txb_account_KeyDown;
             Txb_pwd.KeyDown += Txb_pwd_KeyDown;
+#if DEBUG
+            Txb_account.Text = "001";
+            Txb_pwd.Text = "123";
+            CheckUserInfo();
+#endif
+
         }
 
         private void Txb_pwd_KeyDown(object sender, KeyEventArgs e)

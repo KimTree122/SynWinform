@@ -1,6 +1,7 @@
 ﻿using CS.BLL.BaseInfo;
 using CS.Models.BaseInfo;
 using CS.UI.DataTools;
+using CS.UI.SYS;
 using DevComponents.AdvTree;
 using DevComponents.DotNetBar;
 using MetroFramework;
@@ -95,7 +96,6 @@ namespace CS.UI
                 form.TopLevel = false;
                 form.Visible = true;
                 form.Dock = DockStyle.Fill;
-                form.Tag = "123";
                 SuperTabItem item = sTC.CreateTab(TabName);
                 item.Text = TabName;
                 item.Name = TabName;
@@ -131,6 +131,12 @@ namespace CS.UI
             Authority auth = node.Tag as Authority;
             if (string.IsNullOrWhiteSpace(auth.Path)) return;
             AddTabForm(auth.TreeName,auth.Path);
+        }
+
+        private void btn_upgrade_Click(object sender, EventArgs e)
+        {
+            FrmUpgrade frm = new FrmUpgrade();
+            frm.ShowDialog();
         }
     }
 }

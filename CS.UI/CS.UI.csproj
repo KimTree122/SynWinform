@@ -124,6 +124,12 @@
     <Compile Include="SYS\FrmDictDialog.Designer.cs">
       <DependentUpon>FrmDictDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="SYS\FrmUpgrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SYS\FrmUpgrade.Designer.cs">
+      <DependentUpon>FrmUpgrade.cs</DependentUpon>
+    </Compile>
     <Compile Include="SYS\SYSData.cs" />
     <Compile Include="DataTools\SysdicSer.cs" />
     <Compile Include="SYS\UserAuthManage.cs">
@@ -184,6 +190,9 @@
     <EmbeddedResource Include="SYS\FrmDictDialog.resx">
       <DependentUpon>FrmDictDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SYS\FrmUpgrade.resx">
+      <DependentUpon>FrmUpgrade.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SYS\UserAuthManage.resx">
       <DependentUpon>UserAuthManage.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +217,10 @@
     <ProjectReference Include="..\CS.BLL\CS.BLL.csproj">
       <Project>{5a234bc6-d39a-4a69-aff8-e1530b163599}</Project>
       <Name>CS.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CS.DAL\CS.DAL.csproj">
+      <Project>{BD9AF8F3-FDB5-4DF6-9D60-6AB07178D5F1}</Project>
+      <Name>CS.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\CS.Models\CS.Models.csproj">
       <Project>{236f9d42-9719-4939-9147-6860797c7694}</Project>

@@ -99,5 +99,18 @@ namespace CS.DAL
             }
         }
 
+        public static class FileLoadUrl
+        {
+            private static readonly string FristLayer = BaseUrl +
+               ConfigurationManager.AppSettings["FileLoad"] + "/";
+            public static class FileLoad
+            {
+                private static readonly string SecondLayer = FristLayer + ConfigurationManager.AppSettings["FileLoad"] + "/";
+
+                public static string UpLoadFile = SecondLayer + "UpLoadFile";
+            }
+           
+        }
+
     }
 }

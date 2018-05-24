@@ -96,6 +96,11 @@ namespace UpgradeFile
             return ret;
         }
 
+        public void UpLoadFile()
+        {
+            
+        }
+
 
     }
 }
