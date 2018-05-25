@@ -1,4 +1,5 @@
-﻿using CS.DAL;
+﻿using CS.BLL.FileLoad;
+using CS.DAL;
 using CS.Models.ViewModel;
 using MetroFramework.Forms;
 using System;
@@ -25,18 +26,16 @@ namespace CS.UI.SYS
 
         private void FrmUpgrade_Load(object sender, EventArgs e)
         {
-            InitDgv();
+            InitListView();
             InitData();
         }
 
-        private void InitDgv()
+        private void InitListView()
         {
-            dgv.DataSource = null;
-            dgv.DataSource = filepathlist;
-            dgv.Columns["Order"].HeaderText = "序号";
-            dgv.Columns["FileName"].HeaderText = "文件名";
-            dgv.Columns["FilePath"].HeaderText = "路径";
-
+            
+            listView.Columns.Add("序号",60,HorizontalAlignment.Center);
+            listView.Columns.Add("文件名", 100, HorizontalAlignment.Left);
+            listView.Columns.Add("路径", 60, HorizontalAlignment.Left);
         }
 
         private void InitData()
@@ -59,24 +58,34 @@ namespace CS.UI.SYS
                 FileLoadVM fl = new FileLoadVM { Order = i+1,FileName = fileName, FilePath = files[i] };
                 filepathlist.Add(fl);
             }
+            FixListView(filepathlist);
 
-            InitDgv();
+        }
 
-            
-
+        private void FixListView(List<FileLoadVM> filepathlist)
+        {
+            listView.Items.Clear();
+            foreach (var fl in filepathlist)
+            {
+                ListViewItem viewItem = new ListViewItem(fl.Order+"");
+                viewItem.SubItems.Add(fl.FileName);
+                viewItem.SubItems.Add(fl.FilePath);
+                listView.Items.Add(viewItem);
+            }
         }
 
         private void btn_upload_Click(object sender, EventArgs e)
         {
-            RequestUpload();
+            foreach (var file in filepathlist)
+            {
+                RequestUpload(file.FilePath);
+            }
         }
 
-        private void RequestUpload()
+        private void RequestUpload(string filepath)
         {
-            FileLoadHelper fileLoad = new FileLoadHelper(StateText);
-            string filepath = @"C:\360Downloads\Postman_v4.1.3.crx";
-            string url = "http://localhost:36769/FileLoad/FileLoad/UpLoadFile";
-            fileLoad.Upload_Request(url,filepath,proBar);
+            FileLoadService loadService = new FileLoadService(StateText);
+            int i = loadService.UpLoadFile(filepath, proBar);
         }
 
         private void StateText(int type, string msg)
