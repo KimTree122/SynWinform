@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppconfigSetting.cs" />
     <Compile Include="FileLoadHelper.cs" />
     <Compile Include="FileLoadModel.cs" />
     <Compile Include="FileLoadPresent.cs" />

@@ -12,31 +12,26 @@ namespace UpgradeFile
         private FileLoadHelper helper = new FileLoadHelper();
         private static readonly string url = ConfigurationManager.AppSettings["Url"];
 
-        public bool CompareVer(ref List<string> list, ref List<string> dis)
+        public PostData<SysVer, SysVer> GetNewVersion()
         {
-            string json = helper.PostWebRequest(url,"", Encoding.UTF8);
-            PostData<string, string> post = JsonConvert.DeserializeObject<PostData<string,string>>(json);
-            if (post != null)
-            {
-                if (post.MCount == 0) return false;
-                string[] discrits = post.DList[0].Split(',');
-                string newver = discrits[0];
-                
-                string currentver = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
-                if (newver == currentver) return false;
-
-                for (int i = 1; i < discrits.Count(); i++)
-                {
-                    dis.Add(discrits[i]);
-                }
-                for (int i = 1; i < post.DList.Count(); i++)
-                {
-                    list.Add(post.DList[i]);
-                }
-                return true;
-            }
-            return false;
+            Dictionary<object, object> pairs = new Dictionary<object, object>();
+            pairs.Add("programtype", "winform");
+            string Url = url + "/BaseInfo/BaseInfo/GetNewSysVer";
+            string json = helper.CreatePostHttpResponse(Url, pairs,3000,null);
+            PostData<SysVer, SysVer> postData = JsonConvert.DeserializeObject<PostData<SysVer, SysVer>>(json);
+            return postData;
         }
+
+        public void DownLoadFile(string filename,string tolocal, System.Windows.Forms.ProgressBar prog)
+        {
+            string Url = url + "/FileLoad/FileLoad/DownFile";
+            Dictionary<object, object> pairs = new Dictionary<object, object>();
+            pairs.Add("filePath", filename);
+            pairs.Add("fileName", filename);
+            helper.FileDownLoad(Url, tolocal, pairs, prog);
+        }
+
+
+
     }
 }

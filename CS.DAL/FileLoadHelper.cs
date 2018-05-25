@@ -28,7 +28,7 @@ namespace CS.DAL
         /// <param name="fileNamePath">要上传的本地文件（全路径）</param> 
         /// <param name="progressBar">上传进度条</param> 
         /// <returns>成功返回1，失败返回0</returns> 
-        public  int Upload_Request(string address, string fileNamePath, ProgressBar progressBar)
+        public int Upload_Request(string address, string fileNamePath, ProgressBar progressBar)
         {
             int returnValue = 0;
             // 要上传的文件 
@@ -68,7 +68,7 @@ namespace CS.DAL
                     stautsChange(0, "已用时：" + second.ToString("F2") + "秒");
                     if (second > 0.1)
                     {
-                        stautsChange(0," 平均速度：" + (offset / 1024 / second).ToString("0.00") + "KB/秒");
+                        stautsChange(0, " 平均速度：" + (offset / 1024 / second).ToString("0.00") + "KB/秒");
                     }
                     else
                     {
@@ -117,7 +117,7 @@ namespace CS.DAL
         /// <param name="fileNamePath">要上传的本地文件（全路径）</param> 
         /// <param name="progressBar">上传进度条</param> 
         /// <returns>成功返回1，失败返回0</returns> 
-        public  int Upload_Client(string address, string fileNamePath,ProgressBar progressBar)
+        public int Upload_Client(string address, string fileNamePath, ProgressBar progressBar)
         {
             WebClient wc = new WebClient();
             FileStream fs = new FileStream(fileNamePath, FileMode.Open, FileAccess.Read);
@@ -160,5 +160,34 @@ namespace CS.DAL
             else
                 return 0;
         }
+
+        public string PostWebRequest(string postUrl, string paramData)
+        {
+            string ret = string.Empty;
+            try
+            {
+                byte[] byteArray = Encoding.UTF8.GetBytes(paramData); //转化
+                HttpWebRequest webReq = (HttpWebRequest)WebRequest.Create(new Uri(postUrl));
+                webReq.Method = "POST";
+                webReq.ContentType = "application/x-www-form-urlencoded";
+
+                webReq.ContentLength = byteArray.Length;
+                Stream newStream = webReq.GetRequestStream();
+                newStream.Write(byteArray, 0, byteArray.Length);//写入参数
+                newStream.Close();
+                HttpWebResponse response = (HttpWebResponse)webReq.GetResponse();
+                StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.Default);
+                ret = sr.ReadToEnd();
+                sr.Close();
+                response.Close();
+                newStream.Close();
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
+            return ret;
+        }
+
     }
 }

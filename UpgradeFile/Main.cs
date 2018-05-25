@@ -1,4 +1,5 @@
-﻿using MetroFramework.Forms;
+﻿using MetroFramework;
+using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,14 +22,27 @@ namespace UpgradeFile
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void btn_upgrade_Click(object sender, EventArgs e)
         {
-            List<string> filelist = new List<string>();
-            List<string> verdis = new List<string>();
-            bool upgrade = fileLoadPresent.CompareVer(ref filelist, ref verdis);
+
+            PostData<SysVer, SysVer> post = fileLoadPresent.GetNewVersion();
+            if (post == null || post.MCount == 0)
+            {
+                MetroMessageBox.Show(this, "获取版本失败，请重新获取。");
+                return;
+            }
+            string currentver = AppconfigSetting.GetAppConfig("ver");
+            if (currentver == post.Entity.sysver)
+            {
+                MetroMessageBox.Show(this, "该版本为最新版本，无需升级！");
+                return;
+            }
+            string str = Application.StartupPath+"/";
+
+            fileLoadPresent.DownLoadFile("",str+post.Entity.filelist,probar);
 
         }
     }

@@ -10,7 +10,6 @@ namespace UpgradeFile
 {
     public class FileLoadHelper
     {
-        public static readonly string Url = ConfigurationManager.AppSettings["Url"];
 
         /// <summary>
         /// 下载文件
@@ -22,8 +21,8 @@ namespace UpgradeFile
         {
             try
             {
-                System.Net.HttpWebRequest Myrq = (System.Net.HttpWebRequest)System.Net.HttpWebRequest.Create(URL);
-                System.Net.HttpWebResponse myrp = (System.Net.HttpWebResponse)Myrq.GetResponse();
+                HttpWebRequest Myrq = (HttpWebRequest)HttpWebRequest.Create(URL);
+                HttpWebResponse myrp = (HttpWebResponse)Myrq.GetResponse();
                 long totalBytes = myrp.ContentLength;
 
                 if (prog != null)
@@ -31,8 +30,8 @@ namespace UpgradeFile
                     prog.Maximum = (int)totalBytes;
                 }
 
-                System.IO.Stream st = myrp.GetResponseStream();
-                System.IO.Stream so = new System.IO.FileStream(filename, System.IO.FileMode.Create);
+                Stream st = myrp.GetResponseStream();
+                Stream so = new FileStream(filename, FileMode.Create);
                 long totalDownloadedByte = 0;
                 byte[] by = new byte[1024];
                 int osize = st.Read(by, 0, (int)by.Length);
@@ -52,7 +51,7 @@ namespace UpgradeFile
                 so.Close();
                 st.Close();
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 throw;
             }
@@ -68,39 +67,154 @@ namespace UpgradeFile
             DownloadFile(URL, filename, null);
         }
 
-        public string PostWebRequest(string postUrl, string paramData, Encoding dataEncode)
+        public void FileDownLoad(string url, string localpath, IDictionary<object, object> parameters, System.Windows.Forms.ProgressBar prog)
         {
-            string ret = string.Empty;
-            try
+            HttpWebRequest request = null;
+            //如果是发送HTTPS请求  
+            if (url.StartsWith("https", StringComparison.OrdinalIgnoreCase))
             {
-                byte[] byteArray =  dataEncode.GetBytes(paramData); //转化
-                HttpWebRequest webReq = (HttpWebRequest)WebRequest.Create(new Uri(postUrl));
-                webReq.Method = "POST";
-                webReq.ContentType = "application/x-www-form-urlencoded";
+                request = WebRequest.Create(url) as HttpWebRequest;
+            }
+            else
+            {
+                request = WebRequest.Create(url) as HttpWebRequest;
+            }
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
 
-                webReq.ContentLength = byteArray.Length;
-                Stream newStream = webReq.GetRequestStream();
-                newStream.Write(byteArray, 0, byteArray.Length);//写入参数
-                newStream.Close();
-                HttpWebResponse response = (HttpWebResponse)webReq.GetResponse();
-                StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.Default);
-                ret = sr.ReadToEnd();
-                sr.Close();
-                response.Close();
-                newStream.Close();
-            }
-            catch (Exception )
+           
+
+
+            if (!(parameters == null || parameters.Count == 0))
             {
-                return string.Empty;
+                StringBuilder buffer = new StringBuilder();
+                int i = 0;
+                foreach (string key in parameters.Keys)
+                {
+                    if (i > 0)
+                    {
+                        buffer.AppendFormat("&{0}={1}", key, parameters[key]);
+                    }
+                    else
+                    {
+                        buffer.AppendFormat("{0}={1}", key, parameters[key]);
+                        i++;
+                    }
+                }
+                byte[] data = Encoding.UTF8.GetBytes(buffer.ToString());
+                try
+                {
+                    using (Stream stream = request.GetRequestStream())
+                    {
+                        stream.Write(data, 0, data.Length);
+                    }
+                    string[] values = request.Headers.GetValues("Content-Type");
+
+                    HttpWebResponse webResponse = (HttpWebResponse)request.GetResponse();
+
+                    long totalBytes = webResponse.ContentLength;
+
+                    if (prog != null)
+                    {
+                        prog.Maximum = (int)totalBytes;
+                    }
+
+                    Stream st = webResponse.GetResponseStream();
+                    Stream so = new FileStream(localpath, FileMode.Create);
+                    long totalDownloadedByte = 0;
+                    byte[] by = new byte[1024];
+                    int osize = st.Read(by, 0, (int)by.Length);
+                    while (osize > 0)
+                    {
+                        totalDownloadedByte = osize + totalDownloadedByte;
+                        System.Windows.Forms.Application.DoEvents();
+                        so.Write(by, 0, osize);
+
+                        if (prog != null)
+                        {
+                            prog.Value = (int)totalDownloadedByte;
+                        }
+                        osize = st.Read(by, 0, (int)by.Length);
+                    }
+
+                    so.Close();
+                    st.Close();
+
+                }
+                catch (Exception)
+                {
+                    
+                }
             }
-            return ret;
+
         }
 
-        public void UpLoadFile()
+        /// 创建POST方式的HTTP请求  
+        public  string CreatePostHttpResponse(string url, IDictionary<object, object> parameters, int timeout, CookieCollection cookies)
         {
-            
-        }
+            HttpWebRequest request = null;
+            //如果是发送HTTPS请求  
+            if (url.StartsWith("https", StringComparison.OrdinalIgnoreCase))
+            {
+                request = WebRequest.Create(url) as HttpWebRequest;
+            }
+            else
+            {
+                request = WebRequest.Create(url) as HttpWebRequest;
+            }
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
 
+            //设置代理UserAgent和超时
+            //request.UserAgent = userAgent;
+            //request.Timeout = timeout; 
+
+            if (cookies != null)
+            {
+                request.CookieContainer = new CookieContainer();
+                request.CookieContainer.Add(cookies);
+            }
+            //发送POST数据  
+            if (!(parameters == null || parameters.Count == 0))
+            {
+                StringBuilder buffer = new StringBuilder();
+                int i = 0;
+                foreach (string key in parameters.Keys)
+                {
+                    if (i > 0)
+                    {
+                        buffer.AppendFormat("&{0}={1}", key, parameters[key]);
+                    }
+                    else
+                    {
+                        buffer.AppendFormat("{0}={1}", key, parameters[key]);
+                        i++;
+                    }
+                }
+                byte[] data = Encoding.UTF8.GetBytes(buffer.ToString());
+                try
+                {
+                    using (Stream stream = request.GetRequestStream())
+                    {
+                        stream.Write(data, 0, data.Length);
+                    }
+                    string[] values = request.Headers.GetValues("Content-Type");
+
+                    HttpWebResponse webResponse = request.GetResponse() as HttpWebResponse;
+                    using (Stream s = webResponse.GetResponseStream())
+                    {
+                        StreamReader reader = new StreamReader(s, Encoding.UTF8);
+                        return reader.ReadToEnd();
+                    }
+                }
+                catch (Exception)
+                {
+                    return "";
+                }
+            }
+            return "";
+
+        }
 
     }
 }
