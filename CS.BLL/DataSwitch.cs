@@ -20,7 +20,10 @@ namespace CS.BLL
 
         public static T JsonToObj<T>(string jsonobj)
         {
-            try { return JsonConvert.DeserializeObject<T>(jsonobj); }
+            try {
+                string str = Secret_string.DecryptDES(jsonobj);
+                return JsonConvert.DeserializeObject<T>(str);
+            }
             catch (Exception) { return default(T); }
         }
 
