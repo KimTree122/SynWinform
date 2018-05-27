@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -34,16 +35,19 @@ namespace UpgradeFile
                 MetroMessageBox.Show(this, "获取版本失败，请重新获取。");
                 return;
             }
-            string currentver = AppconfigSetting.GetAppConfig("ver");
-            if (currentver == post.Entity.sysver)
+
+            string amb = Application.StartupPath + "\\ServerRecord.exe";
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(amb);
+            string verstring = fvi.FileVersion;
+            if (verstring == post.Entity.sysver)
             {
                 MetroMessageBox.Show(this, "该版本为最新版本，无需升级！");
                 return;
             }
-            string str = Application.StartupPath+"/";
+            string str = Application.StartupPath + "/";
 
-            fileLoadPresent.DownLoadFile("",str+post.Entity.filelist,probar);
-
+            fileLoadPresent.DownLoadFile("", str + post.Entity.filelist, probar);
+            //fileLoadPresent.DownLoadFile("1.0.0.0/NPOI.dll", @"C:\DataBase\download\NPOI.dll", probar);
         }
     }
 }

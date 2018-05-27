@@ -76,16 +76,23 @@ namespace CS.UI.SYS
 
         private void btn_upload_Click(object sender, EventArgs e)
         {
+            int count = 0;
             foreach (var file in filepathlist)
             {
-                RequestUpload(file.FilePath);
+                count = RequestUpload(file.FilePath);
+                if (count == 0) break;
+            }
+            if (count != 0)
+            {
+                
             }
         }
 
-        private void RequestUpload(string filepath)
+        private int RequestUpload(string filepath)
         {
             FileLoadService loadService = new FileLoadService(StateText);
-            int i = loadService.UpLoadFile(filepath, proBar);
+            int i = loadService.UpLoadFile(filepath,txb_ver.Text, proBar);
+            return i;
         }
 
         private void StateText(int type, string msg)

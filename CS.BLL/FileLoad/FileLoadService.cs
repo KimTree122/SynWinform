@@ -20,20 +20,21 @@ namespace CS.BLL.FileLoad
             uploadstate = us;
         }
 
-        public int UpLoadFile(string filenamepath, ProgressBar bar)
+        public int UpLoadFile(string filenamepath, string ver, ProgressBar bar)
         {
            string url = UrlHelper.FileLoadUrl.FileLoad.UpLoadFile;
-            return Upload_Request(url, filenamepath, bar);
+            return Upload_Request(url, filenamepath,ver, bar);
         }
 
-        private int Upload_Request(string address, string fileNamePath, ProgressBar progressBar = null)
+        private int Upload_Request(string address, string fileNamePath, string ver, ProgressBar progressBar = null)
         {
             int returnValue = 0;
             // 要上传的文件 
             FileStream fs = new FileStream(fileNamePath, FileMode.Open, FileAccess.Read);
             BinaryReader r = new BinaryReader(fs);
             // 根据uri创建HttpWebRequest对象 
-            address = string.Concat(address, "?filename=", Path.GetFileName(fileNamePath));
+            address = string.Concat(address, "?filename=", Path.GetFileName(fileNamePath)
+                +"&ver="+ver);
             HttpWebRequest httpReq = (HttpWebRequest)WebRequest.Create(new Uri(address));
             httpReq.Method = "POST";
             //对发送的数据不使用缓存 
@@ -93,6 +94,12 @@ namespace CS.BLL.FileLoad
                 String sReturnString = sr.ReadLine();
                 s.Close();
                 sr.Close();
+                sReturnString = Secret_string.DecryptDES(sReturnString);
+                if (sReturnString == null) 
+                {
+                    returnValue = 0;
+                    return returnValue;
+                }
                 if (sReturnString.IndexOf("1") > 0)
                 {
                     returnValue = 1;
