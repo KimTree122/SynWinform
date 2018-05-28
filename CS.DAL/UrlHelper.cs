@@ -78,6 +78,15 @@ namespace CS.DAL
                 public static string FindCustomByid = SecondLayer + "FindCustomByid";
             }
 
+            public static class SysVerUrl
+            {
+                private static readonly string SecondLayer = FristLayer + ConfigurationManager.AppSettings["BaseInfo"] + "/";
+
+                public static readonly string AddSysVer = SecondLayer + "AddSysVer";
+                public static readonly string GetNewSysVer = SecondLayer + "GetNewSysVer";
+
+            }
+
         }
 
         public static class WorkUrl

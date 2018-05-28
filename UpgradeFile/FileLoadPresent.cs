@@ -25,14 +25,19 @@ namespace UpgradeFile
             return postData;
         }
 
-        public void DownLoadFile(string filename,string tolocal, System.Windows.Forms.ProgressBar prog)
+        public int DownLoadFile(string filename,string tolocal, System.Windows.Forms.ProgressBar prog)
         {
             string Url = url + "/FileLoad/FileLoad/DownFile";
             Dictionary<object, object> pairs = new Dictionary<object, object>();
             string fn = filename.Substring(filename.LastIndexOf('/')+1);
             pairs.Add("filePath", filename);
             pairs.Add("fileName", fn);
-            helper.FileDownLoad(Url, tolocal, pairs, prog);
+            return helper.FileDownLoad(Url, tolocal, pairs, prog);
+        }
+
+        public void UnZipFile(string path)
+        {
+
         }
 
         public static class Secret_string

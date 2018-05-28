@@ -1,4 +1,5 @@
 ﻿using CS.BLL.BaseInfo;
+using CS.BLL.FileLoad;
 using CS.Models.BaseInfo;
 using CS.UI.DataTools;
 using CS.UI.SYS;
@@ -24,15 +25,42 @@ namespace CS.UI
         {
             InitializeComponent();
         }
+        private FileLoadService fileLoad = new FileLoadService();
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            LoginShow();
+            bool checkver = CheckVer();
+
+            if (!checkver)
+            {
+                DialogResult dr = MetroMessageBox.Show(this, "发现新版本，请问是否升级？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    ProgressTool progress = new ProgressTool();
+                    progress.RunProcess("UpgradeFile.exe");
+                    this.Close();
+                }
+                else
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                LoginShow();
+            }
+            
+        }
+
+        private bool CheckVer()
+        {
+            SysVer ver = fileLoad.GetNewSysVer();
+            return ver.sysver == Application.ProductVersion;
         }
 
         private void LoginShow()
         {
-            this.Visible = false ;
+            this.Visible = false;
             LogIn logIn = new LogIn();
             logIn.ShowDialog();
             bool success = logIn.DialogResult == DialogResult.OK;
@@ -66,12 +94,12 @@ namespace CS.UI
             var fun = userauths.Where(u => u.AuthTypeName.Contains("功能") || u.AuthTypeName.Contains("模块")).ToList();
             authNodes.ShowTreeView(tree_auth, fun, false);
 
-            var oper = userauths.Where(u => u.AuthTypeName.Contains("编辑")).ToList() ;
+            var oper = userauths.Where(u => u.AuthTypeName.Contains("编辑")).ToList();
             SYSUser.OperAuth = oper;
 
         }
 
-        private void AddTabForm(string TabName,string TabPath)
+        private void AddTabForm(string TabName, string TabPath)
         {
             bool isopen = true;
             foreach (SuperTabItem item in sTC.Tabs)
@@ -86,10 +114,10 @@ namespace CS.UI
 
             if (isopen)
             {
-                object obj = Assembly.GetExecutingAssembly().CreateInstance("CS.UI."+TabPath, false);
+                object obj = Assembly.GetExecutingAssembly().CreateInstance("CS.UI." + TabPath, false);
                 if (obj == null)
                 {
-                    MetroMessageBox.Show(this, "路径错误，请联系系统管理员。","警告");
+                    MetroMessageBox.Show(this, "路径错误，请联系系统管理员。", "警告");
                     return;
                 }
                 Form form = (Form)obj;
@@ -130,7 +158,7 @@ namespace CS.UI
             if (node == null) return;
             Authority auth = node.Tag as Authority;
             if (string.IsNullOrWhiteSpace(auth.Path)) return;
-            AddTabForm(auth.TreeName,auth.Path);
+            AddTabForm(auth.TreeName, auth.Path);
         }
 
         private void btn_upgrade_Click(object sender, EventArgs e)

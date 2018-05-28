@@ -1,6 +1,8 @@
 ﻿using CS.BLL.FileLoad;
 using CS.DAL;
+using CS.Models.BaseInfo;
 using CS.Models.ViewModel;
+using MetroFramework;
 using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using UpgradeFile;
+using static UpgradeFile.ZIPTool;
 
 namespace CS.UI.SYS
 {
@@ -23,6 +27,8 @@ namespace CS.UI.SYS
         }
 
         private List<FileLoadVM> filepathlist= new List<FileLoadVM>();
+        private FileLoadService loadService;
+        private string upgradetype = "winform";
 
         private void FrmUpgrade_Load(object sender, EventArgs e)
         {
@@ -32,7 +38,6 @@ namespace CS.UI.SYS
 
         private void InitListView()
         {
-            
             listView.Columns.Add("序号",60,HorizontalAlignment.Center);
             listView.Columns.Add("文件名", 100, HorizontalAlignment.Left);
             listView.Columns.Add("路径", 60, HorizontalAlignment.Left);
@@ -40,6 +45,7 @@ namespace CS.UI.SYS
 
         private void InitData()
         {
+            loadService = new FileLoadService(StateText);
             string ver = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             txb_ver.Text = ver;
         }
@@ -77,20 +83,77 @@ namespace CS.UI.SYS
         private void btn_upload_Click(object sender, EventArgs e)
         {
             int count = 0;
-            foreach (var file in filepathlist)
+            string filelist = string.Empty;
+            if (cb_zip.Checked)
             {
-                count = RequestUpload(file.FilePath);
-                if (count == 0) break;
+                if (filepathlist.Count() == 0) return;
+                string path = filepathlist[0].FilePath;
+                string rootpath = Path.GetDirectoryName(path);
+                string verdir = rootpath + "\\" + txb_ver.Text;
+
+                if (Directory.Exists(verdir))
+                {
+                    Directory.Delete(verdir, true);
+                }
+                Directory.CreateDirectory(verdir);
+               
+                foreach (var filepath in filepathlist)
+                {
+                    File.Copy(filepath.FilePath, verdir + "\\" + filepath.FileName);
+                }
+                FileZipOpr zipOpr = new FileZipOpr();
+                string deszip = verdir + ".zip";
+                zipOpr.ZipFileDirectory(verdir, deszip);
+                Directory.Delete(verdir, true);
+                count = RequestUpload(deszip);
+                UpdateSysVer(count, Path.GetFileName(deszip),true);
+                File.Delete(deszip);
             }
+            else
+            {
+                foreach (var file in filepathlist)
+                {
+                    filelist += file.FileName + ",";
+                    count = RequestUpload(file.FilePath);
+                    if (count == 0) break;
+                }
+                filelist = UpdateSysVer(count, filelist,false);
+            }
+        }
+
+        private string UpdateSysVer(int count, string filelist,bool zip)
+        {
             if (count != 0)
             {
-                
+                filelist = zip ? filelist:filelist.Substring(0, filelist.Length - 1);
+                SysVer sysVer = new SysVer
+                {
+                    sysver = txb_ver.Text,
+                    note = rtxb_note.Text,
+                    programtype = upgradetype,
+                    upgradedate = DateTime.Now.ToLongTimeString(),
+                    filelist = filelist
+                };
+                int id = loadService.AddSysVer(sysVer);
+                if (id > 0)
+                {
+                    MetroMessageBox.Show(this, "上传成功");
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "上传失败，请重新上传");
+                }
             }
+            else
+            {
+                MetroMessageBox.Show(this, "上传文件失败，请重新上传");
+            }
+
+            return filelist;
         }
 
         private int RequestUpload(string filepath)
         {
-            FileLoadService loadService = new FileLoadService(StateText);
             int i = loadService.UpLoadFile(filepath,txb_ver.Text, proBar);
             return i;
         }

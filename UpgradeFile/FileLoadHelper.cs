@@ -67,8 +67,9 @@ namespace UpgradeFile
             DownloadFile(URL, filename, null);
         }
 
-        public void FileDownLoad(string url, string localpath, IDictionary<object, object> parameters, System.Windows.Forms.ProgressBar prog)
+        public int FileDownLoad(string url, string localpath, IDictionary<object, object> parameters, System.Windows.Forms.ProgressBar prog)
         {
+            int filedown = 0;
             HttpWebRequest request = null;
             //如果是发送HTTPS请求  
             if (url.StartsWith("https", StringComparison.OrdinalIgnoreCase))
@@ -81,9 +82,6 @@ namespace UpgradeFile
             }
             request.Method = "POST";
             request.ContentType = "application/x-www-form-urlencoded";
-
-           
-
 
             if (!(parameters == null || parameters.Count == 0))
             {
@@ -139,13 +137,14 @@ namespace UpgradeFile
 
                     so.Close();
                     st.Close();
-
+                    filedown = 1 ;
                 }
-                catch (Exception)
+                catch (Exception )
                 {
-                    
+                    filedown = 0;
                 }
             }
+            return filedown;
 
         }
 

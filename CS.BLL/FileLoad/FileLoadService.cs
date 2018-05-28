@@ -1,5 +1,6 @@
 ﻿using CS.DAL;
-using CS.Models.ViewModel;
+using CS.Models;
+using CS.Models.BaseInfo;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CS.BLL.FileLoad
 {
-    public class FileLoadService:PostService<FileLoadVM, FileLoadVM>
+    public class FileLoadService:PostService<SysVer, SysVer>
     {
         public delegate void Uploadstate(int type, string msg);
         private Uploadstate uploadstate;
@@ -19,6 +20,8 @@ namespace CS.BLL.FileLoad
         {
             uploadstate = us;
         }
+
+        public FileLoadService() { }
 
         public int UpLoadFile(string filenamepath, string ver, ProgressBar bar)
         {
@@ -120,6 +123,29 @@ namespace CS.BLL.FileLoad
                 r.Close();
             }
             return returnValue;
+        }
+
+        public int AddSysVer(SysVer sysVer)
+        {
+            string url = UrlHelper.BaseInfoUrl.SysVerUrl.AddSysVer;
+            HttpTools tools = new HttpTools();
+            tools.AddParam("sysver", DataSwitch.DataToJson(sysVer)).Build();
+            HttpWebResponse res = HttpHelper.CreatePostHttpResponse(url, tools.dic, 3000, null);
+            if (res != null)
+            {
+                string json = DataSwitch.GetResponseString(res);
+                PostData<SysVer, SysVer> postData = DataSwitch.JsonToObj<PostData<SysVer, SysVer>>(json);
+                if (postData.Msg != General.reFail) return int.Parse(postData.Msg);
+            }
+            return General.intFail;
+        }
+
+        public SysVer GetNewSysVer()
+        {
+            string url = UrlHelper.BaseInfoUrl.SysVerUrl.GetNewSysVer;
+            HttpTools tools = new HttpTools();
+            tools.AddParam("programtype", "winform").Build();
+            return GetEntity(url, tools);
         }
 
     }

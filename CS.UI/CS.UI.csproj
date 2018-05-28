@@ -130,6 +130,7 @@
     <Compile Include="SYS\FrmUpgrade.Designer.cs">
       <DependentUpon>FrmUpgrade.cs</DependentUpon>
     </Compile>
+    <Compile Include="SYS\ProgressTool.cs" />
     <Compile Include="SYS\SYSData.cs" />
     <Compile Include="DataTools\SysdicSer.cs" />
     <Compile Include="SYS\UserAuthManage.cs">
@@ -229,6 +230,10 @@
     <ProjectReference Include="..\KControl\KControl.csproj">
       <Project>{C4E8D1E7-E52A-45D2-8622-6CCDAAA3CCF8}</Project>
       <Name>KControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZIPTools\ZIPTools.csproj">
+      <Project>{1EC6CC54-19D2-4862-AA34-D7A865839B7C}</Project>
+      <Name>ZIPTools</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

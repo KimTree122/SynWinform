@@ -23,6 +23,7 @@ namespace CS.BLL
             {
                 string json = DataSwitch.GetResponseString(res);
                 PostData<L, DBNull> postData = DataSwitch.JsonToObj<PostData<L, DBNull>>(json);
+                if (postData == null) return new List<L>();
                 return postData.DList;
             }
 
@@ -36,6 +37,7 @@ namespace CS.BLL
             {
                 string json = DataSwitch.GetResponseString(res);
                 PostData<DBNull,E> postData = DataSwitch.JsonToObj<PostData<DBNull, E>>(json);
+                if (postData == null) return new E();
                 return postData.Entity;
             }
             return new E();
@@ -61,6 +63,7 @@ namespace CS.BLL
             {
                 string json = DataSwitch.GetResponseString(res);
                 PostData<L, E> postData = DataSwitch.JsonToObj<PostData<L, E>>(json);
+                if (postData == null ) return new PostData<L, E>();
                 return postData;
             }
             return new PostData<L, E>();

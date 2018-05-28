@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KControl", "KControl\KContr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UpgradeFile", "UpgradeFile\UpgradeFile.csproj", "{D868D51C-9BF1-4B7A-9E11-D071334871E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZIPTools", "ZIPTools\ZIPTools.csproj", "{1EC6CC54-19D2-4862-AA34-D7A865839B7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{D868D51C-9BF1-4B7A-9E11-D071334871E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D868D51C-9BF1-4B7A-9E11-D071334871E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D868D51C-9BF1-4B7A-9E11-D071334871E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EC6CC54-19D2-4862-AA34-D7A865839B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EC6CC54-19D2-4862-AA34-D7A865839B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EC6CC54-19D2-4862-AA34-D7A865839B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EC6CC54-19D2-4862-AA34-D7A865839B7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +81,7 @@ Global
 		{E89B14D3-E0DD-4269-9D88-E4E65B8BFE3F} = {3EA724E3-0EC2-4645-BFB4-D42D3D55DCD6}
 		{236F9D42-9719-4939-9147-6860797C7694} = {3EA724E3-0EC2-4645-BFB4-D42D3D55DCD6}
 		{D868D51C-9BF1-4B7A-9E11-D071334871E2} = {3EA724E3-0EC2-4645-BFB4-D42D3D55DCD6}
+		{1EC6CC54-19D2-4862-AA34-D7A865839B7C} = {3EA724E3-0EC2-4645-BFB4-D42D3D55DCD6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8F277123-74C3-4B57-B789-C43E8B5B3339}
