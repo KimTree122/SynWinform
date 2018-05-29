@@ -23,6 +23,7 @@ namespace CS.UI.ReportReource
         private List<SysVer> sysVers = new List<SysVer>();
         private List<Sysdic> sysdics = new List<Sysdic>();
 
+        private PrintDocument docToPrint = new PrintDocument();
 
         private void FrmReportPrint_Load(object sender, EventArgs e)
         {
@@ -71,7 +72,7 @@ namespace CS.UI.ReportReource
             //List<string> vs = Cprinter.GetLocalPrinter();
 
             //Externs.SetDefaultPrinter("Fax");
-
+            
         }
 
         /// <summary>

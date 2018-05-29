@@ -115,7 +115,9 @@
     <Compile Include="ReportReource\FrmReportPrint.Designer.cs">
       <DependentUpon>FrmReportPrint.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportReource\PrintFileHelper.cs" />
     <Compile Include="ReportReource\PrintHelper.cs" />
+    <Compile Include="ReportReource\PrintService.cs" />
     <Compile Include="SYS\BaseTabFrom.cs">
       <SubType>Form</SubType>
     </Compile>
