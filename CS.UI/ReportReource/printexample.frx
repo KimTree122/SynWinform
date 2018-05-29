@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/29/2018 14:53:16" ReportInfo.Modified="05/29/2018 14:58:29" ReportInfo.CreatorVersion="2017.1.16.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void Table1_ManualBuild(object sender, EventArgs e)
+    {
+      // get the data source by its name      
+      DataSourceBase columnData = Report.GetDataSource(&quot;sysvers&quot;);
+      // init the data source
+      columnData.Init();
+      
+      // print the first table column - it is a header
+      //Table1.PrintColumn(0);
+      // each PrintColumn call must be followed by either PrintRow or PrintRows call
+      // to print cells on the column
+      //Table1.PrintRows();
+      
+      // now enumerate the data source and print the table body
+      while (columnData.HasMoreRows)
+      {
+        // print the table body  
+        Table1.PrintColumn(1);
+        Table1.PrintRows();
+
+        // go next data source row
+        columnData.Next();
+      }
+
+      // print the last table column - it is a footer
+      //Table1.PrintColumn(2);
+
+      //Table1.PrintRows();
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <BusinessObjectDataSource Name="sysvers" ReferenceName="sysvers" DataType="System.Collections.Generic.List`1[[CS.Models.BaseInfo.SysVer, CS.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]" Enabled="true">
+      <Column Name="id" DataType="System.Int32"/>
+      <Column Name="sysver" DataType="System.String"/>
+      <Column Name="upgradedate" DataType="System.String"/>
+      <Column Name="filelist" DataType="System.String"/>
+      <Column Name="note" DataType="System.String"/>
+      <Column Name="programtype" DataType="System.String"/>
+    </BusinessObjectDataSource>
+    <Parameter Name="param1" DataType="System.String"/>
+    <Parameter Name="param2" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8"/>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="28.35"/>
+    <DataBand Name="Data1" Top="74.15" Width="718.2" Height="103.95">
+      <TableObject Name="Table1" Left="9.45" Top="9.45" Width="274.02" Height="85.04" Layout="Wrapped" ManualBuildEvent="Table1_ManualBuild">
+        <TableColumn Name="Column1" Width="137.01"/>
+        <TableColumn Name="Column2" Width="137.01"/>
+        <TableRow Name="Row1" Height="21.26">
+          <TableCell Name="Cell1" Text="[sysvers.id]"/>
+          <TableCell Name="Cell2" Text="[sysvers.note]"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="21.26">
+          <TableCell Name="Cell6" Text="[sysvers.sysver]"/>
+          <TableCell Name="Cell7" Text="[sysvers.programtype]"/>
+        </TableRow>
+        <TableRow Name="Row3" Height="21.26">
+          <TableCell Name="Cell11" Text="[sysvers.upgradedate]"/>
+          <TableCell Name="Cell12"/>
+        </TableRow>
+        <TableRow Name="Row4" Height="21.26">
+          <TableCell Name="Cell16" Text="[sysvers.filelist]"/>
+          <TableCell Name="Cell17"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="182.1" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

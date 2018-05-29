@@ -31,6 +31,10 @@ namespace CS.UI
         {
             bool checkver = CheckVer();
 
+#if DEBUG
+            checkver = true;
+#endif
+
             if (!checkver)
             {
                 DialogResult dr = MetroMessageBox.Show(this, "发现新版本，请问是否升级？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -139,7 +143,7 @@ namespace CS.UI
 
         private void btn_dic_Click(object sender, EventArgs e)
         {
-            AddTabForm("字典管理", "SYS.FrmDict");
+            AddTabForm("打印测试", "ReportReource.FrmReportPrint");
         }
 
         private void btn_userauth_Click(object sender, EventArgs e)

@@ -36,6 +36,15 @@
       <HintPath>..\DevComponents.DotNetBar.Schedule.dll</HintPath>
     </Reference>
     <Reference Include="DevComponents.DotNetBar2, Version=12.5.0.2, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="FastReport">
+      <HintPath>..\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Bars">
+      <HintPath>..\FastReport.Bars.dll</HintPath>
+    </Reference>
+    <Reference Include="FastReport.Editor">
+      <HintPath>..\FastReport.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework">
       <HintPath>..\MetroFramework.dll</HintPath>
     </Reference>
@@ -100,6 +109,13 @@
     <Compile Include="ReportForm\FrmServerReport.Designer.cs">
       <DependentUpon>FrmServerReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportReource\FrmReportPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportReource\FrmReportPrint.Designer.cs">
+      <DependentUpon>FrmReportPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportReource\PrintHelper.cs" />
     <Compile Include="SYS\BaseTabFrom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +194,9 @@
     </Compile>
     <EmbeddedResource Include="ReportForm\FrmServerReport.resx">
       <DependentUpon>FrmServerReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportReource\FrmReportPrint.resx">
+      <DependentUpon>FrmReportPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SYS\BaseTabFrom.resx">
       <DependentUpon>BaseTabFrom.cs</DependentUpon>
