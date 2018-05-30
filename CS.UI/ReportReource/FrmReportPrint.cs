@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -52,6 +53,30 @@ namespace CS.UI.ReportReource
         }
 
         private void btn_print_Click(object sender, EventArgs e)
+        {
+            GetGUID();
+        }
+
+        private void GetGUID()
+        {
+            Attribute guid_attr = Attribute.GetCustomAttribute(Assembly.GetExecutingAssembly(), typeof(GuidAttribute));
+            string guid = ((GuidAttribute)guid_attr).Value;
+
+            //Assembly assembly = Assembly.LoadFile(exePath);
+            //string guid = assembly.ManifestModule.ModuleVersionId.ToString();
+
+            txb_path.Text = guid;
+        }
+
+        private void FilePrint()
+        {
+            PrintFileHelper printFile = new PrintFileHelper();
+            string path = txb_path.Text.Trim();
+            printFile.PrintFile(path);
+
+        }
+
+        private void FastReportPrint()
         {
             Report report = new Report();
             report.RegisterData(sysVers, "sysvers");

@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.panel_main = new DevComponents.DotNetBar.PanelEx();
+            this.btn_printer = new DevComponents.DotNetBar.ButtonX();
             this.btn_print = new DevComponents.DotNetBar.ButtonX();
             this.btn_design = new DevComponents.DotNetBar.ButtonX();
-            this.btn_printer = new DevComponents.DotNetBar.ButtonX();
+            this.txb_path = new System.Windows.Forms.TextBox();
             this.panel_main.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,6 +40,7 @@
             // 
             this.panel_main.CanvasColor = System.Drawing.SystemColors.Control;
             this.panel_main.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panel_main.Controls.Add(this.txb_path);
             this.panel_main.Controls.Add(this.btn_printer);
             this.panel_main.Controls.Add(this.btn_print);
             this.panel_main.Controls.Add(this.btn_design);
@@ -56,11 +58,23 @@
             this.panel_main.Style.GradientAngle = 90;
             this.panel_main.TabIndex = 0;
             // 
+            // btn_printer
+            // 
+            this.btn_printer.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_printer.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_printer.Location = new System.Drawing.Point(65, 294);
+            this.btn_printer.Name = "btn_printer";
+            this.btn_printer.Size = new System.Drawing.Size(147, 51);
+            this.btn_printer.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btn_printer.TabIndex = 2;
+            this.btn_printer.Text = "打印机";
+            this.btn_printer.Click += new System.EventHandler(this.btn_printer_Click);
+            // 
             // btn_print
             // 
             this.btn_print.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_print.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_print.Location = new System.Drawing.Point(65, 196);
+            this.btn_print.Location = new System.Drawing.Point(65, 197);
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(147, 51);
             this.btn_print.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -80,17 +94,12 @@
             this.btn_design.Text = "设计";
             this.btn_design.Click += new System.EventHandler(this.btn_design_Click);
             // 
-            // btn_printer
+            // txb_path
             // 
-            this.btn_printer.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_printer.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_printer.Location = new System.Drawing.Point(65, 294);
-            this.btn_printer.Name = "btn_printer";
-            this.btn_printer.Size = new System.Drawing.Size(147, 51);
-            this.btn_printer.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btn_printer.TabIndex = 2;
-            this.btn_printer.Text = "打印机";
-            this.btn_printer.Click += new System.EventHandler(this.btn_printer_Click);
+            this.txb_path.Location = new System.Drawing.Point(230, 209);
+            this.txb_path.Name = "txb_path";
+            this.txb_path.Size = new System.Drawing.Size(229, 26);
+            this.txb_path.TabIndex = 3;
             // 
             // FrmReportPrint
             // 
@@ -104,6 +113,7 @@
             this.Text = "FrmReportPrint";
             this.Load += new System.EventHandler(this.FrmReportPrint_Load);
             this.panel_main.ResumeLayout(false);
+            this.panel_main.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -114,5 +124,6 @@
         private DevComponents.DotNetBar.ButtonX btn_print;
         private DevComponents.DotNetBar.ButtonX btn_design;
         private DevComponents.DotNetBar.ButtonX btn_printer;
+        private System.Windows.Forms.TextBox txb_path;
     }
 }
