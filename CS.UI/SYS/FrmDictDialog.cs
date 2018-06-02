@@ -82,12 +82,13 @@ namespace CS.UI.SYS
 
         private void UpdateDic()
         {
-            bool update = baseInfoService.UpdateDictionary(GetCsdic());
+            int id = (int)txb_type.Tag;
+            bool update = baseInfoService.UpdateDictionary(GetCsdic(id));
             string msg = update ? "成功" : "失败";
             MetroMessageBox.Show(this,"更新"+ msg ,"提示");
             if (update)
             {
-                reload(GetCsdic());
+                reload(GetCsdic(id));
                 this.Close();
             }
         }
@@ -100,15 +101,15 @@ namespace CS.UI.SYS
             if (dicid != 0)
             {
                 txb_type.Tag = dicid;
-                reload(GetCsdic());
+                reload(GetCsdic(dicid));
                 this.Close();
             }
             
         }
 
-        private Sysdic GetCsdic()
+        private Sysdic GetCsdic(int id =0)
         {
-            Sysdic cSDicTionary = new Sysdic {  Dickey = txb_key.Text, DicMeno = txb_meno.Text, Dicsetp = int.Parse(txb_order.Text),  Dicname = txb_type.Text,  Dicval = txb_value.Text , id  = Add ? 0 : (int)txb_type.Tag };
+            Sysdic cSDicTionary = new Sysdic {  Dickey = txb_key.Text, DicMeno = txb_meno.Text, Dicsetp = int.Parse(txb_order.Text),  Dicname = txb_type.Text,  Dicval = txb_value.Text , id  = id };
             return cSDicTionary;
         }
 

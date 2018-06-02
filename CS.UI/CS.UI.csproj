@@ -109,6 +109,7 @@
     <Compile Include="ReportForm\FrmServerReport.Designer.cs">
       <DependentUpon>FrmServerReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportReource\BindingCollection.cs" />
     <Compile Include="ReportReource\FrmReportPrint.cs">
       <SubType>Form</SubType>
     </Compile>

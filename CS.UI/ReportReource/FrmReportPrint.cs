@@ -1,4 +1,5 @@
-﻿using CS.Models.BaseInfo;
+﻿using CS.BLL.BaseInfo;
+using CS.Models.BaseInfo;
 using FastReport;
 using System;
 using System.Collections.Generic;
@@ -139,6 +140,36 @@ namespace CS.UI.ReportReource
         {
             [DllImport("winspool.drv")]
             public static extern bool SetDefaultPrinter(String Name); //调用win api将指定名称的打印机设置为默认打印机  
+        }
+
+        private void btn_load_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+
+        BindingList<UserInfo> infos;
+        private void LoadData()
+        {
+            UserInfoService infoService = new UserInfoService();
+            List<UserInfo> userInfos = infoService.GetAllUserinfo(1);
+            //IBindingList 
+            infos = new BindingList<UserInfo>(userInfos);
+            dgv.DataSource = infos;
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            UserInfo user = new UserInfo { delflag = false, Uaccount = "003",
+                Uname = "sys" , UPost = "post", Upwd = "pwd", Utel ="333"};
+            infos.Add(user);
+        }
+
+        private void btn_del_Click(object sender, EventArgs e)
+        {
+            //infos.RemoveAt(infos.Count - 1);
+            infos[0].Uname = "aaa";
+            dgv.Refresh();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace CS.UI.SYS
     {
         private BaseInfoService baseInfoService = new BaseInfoService();
         private int oper;
-        private List<Sysdic> sysdics = new List<Sysdic>();
+        private BindingList<Sysdic> sysdics = new BindingList<Sysdic>();
         private string FirstItem = "类型";
 
         public FrmDict()
@@ -32,7 +32,6 @@ namespace CS.UI.SYS
 
         private void LoadData()
         {
-            dgv.DataSource = null;
             dgv.DataSource = sysdics;
             dgv.Columns["id"].Visible = false; 
             dgv.Columns["Dicname"].HeaderText = "类型";
@@ -70,9 +69,6 @@ namespace CS.UI.SYS
                 default:
                     break;
             }
-
-            //dgv.Refresh();
-            LoadData();
         }
 
         private void Delete(Sysdic dic)
@@ -83,9 +79,7 @@ namespace CS.UI.SYS
                 bool check = baseInfoService.DleteDictionary(dic);
                 if (check)
                 {
-                    dgv.DataSource = null;
                     sysdics.Remove(dic);
-                    LoadData();
                 }
                 else
                 {
@@ -97,9 +91,11 @@ namespace CS.UI.SYS
 
         private void Updatedgv(Sysdic dic)
         {
-            int index = sysdics.FindIndex(i => i.id == dic.id);
-            sysdics.RemoveAt(index);
-            sysdics.Insert(index, dic);
+            Sysdic index = sysdics.First(i => i.id == dic.id);
+            int count = sysdics.IndexOf(index);
+            sysdics[count] = dic;
+            dgv.Refresh();
+
         }
 
         private void cmb_dictype_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,7 +107,7 @@ namespace CS.UI.SYS
         {
             string type = cmb_dictype.Text;
             List<Sysdic> cSDics = baseInfoService.GetDicByType(type);
-            sysdics = cSDics;
+            sysdics =new BindingList<Sysdic>( cSDics);
             dgv.DataSource = sysdics;
         }
 
@@ -127,10 +123,15 @@ namespace CS.UI.SYS
         {
             oper = 2;
             int row = dgv.SelectedCells[0].RowIndex;
-            List<Sysdic> dics = dgv.DataSource as List<Sysdic>;
-            Sysdic sysdic = dics[row];
-            FrmDictDialog frm = new FrmDictDialog(ReLoad, sysdic);
-            frm.Show();
+            int id =(int) dgv["id", row].Value;
+            
+            Sysdic sysdic = sysdics.First(s => s.id == id);
+            if (sysdic != null)
+            {
+                FrmDictDialog frm = new FrmDictDialog(ReLoad, sysdic);
+                frm.Show();
+            }
+            
 
         }
 
