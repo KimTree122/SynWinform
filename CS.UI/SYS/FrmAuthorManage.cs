@@ -206,7 +206,8 @@ namespace CS.UI.SYS
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
-
+            CleanText();
+            gb.Enabled = false;
         }
     }
 }

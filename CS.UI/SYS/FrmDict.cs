@@ -32,6 +32,7 @@ namespace CS.UI.SYS
 
         private void LoadData()
         {
+            dgv.DataSource = null;
             dgv.DataSource = sysdics;
             dgv.Columns["id"].Visible = false; 
             dgv.Columns["Dicname"].HeaderText = "类型";
@@ -70,7 +71,8 @@ namespace CS.UI.SYS
                     break;
             }
 
-            dgv.Refresh();
+            //dgv.Refresh();
+            LoadData();
         }
 
         private void Delete(Sysdic dic)

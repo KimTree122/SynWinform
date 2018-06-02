@@ -49,14 +49,14 @@
             this.dgv = new MetroFramework.Controls.MetroGrid();
             this.split_Con = new System.Windows.Forms.SplitContainer();
             this.gp = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.txb_account = new MetroFramework.Controls.MetroTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.cmb_post = new MetroFramework.Controls.MetroComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txb_tel = new MetroFramework.Controls.MetroTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txb_name = new MetroFramework.Controls.MetroTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txb_account = new MetroFramework.Controls.MetroTextBox();
-            this.label4 = new System.Windows.Forms.Label();
             stylem = new DevComponents.DotNetBar.StyleManager(this.components);
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
@@ -154,10 +154,10 @@
             this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.btn_find,
             this.btn_add,
+            this.btn_visiable,
             this.btn_edit,
             this.btn_enter,
             this.btn_cancel,
-            this.btn_visiable,
             this.btn_del});
             this.ribbonBar1.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar1.Name = "ribbonBar1";
@@ -345,7 +345,7 @@
             this.gp.Enabled = false;
             this.gp.Location = new System.Drawing.Point(0, 0);
             this.gp.Name = "gp";
-            this.gp.Size = new System.Drawing.Size(249, 301);
+            this.gp.Size = new System.Drawing.Size(249, 100);
             // 
             // 
             // 
@@ -376,6 +376,44 @@
             this.gp.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.gp.TabIndex = 12;
             this.gp.Text = "编辑";
+            // 
+            // txb_account
+            // 
+            // 
+            // 
+            // 
+            this.txb_account.CustomButton.Image = null;
+            this.txb_account.CustomButton.Location = new System.Drawing.Point(99, 1);
+            this.txb_account.CustomButton.Name = "";
+            this.txb_account.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txb_account.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txb_account.CustomButton.TabIndex = 1;
+            this.txb_account.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txb_account.CustomButton.UseSelectable = true;
+            this.txb_account.CustomButton.Visible = false;
+            this.txb_account.Lines = new string[0];
+            this.txb_account.Location = new System.Drawing.Point(100, 78);
+            this.txb_account.MaxLength = 32767;
+            this.txb_account.Name = "txb_account";
+            this.txb_account.PasswordChar = '\0';
+            this.txb_account.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txb_account.SelectedText = "";
+            this.txb_account.SelectionLength = 0;
+            this.txb_account.SelectionStart = 0;
+            this.txb_account.Size = new System.Drawing.Size(121, 23);
+            this.txb_account.TabIndex = 19;
+            this.txb_account.UseSelectable = true;
+            this.txb_account.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txb_account.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(22, 81);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 16);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "账号";
             // 
             // cmb_post
             // 
@@ -471,44 +509,6 @@
             this.label1.Size = new System.Drawing.Size(40, 16);
             this.label1.TabIndex = 12;
             this.label1.Text = "姓名";
-            // 
-            // txb_account
-            // 
-            // 
-            // 
-            // 
-            this.txb_account.CustomButton.Image = null;
-            this.txb_account.CustomButton.Location = new System.Drawing.Point(99, 1);
-            this.txb_account.CustomButton.Name = "";
-            this.txb_account.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txb_account.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txb_account.CustomButton.TabIndex = 1;
-            this.txb_account.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txb_account.CustomButton.UseSelectable = true;
-            this.txb_account.CustomButton.Visible = false;
-            this.txb_account.Lines = new string[0];
-            this.txb_account.Location = new System.Drawing.Point(100, 78);
-            this.txb_account.MaxLength = 32767;
-            this.txb_account.Name = "txb_account";
-            this.txb_account.PasswordChar = '\0';
-            this.txb_account.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txb_account.SelectedText = "";
-            this.txb_account.SelectionLength = 0;
-            this.txb_account.SelectionStart = 0;
-            this.txb_account.Size = new System.Drawing.Size(121, 23);
-            this.txb_account.TabIndex = 19;
-            this.txb_account.UseSelectable = true;
-            this.txb_account.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txb_account.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 81);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 16);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "账号";
             // 
             // FrmUserInfo
             // 
