@@ -103,7 +103,7 @@ namespace CS.UI
 
         }
 
-        private void AddTabForm(string TabName, string TabPath)
+        private void AddTabForm(string TabName, string TabPath,int authid = 0)
         {
             bool isopen = true;
             foreach (SuperTabItem item in sTC.Tabs)
@@ -128,10 +128,11 @@ namespace CS.UI
                 form.TopLevel = false;
                 form.Visible = true;
                 form.Dock = DockStyle.Fill;
-                form.Tag = TabName;
+                
                 SuperTabItem item = sTC.CreateTab(TabName);
                 item.Text = TabName;
                 item.Name = TabName;
+                item.Tag = authid;
                 item.AttachedControl.Controls.Add(form);
                 sTC.SelectedTab = item;
             }
@@ -163,7 +164,7 @@ namespace CS.UI
             if (node == null) return;
             Authority auth = node.Tag as Authority;
             if (string.IsNullOrWhiteSpace(auth.Path)) return;
-            AddTabForm(auth.TreeName, auth.Path);
+            AddTabForm(auth.TreeName, auth.Path, auth.id);
         }
 
         private void btn_upgrade_Click(object sender, EventArgs e)

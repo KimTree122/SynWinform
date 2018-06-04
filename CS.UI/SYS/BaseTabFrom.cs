@@ -17,6 +17,23 @@ namespace CS.UI
         public BaseTabFrom()
         {
             InitializeComponent();
+            //LoadUserAuth();
+        }
+
+        public void LoadUserAuth()
+        {
+            int formtag =(int) this.Tag;
+            foreach (var au in SYSUser.OperAuth)
+            {
+                if (au.ParentID == formtag)
+                {
+                    Control[] cons = Controls.Find(au.Path, false);
+                    if (cons.Count() > 0)
+                    {
+                        cons[0].Enabled = false;
+                    }
+                }
+            }
         }
 
         public void ShowTipsMessageBox(string msg )

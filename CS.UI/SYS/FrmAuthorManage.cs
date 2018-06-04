@@ -31,6 +31,7 @@ namespace CS.UI.SYS
         private void FrmAuthorManage_Load(object sender, EventArgs e)
         {
             InitData();
+            LoadAuth();
         }
 
         private void InitData()
