@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_inorout = new DevComponents.DotNetBar.PanelEx();
             this.btn_find = new DevComponents.DotNetBar.ButtonX();
             this.txb_custom = new KControl.TextListBox();
             this.panel_in = new DevComponents.DotNetBar.PanelEx();
             this.panel_detail = new DevComponents.DotNetBar.PanelEx();
+            this.label5 = new System.Windows.Forms.Label();
+            this.nud_cost = new System.Windows.Forms.NumericUpDown();
             this.lbl_dtmemo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_date = new System.Windows.Forms.LinkLabel();
@@ -74,11 +76,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.plan_back = new DevComponents.DotNetBar.PanelEx();
             this.panel_out = new DevComponents.DotNetBar.PanelEx();
-            this.nud_cost = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel_inorout.SuspendLayout();
             this.panel_in.SuspendLayout();
             this.panel_detail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_cost)).BeginInit();
             this.panel_mt.SuspendLayout();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_qr)).BeginInit();
@@ -88,7 +89,6 @@
             this.gb_his.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.gb_custom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_cost)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_inorout
@@ -183,6 +183,22 @@
             this.panel_detail.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panel_detail.Style.GradientAngle = 90;
             this.panel_detail.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(321, 91);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 16);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "费用";
+            // 
+            // nud_cost
+            // 
+            this.nud_cost.Location = new System.Drawing.Point(384, 86);
+            this.nud_cost.Name = "nud_cost";
+            this.nud_cost.Size = new System.Drawing.Size(148, 26);
+            this.nud_cost.TabIndex = 23;
             // 
             // lbl_dtmemo
             // 
@@ -517,6 +533,8 @@
             // 
             // btn_add
             // 
+            this.btn_add.Image = global::CS.UI.Properties.Resources.add;
+            this.btn_add.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.btn_add.Name = "btn_add";
             this.btn_add.SubItemsExpandWidth = 14;
             this.btn_add.Text = "新增";
@@ -524,6 +542,8 @@
             // 
             // btn_modi
             // 
+            this.btn_modi.Image = global::CS.UI.Properties.Resources.Eidter;
+            this.btn_modi.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.btn_modi.Name = "btn_modi";
             this.btn_modi.SubItemsExpandWidth = 14;
             this.btn_modi.Text = "编辑";
@@ -531,6 +551,8 @@
             // 
             // btn_del
             // 
+            this.btn_del.Image = global::CS.UI.Properties.Resources.delete;
+            this.btn_del.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.btn_del.Name = "btn_del";
             this.btn_del.SubItemsExpandWidth = 14;
             this.btn_del.Text = "删除";
@@ -566,23 +588,23 @@
             this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.EnableHeadersVisualStyles = false;
             this.dgv.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -591,14 +613,14 @@
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv.RowTemplate.Height = 23;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -768,22 +790,6 @@
             this.panel_out.TabIndex = 11;
             this.panel_out.Text = "OUT";
             // 
-            // nud_cost
-            // 
-            this.nud_cost.Location = new System.Drawing.Point(384, 86);
-            this.nud_cost.Name = "nud_cost";
-            this.nud_cost.Size = new System.Drawing.Size(148, 26);
-            this.nud_cost.TabIndex = 23;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(321, 91);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 16);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "费用";
-            // 
             // FrmCheckServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -801,6 +807,7 @@
             this.panel_in.ResumeLayout(false);
             this.panel_detail.ResumeLayout(false);
             this.panel_detail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_cost)).EndInit();
             this.panel_mt.ResumeLayout(false);
             this.panelEx1.ResumeLayout(false);
             this.panelEx1.PerformLayout();
@@ -812,7 +819,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.gb_custom.ResumeLayout(false);
             this.gb_custom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_cost)).EndInit();
             this.ResumeLayout(false);
 
         }

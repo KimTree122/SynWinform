@@ -128,6 +128,7 @@ namespace CS.UI
                 form.TopLevel = false;
                 form.Visible = true;
                 form.Dock = DockStyle.Fill;
+                form.Tag = TabName;
                 SuperTabItem item = sTC.CreateTab(TabName);
                 item.Text = TabName;
                 item.Name = TabName;

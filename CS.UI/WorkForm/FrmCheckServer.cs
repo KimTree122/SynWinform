@@ -235,13 +235,14 @@ namespace CS.UI.WorkForm
         {
             panel_mt.Visible = true;
             gb_cs.Visible = true;
-            txb_servertype.Text = "";
+            txb_servertype.Text = emptystring;
             txb_servertype.Tag = 0;
-            rtxb_mtmemo.Text = "";
+            rtxb_mtmemo.Text = emptystring;
             pb_qr.Image = null;
+            lbl_qrcode.Text = emptystring;
             panel_detail.Visible = true;
             ratingStar.Rating = 0;
-            lbl_dtmemo.Text = "";
+            lbl_dtmemo.Text = emptystring;
             rtxb_mtmemo.Enabled = true;
             lbl_sertype.Enabled = true;
             Btn_adddt.Visible = false;
