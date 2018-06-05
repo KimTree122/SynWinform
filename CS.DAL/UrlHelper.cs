@@ -43,6 +43,7 @@ namespace CS.DAL
                 public static string AddAuthority = SecondLayer + "AddAuthority";
                 public static string UpdateAuthority = SecondLayer + "UpdateAuthority";
                 public static string DeleteAuthority = SecondLayer + "DeleteAuthority";
+                public static string GetOperAuthByTag = SecondLayer + "GetOperAuthByTag";
             }
 
             public static class UserAuthUrl

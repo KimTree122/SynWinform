@@ -128,11 +128,11 @@ namespace CS.UI
                 form.TopLevel = false;
                 form.Visible = true;
                 form.Dock = DockStyle.Fill;
+                form.Tag = authid;
                 
                 SuperTabItem item = sTC.CreateTab(TabName);
                 item.Text = TabName;
                 item.Name = TabName;
-                item.Tag = authid;
                 item.AttachedControl.Controls.Add(form);
                 sTC.SelectedTab = item;
             }

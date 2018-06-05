@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using CS.Models.BaseInfo;
 using System.Windows.Forms;
+using CS.BLL.BaseInfo;
 
 namespace CS.UI
 {
@@ -17,20 +18,38 @@ namespace CS.UI
         public BaseTabFrom()
         {
             InitializeComponent();
-            //LoadUserAuth();
+        }
+
+        private List<Authority> GetOperAuthByTag(int formtag)
+        {
+            AuthorityService service = new AuthorityService();
+            return service.GetOperAuthbyTag(formtag,"编辑权限");
         }
 
         public void LoadUserAuth()
         {
-            int formtag =(int) this.Tag;
-            foreach (var au in SYSUser.OperAuth)
+            if (this.Tag == null) return;
+            int formtag = (int)this.Tag;
+            List<Authority> oper = GetOperAuthByTag(formtag);
+
+            SetControl(oper, formtag, false);
+
+            SetControl(SYSUser.OperAuth, formtag, true);
+        }
+
+        private void SetControl(List<Authority> authorities , int parentid,bool enable)
+        {
+            if (authorities == null) return;
+            if (authorities.Count == 0) return;
+            
+            foreach (var au in authorities)
             {
-                if (au.ParentID == formtag)
+                if (au.ParentID == parentid)
                 {
-                    Control[] cons = Controls.Find(au.Path, false);
-                    if (cons.Count() > 0)
+                    Control[] cons = this.Controls.Find(au.Path,true);
+                    if (cons.Count()> 0)
                     {
-                        cons[0].Enabled = false;
+                        cons[0].Enabled = enable;
                     }
                 }
             }
@@ -56,5 +75,9 @@ namespace CS.UI
             return MetroMessageBox.Show(this, msg, "询问", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
+        private void BaseTabFrom_Shown(object sender, EventArgs e)
+        {
+            LoadUserAuth();
+        }
     }
 }

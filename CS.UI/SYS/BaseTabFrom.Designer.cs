@@ -45,6 +45,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "BaseTabFrom";
+            this.Shown += new System.EventHandler(this.BaseTabFrom_Shown);
             this.ResumeLayout(false);
 
         }

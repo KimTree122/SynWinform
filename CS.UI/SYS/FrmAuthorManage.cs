@@ -31,7 +31,6 @@ namespace CS.UI.SYS
         private void FrmAuthorManage_Load(object sender, EventArgs e)
         {
             InitData();
-            LoadAuth();
         }
 
         private void InitData()
@@ -43,6 +42,7 @@ namespace CS.UI.SYS
         private void LoadAuth()
         {
             SysdicSer.ComboBoxBindbyType(cmb_type, "权限类型");
+            //UserSpecialAuth.SetControl(8, btn_add,btn_del);
         }
 
         private void LoadAuthType()

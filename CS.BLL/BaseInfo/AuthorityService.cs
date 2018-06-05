@@ -26,6 +26,14 @@ namespace CS.BLL.BaseInfo
             return msg.ToInt();
         }
 
+        public List<Authority> GetOperAuthbyTag( int formtag,string authtypeName)
+        {
+            string url = UrlHelper.BaseInfoUrl.AuthorityUrl.GetOperAuthByTag;
+            HttpTools tools = new HttpTools();
+            tools.AddParam("authtypeName", authtypeName).AddParam("tag",formtag).Build();
+            return GetEntities(url, tools);
+        }
+
         public bool UpdateAuthority(Authority auth)
         {
             string url = UrlHelper.BaseInfoUrl.AuthorityUrl.UpdateAuthority;
