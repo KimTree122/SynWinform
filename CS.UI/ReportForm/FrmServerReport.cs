@@ -15,5 +15,15 @@ namespace CS.UI.ReportForm
         {
             InitializeComponent();
         }
+
+        private void FrmServerReport_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_load_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
