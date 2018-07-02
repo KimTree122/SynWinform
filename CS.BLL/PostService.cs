@@ -16,7 +16,7 @@ namespace CS.BLL
             return HttpHelper.CreatePostHttpResponse(url,tools.dic,3000,null); ;
         }
 
-        public List<L> GetList(string url, HttpTools tools)
+        public List<L> GetEntities(string url, HttpTools tools)
         {
             HttpWebResponse res = Response(url, tools); 
             if (res !=null)
