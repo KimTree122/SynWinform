@@ -14,7 +14,7 @@ namespace CS.BLL.BaseInfo
             string url = UrlHelper.BaseInfoUrl.AuthorityUrl.GetAllAuthority;
             HttpTools tools = new HttpTools();
             tools.AddParam("userid", userid).Build(); ;
-            return GetEntities(url,tools);
+            return GetList(url,tools);
         }
 
         public int AddAuthority(Authority authority)
@@ -31,7 +31,7 @@ namespace CS.BLL.BaseInfo
             string url = UrlHelper.BaseInfoUrl.AuthorityUrl.GetOperAuthByTag;
             HttpTools tools = new HttpTools();
             tools.AddParam("authtypeName", authtypeName).AddParam("tag",formtag).Build();
-            return GetEntities(url, tools);
+            return GetList(url, tools);
         }
 
         public bool UpdateAuthority(Authority auth)
@@ -57,7 +57,7 @@ namespace CS.BLL.BaseInfo
             string url = UrlHelper.BaseInfoUrl.UserAuthUrl.GetUserAuth;
             HttpTools tools = new HttpTools();
             tools.AddParam("userid", userid).Build();
-            return GetEntities(url, tools);
+            return GetList(url, tools);
         }
 
         public List<Authority> AddUserAuth(List<Authority> userAuths, string userid)
@@ -66,7 +66,7 @@ namespace CS.BLL.BaseInfo
             HttpTools tools = new HttpTools();
             tools.AddParam("auth", DataSwitch.DataToJson(userAuths))
                 .AddParam("userid", userid).Build();
-            List<Authority> add = GetEntities(url, tools);
+            List<Authority> add = GetList(url, tools);
             return add;
         }
 

@@ -14,7 +14,7 @@ namespace CS.BLL.BaseInfo
             string url = UrlHelper.BaseInfoUrl.ServerTypeUrl.GetAllServerType;
             HttpTools tools = new HttpTools();
             tools.AddParam("userid", userid).Build(); ;
-            return GetEntities(url, tools);
+            return GetList(url, tools);
         }
 
         public int AddServerType(ServerType serverType)

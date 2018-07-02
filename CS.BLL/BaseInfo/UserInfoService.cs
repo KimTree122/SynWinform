@@ -14,7 +14,7 @@ namespace CS.BLL.BaseInfo
             string url = UrlHelper.BaseInfoUrl.UserInfoUrl.GetAllUserInfo;
             HttpTools tools = new HttpTools();
             tools.AddParam("userid", userid).Build();
-            return GetEntities(url, tools);
+            return GetList(url, tools);
         }
 
 
