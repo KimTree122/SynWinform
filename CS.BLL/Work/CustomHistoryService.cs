@@ -14,7 +14,7 @@ namespace CS.BLL.Work
             string url = UrlHelper.WorkUrl.CheckInBLL.GetCustomHistory;
             HttpTools tools = new HttpTools();
             tools.AddParam("customid", customid).AddParam("stauts", stauts).Build(); ;
-            return GetEntities(url, tools);
+            return GetList(url, tools);
         }
     }
 }
