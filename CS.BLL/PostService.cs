@@ -2,6 +2,7 @@
 using CS.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -15,6 +16,22 @@ namespace CS.BLL
         {
             return HttpHelper.CreatePostHttpResponse(url,tools.dic,3000,null); ;
         }
+
+        private Stream ResponeStream(string url,HttpTools tools)
+        {
+            Stream s = HttpHelper.ResponseStream(url,tools.dic);
+            return s;
+        }
+
+        private  byte[] StreamToBytes(Stream stream)
+        {
+            byte[] bytes = new byte[stream.Length];
+            stream.Read(bytes, 0, bytes.Length);
+            // 设置当前流的位置为流的开始
+            stream.Seek(0, SeekOrigin.Begin);
+            return bytes;
+        } 
+
 
         public List<L> GetList(string url, HttpTools tools)
         {
@@ -68,7 +85,6 @@ namespace CS.BLL
             }
             return new PostData<L, E>();
         }
-
 
 
     }

@@ -1,33 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 
 namespace CS.DAL
 {
     public class HttpHelper : IHttpHelper
     {
-
-        public static string GetHttpResponse(string url, int Timeout)
-        {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Method = "GET";
-            request.ContentType = "text/html;charset=UTF-8";
-            request.UserAgent = null;
-            request.Timeout = Timeout;
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream myResponseStream = response.GetResponseStream();
-            StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
-            string retString = myStreamReader.ReadToEnd();
-            myStreamReader.Close();
-            myResponseStream.Close();
-
-            return retString;
-        }
-
 
         /// 创建POST方式的HTTP请求  
         public static HttpWebResponse CreatePostHttpResponse(string url, IDictionary<object, object> parameters, int timeout, CookieCollection cookies)
@@ -90,6 +73,35 @@ namespace CS.DAL
 
         }
 
+        public static Stream ResponseStream(string url, Dictionary<object, object> parameter)
+        {
+            var request = JsonConvert.SerializeObject(parameter);
+            HttpContent httpContent = new StringContent(request);
+            httpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream");
+            var httpClient = new HttpClient();
+            var responseStream = httpClient.PostAsync(url, httpContent).Result.Content.ReadAsStreamAsync().Result;
+            return responseStream;
+        }
+
+
+        #region 弃用方法
+        public static string GetHttpResponse(string url, int Timeout)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.ContentType = "text/html;charset=UTF-8";
+            request.UserAgent = null;
+            request.Timeout = Timeout;
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            Stream myResponseStream = response.GetResponseStream();
+            StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));
+            string retString = myStreamReader.ReadToEnd();
+            myStreamReader.Close();
+            myResponseStream.Close();
+
+            return retString;
+        }
 
         /// <summary>
         /// 获取请求的数据
@@ -355,5 +367,7 @@ namespace CS.DAL
                 //log.AddLog(err, "下载日志文件异常！", "Log");
             }
         }
+
+        #endregion
     }
 }

@@ -30,4 +30,33 @@ namespace CS.BLL
         }
 
     }
+
+    public class PostHelper
+    {
+        private List<string> keylist = new List<string>();
+        private List<object> valuelist = new List<object>();
+
+
+        public PostHelper AddParam(string key, object value)
+        {
+            keylist.Add(key);
+            valuelist.Add(value);
+            return this;
+        }
+
+        public string Response(string url)
+        {
+            Dictionary<object, object> dic = new Dictionary<object, object>();
+            for (int i = 0; i < keylist.Count; i++)
+            {
+                dic.Add(keylist[i], valuelist[i]);
+            }
+
+            string res = "";
+
+            keylist.Clear();
+            valuelist.Clear();
+            return res;
+        }
+    }
 }
