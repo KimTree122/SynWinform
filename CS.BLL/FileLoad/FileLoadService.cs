@@ -23,13 +23,13 @@ namespace CS.BLL.FileLoad
 
         public FileLoadService() { }
 
-        public int UpLoadFile(string filenamepath, string ver, ProgressBar bar)
+        public int UpLoadFile(string filenamepath, string filePath, ProgressBar bar)
         {
            string url = UrlHelper.FileLoadUrl.FileLoad.UpLoadFile;
-            return Upload_Request(url, filenamepath,ver, bar);
+            return Upload_Request(url, filenamepath, filePath, bar);
         }
 
-        private int Upload_Request(string address, string fileNamePath, string ver, ProgressBar progressBar = null)
+        private int Upload_Request(string address, string fileNamePath, string filePath, ProgressBar progressBar = null)
         {
             int returnValue = 0;
             // 要上传的文件 
@@ -37,7 +37,7 @@ namespace CS.BLL.FileLoad
             BinaryReader r = new BinaryReader(fs);
             // 根据uri创建HttpWebRequest对象 
             address = string.Concat(address, "?filename=", Path.GetFileName(fileNamePath)
-                +"&ver="+ver);
+                + "&filePath=" + filePath);
             HttpWebRequest httpReq = (HttpWebRequest)WebRequest.Create(new Uri(address));
             httpReq.Method = "POST";
             //对发送的数据不使用缓存 
