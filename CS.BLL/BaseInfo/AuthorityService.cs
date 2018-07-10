@@ -56,7 +56,8 @@ namespace CS.BLL.BaseInfo
         {
             string url = UrlHelper.BaseInfoUrl.UserAuthUrl.GetUserAuth;
             HttpTools tools = new HttpTools();
-            tools.AddParam("userid", userid).Build();
+            tools.AddParam("userid", userid)
+                .AddParam("portType", "winform").Build();
             return GetList(url, tools);
         }
 

@@ -54,6 +54,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gb = new System.Windows.Forms.GroupBox();
             this.cb_top = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmb_port = new System.Windows.Forms.ComboBox();
             this.panelEx3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advTree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
@@ -68,9 +70,9 @@
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelEx1.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEx1.Location = new System.Drawing.Point(5, 1);
+            this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(611, 50);
+            this.panelEx1.Size = new System.Drawing.Size(646, 50);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.panelEx1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -92,9 +94,9 @@
             this.panelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelEx2.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelEx2.Location = new System.Drawing.Point(5, 583);
+            this.panelEx2.Location = new System.Drawing.Point(0, 585);
             this.panelEx2.Name = "panelEx2";
-            this.panelEx2.Size = new System.Drawing.Size(611, 50);
+            this.panelEx2.Size = new System.Drawing.Size(646, 50);
             this.panelEx2.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.panelEx2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -117,9 +119,9 @@
             this.panelEx3.Controls.Add(this.advTree);
             this.panelEx3.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelEx3.Location = new System.Drawing.Point(5, 51);
+            this.panelEx3.Location = new System.Drawing.Point(0, 50);
             this.panelEx3.Name = "panelEx3";
-            this.panelEx3.Size = new System.Drawing.Size(250, 532);
+            this.panelEx3.Size = new System.Drawing.Size(250, 535);
             this.panelEx3.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
             this.panelEx3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -151,7 +153,7 @@
             this.advTree.NodesConnector = this.nodeConnector1;
             this.advTree.NodeStyle = this.elementStyle2;
             this.advTree.PathSeparator = ";";
-            this.advTree.Size = new System.Drawing.Size(250, 532);
+            this.advTree.Size = new System.Drawing.Size(250, 535);
             this.advTree.Styles.Add(this.elementStyle1);
             this.advTree.Styles.Add(this.elementStyle2);
             this.advTree.TabIndex = 0;
@@ -194,7 +196,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 71);
+            this.label1.Location = new System.Drawing.Point(40, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 16);
             this.label1.TabIndex = 36;
@@ -202,14 +204,14 @@
             // 
             // txb_name
             // 
-            this.txb_name.Location = new System.Drawing.Point(94, 66);
+            this.txb_name.Location = new System.Drawing.Point(86, 106);
             this.txb_name.Name = "txb_name";
             this.txb_name.Size = new System.Drawing.Size(140, 26);
             this.txb_name.TabIndex = 37;
             // 
             // txb_path
             // 
-            this.txb_path.Location = new System.Drawing.Point(94, 118);
+            this.txb_path.Location = new System.Drawing.Point(86, 153);
             this.txb_path.Name = "txb_path";
             this.txb_path.Size = new System.Drawing.Size(200, 26);
             this.txb_path.TabIndex = 48;
@@ -217,7 +219,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 122);
+            this.label2.Location = new System.Drawing.Point(40, 156);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 47;
@@ -226,16 +228,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 173);
+            this.label3.Location = new System.Drawing.Point(8, 201);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 16);
+            this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 49;
-            this.label3.Text = "类型";
+            this.label3.Text = "权限类型";
             // 
             // cmb_type
             // 
             this.cmb_type.FormattingEnabled = true;
-            this.cmb_type.Location = new System.Drawing.Point(94, 170);
+            this.cmb_type.Location = new System.Drawing.Point(86, 198);
             this.cmb_type.Name = "cmb_type";
             this.cmb_type.Size = new System.Drawing.Size(100, 24);
             this.cmb_type.TabIndex = 50;
@@ -254,7 +256,7 @@
             // 
             // txb_order
             // 
-            this.txb_order.Location = new System.Drawing.Point(94, 220);
+            this.txb_order.Location = new System.Drawing.Point(86, 243);
             this.txb_order.Name = "txb_order";
             this.txb_order.Size = new System.Drawing.Size(100, 26);
             this.txb_order.TabIndex = 62;
@@ -262,7 +264,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 224);
+            this.label4.Location = new System.Drawing.Point(40, 246);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 16);
             this.label4.TabIndex = 61;
@@ -270,7 +272,7 @@
             // 
             // picBox
             // 
-            this.picBox.Location = new System.Drawing.Point(214, 170);
+            this.picBox.Location = new System.Drawing.Point(214, 197);
             this.picBox.Name = "picBox";
             this.picBox.Size = new System.Drawing.Size(80, 80);
             this.picBox.TabIndex = 63;
@@ -279,7 +281,7 @@
             // lbl_father
             // 
             this.lbl_father.AutoSize = true;
-            this.lbl_father.Location = new System.Drawing.Point(91, 28);
+            this.lbl_father.Location = new System.Drawing.Point(40, 21);
             this.lbl_father.Name = "lbl_father";
             this.lbl_father.Size = new System.Drawing.Size(40, 16);
             this.lbl_father.TabIndex = 64;
@@ -337,9 +339,9 @@
             this.gbox.Controls.Add(this.groupBox1);
             this.gbox.Controls.Add(this.gb);
             this.gbox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gbox.Location = new System.Drawing.Point(255, 51);
+            this.gbox.Location = new System.Drawing.Point(250, 50);
             this.gbox.Name = "gbox";
-            this.gbox.Size = new System.Drawing.Size(333, 532);
+            this.gbox.Size = new System.Drawing.Size(333, 535);
             this.gbox.TabIndex = 87;
             this.gbox.TabStop = false;
             // 
@@ -351,17 +353,19 @@
             this.groupBox1.Controls.Add(this.btn_save);
             this.groupBox1.Controls.Add(this.btn_modi);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 301);
+            this.groupBox1.Location = new System.Drawing.Point(3, 322);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(327, 228);
+            this.groupBox1.Size = new System.Drawing.Size(327, 210);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "功能";
             // 
             // gb
             // 
+            this.gb.Controls.Add(this.label5);
             this.gb.Controls.Add(this.cb_top);
             this.gb.Controls.Add(this.lbl_father);
+            this.gb.Controls.Add(this.cmb_port);
             this.gb.Controls.Add(this.label1);
             this.gb.Controls.Add(this.txb_name);
             this.gb.Controls.Add(this.label2);
@@ -375,7 +379,7 @@
             this.gb.Enabled = false;
             this.gb.Location = new System.Drawing.Point(3, 22);
             this.gb.Name = "gb";
-            this.gb.Size = new System.Drawing.Size(327, 279);
+            this.gb.Size = new System.Drawing.Size(327, 300);
             this.gb.TabIndex = 0;
             this.gb.TabStop = false;
             this.gb.Text = "权限明细";
@@ -383,23 +387,41 @@
             // cb_top
             // 
             this.cb_top.AutoSize = true;
-            this.cb_top.Location = new System.Drawing.Point(240, 68);
+            this.cb_top.Location = new System.Drawing.Point(235, 110);
             this.cb_top.Name = "cb_top";
             this.cb_top.Size = new System.Drawing.Size(59, 20);
             this.cb_top.TabIndex = 65;
             this.cb_top.Text = "顶级";
             this.cb_top.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 66);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 16);
+            this.label5.TabIndex = 66;
+            this.label5.Text = "端口类型";
+            // 
+            // cmb_port
+            // 
+            this.cmb_port.FormattingEnabled = true;
+            this.cmb_port.Location = new System.Drawing.Point(86, 63);
+            this.cmb_port.Name = "cmb_port";
+            this.cmb_port.Size = new System.Drawing.Size(100, 24);
+            this.cmb_port.TabIndex = 67;
+            // 
             // FrmAuthorManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(621, 635);
+            this.ClientSize = new System.Drawing.Size(646, 635);
             this.Controls.Add(this.gbox);
             this.Controls.Add(this.panelEx3);
             this.Controls.Add(this.panelEx2);
             this.Controls.Add(this.panelEx1);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FrmAuthorManage";
             this.Text = "FrmAuthorManage";
@@ -443,5 +465,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox gb;
         private System.Windows.Forms.CheckBox cb_top;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmb_port;
     }
 }

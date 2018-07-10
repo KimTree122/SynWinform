@@ -239,6 +239,8 @@ namespace CS.Models.BaseInfo
         /// </summary>           
         public string AOrder { get; set; }
 
+        public string SysPort { get; set; }
+
     }
 
     public partial class ServerType: BaseTree

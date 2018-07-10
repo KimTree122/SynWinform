@@ -42,6 +42,7 @@ namespace CS.UI.SYS
         private void LoadAuth()
         {
             SysdicSer.ComboBoxBindbyType(cmb_type, "权限类型");
+            SysdicSer.ComboBoxBindbyType(cmb_port, "客户端类型");
             //UserSpecialAuth.SetControl(8, btn_add,btn_del);
         }
 
@@ -140,7 +141,7 @@ namespace CS.UI.SYS
 
         private Authority GetEditAuth(int fid, int id = 0)
         {
-            Authority authority = new Authority { AOrder = txb_order.Text, TreeName = txb_name.Text, AuthTypeID = (int)cmb_type.SelectedValue, AuthTypeName = cmb_type.Text, Path = txb_path.Text, ParentID = fid, Imageid = 0, id = id };
+            Authority authority = new Authority { AOrder = txb_order.Text, TreeName = txb_name.Text, AuthTypeID = (int)cmb_type.SelectedValue, AuthTypeName = cmb_type.Text, Path = txb_path.Text, ParentID = fid, Imageid = 0, SysPort = cmb_port.Text, id = id };
             return authority;
         }
 
