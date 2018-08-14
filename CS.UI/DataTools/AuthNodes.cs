@@ -231,7 +231,6 @@ namespace CS.UI.DataTools
             return a;
         }
 
-
         public List<T> GetAuthByNodesCheck<T>(NodeCollection tree)
         {
             List<Node> nodelist = new List<Node>();
@@ -291,7 +290,4 @@ namespace CS.UI.DataTools
         }
 
     }
-    
-
-
 }

@@ -125,6 +125,7 @@ namespace CS.UI.SYS
             txb_order.Text = CAuth.AOrder;
             txb_path.Text = CAuth.Path;
             cmb_type.Text = CAuth.AuthTypeName;
+            cmb_port.Text = CAuth.SysPort;
 
             Node pnode = node.Parent;
             if (pnode == null)
@@ -141,7 +142,7 @@ namespace CS.UI.SYS
 
         private Authority GetEditAuth(int fid, int id = 0)
         {
-            Authority authority = new Authority { AOrder = txb_order.Text, TreeName = txb_name.Text, AuthTypeID = (int)cmb_type.SelectedValue, AuthTypeName = cmb_type.Text, Path = txb_path.Text, ParentID = fid, Imageid = 0, SysPort = cmb_port.Text, id = id };
+            Authority authority = new Authority { AOrder = txb_order.Text, TreeName = txb_name.Text, AuthTypeID = (int)cmb_type.SelectedValue, AuthTypeName = cmb_type.Text, Path = txb_path.Text, ParentID = fid, Imageid = "", SysPort = cmb_port.Text, id = id };
             return authority;
         }
 

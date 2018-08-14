@@ -230,7 +230,7 @@ namespace CS.Models.BaseInfo
         /// Default:
         /// Nullable:True
         /// </summary>           
-        public int? Imageid { get; set; }
+        public string Imageid { get; set; }
 
         /// <summary>
         /// Desc:
