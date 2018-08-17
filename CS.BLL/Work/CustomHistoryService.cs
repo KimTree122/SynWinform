@@ -11,7 +11,7 @@ namespace CS.BLL.Work
     {
         public List<CustomHistoryVM> GetCustomHistoryVMs(int customid, int stauts =0 )
         {
-            string url = UrlHelper.WorkUrl.CheckInBLL.GetCustomHistory;
+            string url = KNDBsysUrl.WorkUrl.CheckInBLL.GetCustomHistory;
             HttpTools tools = new HttpTools();
             tools.AddParam("customid", customid).AddParam("stauts", stauts).Build(); ;
             return GetList(url, tools);

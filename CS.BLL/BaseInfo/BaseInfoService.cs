@@ -14,7 +14,7 @@ namespace CS.BLL.BaseInfo
     {
         public string GetUserInfo(string name,string post)
         {
-            string url = UrlHelper.BaseInfoUrl.UserInfoUrl.GetAllUserInfo;
+            string url = KNDBsysUrl.BaseInfoUrl.UserInfoUrl.GetAllUserInfo;
 
             HttpTools tools = new HttpTools();
             tools.AddParam("name", name).AddParam("post", post).Build();
@@ -26,7 +26,7 @@ namespace CS.BLL.BaseInfo
 
         public List<Sysdic> GetDicByType(string type)
         {
-            string url = UrlHelper.BaseInfoUrl.DictionaryUrl.GetDicByType;
+            string url = KNDBsysUrl.BaseInfoUrl.DictionaryUrl.GetDicByType;
             HttpTools tools = new HttpTools();
             tools.AddParam("dictype", type).Build();
             HttpWebResponse res = HttpHelper.CreatePostHttpResponse(url, tools.dic, 3000, null);
@@ -41,7 +41,7 @@ namespace CS.BLL.BaseInfo
 
         public int AddDictionary(Sysdic cSDic)
         {
-            string url = UrlHelper.BaseInfoUrl.DictionaryUrl.AddDicByType;
+            string url = KNDBsysUrl.BaseInfoUrl.DictionaryUrl.AddDicByType;
             HttpTools tools = new HttpTools();
             tools.AddParam("dic", DataSwitch.DataToJson(cSDic)).Build();
             HttpWebResponse res = HttpHelper.CreatePostHttpResponse(url, tools.dic, 3000, null);
@@ -56,7 +56,7 @@ namespace CS.BLL.BaseInfo
 
         public bool UpdateDictionary(Sysdic cSDic)
         {
-            string url = UrlHelper.BaseInfoUrl.DictionaryUrl.Updatedictionary;
+            string url = KNDBsysUrl.BaseInfoUrl.DictionaryUrl.Updatedictionary;
             HttpTools tools = new HttpTools();
             tools.AddParam("dic", DataSwitch.DataToJson(cSDic)).Build();
             HttpWebResponse res = HttpHelper.CreatePostHttpResponse(url, tools.dic, 3000, null);
@@ -71,7 +71,7 @@ namespace CS.BLL.BaseInfo
 
         public bool DleteDictionary(Sysdic sysdic)
         {
-            string url = UrlHelper.BaseInfoUrl.DictionaryUrl.DeleteSysdic;
+            string url = KNDBsysUrl.BaseInfoUrl.DictionaryUrl.DeleteSysdic;
             HttpTools tools = new HttpTools();
             tools.AddParam("dic", DataSwitch.DataToJson(sysdic)).Build();
             HttpWebResponse res = HttpHelper.CreatePostHttpResponse(url, tools.dic, 3000, null);

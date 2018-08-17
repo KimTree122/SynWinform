@@ -52,7 +52,7 @@
     <Compile Include="HttpRequestClient.cs" />
     <Compile Include="IHttpHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UrlHelper.cs" />
+    <Compile Include="KNDBsysUrl.cs" />
     <Compile Include="WebPost\ApiResult.cs" />
     <Compile Include="WebPost\XHttpRequest.cs" />
     <Compile Include="WebPost\XWebClient.cs">

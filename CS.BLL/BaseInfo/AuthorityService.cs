@@ -11,7 +11,7 @@ namespace CS.BLL.BaseInfo
     {
         public List<Authority> GetAuthorities(int userid)
         {
-            string url = UrlHelper.BaseInfoUrl.AuthorityUrl.GetAllAuthority;
+            string url = KNDBsysUrl.BaseInfoUrl.AuthorityUrl.GetAllAuthority;
             HttpTools tools = new HttpTools();
             tools.AddParam("userid", userid).Build(); ;
             return GetList(url,tools);
@@ -19,7 +19,7 @@ namespace CS.BLL.BaseInfo
 
         public int AddAuthority(Authority authority)
         {
-            string url = UrlHelper.BaseInfoUrl.AuthorityUrl.AddAuthority;
+            string url = KNDBsysUrl.BaseInfoUrl.AuthorityUrl.AddAuthority;
             HttpTools tools = new HttpTools();
             tools.AddParam("authority",DataSwitch.DataToJson(authority)).Build();
             string msg = GetMsg(url, tools);
@@ -28,7 +28,7 @@ namespace CS.BLL.BaseInfo
 
         public List<Authority> GetOperAuthbyTag( int formtag,string authtypeName)
         {
-            string url = UrlHelper.BaseInfoUrl.AuthorityUrl.GetOperAuthByTag;
+            string url = KNDBsysUrl.BaseInfoUrl.AuthorityUrl.GetOperAuthByTag;
             HttpTools tools = new HttpTools();
             tools.AddParam("authtypeName", authtypeName).AddParam("tag",formtag).Build();
             return GetList(url, tools);
@@ -36,7 +36,7 @@ namespace CS.BLL.BaseInfo
 
         public bool UpdateAuthority(Authority auth)
         {
-            string url = UrlHelper.BaseInfoUrl.AuthorityUrl.UpdateAuthority;
+            string url = KNDBsysUrl.BaseInfoUrl.AuthorityUrl.UpdateAuthority;
             HttpTools tools = new HttpTools();
             tools.AddParam("authority", DataSwitch.DataToJson(auth)).Build();
             string msg = GetMsg(url, tools);
@@ -45,7 +45,7 @@ namespace CS.BLL.BaseInfo
 
         public bool DeleteAuthority(Authority auth)
         {
-            string url = UrlHelper.BaseInfoUrl.AuthorityUrl.DeleteAuthority;
+            string url = KNDBsysUrl.BaseInfoUrl.AuthorityUrl.DeleteAuthority;
             HttpTools tools = new HttpTools();
             tools.AddParam("authority", DataSwitch.DataToJson(auth)).Build();
             string msg = GetMsg(url, tools);
@@ -54,7 +54,7 @@ namespace CS.BLL.BaseInfo
 
         public List<Authority> GetUserAuth(string userid)
         {
-            string url = UrlHelper.BaseInfoUrl.UserAuthUrl.GetUserAuth;
+            string url = KNDBsysUrl.BaseInfoUrl.UserAuthUrl.GetUserAuth;
             HttpTools tools = new HttpTools();
             tools.AddParam("userid", userid)
                 .AddParam("portType", "winform").Build();
@@ -63,7 +63,7 @@ namespace CS.BLL.BaseInfo
 
         public List<Authority> AddUserAuth(List<Authority> userAuths, string userid)
         {
-            string url = UrlHelper.BaseInfoUrl.UserAuthUrl.AddUserAuth;
+            string url = KNDBsysUrl.BaseInfoUrl.UserAuthUrl.AddUserAuth;
             HttpTools tools = new HttpTools();
             tools.AddParam("auth", DataSwitch.DataToJson(userAuths))
                 .AddParam("userid", userid).Build();
@@ -73,7 +73,7 @@ namespace CS.BLL.BaseInfo
 
         public bool DeleteUserAuth(List<UserAuth> userAuths, string userid)
         {
-            string url = UrlHelper.BaseInfoUrl.UserAuthUrl.DelteUserAuth;
+            string url = KNDBsysUrl.BaseInfoUrl.UserAuthUrl.DelteUserAuth;
             HttpTools tools = new HttpTools();
             tools.AddParam("userauthjson", DataSwitch.DataToJson(userAuths))
                 .AddParam("userid", userid).Build();
@@ -83,7 +83,7 @@ namespace CS.BLL.BaseInfo
 
         public bool CopyUserAuth(string userid, string copyuserid)
         {
-            string url = UrlHelper.BaseInfoUrl.UserAuthUrl.CopyUserAuth;
+            string url = KNDBsysUrl.BaseInfoUrl.UserAuthUrl.CopyUserAuth;
             HttpTools tools = new HttpTools();
             tools.AddParam("userid", userid)
                 .AddParam("copyuserid",copyuserid).Build();

@@ -11,7 +11,7 @@ namespace CS.BLL.BaseInfo
     {
         public List<CustomInfo> GetAllCustomInfos(int userid)
         {
-            string url = UrlHelper.BaseInfoUrl.CustomInfoUrl.GetAllCustomInfo;
+            string url = KNDBsysUrl.BaseInfoUrl.CustomInfoUrl.GetAllCustomInfo;
             HttpTools tools = new HttpTools();
             tools.AddParam("userid", userid).Build(); ;
             return GetList(url, tools);
@@ -19,7 +19,7 @@ namespace CS.BLL.BaseInfo
 
         public int AddCustomInfo(CustomInfo customInfo)
         {
-            string url = UrlHelper.BaseInfoUrl.CustomInfoUrl.AddCustomInfo;
+            string url = KNDBsysUrl.BaseInfoUrl.CustomInfoUrl.AddCustomInfo;
             HttpTools tools = new HttpTools();
             tools.AddParam("customInfo", DataSwitch.DataToJson(customInfo)).Build();
             string msg = GetMsg(url, tools);
@@ -28,7 +28,7 @@ namespace CS.BLL.BaseInfo
 
         public bool UpdateCustomInfo(CustomInfo customInfo)
         {
-            string url = UrlHelper.BaseInfoUrl.CustomInfoUrl.UpdatCustomInfo;
+            string url = KNDBsysUrl.BaseInfoUrl.CustomInfoUrl.UpdatCustomInfo;
             HttpTools tools = new HttpTools();
             tools.AddParam("customInfo", DataSwitch.DataToJson(customInfo)).Build();
             string msg = GetMsg(url, tools);
@@ -37,7 +37,7 @@ namespace CS.BLL.BaseInfo
 
         public bool DeleteCustomInfo(CustomInfo customInfo)
         {
-            string url = UrlHelper.BaseInfoUrl.CustomInfoUrl.DeleteCustomInfo;
+            string url = KNDBsysUrl.BaseInfoUrl.CustomInfoUrl.DeleteCustomInfo;
             HttpTools tools = new HttpTools();
             tools.AddParam("customInfo", DataSwitch.DataToJson(customInfo)).Build();
             string msg = GetMsg(url, tools);
@@ -46,7 +46,7 @@ namespace CS.BLL.BaseInfo
 
         public int CountcustomTel(string tel)
         {
-            string url = UrlHelper.BaseInfoUrl.CustomInfoUrl.CountCustomTel;
+            string url = KNDBsysUrl.BaseInfoUrl.CustomInfoUrl.CountCustomTel;
             HttpTools tools = new HttpTools();
             tools.AddParam("tel", tel).Build();
             string msg = GetMsg(url, tools);
@@ -55,7 +55,7 @@ namespace CS.BLL.BaseInfo
 
         public CustomInfo FindCustomByTel(string tel)
         {
-            string url = UrlHelper.BaseInfoUrl.CustomInfoUrl.FindCustomByTel;
+            string url = KNDBsysUrl.BaseInfoUrl.CustomInfoUrl.FindCustomByTel;
             HttpTools tools = new HttpTools();
             tools.AddParam("tel", tel).Build();
             CustomInfo custom = GetEntity(url, tools);
@@ -64,7 +64,7 @@ namespace CS.BLL.BaseInfo
 
         public CustomInfo FindCustomByid(int customid)
         {
-            string url = UrlHelper.BaseInfoUrl.CustomInfoUrl.FindCustomByid;
+            string url = KNDBsysUrl.BaseInfoUrl.CustomInfoUrl.FindCustomByid;
             HttpTools tools = new HttpTools();
             tools.AddParam("customid", customid).Build();
             CustomInfo custom = GetEntity(url, tools);

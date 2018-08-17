@@ -25,7 +25,7 @@ namespace CS.BLL.FileLoad
 
         public int UpLoadFile(string filenamepath, string filePath, ProgressBar bar)
         {
-           string url = UrlHelper.FileLoadUrl.FileLoad.UpLoadFile;
+           string url = KNDBsysUrl.FileLoadUrl.FileLoad.UpLoadFile;
             return Upload_Request(url, filenamepath, filePath, bar);
         }
 
@@ -127,7 +127,7 @@ namespace CS.BLL.FileLoad
 
         public int AddSysVer(SysVer sysVer)
         {
-            string url = UrlHelper.BaseInfoUrl.SysVerUrl.AddSysVer;
+            string url = KNDBsysUrl.BaseInfoUrl.SysVerUrl.AddSysVer;
             HttpTools tools = new HttpTools();
             tools.AddParam("sysver", DataSwitch.DataToJson(sysVer)).Build();
             HttpWebResponse res = HttpHelper.CreatePostHttpResponse(url, tools.dic, 3000, null);
@@ -142,7 +142,7 @@ namespace CS.BLL.FileLoad
 
         public SysVer GetNewSysVer()
         {
-            string url = UrlHelper.BaseInfoUrl.SysVerUrl.GetNewSysVer;
+            string url = KNDBsysUrl.BaseInfoUrl.SysVerUrl.GetNewSysVer;
             HttpTools tools = new HttpTools();
             tools.AddParam("programtype", "winform").Build();
             return GetEntity(url, tools);

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CS.DAL
 {
-    public class UrlHelper
+    public class KNDBsysUrl
     {
         private static readonly string BaseUrl = ConfigurationManager.AppSettings["Url"];
 

@@ -11,7 +11,7 @@ namespace CS.BLL.BaseInfo
     {
         public List<ServerType> GetAllServerTypes(int userid)
         {
-            string url = UrlHelper.BaseInfoUrl.ServerTypeUrl.GetAllServerType;
+            string url = KNDBsysUrl.BaseInfoUrl.ServerTypeUrl.GetAllServerType;
             HttpTools tools = new HttpTools();
             tools.AddParam("userid", userid).Build(); ;
             return GetList(url, tools);
@@ -19,7 +19,7 @@ namespace CS.BLL.BaseInfo
 
         public int AddServerType(ServerType serverType)
         {
-            string url = UrlHelper.BaseInfoUrl.ServerTypeUrl.AddServerType;
+            string url = KNDBsysUrl.BaseInfoUrl.ServerTypeUrl.AddServerType;
             HttpTools tools = new HttpTools();
             tools.AddParam("servertype", DataSwitch.DataToJson(serverType)).Build();
             string msg = GetMsg(url, tools);
@@ -28,7 +28,7 @@ namespace CS.BLL.BaseInfo
 
         public bool UpdateServerType(ServerType serverType)
         {
-            string url = UrlHelper.BaseInfoUrl.ServerTypeUrl.UpdatServerType;
+            string url = KNDBsysUrl.BaseInfoUrl.ServerTypeUrl.UpdatServerType;
             HttpTools tools = new HttpTools();
             tools.AddParam("servertype", DataSwitch.DataToJson(serverType)).Build();
             string msg = GetMsg(url, tools);
@@ -37,7 +37,7 @@ namespace CS.BLL.BaseInfo
 
         public bool DeleteServerType(ServerType serverType)
         {
-            string url = UrlHelper.BaseInfoUrl.ServerTypeUrl.DeleteServerType;
+            string url = KNDBsysUrl.BaseInfoUrl.ServerTypeUrl.DeleteServerType;
             HttpTools tools = new HttpTools();
             tools.AddParam("servertype", DataSwitch.DataToJson(serverType)).Build();
             string msg = GetMsg(url, tools);

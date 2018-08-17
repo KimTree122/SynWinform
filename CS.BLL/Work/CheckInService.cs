@@ -13,7 +13,7 @@ namespace CS.BLL.Work
 
         public string GetQrnumber(int userid)
         {
-            string url = UrlHelper.WorkUrl.CheckInBLL.GetQRnumber;
+            string url = KNDBsysUrl.WorkUrl.CheckInBLL.GetQRnumber;
             HttpTools tools = new HttpTools();
             tools.AddParam("userid", userid).Build();
             return GetMsg(url, tools);
@@ -21,7 +21,7 @@ namespace CS.BLL.Work
 
         public PostData<CheckInDT, CheckInMT> GetCheckInDTMT(string checkinmtid)
         {
-            string url = UrlHelper.WorkUrl.CheckInBLL.GetCheckInByMTid;
+            string url = KNDBsysUrl.WorkUrl.CheckInBLL.GetCheckInByMTid;
             HttpTools tools = new HttpTools();
             tools.AddParam("checkinmtid", checkinmtid.ToInt()).Build();
             return GetPostData(url,tools);
@@ -30,7 +30,7 @@ namespace CS.BLL.Work
 
         public int AddCheckInMT(CheckInMT mT)
         {
-            string url = UrlHelper.WorkUrl.CheckInBLL.AddCheckInMT;
+            string url = KNDBsysUrl.WorkUrl.CheckInBLL.AddCheckInMT;
             HttpTools tools = new HttpTools();
             tools.AddParam("checkinmt", DataSwitch.DataToJson(mT)).Build(); ;
             return GetMsg(url, tools).ToInt();
@@ -38,7 +38,7 @@ namespace CS.BLL.Work
 
         public bool UpdateCheckInMT(CheckInMT mT)
         {
-            string url = UrlHelper.WorkUrl.CheckInBLL.UpdateCheckInMT;
+            string url = KNDBsysUrl.WorkUrl.CheckInBLL.UpdateCheckInMT;
             HttpTools tools = new HttpTools();
             tools.AddParam("checkinmt", DataSwitch.DataToJson(mT)).Build(); ;
             return GetMsg(url, tools).ToInt() > 0;
@@ -46,7 +46,7 @@ namespace CS.BLL.Work
 
         public int AddCheckInDT(CheckInDT dT)
         {
-            string url = UrlHelper.WorkUrl.CheckInBLL.AddCheckInDT;
+            string url = KNDBsysUrl.WorkUrl.CheckInBLL.AddCheckInDT;
             HttpTools tools = new HttpTools();
             tools.AddParam("checkindt", DataSwitch.DataToJson(dT)).Build(); ;
             return GetMsg(url, tools).ToInt();
@@ -54,7 +54,7 @@ namespace CS.BLL.Work
 
         public int UpdateCheckInDT(CheckInDT dT)
         {
-            string url = UrlHelper.WorkUrl.CheckInBLL.UpdateCheckInDT;
+            string url = KNDBsysUrl.WorkUrl.CheckInBLL.UpdateCheckInDT;
             HttpTools tools = new HttpTools();
             tools.AddParam("checkindt", DataSwitch.DataToJson(dT)).Build(); ;
             return GetMsg(url, tools).ToInt();
@@ -62,7 +62,7 @@ namespace CS.BLL.Work
 
         public int GetCustomidByQR(string qrcode)
         {
-            string url = UrlHelper.WorkUrl.CheckInBLL.GetCustomidByQR;
+            string url = KNDBsysUrl.WorkUrl.CheckInBLL.GetCustomidByQR;
             HttpTools tools = new HttpTools();
             tools.AddParam("qrcode", qrcode).Build(); ;
             return GetMsg(url, tools).ToInt();

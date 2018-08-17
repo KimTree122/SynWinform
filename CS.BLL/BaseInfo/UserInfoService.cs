@@ -11,7 +11,7 @@ namespace CS.BLL.BaseInfo
     {
         public List<UserInfo> GetAllUserinfo(int userid)
         {
-            string url = UrlHelper.BaseInfoUrl.UserInfoUrl.GetAllUserInfo;
+            string url = KNDBsysUrl.BaseInfoUrl.UserInfoUrl.GetAllUserInfo;
             HttpTools tools = new HttpTools();
             tools.AddParam("userid", userid).Build();
             return GetList(url, tools);
@@ -21,7 +21,7 @@ namespace CS.BLL.BaseInfo
 
         public int Adduserinfo(UserInfo userInfo)
         {
-            string url = UrlHelper.BaseInfoUrl.UserInfoUrl.AddUserInfo;
+            string url = KNDBsysUrl.BaseInfoUrl.UserInfoUrl.AddUserInfo;
             HttpTools t = new HttpTools();
             t.AddParam("userinfo", DataSwitch.DataToJson( userInfo)).Build();
             string msg = GetMsg(url, t);
@@ -30,7 +30,7 @@ namespace CS.BLL.BaseInfo
 
         public bool Updateuserinfo(UserInfo userInfo)
         {
-            string url = UrlHelper.BaseInfoUrl.UserInfoUrl.UpdateUserInfo;
+            string url = KNDBsysUrl.BaseInfoUrl.UserInfoUrl.UpdateUserInfo;
             HttpTools t = new HttpTools();
             t.AddParam("userinfo", DataSwitch.DataToJson(userInfo)).Build();
             string msg = GetMsg(url, t);
@@ -39,7 +39,7 @@ namespace CS.BLL.BaseInfo
 
         public bool Deleteuserinfo(UserInfo userInfo)
         {
-            string url = UrlHelper.BaseInfoUrl.UserInfoUrl.DeleteUserInfo;
+            string url = KNDBsysUrl.BaseInfoUrl.UserInfoUrl.DeleteUserInfo;
             HttpTools t = new HttpTools();
             t.AddParam("userinfo", DataSwitch.DataToJson(userInfo)).Build();
             string msg = GetMsg(url, t);
@@ -48,7 +48,7 @@ namespace CS.BLL.BaseInfo
 
         public UserInfo GetUserInfoByAccount(string account, string pwd)
         {
-            string url = UrlHelper.BaseInfoUrl.UserInfoUrl.GetUserInfoByAccount;
+            string url = KNDBsysUrl.BaseInfoUrl.UserInfoUrl.GetUserInfoByAccount;
             HttpTools t = new HttpTools();
             t.AddParam("account", account).AddParam("pwd", pwd).Build();
             return GetEntity(url,t);
