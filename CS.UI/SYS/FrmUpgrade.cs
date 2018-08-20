@@ -1,7 +1,6 @@
 ﻿using CS.BLL.FileLoad;
-using CS.DAL;
-using CS.Models.BaseInfo;
-using CS.Models.ViewModel;
+using CS.ViewModel;
+using KNDBsys.Model.BaseInfo;
 using MetroFramework;
 using MetroFramework.Forms;
 using System;

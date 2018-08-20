@@ -1,5 +1,5 @@
 ﻿using CS.BLL.BaseInfo;
-using CS.Models.BaseInfo;
+using KNDBsys.Model.BaseInfo;
 using MetroFramework;
 using System;
 using System.Collections.Generic;

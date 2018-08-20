@@ -1,6 +1,6 @@
 ﻿using CS.BLL.BaseInfo;
-using CS.Models.BaseInfo;
 using FastReport;
+using KNDBsys.Model.BaseInfo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

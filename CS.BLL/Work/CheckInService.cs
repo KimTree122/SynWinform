@@ -1,6 +1,6 @@
 ﻿using CS.DAL;
-using CS.Models;
-using CS.Models.Work;
+using KNDBsys.Model;
+using KNDBsys.Model.Work;
 using System;
 using System.Collections.Generic;
 using System.Linq;

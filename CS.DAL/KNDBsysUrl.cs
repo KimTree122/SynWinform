@@ -8,7 +8,7 @@ namespace CS.DAL
 {
     public class KNDBsysUrl
     {
-        private static readonly string BaseUrl = ConfigurationManager.AppSettings["Url"];
+        private static readonly string BaseUrl = ConfigurationManager.AppSettings["KNDBsysurl"];
 
         public static class BaseInfoUrl
         {

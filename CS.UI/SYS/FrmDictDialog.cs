@@ -1,7 +1,6 @@
 ﻿
 using CS.BLL.BaseInfo;
-using CS.Models;
-using CS.Models.BaseInfo;
+using KNDBsys.Model.BaseInfo;
 using MetroFramework;
 using MetroFramework.Forms;
 using System;

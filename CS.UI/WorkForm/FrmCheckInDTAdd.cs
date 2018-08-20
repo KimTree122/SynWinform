@@ -1,5 +1,5 @@
-﻿using CS.Models.BaseInfo;
-using CS.Models.Work;
+﻿using KNDBsys.Model.BaseInfo;
+using KNDBsys.Model.Work;
 using MetroFramework;
 using MetroFramework.Forms;
 using System;

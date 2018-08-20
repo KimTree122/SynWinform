@@ -60,6 +60,9 @@
     <Reference Include="FastReport.Editor">
       <HintPath>..\FastReport.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="KNDBsys.Model">
+      <HintPath>..\..\KNDBsys\KNDBsys.Model\bin\Debug\KNDBsys.Model.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework">
       <HintPath>..\MetroFramework.dll</HintPath>
     </Reference>
@@ -261,9 +264,9 @@
       <Project>{BD9AF8F3-FDB5-4DF6-9D60-6AB07178D5F1}</Project>
       <Name>CS.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CS.Models\CS.Models.csproj">
-      <Project>{236f9d42-9719-4939-9147-6860797c7694}</Project>
-      <Name>CS.Models</Name>
+    <ProjectReference Include="..\CS.ViewModel\CS.ViewModel.csproj">
+      <Project>{4DC0BF59-ECA7-424E-B261-8D7E479C1ABD}</Project>
+      <Name>CS.ViewModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\KControl\KControl.csproj">
       <Project>{C4E8D1E7-E52A-45D2-8622-6CCDAAA3CCF8}</Project>

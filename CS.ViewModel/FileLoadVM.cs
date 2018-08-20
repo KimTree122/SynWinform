@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CS.Models.ViewModel
+namespace CS.ViewModel
 {
     public class FileLoadVM
     {
@@ -11,4 +11,5 @@ namespace CS.Models.ViewModel
         public string FileName { get; set; }
         public string FilePath { get; set; }
     }
+
 }

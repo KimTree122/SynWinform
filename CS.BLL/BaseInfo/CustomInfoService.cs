@@ -1,5 +1,5 @@
 ﻿using CS.DAL;
-using CS.Models.BaseInfo;
+using KNDBsys.Model.BaseInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
