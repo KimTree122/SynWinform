@@ -64,6 +64,61 @@ namespace CS.BLL
             }
         }
 
-       
+        public static string DataToJson_DES(object obj)
+        {
+            string str = JsonConvert.SerializeObject(obj);
+
+            string ret = Secret_string.EncryptDES(str);
+
+            return ret;
+        }
+
+        public static string HttpPostData<L, E>(List<L> dlist, E obj = default(E), string msg = "")
+        {
+            PostData<L, E> postData = new PostData<L, E>
+            {
+                DList = dlist,
+                MCount = dlist.Count,
+                Msg = msg,
+                Entity = obj
+            };
+
+            return DataToJson_DES(postData);
+        }
+
+        public static string HttpPostList<T>(List<T> dlist, string msg = "")
+        {
+            PostData<T, DBNull> post = new PostData<T, DBNull>
+            {
+                DList = dlist,
+                MCount = dlist.Count,
+                Msg = msg
+            };
+            return DataToJson_DES(post);
+        }
+
+        public static string HttpPostEntity<E>(E s, int count = 0, string msg = "")
+        {
+            if (s != null) count = 1;
+            PostData<DBNull, E> post = new PostData<DBNull, E>
+            {
+                Entity = s,
+                MCount = count,
+                Msg = msg
+            };
+            return DataToJson_DES(post);
+        }
+
+        public static string HttpPostMsg(object msg, int count = 1)
+        {
+            PostData<DBNull, DBNull> post = new PostData<DBNull, DBNull>
+            {
+                MCount = count,
+                Msg = msg.ToString()
+            };
+            return DataToJson_DES(post);
+        }
+
+
     }
 }
