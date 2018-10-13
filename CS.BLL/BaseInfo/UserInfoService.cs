@@ -54,5 +54,15 @@ namespace CS.BLL.BaseInfo
             return GetEntity(url,t);
         }
 
+        public UserInfo GetUserInfoByID(string userid)
+        {
+            string url = KNDBsysUrl.BaseInfoUrl.UserInfoUrl.GetUserInfoByID;
+            HttpTools t = new HttpTools();
+            t.AddParam("userid", userid).Build();
+            return GetEntity(url, t);
+        }
+
+
+
     }
 }

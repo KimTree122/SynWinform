@@ -93,7 +93,7 @@ namespace CS.UI
 
             AuthorityService authorityService = new AuthorityService();
             NodesTools authNodes = new NodesTools();
-            List<Authority> userauths = authorityService.GetUserAuth(SYSUser.id.ToString());
+            List<Authority> userauths = authorityService.GetUserAuth(SYSUser.id.ToString(),"winform");
 
             var fun = userauths.Where(u => u.AuthTypeName.Contains("功能") || u.AuthTypeName.Contains("模块")).ToList();
             authNodes.ShowTreeView(tree_auth, fun, false);

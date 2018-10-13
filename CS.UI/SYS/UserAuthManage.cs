@@ -114,7 +114,7 @@ namespace CS.UI.SYS
 
         private void SelectUser()
         {
-            userauths = authorityService.GetUserAuth(txblist_user.Tag.ToString());
+            userauths = authorityService.GetUserAuth(txblist_user.Tag.ToString(),"winform");
             nodesTools.ShowTreeView(tree_user, userauths, true);
         }
 

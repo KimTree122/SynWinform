@@ -23,6 +23,8 @@ namespace CS.DAL
                 public static string UpdateUserInfo = SecondLayer + "UpdateUserInfo";
                 public static string DeleteUserInfo = SecondLayer + "DeleteUserInfo";
                 public static string GetUserInfoByAccount = SecondLayer + "GetUserInfoByAccount";
+                public static string GetUserInfoByID = SecondLayer + "GetUserInfoByID";
+
             }
 
             public static class DictionaryUrl

@@ -52,12 +52,12 @@ namespace CS.BLL.BaseInfo
             return msg.ToInt() > 0;
         }
 
-        public List<Authority> GetUserAuth(string userid)
+        public List<Authority> GetUserAuth(string userid,string port)
         {
             string url = KNDBsysUrl.BaseInfoUrl.UserAuthUrl.GetUserAuth;
             HttpTools tools = new HttpTools();
             tools.AddParam("userid", userid)
-                .AddParam("portType", "winform").Build();
+                .AddParam("portType", port).Build();
             return GetList(url, tools);
         }
 
