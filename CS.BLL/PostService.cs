@@ -14,7 +14,7 @@ namespace CS.BLL
 
         private HttpWebResponse Response(string url, HttpTools tools)
         {
-            return HttpHelper.CreatePostHttpResponse(url,tools.dic,3000,null); ;
+            return HttpHelper.CreatePostHttpResponse(url,tools.dic,3000,null); 
         }
 
         private Stream ResponeStream(string url,HttpTools tools)

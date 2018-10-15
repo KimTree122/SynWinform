@@ -61,8 +61,5 @@ namespace CS.BLL.BaseInfo
             t.AddParam("userid", userid).Build();
             return GetEntity(url, t);
         }
-
-
-
     }
 }

@@ -13,7 +13,7 @@ namespace CS.BLL.BaseInfo
         {
             string url = KNDBsysUrl.BaseInfoUrl.AuthorityUrl.GetAllAuthority;
             HttpTools tools = new HttpTools();
-            tools.AddParam("userid", userid).Build(); ;
+            tools.AddParam("userid", userid).Build(); 
             return GetList(url,tools);
         }
 
