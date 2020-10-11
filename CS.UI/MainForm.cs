@@ -89,7 +89,7 @@ namespace CS.UI
         private void InitCommonData()
         {
             UserInfoService userInfoService = new UserInfoService();
-            SYSData.userInfos = new Lazy<List<UserInfo>>(() => userInfoService.GetAllUserinfo(SYSUser.id));
+            SYSData.userInfos = userInfoService.GetAllUserinfo(SYSUser.id);
 
             AuthorityService authorityService = new AuthorityService();
             NodesTools authNodes = new NodesTools();

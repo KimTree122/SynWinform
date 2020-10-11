@@ -41,7 +41,7 @@ namespace CS.BLL
                 string json = DataSwitch.GetResponseString(res);
                 PostData<L, DBNull> postData = DataSwitch.JsonToObj<PostData<L, DBNull>>(json);
                 if (postData == null) return new List<L>();
-                return postData.DList;
+                return postData.rows;
             }
 
             return new List<L>();

@@ -35,8 +35,8 @@ namespace CS.BLL
         {
             PostData<L, E> postData = new PostData<L, E>
             {
-                DList = dlist,
-                MCount = dlist.Count,
+                rows = dlist,
+                total = dlist.Count,
                 Msg = msg,
                 Entity = obj
             };
@@ -48,8 +48,8 @@ namespace CS.BLL
         {
             PostData<L, DBNull> post = new PostData<L, DBNull>
             {
-                DList = dlist,
-                MCount = dlist.Count,
+                rows = dlist,
+                total = dlist.Count,
                 Msg = msg
             };
             return DataToJson(post);
@@ -77,8 +77,8 @@ namespace CS.BLL
         {
             PostData<L, E> postData = new PostData<L, E>
             {
-                DList = dlist,
-                MCount = dlist.Count,
+                rows = dlist,
+                total = dlist.Count,
                 Msg = msg,
                 Entity = obj
             };
@@ -90,8 +90,8 @@ namespace CS.BLL
         {
             PostData<T, DBNull> post = new PostData<T, DBNull>
             {
-                DList = dlist,
-                MCount = dlist.Count,
+                rows = dlist,
+                total = dlist.Count,
                 Msg = msg
             };
             return DataToJson_DES(post);
@@ -103,7 +103,7 @@ namespace CS.BLL
             PostData<DBNull, E> post = new PostData<DBNull, E>
             {
                 Entity = s,
-                MCount = count,
+                total = count,
                 Msg = msg
             };
             return DataToJson_DES(post);
@@ -113,7 +113,7 @@ namespace CS.BLL
         {
             PostData<DBNull, DBNull> post = new PostData<DBNull, DBNull>
             {
-                MCount = count,
+                total = count,
                 Msg = msg.ToString()
             };
             return DataToJson_DES(post);

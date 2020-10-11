@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SynDSStudent</RootNamespace>
     <AssemblyName>学员同步</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>ansyico.ico</ApplicationIcon>
@@ -91,6 +93,7 @@
     <Compile Include="Method\GetInitData.cs" />
     <Compile Include="Method\HttpData.cs" />
     <Compile Include="Method\InitSetting.cs" />
+    <Compile Include="Method\NetPOSPrinter.cs" />
     <Compile Include="Method\SQLiteConn.cs" />
     <Compile Include="Method\SQLiteHelper.cs" />
     <Compile Include="Method\SQLiteOper.cs" />

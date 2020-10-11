@@ -34,7 +34,7 @@ namespace CS.BLL.BaseInfo
             {
                 string json = DataSwitch.GetResponseString(res);
                 PostData<Sysdic, DBNull> postData = DataSwitch.JsonToObj<PostData<Sysdic, DBNull>>(json);
-                return postData.DList;
+                return postData.rows;
             } 
             return new List<Sysdic>();
         }

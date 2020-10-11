@@ -16,7 +16,7 @@ namespace SynDSStudent
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CheckStudent());
+            Application.Run(new Form1());
         }
     }
 }
